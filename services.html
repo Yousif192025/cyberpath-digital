@@ -1,380 +1,69 @@
 <!DOCTYPE html>
-
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>خدماتنا | CPD - CyberPath Digital</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
-
-<style>
-
-:root{
---primary:#0A84FF;
---secondary:#06B6D4;
---dark:#07111f;
---card:#101b2d;
---text:#ffffff;
---muted:#94a3b8;
-}
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Tajawal',sans-serif;
-}
-
-body{
-background:var(--dark);
-color:white;
-line-height:1.8;
-}
-
-.container{
-width:min(1200px,90%);
-margin:auto;
-}
-
-header{
-padding:25px 0;
-border-bottom:1px solid rgba(255,255,255,.08);
-}
-
-.logo{
-display:flex;
-align-items:center;
-gap:15px;
-}
-
-.logo-icon{
-width:50px;
-height:50px;
-border-radius:50%;
-background:linear-gradient(135deg,var(--primary),var(--secondary));
-display:flex;
-align-items:center;
-justify-content:center;
-font-weight:800;
-}
-
-.hero{
-padding:100px 0;
-text-align:center;
-}
-
-.hero h1{
-font-size:3rem;
-margin-bottom:20px;
-}
-
-.hero p{
-color:var(--muted);
-max-width:700px;
-margin:auto;
-}
-
-.services-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-gap:30px;
-padding-bottom:80px;
-}
-
-.service-card{
-background:rgba(255,255,255,.03);
-border:1px solid rgba(255,255,255,.08);
-border-radius:24px;
-padding:35px;
-transition:.3s;
-}
-
-.service-card:hover{
-transform:translateY(-8px);
-border-color:var(--primary);
-}
-
-.service-card h2{
-margin-bottom:15px;
-}
-
-.service-card p{
-color:var(--muted);
-margin-bottom:20px;
-}
-
-.service-card ul{
-padding-right:20px;
-}
-
-.service-card li{
-margin-bottom:10px;
-}
-
-.features{
-padding:80px 0;
-}
-
-.section-title{
-text-align:center;
-margin-bottom:50px;
-}
-
-.section-title h2{
-font-size:2.3rem;
-margin-bottom:15px;
-}
-
-.section-title p{
-color:var(--muted);
-}
-
-.feature-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
-
-.feature{
-background:rgba(255,255,255,.03);
-padding:25px;
-border-radius:18px;
-border:1px solid rgba(255,255,255,.08);
-}
-
-.cta{
-padding:100px 0;
-text-align:center;
-}
-
-.cta-box{
-background:linear-gradient(
-135deg,
-rgba(10,132,255,.15),
-rgba(6,182,212,.15)
-);
-
-padding:50px;
-border-radius:30px;
-border:1px solid rgba(255,255,255,.08);
-}
-
-.cta h2{
-margin-bottom:20px;
-font-size:2rem;
-}
-
-.cta p{
-color:var(--muted);
-margin-bottom:30px;
-}
-
-.btn{
-display:inline-block;
-padding:15px 30px;
-border-radius:12px;
-text-decoration:none;
-color:white;
-font-weight:700;
-background:linear-gradient(
-135deg,
-var(--primary),
-var(--secondary)
-);
-}
-
-footer{
-padding:30px;
-text-align:center;
-border-top:1px solid rgba(255,255,255,.08);
-color:var(--muted);
-}
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPD | خدماتنا الرقمية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+        /* نفس الـ style الموجود في index.html بالكامل */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary: #0A84FF; --secondary: #06B6D4; --dark-bg: #07111f; --dark-card: #101b2d; --light-bg: #f8fafc; --light-card: #ffffff; --text-dark: #ffffff; --text-light: #0f172a; --muted-dark: #94a3b8; --muted-light: #475569; --border-dark: rgba(255,255,255,0.08); --border-light: rgba(0,0,0,0.08); }
+        body { font-family: 'Tajawal', sans-serif; transition: 0.3s; overflow-x: hidden; }
+        body.dark { background: var(--dark-bg); color: var(--text-dark); }
+        body.light { background: var(--light-bg); color: var(--text-light); }
+        .bg-grid { position: fixed; inset: 0; background-image: linear-gradient(var(--border-dark) 1px, transparent 1px), linear-gradient(90deg, var(--border-dark) 1px, transparent 1px); background-size: 50px 50px; z-index: -2; pointer-events: none; }
+        body.light .bg-grid { background-image: linear-gradient(var(--border-light) 1px, transparent 1px), linear-gradient(90deg, var(--border-light) 1px, transparent 1px); }
+        .glow { position: fixed; width: 500px; height: 500px; background: var(--primary); filter: blur(180px); opacity: 0.2; top: -100px; right: -100px; z-index: -1; }
+        header { position: fixed; top: 0; width: 100%; padding: 18px 8%; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(16px); border-bottom: 1px solid var(--border-dark); z-index: 1000; }
+        body.light header { background: rgba(248,250,252,0.9); border-bottom-color: var(--border-light); }
+        body.dark header { background: rgba(7,17,31,0.85); }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo img { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--secondary)); padding: 4px; }
+        .logo span { font-weight: 800; font-size: 1.2rem; color: inherit; }
+        nav { display: flex; gap: 28px; }
+        nav a { text-decoration: none; font-weight: 600; transition: 0.3s; }
+        body.dark nav a { color: white; }
+        body.light nav a { color: #0f172a; }
+        nav a:hover { color: var(--secondary); }
+        .header-actions { display: flex; gap: 15px; align-items: center; }
+        .theme-toggle { background: rgba(255,255,255,0.1); border: none; border-radius: 40px; padding: 8px 14px; cursor: pointer; font-size: 1.2rem; }
+        .btn-primary { background: linear-gradient(135deg, var(--primary), var(--secondary)); padding: 10px 24px; border-radius: 40px; color: white; text-decoration: none; font-weight: 700; }
+        .container { padding: 120px 8% 80px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 30px; margin-top: 40px; }
+        .card { background: var(--dark-card); border: 1px solid var(--border-dark); padding: 35px; border-radius: 28px; transition: 0.3s; }
+        body.light .card { background: white; border-color: var(--border-light); }
+        .card:hover { transform: translateY(-6px); border-color: var(--primary); }
+        .card i { font-size: 2.5rem; color: var(--secondary); margin-bottom: 20px; }
+        .section-title { text-align: center; margin-bottom: 40px; }
+        .section-title h2 { font-size: 2.4rem; font-weight: 800; }
+        footer { text-align: center; padding: 40px 8%; border-top: 1px solid var(--border-dark); }
+        @media (max-width: 768px) { nav { display: none; } }
+    </style>
 </head>
-
-<body>
-
+<body class="dark">
+<div class="bg-grid"></div><div class="glow"></div>
 <header>
-<div class="container">
-
-<div class="logo">
-<div class="logo-icon">CPD</div>
-
-<div>
-<h3>CyberPath Digital</h3>
-<p style="color:#94a3b8;">
-Digital Solutions
-</p>
-</div>
-</div>
-
-</div>
+    <a href="index.html" class="logo"><img src="assets/images/logo/logo.png" alt="logo" onerror="this.src='https://placehold.co/48x48?text=CPD'"><span>CyberPath Digital</span></a>
+    <nav><a href="index.html">الرئيسية</a><a href="services.html">الخدمات</a><a href="portfolio.html">أعمالنا</a><a href="contact.html">تواصل معنا</a></nav>
+    <div class="header-actions"><button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button><a href="get-quote.html" class="btn-primary">اطلب عرض سعر</a></div>
 </header>
-
-<section class="hero">
-
-<div class="container">
-
-<h1>خدماتنا الرقمية</h1>
-
-<p>
-نساعد الشركات والمؤسسات على بناء حضور رقمي
-احترافي من خلال تصميم وتطوير مواقع الويب
-والمتاجر الإلكترونية والمنصات التعليمية.
-</p>
-
-</div>
-
-</section>
-
-<section>
-
-<div class="container">
-
-<div class="services-grid">
-
-<div class="service-card">
-
-<h2>🌐 مواقع الشركات</h2>
-
-<p>
-مواقع احترافية تعكس هوية أعمالك وتوفر تجربة
-مستخدم حديثة ومتوافقة مع جميع الأجهزة.
-</p>
-
-<ul>
-<li>تصميم احترافي</li>
-<li>متوافق مع الجوال</li>
-<li>تهيئة لمحركات البحث</li>
-<li>نماذج تواصل</li>
-<li>لوحة إدارة محتوى</li>
-</ul>
-
-</div>
-
-<div class="service-card">
-
-<h2>🛒 المتاجر الإلكترونية</h2>
-
-<p>
-متاجر إلكترونية حديثة تساعدك على عرض منتجاتك
-وإدارة المبيعات بكفاءة.
-</p>
-
-<ul>
-<li>إدارة المنتجات</li>
-<li>إدارة الطلبات</li>
-<li>بوابات دفع</li>
-<li>تصميم احترافي</li>
-<li>تقارير وإحصائيات</li>
-</ul>
-
-</div>
-
-<div class="service-card">
-
-<h2>🎓 المنصات التعليمية</h2>
-
-<p>
-حلول تدريب إلكتروني واختبارات وشهادات رقمية
-مخصصة للمعاهد ومراكز التدريب.
-</p>
-
-<ul>
-<li>مسارات تعليمية</li>
-<li>اختبارات إلكترونية</li>
-<li>شهادات رقمية</li>
-<li>إدارة المتدربين</li>
-<li>تقارير أداء</li>
-</ul>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="features">
-
-<div class="container">
-
-<div class="section-title">
-
-<h2>لماذا CPD ؟</h2>
-
-<p>
-نعتمد على أفضل الممارسات التقنية لتقديم حلول
-رقمية عالية الجودة.
-</p>
-
-</div>
-
-<div class="feature-grid">
-
-<div class="feature">
-⚡ أداء وسرعة عالية
-</div>
-
-<div class="feature">
-📱 متوافق مع جميع الأجهزة
-</div>
-
-<div class="feature">
-🎨 تصميم حديث واحترافي
-</div>
-
-<div class="feature">
-🛡️ أمان واستقرار
-</div>
-
-<div class="feature">
-🚀 جاهزية للنمو والتوسع
-</div>
-
-<div class="feature">
-🤝 دعم فني مستمر
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="cta">
-
-<div class="container">
-
-<div class="cta-box">
-
-<h2>جاهز لبدء مشروعك؟</h2>
-
-<p>
-أرسل تفاصيل مشروعك وسنقوم بمراجعتها وتقديم
-عرض سعر مناسب لاحتياجاتك.
-</p>
-
-<a href="get-quote.html" class="btn">
-اطلب عرض سعر
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-<footer>
-
-CPD © 2026 | CyberPath Digital
-
-</footer>
-
+<main>
+    <div class="container">
+        <div class="section-title"><h2>خدماتنا المتكاملة</h2><p>حلول رقمية مصممة خصيصاً لنجاح أعمالك</p></div>
+        <div class="grid-3">
+            <div class="card"><i class="fa-solid fa-globe"></i><h3>مواقع الشركات</h3><p>تصميم مؤسسي احترافي مع تجربة مستخدم مميزة وتحسين SEO.</p></div>
+            <div class="card"><i class="fa-solid fa-cart-shopping"></i><h3>المتاجر الإلكترونية</h3><p>متاجر WooCommerce متكاملة مع بوابات دفع سعودية وإدارة مخزون.</p></div>
+            <div class="card"><i class="fa-solid fa-graduation-cap"></i><h3>المنصات التعليمية</h3><p>منصات تدريب رقمية مع نظام كورسات وشهادات ودفع إلكتروني.</p></div>
+            <div class="card"><i class="fa-solid fa-palette"></i><h3>الهوية البصرية</h3><p>تصميم شعار وهوية متكاملة تعكس قيم علامتك التجارية.</p></div>
+            <div class="card"><i class="fa-solid fa-chart-line"></i><h3>تحسين SEO</h3><p>تهيئة متكاملة لمحركات البحث من أول سطر كود.</p></div>
+            <div class="card"><i class="fa-solid fa-headset"></i><h3>استضافة ودعم فني</h3><p>استضافة سريعة SSL ودعم 24/7 وتدريب كامل.</p></div>
+        </div>
+        <div style="text-align: center; margin-top: 60px;"><a href="get-quote.html" class="btn-primary">اطلب عرض سعر الآن</a> <a href="contact.html" class="btn-outline" style="border:1px solid var(--border-dark); padding: 10px 24px; border-radius:40px; text-decoration:none;">تواصل معنا</a></div>
+    </div>
+</main>
+<footer><p>© 2026 CyberPath Digital – جميع الحقوق محفوظة</p></footer>
+<script>const body=document.body,toggle=document.getElementById('themeToggle'),icon=toggle.querySelector('i');const setTheme=(theme)=>{body.classList.remove('dark','light');body.classList.add(theme);localStorage.setItem('cpd-theme',theme);icon.className=theme==='dark'?'fas fa-moon':'fas fa-sun';};setTheme(localStorage.getItem('cpd-theme')||'dark');toggle.onclick=()=>setTheme(body.classList.contains('dark')?'light':'dark');</script>
 </body>
 </html>
