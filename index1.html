@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>CyberPath Digital | وكالة رقمية متكاملة</title>
+    <!-- Google Fonts - Arabic & English -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'IBM Plex Sans Arabic', 'Inter', sans-serif;
+            background-color: #F8FAFC;
+            color: #0F172A;
+            overflow-x: hidden;
+            line-height: 1.5;
+        }
+
+        /* Custom Variables */
+        :root {
+            --primary: #0A84FF;
+            --secondary: #0F172A;
+            --accent: #06B6D4;
+            --bg-light: #F8FAFC;
+            --glass-bg: rgba(255, 255, 255, 0.75);
+            --glass-border: rgba(255, 255, 255, 0.3);
+            --shadow-sm: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 20px 40px -12px rgba(0, 0, 0, 0.1);
+            --gradient-hero: radial-gradient(circle at 10% 30%, rgba(10,132,255,0.08) 0%, rgba(6,182,212,0.05) 100%);
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Glassmorphism utility */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 2rem;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            background: rgba(255, 255, 255, 0.85);
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            padding: 0.9rem 2rem;
+            border-radius: 3rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(10,132,255,0.3);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: #0066cc;
+            transform: scale(1.03);
+            box-shadow: 0 8px 20px rgba(10,132,255,0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid var(--primary);
+            color: var(--primary);
+            padding: 0.85rem 2rem;
+            border-radius: 3rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* Grid & container */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 2rem;
+            background: rgba(255,255,255,0.8);
+            backdrop-filter: blur(16px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .logo h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .logo p {
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            color: #475569;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: var(--gradient-hero);
+        }
+
+        .hero-grid {
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(to right, rgba(10,132,255,0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(10,132,255,0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text h1 {
+            font-size: 3.3rem;
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 1.2rem;
+            background: linear-gradient(to left, var(--secondary), var(--primary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: #334155;
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .mockup-group {
+            background: rgba(255,255,255,0.5);
+            border-radius: 2rem;
+            padding: 1rem;
+            backdrop-filter: blur(8px);
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .mockup-device {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 0.8rem;
+            box-shadow: var(--shadow-lg);
+            width: 140px;
+            text-align: center;
+        }
+
+        .mockup-device i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            width: 70px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 4px;
+        }
+
+        /* Services Cards */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 2rem;
+            padding: 2rem;
+            transition: all 0.3s;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid #e2e8f0;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+        }
+
+        .service-icon {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        /* Stats */
+        .stats-grid {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        /* Process timeline */
+        .process-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .step {
+            background: white;
+            border-radius: 2rem;
+            padding: 1.8rem;
+            flex: 1;
+            min-width: 160px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .step-number {
+            background: var(--primary);
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: white;
+            font-weight: bold;
+            margin: 0 auto 1rem;
+        }
+
+        /* CTA */
+        .cta-section {
+            background: linear-gradient(135deg, #0A84FF, #06B6D4);
+            border-radius: 2rem;
+            padding: 4rem 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: #0F172A;
+            color: #cbd5e1;
+            padding: 3rem 0 2rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        /* responsive */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+        /* Technologies slider */
+        .tech-slider {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 3rem;
+            box-shadow: var(--shadow-sm);
+        }
+        .tech-slider span {
+            font-weight: 600;
+            color: #1e293b;
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+        .project-card {
+            background: white;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+        .project-info {
+            padding: 1.2rem;
+        }
+        .badge-tech {
+            background: #e2e8f0;
+            padding: 0.2rem 0.8rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="navbar">
+        <div class="logo">
+            <h2>CPD</h2>
+            <p>CyberPath Digital</p>
+        </div>
+        <div class="nav-links">
+            <a href="#">الرئيسية</a>
+            <a href="#services">الخدمات</a>
+            <a href="#projects">أعمالنا</a>
+            <a href="#contact">تواصل معنا</a>
+            <a href="#contact" class="btn-primary" style="padding: 0.6rem 1.5rem;">احصل على عرض سعر</a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-grid"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text" data-aos="fade-up">
+                    <h1>نحول أفكارك إلى حلول رقمية <br>تنمو مع أعمالك</h1>
+                    <p>نصمم ونطور مواقع الشركات والمتاجر الإلكترونية والمنصات التعليمية بمعايير حديثة وتجربة مستخدم استثنائية.</p>
+                    <div class="hero-buttons">
+                        <a href="https://wa.me/966557450188?text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A9%20%D9%85%D8%AC%D8%A7%D9%86%D9%8A%D8%A9" class="btn-primary"><i class="fab fa-whatsapp"></i> استشارة مجانية</a>
+                        <a href="#projects" class="btn-outline"><i class="fas fa-arrow-left"></i> أعمالنا السابقة</a>
+                    </div>
+                </div>
+                <div class="mockup-group" data-aos="fade-left">
+                    <div class="mockup-device"><i class="fas fa-laptop-code"></i><small>مواقع شركات</small></div>
+                    <div class="mockup-device"><i class="fas fa-store"></i><small>متاجر إلكترونية</small></div>
+                    <div class="mockup-device"><i class="fas fa-chalkboard-user"></i><small>منصات تعليمية</small></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted Technologies -->
+    <div class="container" data-aos="fade-up">
+        <div class="tech-slider">
+            <span>HTML5</span> <span>CSS3</span> <span>JavaScript</span> <span>WordPress</span>
+            <span>WooCommerce</span> <span>GitHub</span> <span>Cloudflare</span> <span>Google Analytics</span>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">خدماتنا الرقمية المتكاملة</h2>
+            <div class="services-grid">
+                <div class="service-card" data-aos="zoom-in">
+                    <div class="service-icon"><i class="fas fa-building"></i></div>
+                    <h3>🌐 مواقع الشركات</h3>
+                    <p>مواقع احترافية متجاوبة وسريعة ومحسنة لمحركات البحث، تعكس هويتك وتعزز ثقة عملائك.</p>
+                </div>
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="service-icon"><i class="fas fa-shopping-cart"></i></div>
+                    <h3>🛒 المتاجر الإلكترونية</h3>
+                    <p>متاجر رقمية متكاملة مع بوابات دفع سعودية وإدارة منتجات وخدمة عملاء آلية.</p>
+                </div>
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="service-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>🎓 المنصات التعليمية</h3>
+                    <p>حلول تدريب واختبارات وشهادات إلكترونية بنظام إدارة متكامل لمرونة التعلم.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why CPD -->
+    <section style="background: #F1F5F9;">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">لماذا CyberPath Digital؟</h2>
+            <div class="services-grid">
+                <div class="glass-card" style="padding: 1.8rem;" data-aos="flip-right"><i class="fas fa-tachometer-alt" style="font-size: 2rem; color: #0A84FF;"></i> <h3>⚡ أداء عالي</h3><p>سرعة تحميل أقل من 2 ثانية وتحسين Core Web Vitals.</p></div>
+                <div class="glass-card" style="padding: 1.8rem;" data-aos="flip-right" data-aos-delay="100"><i class="fas fa-palette" style="font-size: 2rem; color: #0A84FF;"></i> <h3>🎨 تصميم احترافي</h3><p>UI/UX فريد يعكس هويتك ويزيد التحويلات.</p></div>
+                <div class="glass-card" style="padding: 1.8rem;" data-aos="flip-right" data-aos-delay="200"><i class="fas fa-mobile-alt" style="font-size: 2rem; color: #0A84FF;"></i> <h3>📱 متوافق مع الجوال</h3><p>تجاوب 100% مع جميع الأحجام.</p></div>
+                <div class="glass-card" style="padding: 1.8rem;" data-aos="flip-right" data-aos-delay="300"><i class="fas fa-shield-alt" style="font-size: 2rem; color: #0A84FF;"></i> <h3>🛡️ أمان واستقرار</h3><p>استضافة SSL ودعم فني 24/7.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects (مشاريع سابقة من الملف) -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">مشاريع تتحدث عن نفسها</h2>
+            <div class="projects-grid">
+                <div class="project-card" data-aos="fade-up"><div class="project-info"><span class="badge-tech">عقارات</span><h3>موقع شركة تطوير عقاري</h3><p>معرض مشاريع تفاعلي وربط CRM</p></div></div>
+                <div class="project-card" data-aos="fade-up" data-aos-delay="100"><div class="project-info"><span class="badge-tech">أزياء</span><h3>متجر WooCommerce</h3><p>تصميم UI/UX وربط ببوابات سعودية</p></div></div>
+                <div class="project-card" data-aos="fade-up" data-aos-delay="200"><div class="project-info"><span class="badge-tech">قطاع طبي</span><h3>موقع عيادة تخصصية</h3><p>نظام حجز مواعيد SEO متكامل</p></div></div>
+                <div class="project-card" data-aos="fade-up" data-aos-delay="300"><div class="project-info"><span class="badge-tech">تعليمي</span><h3>منصة تدريب إلكتروني (CyberPath)</h3><p>نظام كورسات ومدفوعات وشهادات</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- منهجية العمل -->
+    <section style="background: white;">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">كيف نعمل؟</h2>
+            <div class="process-steps">
+                <div class="step" data-aos="fade-up"><div class="step-number">1</div><h3>تحليل</h3><p>جلسة استشارية مجانية لفهم الأهداف والجمهور</p></div>
+                <div class="step" data-aos="fade-up" data-aos-delay="100"><div class="step-number">2</div><h3>تصميم</h3><p>Wireframes وتصاميم بصرية فريدة</p></div>
+                <div class="step" data-aos="fade-up" data-aos-delay="200"><div class="step-number">3</div><h3>تطوير</h3><p>برمجة بكود نظيف وآمن</p></div>
+                <div class="step" data-aos="fade-up" data-aos-delay="300"><div class="step-number">4</div><h3>إطلاق</h3><p>اختبار شامل وتسليم احترافي</p></div>
+                <div class="step" data-aos="fade-up" data-aos-delay="400"><div class="step-number">5</div><h3>دعم</h3><p>تدريب ودعم فني مستمر</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics with counters -->
+    <section>
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item" data-aos="zoom-in"><h3 class="counter" data-target="98">0</h3><p>% رضا العملاء</p></div>
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="100"><h3 class="counter" data-target="200">0</h3><p>+ مشروع مُسلم</p></div>
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="200"><h3 class="counter" data-target="100">0</h3><p>% تجاوب مع الجوال</p></div>
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="300"><h3>24/7</h3><p>دعم فني</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <div class="container" data-aos="fade-up">
+        <div class="cta-section">
+            <h2>جاهز لإطلاق مشروعك الرقمي؟</h2>
+            <p style="margin: 1rem 0 2rem;">احصل على استشارة مجانية الآن وابدأ رحلة التحول الرقمي</p>
+            <a href="https://wa.me/966557450188?text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A9%20%D9%85%D8%AC%D8%A7%D9%86%D9%8A%D8%A9" class="btn-primary" style="background: white; color: #0A84FF;"><i class="fab fa-whatsapp"></i> تواصل عبر واتساب</a>
+        </div>
+    </div>
+</main>
+
+<footer id="contact">
+    <div class="container">
+        <div class="footer-content">
+            <div><h3 style="color:white">CPD</h3><p>CyberPath Digital</p><p style="font-size:0.85rem">وكالة رقمية متكاملة بمعايير عالمية وروح سعودية</p></div>
+            <div><h4>الخدمات</h4><p>مواقع الشركات</p><p>المتاجر الإلكترونية</p><p>المنصات التعليمية</p></div>
+            <div><h4>التواصل</h4><p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/966557450188" style="color:#cbd5e1">0557450188</a></p><p><i class="fas fa-map-marker-alt"></i> الرياض – ضاحية لبن</p><p><i class="far fa-clock"></i> الأحد - الخميس 9ص - 6م</p></div>
+        </div>
+        <hr style="margin: 2rem 0 1rem; border-color:#334155;">
+        <p style="text-align: center;">© 2025 CyberPath Digital – جميع الحقوق محفوظة</p>
+    </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({ duration: 800, once: true });
+
+    // Counter animation
+    const counters = document.querySelectorAll('.counter');
+    const speed = 200;
+    const animateCounters = () => {
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const inc = target / speed;
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + inc);
+                    setTimeout(updateCount, 20);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            updateCount();
+        });
+    };
+    // Trigger counters when in view
+    const statsSection = document.querySelector('.stats-grid');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounters();
+                observer.unobserve(statsSection);
+            }
+        });
+    }, { threshold: 0.5 });
+    if(statsSection) observer.observe(statsSection);
+</script>
+</body>
+</html>
