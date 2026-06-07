@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CPD | CyberPath Digital</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+
+<style>
+
+:root{
+--primary:#0A84FF;
+--secondary:#06B6D4;
+--dark:#07111f;
+--card:#101b2d;
+--text:#ffffff;
+--muted:#94a3b8;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Tajawal',sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:var(--dark);
+color:white;
+overflow-x:hidden;
+}
+
+/* -------------------- */
+/* Background */
+/* -------------------- */
+
+.bg-grid{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:
+linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+background-size:50px 50px;
+z-index:-2;
+}
+
+.glow{
+position:fixed;
+width:600px;
+height:600px;
+background:#0A84FF;
+filter:blur(220px);
+opacity:.15;
+top:-150px;
+right:-150px;
+z-index:-1;
+}
+
+/* -------------------- */
+/* Header */
+/* -------------------- */
+
+header{
+position:fixed;
+top:0;
+width:100%;
+padding:20px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(10,15,30,.75);
+backdrop-filter:blur(20px);
+border-bottom:1px solid rgba(255,255,255,.05);
+z-index:1000;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.logo-circle{
+width:50px;
+height:50px;
+border-radius:50%;
+background:linear-gradient(135deg,#0A84FF,#06B6D4);
+display:flex;
+justify-content:center;
+align-items:center;
+font-weight:800;
+}
+
+.logo-text h3{
+font-size:1.1rem;
+}
+
+.logo-text span{
+color:var(--muted);
+font-size:.8rem;
+}
+
+nav{
+display:flex;
+gap:30px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+font-weight:500;
+transition:.3s;
+}
+
+nav a:hover{
+color:var(--secondary);
+}
+
+.cta-btn{
+padding:12px 22px;
+border-radius:10px;
+background:linear-gradient(135deg,#0A84FF,#06B6D4);
+color:white;
+text-decoration:none;
+font-weight:700;
+}
+
+/* -------------------- */
+/* Hero */
+/* -------------------- */
+
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+padding:120px 8%;
+}
+
+.hero-content{
+max-width:650px;
+}
+
+.badge{
+display:inline-flex;
+gap:10px;
+align-items:center;
+padding:10px 18px;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+border-radius:50px;
+margin-bottom:25px;
+}
+
+.hero h1{
+font-size:4rem;
+line-height:1.2;
+font-weight:900;
+margin-bottom:25px;
+}
+
+.hero h1 span{
+background:linear-gradient(90deg,#0A84FF,#06B6D4);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero p{
+font-size:1.15rem;
+line-height:2;
+color:var(--muted);
+margin-bottom:35px;
+}
+
+.hero-buttons{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.btn-primary{
+background:linear-gradient(135deg,#0A84FF,#06B6D4);
+padding:16px 28px;
+border-radius:12px;
+color:white;
+text-decoration:none;
+font-weight:700;
+}
+
+.btn-secondary{
+border:1px solid rgba(255,255,255,.15);
+padding:16px 28px;
+border-radius:12px;
+color:white;
+text-decoration:none;
+}
+
+/* -------------------- */
+/* Services */
+/* -------------------- */
+
+.services{
+padding:100px 8%;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:60px;
+}
+
+.section-title h2{
+font-size:2.7rem;
+margin-bottom:15px;
+}
+
+.section-title p{
+color:var(--muted);
+}
+
+.services-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+
+.card{
+background:rgba(255,255,255,.03);
+border:1px solid rgba(255,255,255,.08);
+padding:35px;
+border-radius:24px;
+transition:.4s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+border-color:#0A84FF;
+}
+
+.card i{
+font-size:2rem;
+color:#06B6D4;
+margin-bottom:20px;
+}
+
+.card h3{
+margin-bottom:15px;
+font-size:1.4rem;
+}
+
+.card p{
+color:var(--muted);
+line-height:1.9;
+}
+
+/* -------------------- */
+/* Footer */
+/* -------------------- */
+
+footer{
+padding:40px;
+text-align:center;
+border-top:1px solid rgba(255,255,255,.05);
+color:var(--muted);
+}
+
+/* -------------------- */
+/* Mobile */
+/* -------------------- */
+
+@media(max-width:768px){
+
+nav{
+display:none;
+}
+
+.hero h1{
+font-size:2.5rem;
+}
+
+.hero{
+text-align:center;
+justify-content:center;
+}
+
+.hero-buttons{
+justify-content:center;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="bg-grid"></div>
+<div class="glow"></div>
+
+<header>
+
+<div class="logo">
+
+<div class="logo-circle">
+CPD
+</div>
+
+<div class="logo-text">
+<h3>CyberPath Digital</h3>
+<span>Web • E-Commerce • Learning</span>
+</div>
+
+</div>
+
+<nav>
+<a href="#">الرئيسية</a>
+<a href="#">الخدمات</a>
+<a href="#">أعمالنا</a>
+<a href="#">تواصل معنا</a>
+</nav>
+
+<a href="#" class="cta-btn">
+ابدأ مشروعك
+</a>
+
+</header>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="badge">
+<i class="fa-solid fa-bolt"></i>
+حلول رقمية حديثة للشركات والأعمال
+</div>
+
+<h1>
+نبني
+<span>تجارب رقمية</span>
+تنمو مع أعمالك
+</h1>
+
+<p>
+نصمم ونطور مواقع الشركات والمتاجر الإلكترونية
+والمنصات التعليمية الحديثة بمعايير عالمية وتجربة
+مستخدم استثنائية وأداء عالي.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#" class="btn-primary">
+احصل على استشارة مجانية
+</a>
+
+<a href="#" class="btn-secondary">
+شاهد أعمالنا
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="services">
+
+<div class="section-title">
+<h2>خدماتنا الأساسية</h2>
+<p>نركز على الحلول الرقمية التي تساعد أعمالك على النمو.</p>
+</div>
+
+<div class="services-grid">
+
+<div class="card">
+<i class="fa-solid fa-globe"></i>
+<h3>مواقع الشركات</h3>
+<p>
+مواقع احترافية متجاوبة مع الجوال تعكس هوية
+الشركة وتساعد على جذب العملاء.
+</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-cart-shopping"></i>
+<h3>المتاجر الإلكترونية</h3>
+<p>
+متاجر رقمية متكاملة مع بوابات الدفع وإدارة
+المنتجات وتجربة شراء سلسة.
+</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-graduation-cap"></i>
+<h3>المنصات التعليمية</h3>
+<p>
+حلول تدريب واختبارات وشهادات إلكترونية
+مخصصة للمعاهد ومراكز التدريب.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+CPD © 2026 | CyberPath Digital
+
+</footer>
+
+</body>
+</html>
