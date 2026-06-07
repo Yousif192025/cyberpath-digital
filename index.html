@@ -1,426 +1,493 @@
 <!DOCTYPE html>
-
 <html lang="ar" dir="rtl">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>CyberPath Digital | وكالة رقمية متكاملة</title>
+    <!-- Tajawal Font & Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Inter:opsz,wght@14..32,300;14..32,500;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<title>CPD | CyberPath Digital</title>
+        :root {
+            --primary: #0A84FF;
+            --secondary: #06B6D4;
+            --dark-bg: #07111f;
+            --dark-card: #101b2d;
+            --dark-text: #ffffff;
+            --dark-muted: #94a3b8;
+            --light-bg: #f8fafc;
+            --light-card: #ffffff;
+            --light-text: #0f172a;
+            --light-muted: #475569;
+            --border-light: rgba(0,0,0,0.08);
+            --border-dark: rgba(255,255,255,0.08);
+            --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            transition: var(--transition);
+            overflow-x: hidden;
+        }
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+        /* Light / Dark Mode */
+        body.light {
+            --bg-primary: var(--light-bg);
+            --bg-card: var(--light-card);
+            --text-primary: var(--light-text);
+            --text-muted: var(--light-muted);
+            --border-color: var(--border-light);
+        }
 
-<style>
+        body.dark {
+            --bg-primary: var(--dark-bg);
+            --bg-card: var(--dark-card);
+            --text-primary: var(--dark-text);
+            --text-muted: var(--dark-muted);
+            --border-color: var(--border-dark);
+        }
 
-:root{
---primary:#0A84FF;
---secondary:#06B6D4;
---dark:#07111f;
---card:#101b2d;
---text:#ffffff;
---muted:#94a3b8;
-}
+        /* Grid & Glow Effects */
+        .bg-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(var(--border-color) 1px, transparent 1px),
+                              linear-gradient(90deg, var(--border-color) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -2;
+            pointer-events: none;
+        }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Tajawal',sans-serif;
-}
+        .glow {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            background: var(--primary);
+            filter: blur(220px);
+            opacity: 0.2;
+            top: -150px;
+            right: -150px;
+            z-index: -1;
+            transition: var(--transition);
+        }
 
-html{
-scroll-behavior:smooth;
-}
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(var(--bg-primary-rgb), 0.75);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        body.dark header { background: rgba(7,17,31,0.85); }
+        body.light header { background: rgba(248,250,252,0.9); }
 
-body{
-background:var(--dark);
-color:white;
-overflow-x:hidden;
-}
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .logo-img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 4px;
+        }
+        .logo-text h3 {
+            font-size: 1.2rem;
+            font-weight: 800;
+        }
+        .logo-text span {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+        nav {
+            display: flex;
+            gap: 32px;
+        }
+        nav a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        nav a:hover { color: var(--secondary); }
+        .header-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        .theme-toggle {
+            background: rgba(255,255,255,0.1);
+            border: none;
+            border-radius: 50px;
+            padding: 8px 14px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--text-primary);
+        }
+        .cta-btn {
+            padding: 10px 22px;
+            border-radius: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+        }
 
-/* -------------------- */
-/* Background */
-/* -------------------- */
-
-.bg-grid{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:
-linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
-linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
-background-size:50px 50px;
-z-index:-2;
-}
-
-.glow{
-position:fixed;
-width:600px;
-height:600px;
-background:#0A84FF;
-filter:blur(220px);
-opacity:.15;
-top:-150px;
-right:-150px;
-z-index:-1;
-}
-
-/* -------------------- */
-/* Header */
-/* -------------------- */
-
-header{
-position:fixed;
-top:0;
-width:100%;
-padding:20px 8%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:rgba(10,15,30,.75);
-backdrop-filter:blur(20px);
-border-bottom:1px solid rgba(255,255,255,.05);
-z-index:1000;
-}
-
-.logo{
-display:flex;
-align-items:center;
-gap:15px;
-}
-
-.logo-circle{
-width:50px;
-height:50px;
-border-radius:50%;
-background:linear-gradient(135deg,#0A84FF,#06B6D4);
-display:flex;
-justify-content:center;
-align-items:center;
-font-weight:800;
-}
-
-.logo-text h3{
-font-size:1.1rem;
-}
-
-.logo-text span{
-color:var(--muted);
-font-size:.8rem;
-}
-
-nav{
-display:flex;
-gap:30px;
-}
-
-nav a{
-color:white;
-text-decoration:none;
-font-weight:500;
-transition:.3s;
-}
-
-nav a:hover{
-color:var(--secondary);
-}
-
-.cta-btn{
-padding:12px 22px;
-border-radius:10px;
-background:linear-gradient(135deg,#0A84FF,#06B6D4);
-color:white;
-text-decoration:none;
-font-weight:700;
-}
-
-/* -------------------- */
-/* Hero */
-/* -------------------- */
-
-.hero{
-min-height:100vh;
-display:flex;
-align-items:center;
-padding:120px 8%;
-}
-
-.hero-content{
-max-width:650px;
-}
-
-.badge{
-display:inline-flex;
-gap:10px;
-align-items:center;
-padding:10px 18px;
-background:rgba(255,255,255,.05);
-border:1px solid rgba(255,255,255,.08);
-border-radius:50px;
-margin-bottom:25px;
-}
-
-.hero h1{
-font-size:4rem;
-line-height:1.2;
-font-weight:900;
-margin-bottom:25px;
-}
-
-.hero h1 span{
-background:linear-gradient(90deg,#0A84FF,#06B6D4);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
-
-.hero p{
-font-size:1.15rem;
-line-height:2;
-color:var(--muted);
-margin-bottom:35px;
-}
-
-.hero-buttons{
-display:flex;
-gap:15px;
-flex-wrap:wrap;
-}
-
-.btn-primary{
-background:linear-gradient(135deg,#0A84FF,#06B6D4);
-padding:16px 28px;
-border-radius:12px;
-color:white;
-text-decoration:none;
-font-weight:700;
-}
-
-.btn-secondary{
-border:1px solid rgba(255,255,255,.15);
-padding:16px 28px;
-border-radius:12px;
-color:white;
-text-decoration:none;
-}
-
-/* -------------------- */
-/* Services */
-/* -------------------- */
-
-.services{
-padding:100px 8%;
-}
-
-.section-title{
-text-align:center;
-margin-bottom:60px;
-}
-
-.section-title h2{
-font-size:2.7rem;
-margin-bottom:15px;
-}
-
-.section-title p{
-color:var(--muted);
-}
-
-.services-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:30px;
-}
-
-.card{
-background:rgba(255,255,255,.03);
-border:1px solid rgba(255,255,255,.08);
-padding:35px;
-border-radius:24px;
-transition:.4s;
-}
-
-.card:hover{
-transform:translateY(-10px);
-border-color:#0A84FF;
-}
-
-.card i{
-font-size:2rem;
-color:#06B6D4;
-margin-bottom:20px;
-}
-
-.card h3{
-margin-bottom:15px;
-font-size:1.4rem;
-}
-
-.card p{
-color:var(--muted);
-line-height:1.9;
-}
-
-/* -------------------- */
-/* Footer */
-/* -------------------- */
-
-footer{
-padding:40px;
-text-align:center;
-border-top:1px solid rgba(255,255,255,.05);
-color:var(--muted);
-}
-
-/* -------------------- */
-/* Mobile */
-/* -------------------- */
-
-@media(max-width:768px){
-
-nav{
-display:none;
-}
-
-.hero h1{
-font-size:2.5rem;
-}
-
-.hero{
-text-align:center;
-justify-content:center;
-}
-
-.hero-buttons{
-justify-content:center;
-}
-
-}
-
-</style>
-
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 8% 80px;
+        }
+        .hero-content { max-width: 700px; }
+        .badge {
+            display: inline-flex;
+            gap: 10px;
+            align-items: center;
+            padding: 8px 20px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            margin-bottom: 25px;
+            font-size: 0.9rem;
+        }
+        .hero h1 {
+            font-size: 3.8rem;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        .hero h1 span {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 35px;
+            line-height: 1.7;
+        }
+        .hero-buttons { display: flex; gap: 18px; flex-wrap: wrap; }
+        .btn-primary, .btn-secondary {
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+        .btn-secondary {
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            background: transparent;
+        }
+        /* Sections */
+        section { padding: 80px 8%; }
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .section-title h2 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+        .section-title p { color: var(--text-muted); }
+        /* Cards */
+        .grid-3, .stats-grid, .testimonials-grid, .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 35px;
+            border-radius: 28px;
+            transition: 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+        }
+        .card i { font-size: 2.5rem; color: var(--secondary); margin-bottom: 20px; }
+        .card h3 { font-size: 1.6rem; margin-bottom: 15px; }
+        .card p { color: var(--text-muted); line-height: 1.7; }
+        /* Process Timeline */
+        .process-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+        }
+        .step {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 28px;
+            padding: 25px;
+            text-align: center;
+            flex: 1;
+            min-width: 140px;
+        }
+        .step-number {
+            background: var(--primary);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            margin: 0 auto 15px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 60px;
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: white;
+        }
+        /* Stats counters */
+        .stat-item { text-align: center; }
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        /* Testimonials */
+        .testimonial-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 28px;
+            padding: 30px;
+        }
+        .stars { color: #FFB800; margin-bottom: 15px; }
+        /* Contact / CTA */
+        .contact-info {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            background: var(--bg-card);
+            border-radius: 40px;
+            padding: 40px;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        footer {
+            padding: 40px 8%;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+        }
+        @media (max-width: 768px) {
+            nav { display: none; }
+            .hero h1 { font-size: 2.4rem; }
+            .hero { text-align: center; justify-content: center; }
+            .hero-buttons { justify-content: center; }
+            .section-title h2 { font-size: 2rem; }
+        }
+    </style>
 </head>
-
-<body>
-
+<body class="dark">
 <div class="bg-grid"></div>
 <div class="glow"></div>
 
 <header>
-
-<div class="logo">
-
-<div class="logo-circle">
-CPD
-</div>
-
-<div class="logo-text">
-<h3>CyberPath Digital</h3>
-<span>Web • E-Commerce • Learning</span>
-</div>
-
-</div>
-
-<nav>
-<a href="#">الرئيسية</a>
-<a href="#">الخدمات</a>
-<a href="#">أعمالنا</a>
-<a href="#">تواصل معنا</a>
-</nav>
-
-<a href="#" class="cta-btn">
-ابدأ مشروعك
-</a>
-
+    <div class="logo">
+        <img src="assest/image/CPD.png" alt="CPD Logo" class="logo-img" onerror="this.src='https://via.placeholder.com/48?text=CPD'">
+        <div class="logo-text">
+            <h3>CyberPath Digital</h3>
+            <span>Web • E-Commerce • Learning</span>
+        </div>
+    </div>
+    <nav>
+        <a href="#">الرئيسية</a>
+        <a href="#services">الخدمات</a>
+        <a href="#projects">أعمالنا</a>
+        <a href="#contact">تواصل معنا</a>
+    </nav>
+    <div class="header-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
+        <a href="https://wa.me/966557450188?text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A9" class="cta-btn">ابدأ مشروعك</a>
+    </div>
 </header>
 
-<section class="hero">
+<main>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="badge"><i class="fa-solid fa-bolt"></i> حلول رقمية حديثة للشركات والأعمال</div>
+            <h1>نبني <span>تجارب رقمية</span> تنمو مع أعمالك</h1>
+            <p>نصمم ونطور مواقع الشركات والمتاجر الإلكترونية والمنصات التعليمية الحديثة بمعايير عالمية وتجربة مستخدم استثنائية وأداء عالي.</p>
+            <div class="hero-buttons">
+                <a href="https://wa.me/966557450188" class="btn-primary"><i class="fab fa-whatsapp"></i> استشارة مجانية</a>
+                <a href="#projects" class="btn-secondary"><i class="fas fa-arrow-left"></i> شاهد أعمالنا</a>
+            </div>
+        </div>
+    </section>
 
-<div class="hero-content">
+    <!-- Services Section -->
+    <section id="services">
+        <div class="section-title">
+            <h2>خدماتنا الأساسية</h2>
+            <p>نركز على الحلول الرقمية التي تساعد أعمالك على النمو.</p>
+        </div>
+        <div class="grid-3">
+            <div class="card"><i class="fa-solid fa-globe"></i><h3>مواقع الشركات</h3><p>مواقع احترافية متجاوبة مع الجوال تعكس هوية الشركة وتساعد على جذب العملاء.</p></div>
+            <div class="card"><i class="fa-solid fa-cart-shopping"></i><h3>المتاجر الإلكترونية</h3><p>متاجر رقمية متكاملة مع بوابات الدفع وإدارة المنتجات وتجربة شراء سلسة.</p></div>
+            <div class="card"><i class="fa-solid fa-graduation-cap"></i><h3>المنصات التعليمية</h3><p>حلول تدريب واختبارات وشهادات إلكترونية مخصصة للمعاهد ومراكز التدريب.</p></div>
+        </div>
+    </section>
 
-<div class="badge">
-<i class="fa-solid fa-bolt"></i>
-حلول رقمية حديثة للشركات والأعمال
-</div>
+    <!-- Why CPD (مزايا) -->
+    <section style="background: var(--bg-primary);">
+        <div class="section-title"><h2>لماذا CyberPath Digital؟</h2><p>معايير تضعك في الصدارة</p></div>
+        <div class="grid-3">
+            <div class="card"><i class="fas fa-tachometer-alt"></i><h3>سرعة وأداء</h3><p>تحميل أقل من 2 ثانية وتحسين Core Web Vitals.</p></div>
+            <div class="card"><i class="fas fa-shield-alt"></i><h3>أمان واستقرار</h3><p>استضافة SSL ونسخ احتياطي ودعم 24/7.</p></div>
+            <div class="card"><i class="fas fa-palette"></i><h3>تصميم فريد</h3><p>بدون قوالب – هوية رقمية خاصة بك.</p></div>
+        </div>
+    </section>
 
-<h1>
-نبني
-<span>تجارب رقمية</span>
-تنمو مع أعمالك
-</h1>
+    <!-- Featured Projects (من ملف الشركة) -->
+    <section id="projects">
+        <div class="section-title"><h2>مشاريع تتحدث عن نفسها</h2><p>أعمال نفخر بها في قطاعات متنوعة</p></div>
+        <div class="projects-grid">
+            <div class="card"><i class="fas fa-city"></i><h3>موقع شركة تطوير عقاري</h3><p>معرض مشاريع تفاعلي + ربط CRM.</p></div>
+            <div class="card"><i class="fas fa-tshirt"></i><h3>متجر أزياء إلكتروني</h3><p>WooCommerce ودفع سعودي متكامل.</p></div>
+            <div class="card"><i class="fas fa-hospital-user"></i><h3>موقع عيادة تخصصية</h3><p>حجز مواعيد ومحتوى SEO طبي.</p></div>
+            <div class="card"><i class="fas fa-chalkboard"></i><h3>منصة تدريب (CyberPath)</h3><p>نظام كورسات وشهادات ومدفوعات.</p></div>
+        </div>
+    </section>
 
-<p>
-نصمم ونطور مواقع الشركات والمتاجر الإلكترونية
-والمنصات التعليمية الحديثة بمعايير عالمية وتجربة
-مستخدم استثنائية وأداء عالي.
-</p>
+    <!-- Methodology -->
+    <section>
+        <div class="section-title"><h2>كيف نعمل</h2><p>منهجية شفافة من الفكرة إلى الإطلاق والدعم</p></div>
+        <div class="process-steps">
+            <div class="step"><div class="step-number">1</div><h3>تحليل</h3><p>استشارة مجانية ودراسة احتياج</p></div>
+            <div class="step"><div class="step-number">2</div><h3>تصميم</h3><p>UI/UX حصري بعد موافقتك</p></div>
+            <div class="step"><div class="step-number">3</div><h3>تطوير</h3><p>برمجة نظيفة وآمنة</p></div>
+            <div class="step"><div class="step-number">4</div><h3>إطلاق</h3><p>اختبار شامل وتسليم</p></div>
+            <div class="step"><div class="step-number">5</div><h3>دعم</h3><p>تدريب وصيانة مستمرة</p></div>
+        </div>
+    </section>
 
-<div class="hero-buttons">
+    <!-- Statistics with animation -->
+    <section>
+        <div class="section-title"><h2>إنجازاتنا بالأرقام</h2><p>ثقة وجودة تعكسها النتائج</p></div>
+        <div class="stats-grid">
+            <div class="stat-item"><div class="stat-number" data-target="98">0</div><p>% رضا العملاء</p></div>
+            <div class="stat-item"><div class="stat-number" data-target="200">0</div><p>+ مشروع مُسلَّم</p></div>
+            <div class="stat-item"><div class="stat-number" data-target="100">0</div><p>% تجاوب مع الجوال</p></div>
+            <div class="stat-item"><div class="stat-number">24/7</div><p>دعم فني</p></div>
+        </div>
+    </section>
 
-<a href="#" class="btn-primary">
-احصل على استشارة مجانية
-</a>
+    <!-- Testimonials -->
+    <section>
+        <div class="section-title"><h2>آراء عملائنا</h2><p>ثقتكم هي أعلى جائزة نحصل عليها</p></div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card"><div class="stars">★★★★★</div><p>"متجري الإلكتروني الآن يحقق مبيعات حقيقية. تصميم احترافي وسرعة ممتازة."</p><h4>- منى العتيبي</h4><span>صاحبة متجر أزياء</span></div>
+            <div class="testimonial-card"><div class="stars">★★★★★</div><p>"فريق محترف سلم الموقع في الوقت المحدد والنتيجة فاقت توقعاتي."</p><h4>- أحمد المطيري</h4><span>عيادة تخصصية</span></div>
+            <div class="testimonial-card"><div class="stars">★★★★★</div><p>"الدعم الفني مستمر حتى بعد التسليم، هذا هو الفرق الحقيقي."</p><h4>- عبدالرحمن الدوسري</h4><span>مدير تطوير أعمال</span></div>
+        </div>
+    </section>
 
-<a href="#" class="btn-secondary">
-شاهد أعمالنا
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="services">
-
-<div class="section-title">
-<h2>خدماتنا الأساسية</h2>
-<p>نركز على الحلول الرقمية التي تساعد أعمالك على النمو.</p>
-</div>
-
-<div class="services-grid">
-
-<div class="card">
-<i class="fa-solid fa-globe"></i>
-<h3>مواقع الشركات</h3>
-<p>
-مواقع احترافية متجاوبة مع الجوال تعكس هوية
-الشركة وتساعد على جذب العملاء.
-</p>
-</div>
-
-<div class="card">
-<i class="fa-solid fa-cart-shopping"></i>
-<h3>المتاجر الإلكترونية</h3>
-<p>
-متاجر رقمية متكاملة مع بوابات الدفع وإدارة
-المنتجات وتجربة شراء سلسة.
-</p>
-</div>
-
-<div class="card">
-<i class="fa-solid fa-graduation-cap"></i>
-<h3>المنصات التعليمية</h3>
-<p>
-حلول تدريب واختبارات وشهادات إلكترونية
-مخصصة للمعاهد ومراكز التدريب.
-</p>
-</div>
-
-</div>
-
-</section>
+    <!-- Contact / CTA -->
+    <section id="contact">
+        <div class="contact-info">
+            <div><i class="fas fa-map-marker-alt"></i><h3>المقر الرئيسي</h3><p>الرياض – ضاحية لبن<br>المملكة العربية السعودية</p></div>
+            <div><i class="fab fa-whatsapp"></i><h3>واتساب</h3><p>استشارات: <a href="https://wa.me/966530431798" style="color:var(--primary)">0530431798</a><br>مبيعات: <a href="https://wa.me/966557450188" style="color:var(--primary)">0557450188</a></p></div>
+            <div><i class="far fa-clock"></i><h3>ساعات العمل</h3><p>الأحد – الخميس: 9ص - 6م<br>الدعم الفني: 24/7</p></div>
+        </div>
+        <div style="text-align:center; margin-top: 50px;">
+            <a href="https://wa.me/966557450188?text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A9%20%D9%85%D8%AC%D8%A7%D9%86%D9%8A%D8%A9" class="btn-primary" style="padding: 18px 40px;"><i class="fab fa-whatsapp"></i> احصل على استشارتك المجانية</a>
+        </div>
+    </section>
+</main>
 
 <footer>
-
-CPD © 2026 | CyberPath Digital
-
+    <p>© 2026 CyberPath Digital | جميع الحقوق محفوظة – وكالة رقمية متكاملة بمعايير عالمية وروح سعودية</p>
 </footer>
 
+<script>
+    // Theme Toggle
+    const toggleBtn = document.getElementById('themeToggle');
+    const body = document.body;
+    const icon = toggleBtn.querySelector('i');
+    function setTheme(theme) {
+        body.classList.remove('light', 'dark');
+        body.classList.add(theme);
+        localStorage.setItem('cpd-theme', theme);
+        if (theme === 'light') icon.classList.replace('fa-moon', 'fa-sun');
+        else icon.classList.replace('fa-sun', 'fa-moon');
+    }
+    const saved = localStorage.getItem('cpd-theme') || 'dark';
+    setTheme(saved);
+    toggleBtn.addEventListener('click', () => {
+        const newTheme = body.classList.contains('dark') ? 'light' : 'dark';
+        setTheme(newTheme);
+    });
+
+    // Counters Animation
+    const counters = document.querySelectorAll('.stat-number[data-target]');
+    const speed = 150;
+    const animateCounters = () => {
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const current = parseInt(counter.innerText);
+                const increment = Math.ceil(target / speed);
+                if (current < target) {
+                    counter.innerText = Math.min(current + increment, target);
+                    setTimeout(updateCount, 20);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            updateCount();
+        });
+    };
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounters();
+                observer.disconnect();
+            }
+        });
+    }, { threshold: 0.3 });
+    const statsSection = document.querySelector('.stats-grid');
+    if (statsSection) observer.observe(statsSection);
+</script>
 </body>
 </html>
