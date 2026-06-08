@@ -1,3 +1,29 @@
+# CPD | CyberPath Digital
+
+وكالة رقمية متخصصة في تصميم وتطوير:
+
+* مواقع الشركات
+* المتاجر الإلكترونية
+* المنصات التعليمية والتدريبية
+
+## الموقع
+
+https://yousif192025.github.io/cyberpath-digital/
+
+## الخدمات
+
+* Corporate Websites
+* E-Commerce Stores
+* Learning Platforms
+* Digital Solutions
+
+## التواصل
+
+GitHub:
+https://github.com/yousif192025
+
+CyberPath Digital © 2026
+
 cyberpath-digital/
 │
 ├── index.html               (الصفحة الرئيسية)
