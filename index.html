@@ -7,7 +7,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         :root {
             --primary: #0A84FF;
             --secondary: #06B6D4;
@@ -22,19 +27,23 @@
             --border-dark: rgba(255,255,255,0.08);
             --border-light: rgba(0,0,0,0.08);
         }
+
         body {
             font-family: 'Tajawal', sans-serif;
             transition: 0.3s;
             overflow-x: hidden;
         }
+
         body.dark {
             background: var(--dark-bg);
             color: var(--text-dark);
         }
+
         body.light {
             background: var(--light-bg);
             color: var(--text-light);
         }
+
         /* Grid Background */
         .bg-grid {
             position: fixed;
@@ -45,21 +54,26 @@
             z-index: -2;
             pointer-events: none;
         }
+
         body.light .bg-grid {
             background-image: linear-gradient(var(--border-light) 1px, transparent 1px),
                               linear-gradient(90deg, var(--border-light) 1px, transparent 1px);
         }
+
+        /* Glow Effect */
         .glow {
             position: fixed;
-            width: 500px;
-            height: 500px;
+            width: 600px;
+            height: 600px;
             background: var(--primary);
-            filter: blur(180px);
-            opacity: 0.2;
-            top: -100px;
-            right: -100px;
+            filter: blur(220px);
+            opacity: 0.15;
+            top: -150px;
+            right: -150px;
             z-index: -1;
         }
+
+        /* Header */
         header {
             position: fixed;
             top: 0;
@@ -72,19 +86,23 @@
             border-bottom: 1px solid var(--border-dark);
             z-index: 1000;
         }
+
         body.light header {
             background: rgba(248,250,252,0.9);
             border-bottom-color: var(--border-light);
         }
+
         body.dark header {
             background: rgba(7,17,31,0.85);
         }
+
         .logo {
             display: flex;
             align-items: center;
             gap: 12px;
             text-decoration: none;
         }
+
         .logo img {
             width: 48px;
             height: 48px;
@@ -92,21 +110,34 @@
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             padding: 4px;
         }
+
         .logo span {
             font-weight: 800;
             font-size: 1.2rem;
             color: inherit;
         }
-        nav { display: flex; gap: 28px; }
+
+        nav {
+            display: flex;
+            gap: 28px;
+        }
+
         nav a {
             text-decoration: none;
             font-weight: 600;
             transition: 0.3s;
         }
+
         body.dark nav a { color: white; }
         body.light nav a { color: #0f172a; }
         nav a:hover { color: var(--secondary); }
-        .header-actions { display: flex; gap: 15px; align-items: center; }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
         .theme-toggle {
             background: rgba(255,255,255,0.1);
             border: none;
@@ -115,48 +146,339 @@
             cursor: pointer;
             font-size: 1.2rem;
         }
+
         .btn-primary {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
-            padding: 10px 24px;
+            padding: 12px 28px;
             border-radius: 40px;
             color: white;
             text-decoration: none;
             font-weight: 700;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
+
+        .btn-primary:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 20px rgba(10,132,255,0.3);
+        }
+
         .btn-outline {
-            border: 1px solid var(--border-dark);
-            padding: 10px 24px;
+            border: 1.5px solid var(--border-dark);
+            padding: 12px 28px;
             border-radius: 40px;
             background: transparent;
             color: inherit;
             text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
-        .container { padding: 120px 8% 80px; }
-        .hero { display: flex; align-items: center; gap: 50px; flex-wrap: wrap; }
-        .hero-content { flex: 1; }
-        .hero h1 { font-size: 3.5rem; font-weight: 900; }
-        .hero h1 span { background: linear-gradient(90deg, var(--primary), var(--secondary)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-        .hero p { font-size: 1.2rem; color: var(--muted-dark); margin: 20px 0; }
-        body.light .hero p { color: var(--muted-light); }
-        .grid-3, .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 30px; margin-top: 40px; }
-        .card {
-            background: var(--dark-card);
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 8% 80px;
+            position: relative;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 650px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            gap: 10px;
+            align-items: center;
+            padding: 8px 20px;
+            background: rgba(255,255,255,0.05);
             border: 1px solid var(--border-dark);
+            border-radius: 50px;
+            margin-bottom: 25px;
+            font-size: 0.9rem;
+        }
+
+        .hero h1 {
+            font-size: 3.8rem;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--muted-dark);
+            margin-bottom: 35px;
+            line-height: 1.7;
+        }
+
+        body.light .hero p {
+            color: var(--muted-light);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        /* Floating Shapes */
+        .hero-image {
+            flex: 1;
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 28px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .floating-shape {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, var(--primary), transparent);
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.4;
+            z-index: 1;
+        }
+
+        .shape-1 { top: -30px; right: -20px; width: 180px; height: 180px; }
+        .shape-2 { bottom: 20px; left: -30px; width: 150px; height: 150px; background: radial-gradient(circle, var(--secondary), transparent); }
+
+        /* Trust Bar */
+        .trust-bar {
+            padding: 40px 8%;
+            border-top: 1px solid var(--border-dark);
+            border-bottom: 1px solid var(--border-dark);
+            margin: 20px 0;
+        }
+
+        .trust-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+        }
+
+        .trust-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+        }
+
+        .trust-item i {
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 60px 8%;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .stat-item {
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Portfolio Section */
+        .portfolio-section {
+            padding: 80px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: var(--muted-dark);
+        }
+
+        body.light .section-title p {
+            color: var(--muted-light);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(7,17,31,0.95), transparent);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
             padding: 30px;
+            opacity: 0;
+            transition: 0.4s;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .portfolio-overlay h3 {
+            font-size: 1.6rem;
+            margin-bottom: 8px;
+        }
+
+        .portfolio-overlay p {
+            color: var(--muted-dark);
+            margin-bottom: 15px;
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 80px 8%;
+            background: var(--dark-card);
+        }
+
+        body.light .services-section {
+            background: #eef2ff;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-dark);
+            padding: 35px;
             border-radius: 28px;
             transition: 0.3s;
         }
-        body.light .card { background: white; border-color: var(--border-light); }
-        .card:hover { transform: translateY(-6px); border-color: var(--primary); }
-        .card i { font-size: 2.2rem; color: var(--secondary); margin-bottom: 15px; }
-        .section-title { text-align: center; margin-bottom: 50px; }
-        .section-title h2 { font-size: 2.4rem; font-weight: 800; }
+
+        body.light .service-card {
+            background: white;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+        }
+
+        .service-card i {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 8%;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(10,132,255,0.1), rgba(6,182,212,0.05));
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        /* Footer */
         footer {
             text-align: center;
             padding: 40px 8%;
             border-top: 1px solid var(--border-dark);
         }
-        @media (max-width: 768px) { nav { display: none; } .hero h1 { font-size: 2.2rem; } }
+
+        @media (max-width: 768px) {
+            nav { display: none; }
+            .hero { flex-direction: column; text-align: center; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero-buttons { justify-content: center; }
+            .trust-grid { gap: 20px; }
+            .stats-grid { flex-direction: column; align-items: center; }
+        }
     </style>
 </head>
 <body class="dark">
@@ -181,34 +503,130 @@
 </header>
 
 <main>
-    <div class="container">
-        <div class="hero">
-            <div class="hero-content">
-                <h1>نبني <span>تجارب رقمية</span> تنمو مع أعمالك</h1>
-                <p>نصمم ونطور مواقع الشركات والمتاجر الإلكترونية والمنصات التعليمية بمعايير عالمية.</p>
-                <div style="display: flex; gap: 15px;">
-                    <a href="get-quote.html" class="btn-primary">ابدأ مشروعك</a>
-                    <a href="portfolio.html" class="btn-outline">شاهد أعمالنا</a>
-                </div>
+    <!-- Hero Section (محسّن على طريقة Glint) -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fa-solid fa-bolt"></i>
+                حلول رقمية حديثة للشركات والأعمال
             </div>
-            <img src="assets/images/hero/hero-mockup.png" alt="hero" style="max-width: 100%; border-radius: 28px;" onerror="this.src='https://placehold.co/400x300?text=Mockup'">
+            <h1>نبني <span>تجارب رقمية</span> تنمو مع أعمالك</h1>
+            <p>نصمم ونطور مواقع الشركات والمتاجر الإلكترونية والمنصات التعليمية الحديثة بمعايير عالمية وتجربة مستخدم استثنائية وأداء عالي.</p>
+            <div class="hero-buttons">
+                <a href="get-quote.html" class="btn-primary"><i class="fab fa-whatsapp"></i> ابدأ مشروعك</a>
+                <a href="portfolio.html" class="btn-outline"><i class="fas fa-arrow-left"></i> استعرض أعمالنا</a>
+            </div>
         </div>
-
-        <div class="section-title" style="margin-top: 80px;"><h2>خدماتنا الأساسية</h2></div>
-        <div class="grid-3">
-            <div class="card"><i class="fa-solid fa-globe"></i><h3>مواقع الشركات</h3><p>مواقع احترافية متجاوبة مع الجوال تعكس هويتك.</p></div>
-            <div class="card"><i class="fa-solid fa-cart-shopping"></i><h3>المتاجر الإلكترونية</h3><p>متاجر رقمية متكاملة مع بوابات دفع سعودية.</p></div>
-            <div class="card"><i class="fa-solid fa-graduation-cap"></i><h3>المنصات التعليمية</h3><p>حلول تدريب واختبارات وشهادات إلكترونية.</p></div>
+        <div class="hero-image">
+            <div class="floating-shape shape-1"></div>
+            <div class="floating-shape shape-2"></div>
+            <img src="assets/images/hero/hero-mockup.png" alt="Hero Mockup" onerror="this.src='https://placehold.co/500x400?text=Mockup'">
         </div>
+    </section>
 
-        <div class="section-title" style="margin-top: 80px;"><h2>إنجازاتنا</h2></div>
-        <div class="stats-grid">
-            <div class="card"><div class="stat-number">98%</div><p>رضا العملاء</p></div>
-            <div class="card"><div class="stat-number">200+</div><p>مشروع مُسلم</p></div>
-            <div class="card"><div class="stat-number">100%</div><p>تجاوب مع الجوال</p></div>
-            <div class="card"><div class="stat-number">24/7</div><p>دعم فني</p></div>
+    <!-- Trust Bar (شريط الثقة) -->
+    <div class="trust-bar">
+        <div class="trust-title">نحن نثق بهم ونخدم قطاعات متنوعة</div>
+        <div class="trust-grid">
+            <div class="trust-item"><i class="fas fa-building"></i><span>الشركات</span></div>
+            <div class="trust-item"><i class="fas fa-store"></i><span>المتاجر</span></div>
+            <div class="trust-item"><i class="fas fa-graduation-cap"></i><span>المعاهد</span></div>
+            <div class="trust-item"><i class="fas fa-chalkboard-user"></i><span>مراكز التدريب</span></div>
+            <div class="trust-item"><i class="fas fa-rocket"></i><span>رواد الأعمال</span></div>
         </div>
     </div>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="section-title">
+            <h2>خدماتنا الأساسية</h2>
+            <p>نركز على الحلول الرقمية التي تساعد أعمالك على النمو</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fa-solid fa-globe"></i>
+                <h3>مواقع الشركات</h3>
+                <p>مواقع احترافية متجاوبة مع الجوال تعكس هوية الشركة وتساعد على جذب العملاء.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <h3>المتاجر الإلكترونية</h3>
+                <p>متاجر رقمية متكاملة مع بوابات الدفع وإدارة المنتجات وتجربة شراء سلسة.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <h3>المنصات التعليمية</h3>
+                <p>حلول تدريب واختبارات وشهادات إلكترونية مخصصة للمعاهد ومراكز التدريب.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section (أرقام حقيقية) -->
+    <section class="stats-section">
+        <div class="section-title">
+            <h2>إنجازاتنا</h2>
+            <p>أرقام حقيقية تعكس التزامنا وجودة عملنا</p>
+        </div>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">3</div>
+                <p>مشاريع معروضة</p>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">5</div>
+                <p>صفحات رئيسية</p>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <p>متجاوب مع الجوال</p>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">24/7</div>
+                <p>دعم فني</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section (معرض صور مع Overlay) -->
+    <section class="portfolio-section">
+        <div class="section-title">
+            <h2>أحدث أعمالنا</h2>
+            <p>نماذج حقيقية من مشاريعنا نفخر بها</p>
+        </div>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="assets/images/projects/cyberpath.jpg" alt="CyberPath" onerror="this.src='https://placehold.co/400x280?text=CyberPath'">
+                <div class="portfolio-overlay">
+                    <h3>CyberPath</h3>
+                    <p>منصة تدريب في الأمن السيبراني</p>
+                    <a href="portfolio.html" class="btn-primary" style="padding: 8px 20px;">تفاصيل المشروع</a>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="assets/images/projects/homestyle.jpg" alt="Homestyle" onerror="this.src='https://placehold.co/400x280?text=Homestyle'">
+                <div class="portfolio-overlay">
+                    <h3>Homestyle</h3>
+                    <p>متجر أثاث إلكتروني متكامل</p>
+                    <a href="portfolio.html" class="btn-primary" style="padding: 8px 20px;">تفاصيل المشروع</a>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="assets/images/projects/corporate.jpg" alt="Corporate" onerror="this.src='https://placehold.co/400x280?text=Corporate'">
+                <div class="portfolio-overlay">
+                    <h3>شركة أعمال</h3>
+                    <p>موقع مؤسسي ضخم مع CRM</p>
+                    <a href="portfolio.html" class="btn-primary" style="padding: 8px 20px;">تفاصيل المشروع</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>جاهز لبدء مشروعك الرقمي؟</h2>
+        <p style="margin-bottom: 30px; color: var(--muted-dark);">احصل على استشارة مجانية الآن</p>
+        <a href="get-quote.html" class="btn-primary"><i class="fab fa-whatsapp"></i> اطلب عرض سعر</a>
+    </section>
 </main>
 
 <footer>
@@ -219,15 +637,21 @@
     const body = document.body;
     const toggle = document.getElementById('themeToggle');
     const icon = toggle.querySelector('i');
+    
     const setTheme = (theme) => {
         body.classList.remove('dark', 'light');
         body.classList.add(theme);
         localStorage.setItem('cpd-theme', theme);
         icon.className = theme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
     };
-    const saved = localStorage.getItem('cpd-theme') || 'dark';
-    setTheme(saved);
-    toggle.onclick = () => setTheme(body.classList.contains('dark') ? 'light' : 'dark');
+    
+    const savedTheme = localStorage.getItem('cpd-theme') || 'dark';
+    setTheme(savedTheme);
+    
+    toggle.onclick = () => {
+        const newTheme = body.classList.contains('dark') ? 'light' : 'dark';
+        setTheme(newTheme);
+    };
 </script>
 </body>
 </html>
