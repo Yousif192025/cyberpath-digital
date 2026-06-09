@@ -103,8 +103,8 @@
         }
 
         .logo img {
-            width: 60px;           /* كانت 48px */
-            height: 60px;          /* كانت 48px */
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             padding: 4px;
@@ -113,7 +113,7 @@
 
         .logo span {
             font-weight: 800;
-            font-size: 1.4rem;     /* كانت 1.2rem */
+            font-size: 1.4rem;
             color: inherit;
         }
 
@@ -176,10 +176,35 @@
             color: inherit;
             padding: 10px 0;
             border-bottom: 1px solid var(--border-dark);
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
         .mobile-sidebar a:hover {
             color: var(--primary);
+            padding-right: 10px;
+        }
+        
+        .sidebar-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-dark);
+        }
+        
+        .sidebar-logo img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+        }
+        
+        .sidebar-logo span {
+            font-weight: 800;
+            font-size: 1.2rem;
         }
 
         .close-sidebar {
@@ -345,6 +370,7 @@
         .shape-1 { top: -30px; right: -20px; width: 180px; height: 180px; }
         .shape-2 { bottom: 20px; left: -30px; width: 150px; height: 150px; background: radial-gradient(circle, var(--secondary), transparent); }
 
+        /* Trust Bar */
         .trust-bar {
             padding: 40px 8%;
             border-top: 1px solid var(--border-dark);
@@ -378,7 +404,14 @@
             font-size: 1.8rem;
             color: var(--primary);
         }
+        
+        .trust-item img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
 
+        /* Stats Section */
         .stats-section {
             padding: 60px 8%;
             text-align: center;
@@ -406,6 +439,7 @@
             color: transparent;
         }
 
+        /* Portfolio Section */
         .portfolio-section {
             padding: 80px 8%;
         }
@@ -475,6 +509,7 @@
             margin-bottom: 15px;
         }
 
+        /* Services Section */
         .services-section {
             padding: 80px 8%;
             background: var(--dark-card);
@@ -519,6 +554,7 @@
             margin-bottom: 15px;
         }
 
+        /* CTA Section */
         .cta-section {
             padding: 80px 8%;
             text-align: center;
@@ -530,10 +566,70 @@
             margin-bottom: 20px;
         }
 
+        /* Footer */
         footer {
             text-align: center;
-            padding: 40px 8%;
+            padding: 40px 8% 20px;
             border-top: 1px solid var(--border-dark);
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+            text-align: right;
+        }
+        
+        .footer-col {
+            flex: 1;
+            min-width: 180px;
+        }
+        
+        .footer-col h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .footer-col a {
+            display: block;
+            color: var(--muted-dark);
+            text-decoration: none;
+            margin-bottom: 12px;
+            transition: 0.3s;
+        }
+        
+        .footer-col a:hover {
+            color: var(--primary);
+            padding-right: 5px;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+        
+        .footer-logo span {
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-dark);
+            color: var(--muted-dark);
+            font-size: 0.85rem;
         }
 
         /* Responsive */
@@ -568,6 +664,13 @@
                 padding: 10px 20px;
                 font-size: 0.9rem;
             }
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-logo {
+                justify-content: center;
+            }
         }
     </style>
 </head>
@@ -577,7 +680,7 @@
 
 <header>
     <a href="index.html" class="logo">
-        <img src="./assest/images/logo/CPD.png" alt="CPD Logo" onerror="this.src='https://placehold.co/48x48?text=CPD'">
+        <img src="./assest/images/logo/CPD.png" alt="CPD Logo" onerror="this.src='https://placehold.co/60x60?text=CPD'">
         <span>CyberPath Digital</span>
     </a>
 
@@ -596,14 +699,18 @@
     </div>
 </header>
 
-<!-- Mobile Sidebar -->
+<!-- Mobile Sidebar with Logo -->
 <div class="overlay" id="overlay"></div>
 <div class="mobile-sidebar" id="mobileSidebar">
     <button class="close-sidebar" id="closeSidebar"><i class="fas fa-times"></i></button>
-    <a href="index.html">الرئيسية</a>
-    <a href="services.html">الخدمات</a>
-    <a href="portfolio.html">أعمالنا</a>
-    <a href="contact.html">تواصل معنا</a>
+    <div class="sidebar-logo">
+        <img src="./assest/images/logo/CPD.png" alt="CPD Logo" onerror="this.src='https://placehold.co/45x45?text=CPD'">
+        <span>CyberPath Digital</span>
+    </div>
+    <a href="index.html"><i class="fas fa-home"></i> الرئيسية</a>
+    <a href="services.html"><i class="fas fa-cogs"></i> الخدمات</a>
+    <a href="portfolio.html"><i class="fas fa-briefcase"></i> أعمالنا</a>
+    <a href="contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a>
     <a href="get-quote.html" class="btn-primary" style="text-align: center; margin-top: 20px;">اطلب عرض سعر</a>
 </div>
 
@@ -632,9 +739,9 @@
         <div class="trust-title">نحن نثق بهم ونخدم قطاعات متنوعة</div>
         <div class="trust-grid">
             <div class="trust-item">
-                <img src="./assest/images/logo/CPD.png" alt="CPD" style="width: 40px; height: 40px; border-radius: 50%;">
-               <span>CyberPath Digital</span>
-           </div>
+                <img src="./assest/images/logo/CPD.png" alt="CPD">
+                <span>CyberPath Digital</span>
+            </div>
             <div class="trust-item"><i class="fas fa-building"></i><span>الشركات</span></div>
             <div class="trust-item"><i class="fas fa-store"></i><span>المتاجر</span></div>
             <div class="trust-item"><i class="fas fa-graduation-cap"></i><span>المعاهد</span></div>
@@ -687,27 +794,27 @@
         </div>
         <div class="portfolio-grid">
             <div class="portfolio-item">
-                <img src="assets/images/projects/cyberpath.jpg" alt="CyberPath" onerror="this.src='https://placehold.co/400x280?text=CyberPath'">
+                <img src="./assest/images/projects/cyberpath.jpg" alt="CyberPath" onerror="this.src='https://placehold.co/400x280?text=CyberPath'">
                 <div class="portfolio-overlay">
                     <h3>CyberPath</h3>
                     <p>منصة تدريب في الأمن السيبراني</p>
-                    <a href="portfolio.html" class="btn-primary" style="padding: 8px 20px;">تفاصيل المشروع</a>
+                    <a href="https://cyberpath.vercel.app/" target="_blank" class="btn-primary" style="padding: 8px 20px;">تفاصيل المشروع</a>
                 </div>
             </div>
             <div class="portfolio-item">
-                <img src="assets/images/projects/homestyle.jpg" alt="Homestyle" onerror="this.src='https://placehold.co/400x280?text=Homestyle'">
+                <img src="./assest/images/projects/homestyle.jpg" alt="Homestyle" onerror="this.src='https://placehold.co/400x280?text=Homestyle'">
                 <div class="portfolio-overlay">
                     <h3>Homestyle</h3>
                     <p>متجر أثاث إلكتروني متكامل</p>
-                    <a href="portfolio.html" class="btn-primary" style="padding: 8px 20px;">تفاصيل المشروع</a>
+                    <a href="https://home-style-furniture-ten.vercel.app/" target="_blank" class="btn-primary" style="padding: 8px 20px;">تفاصيل المشروع</a>
                 </div>
             </div>
             <div class="portfolio-item">
-                <img src="assets/images/projects/corporate.jpg" alt="Corporate" onerror="this.src='https://placehold.co/400x280?text=Corporate'">
+                <img src="./assest/images/projects/corporate.jpg" alt="Corporate" onerror="this.src='https://placehold.co/400x280?text=Corporate'">
                 <div class="portfolio-overlay">
                     <h3>شركة أعمال</h3>
                     <p>موقع مؤسسي ضخم مع CRM</p>
-                    <a href="portfolio.html" class="btn-primary" style="padding: 8px 20px;">تفاصيل المشروع</a>
+                    <a href="#" class="btn-primary" style="padding: 8px 20px;">تفاصيل المشروع</a>
                 </div>
             </div>
         </div>
@@ -721,7 +828,37 @@
 </main>
 
 <footer>
-    <p>© 2026 CyberPath Digital – وكالة رقمية متكاملة – الرياض، ضاحية لبن</p>
+    <div class="footer-content">
+        <div class="footer-col">
+            <div class="footer-logo">
+                <img src="./assest/images/logo/CPD.png" alt="CPD Logo" onerror="this.src='https://placehold.co/50x50?text=CPD'">
+                <span>CyberPath Digital</span>
+            </div>
+            <p style="color: var(--muted-dark); line-height: 1.7;">وكالة رقمية متكاملة بمعايير عالمية وروح سعودية</p>
+        </div>
+        <div class="footer-col">
+            <h4>روابط سريعة</h4>
+            <a href="index.html">الرئيسية</a>
+            <a href="services.html">الخدمات</a>
+            <a href="portfolio.html">أعمالنا</a>
+            <a href="contact.html">تواصل معنا</a>
+        </div>
+        <div class="footer-col">
+            <h4>خدماتنا</h4>
+            <a href="services.html">مواقع الشركات</a>
+            <a href="services.html">المتاجر الإلكترونية</a>
+            <a href="services.html">المنصات التعليمية</a>
+        </div>
+        <div class="footer-col">
+            <h4>تواصل معنا</h4>
+            <a href="https://wa.me/966557450188" target="_blank"><i class="fab fa-whatsapp"></i> واتساب: 0557450188</a>
+            <a href="contact.html"><i class="fas fa-map-marker-alt"></i> الرياض، ضاحية لبن</a>
+            <a href="contact.html"><i class="far fa-clock"></i> الأحد - الخميس: 9ص - 6م</a>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>© 2026 CyberPath Digital – وكالة رقمية متكاملة – جميع الحقوق محفوظة</p>
+    </div>
 </footer>
 
 <script>
