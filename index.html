@@ -103,16 +103,17 @@
         }
 
         .logo img {
-            width: 48px;
-            height: 48px;
+            width: 60px;           /* كانت 48px */
+            height: 60px;          /* كانت 48px */
             border-radius: 50%;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             padding: 4px;
+            border: 2px solid var(--secondary);
         }
 
         .logo span {
             font-weight: 800;
-            font-size: 1.2rem;
+            font-size: 1.4rem;     /* كانت 1.2rem */
             color: inherit;
         }
 
@@ -630,6 +631,10 @@
     <div class="trust-bar">
         <div class="trust-title">نحن نثق بهم ونخدم قطاعات متنوعة</div>
         <div class="trust-grid">
+            <div class="trust-item">
+                <img src="./assest/images/logo/CPD.png" alt="CPD" style="width: 40px; height: 40px; border-radius: 50%;">
+               <span>CyberPath Digital</span>
+           </div>
             <div class="trust-item"><i class="fas fa-building"></i><span>الشركات</span></div>
             <div class="trust-item"><i class="fas fa-store"></i><span>المتاجر</span></div>
             <div class="trust-item"><i class="fas fa-graduation-cap"></i><span>المعاهد</span></div>
