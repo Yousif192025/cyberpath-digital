@@ -672,6 +672,84 @@
                 justify-content: center;
             }
         }
+                /* Preview Packages Section */
+        .pricing-preview {
+            padding: 60px 8%;
+        }
+
+        .preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin: 40px 0;
+        }
+
+        .preview-category {
+            background: var(--dark-card);
+            border: 1px solid var(--border-dark);
+            border-radius: 28px;
+            padding: 30px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        body.light .preview-category {
+            background: var(--light-card);
+        }
+
+        .preview-category:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .category-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .preview-category h3 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+        }
+
+        .preview-packages {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .preview-package {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 16px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            transition: 0.3s;
+        }
+
+        body.light .preview-package {
+            background: rgba(0,0,0,0.03);
+        }
+
+        .preview-package:hover {
+            background: rgba(10,132,255,0.1);
+        }
+
+        .package-name {
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .package-desc {
+            font-size: 0.85rem;
+            color: var(--muted-dark);
+        }
+
+        .preview-cta {
+            text-align: center;
+            margin-top: 30px;
+        }
     </style>
 </head>
 <body class="dark">
@@ -819,7 +897,64 @@
             </div>
         </div>
     </section>
+       <!-- مختصر الباقات -->
+    <section class="pricing-preview">
+        <div class="container">
+            <div class="section-title">
+                <h2>📦 باقاتنا</h2>
+                <p>اختر الباقة المناسبة لاحتياجك</p>
+            </div>
 
+            <div class="preview-grid">
+                <!-- مجموعة المواقع -->
+                <div class="preview-category">
+                    <div class="category-icon">🌐</div>
+                    <h3>باقات المواقع</h3>
+                    <div class="preview-packages">
+                        <div class="preview-package">
+                            <span class="package-name">أساسية</span>
+                            <span class="package-desc">حتى 5 صفحات</span>
+                        </div>
+                        <div class="preview-package">
+                            <span class="package-name">احترافية ⭐</span>
+                            <span class="package-desc">حتى 10 صفحات + SEO</span>
+                        </div>
+                        <div class="preview-package">
+                            <span class="package-name">متقدمة</span>
+                            <span class="package-desc">مخصص بالكامل</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- مجموعة المتاجر -->
+                <div class="preview-category">
+                    <div class="category-icon">🛒</div>
+                    <h3>باقات المتاجر</h3>
+                    <div class="preview-packages">
+                        <div class="preview-package">
+                            <span class="package-name">أساسية</span>
+                            <span class="package-desc">متجر جديد</span>
+                        </div>
+                        <div class="preview-package">
+                            <span class="package-name">احترافية ⭐</span>
+                            <span class="package-desc">بوابات دفع + SEO</span>
+                        </div>
+                        <div class="preview-package">
+                            <span class="package-name">متقدمة</span>
+                            <span class="package-desc">غير محدود + ERP</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="preview-cta">
+                <a href="services.html" class="btn-primary">
+                    عرض جميع الباقات <i class="fas fa-arrow-left"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    
     <section class="cta-section">
         <h2>جاهز لبدء مشروعك الرقمي؟</h2>
         <p style="margin-bottom: 30px; color: var(--muted-dark);">احصل على استشارة مجانية الآن</p>
