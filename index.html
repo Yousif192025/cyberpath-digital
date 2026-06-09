@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>CPD | وكالة رقمية متكاملة</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
@@ -60,7 +60,6 @@
                               linear-gradient(90deg, var(--border-light) 1px, transparent 1px);
         }
 
-        /* Glow Effect */
         .glow {
             position: fixed;
             width: 600px;
@@ -117,20 +116,96 @@
             color: inherit;
         }
 
-        nav {
+        /* Desktop Navigation */
+        .nav-desktop {
             display: flex;
             gap: 28px;
         }
 
-        nav a {
+        .nav-desktop a {
             text-decoration: none;
             font-weight: 600;
             transition: 0.3s;
         }
 
-        body.dark nav a { color: white; }
-        body.light nav a { color: #0f172a; }
-        nav a:hover { color: var(--secondary); }
+        body.dark .nav-desktop a { color: white; }
+        body.light .nav-desktop a { color: #0f172a; }
+        .nav-desktop a:hover { color: var(--secondary); }
+
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: inherit;
+        }
+
+        /* Mobile Sidebar Menu */
+        .mobile-sidebar {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 280px;
+            height: 100%;
+            background: var(--dark-card);
+            backdrop-filter: blur(20px);
+            z-index: 2000;
+            transition: 0.4s ease;
+            padding: 80px 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            border-left: 1px solid var(--border-dark);
+        }
+
+        body.light .mobile-sidebar {
+            background: white;
+        }
+
+        .mobile-sidebar.open {
+            right: 0;
+        }
+
+        .mobile-sidebar a {
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: inherit;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-dark);
+        }
+
+        .mobile-sidebar a:hover {
+            color: var(--primary);
+        }
+
+        .close-sidebar {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: inherit;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1999;
+            display: none;
+        }
+
+        .overlay.active {
+            display: block;
+        }
 
         .header-actions {
             display: flex;
@@ -241,7 +316,6 @@
             flex-wrap: wrap;
         }
 
-        /* Floating Shapes */
         .hero-image {
             flex: 1;
             position: relative;
@@ -270,7 +344,6 @@
         .shape-1 { top: -30px; right: -20px; width: 180px; height: 180px; }
         .shape-2 { bottom: 20px; left: -30px; width: 150px; height: 150px; background: radial-gradient(circle, var(--secondary), transparent); }
 
-        /* Trust Bar */
         .trust-bar {
             padding: 40px 8%;
             border-top: 1px solid var(--border-dark);
@@ -281,7 +354,7 @@
         .trust-title {
             text-align: center;
             margin-bottom: 30px;
-            color: var(--text-muted);
+            color: var(--muted-dark);
             font-size: 0.9rem;
             letter-spacing: 2px;
         }
@@ -305,7 +378,6 @@
             color: var(--primary);
         }
 
-        /* Stats Section */
         .stats-section {
             padding: 60px 8%;
             text-align: center;
@@ -333,7 +405,6 @@
             color: transparent;
         }
 
-        /* Portfolio Section */
         .portfolio-section {
             padding: 80px 8%;
         }
@@ -351,10 +422,6 @@
 
         .section-title p {
             color: var(--muted-dark);
-        }
-
-        body.light .section-title p {
-            color: var(--muted-light);
         }
 
         .portfolio-grid {
@@ -407,7 +474,6 @@
             margin-bottom: 15px;
         }
 
-        /* Services Section */
         .services-section {
             padding: 80px 8%;
             background: var(--dark-card);
@@ -452,7 +518,6 @@
             margin-bottom: 15px;
         }
 
-        /* CTA Section */
         .cta-section {
             padding: 80px 8%;
             text-align: center;
@@ -464,20 +529,44 @@
             margin-bottom: 20px;
         }
 
-        /* Footer */
         footer {
             text-align: center;
             padding: 40px 8%;
             border-top: 1px solid var(--border-dark);
         }
 
+        /* Responsive */
         @media (max-width: 768px) {
-            nav { display: none; }
-            .hero { flex-direction: column; text-align: center; }
-            .hero h1 { font-size: 2.5rem; }
-            .hero-buttons { justify-content: center; }
-            .trust-grid { gap: 20px; }
-            .stats-grid { flex-direction: column; align-items: center; }
+            .nav-desktop {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            .trust-grid {
+                gap: 20px;
+            }
+            .stats-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+            .hero-image {
+                margin-top: 40px;
+            }
+            .btn-primary, .btn-outline {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
@@ -487,23 +576,37 @@
 
 <header>
     <a href="index.html" class="logo">
-        <img src="assets/images/logo/CPD.png" alt="CPD Logo" onerror="this.src='https://placehold.co/48x48?text=CPD'">
+        <img src="/cyberpath-digital/assets/images/logo/CPD.png" alt="CPD Logo" onerror="this.src='https://placehold.co/48x48?text=CPD'">
         <span>CyberPath Digital</span>
     </a>
-    <nav>
+
+    <!-- Desktop Navigation -->
+    <div class="nav-desktop">
         <a href="index.html">الرئيسية</a>
         <a href="services.html">الخدمات</a>
         <a href="portfolio.html">أعمالنا</a>
         <a href="contact.html">تواصل معنا</a>
-    </nav>
+    </div>
+
     <div class="header-actions">
         <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
         <a href="get-quote.html" class="btn-primary">اطلب عرض سعر</a>
+        <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
     </div>
 </header>
 
+<!-- Mobile Sidebar -->
+<div class="overlay" id="overlay"></div>
+<div class="mobile-sidebar" id="mobileSidebar">
+    <button class="close-sidebar" id="closeSidebar"><i class="fas fa-times"></i></button>
+    <a href="index.html">الرئيسية</a>
+    <a href="services.html">الخدمات</a>
+    <a href="portfolio.html">أعمالنا</a>
+    <a href="contact.html">تواصل معنا</a>
+    <a href="get-quote.html" class="btn-primary" style="text-align: center; margin-top: 20px;">اطلب عرض سعر</a>
+</div>
+
 <main>
-    <!-- Hero Section (محسّن على طريقة Glint) -->
     <section class="hero">
         <div class="hero-content">
             <div class="hero-badge">
@@ -520,11 +623,10 @@
         <div class="hero-image">
             <div class="floating-shape shape-1"></div>
             <div class="floating-shape shape-2"></div>
-            <img src="assets/images/hero/hero-mockup.png" alt="Hero Mockup" onerror="this.src='https://placehold.co/500x400?text=Mockup'">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" alt="Hero Mockup" onerror="this.src='https://placehold.co/500x400?text=Mockup'">
         </div>
     </section>
 
-    <!-- Trust Bar (شريط الثقة) -->
     <div class="trust-bar">
         <div class="trust-title">نحن نثق بهم ونخدم قطاعات متنوعة</div>
         <div class="trust-grid">
@@ -536,7 +638,6 @@
         </div>
     </div>
 
-    <!-- Services Section -->
     <section class="services-section">
         <div class="section-title">
             <h2>خدماتنا الأساسية</h2>
@@ -561,33 +662,19 @@
         </div>
     </section>
 
-    <!-- Stats Section (أرقام حقيقية) -->
     <section class="stats-section">
         <div class="section-title">
             <h2>إنجازاتنا</h2>
             <p>أرقام حقيقية تعكس التزامنا وجودة عملنا</p>
         </div>
         <div class="stats-grid">
-            <div class="stat-item">
-                <div class="stat-number">3</div>
-                <p>مشاريع معروضة</p>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">5</div>
-                <p>صفحات رئيسية</p>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">100%</div>
-                <p>متجاوب مع الجوال</p>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">24/7</div>
-                <p>دعم فني</p>
-            </div>
+            <div class="stat-item"><div class="stat-number">3</div><p>مشاريع معروضة</p></div>
+            <div class="stat-item"><div class="stat-number">5</div><p>صفحات رئيسية</p></div>
+            <div class="stat-item"><div class="stat-number">100%</div><p>متجاوب مع الجوال</p></div>
+            <div class="stat-item"><div class="stat-number">24/7</div><p>دعم فني</p></div>
         </div>
     </section>
 
-    <!-- Portfolio Section (معرض صور مع Overlay) -->
     <section class="portfolio-section">
         <div class="section-title">
             <h2>أحدث أعمالنا</h2>
@@ -621,7 +708,6 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
     <section class="cta-section">
         <h2>جاهز لبدء مشروعك الرقمي؟</h2>
         <p style="margin-bottom: 30px; color: var(--muted-dark);">احصل على استشارة مجانية الآن</p>
@@ -634,6 +720,7 @@
 </footer>
 
 <script>
+    // Theme Toggle
     const body = document.body;
     const toggle = document.getElementById('themeToggle');
     const icon = toggle.querySelector('i');
@@ -652,6 +739,28 @@
         const newTheme = body.classList.contains('dark') ? 'light' : 'dark';
         setTheme(newTheme);
     };
+
+    // Mobile Menu
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const sidebar = document.getElementById('mobileSidebar');
+    const overlay = document.getElementById('overlay');
+    const closeBtn = document.getElementById('closeSidebar');
+
+    function openMenu() {
+        sidebar.classList.add('open');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+        sidebar.classList.remove('open');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    mobileBtn.addEventListener('click', openMenu);
+    closeBtn.addEventListener('click', closeMenu);
+    overlay.addEventListener('click', closeMenu);
 </script>
 </body>
 </html>
