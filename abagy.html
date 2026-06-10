@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="عبق الياسمين للعطور - متجر فاخر متخصص في تركيب العطور الفرنسية والإسبانية والسويسرية، والبخور والعود، والريحة الناشفة. خبرة سودانية بأعلى معايير الجودة.">
+  <meta name="keywords" content="عطور, بخور, عود, محلب, ضفرة, مسك, عطور فرنسية, عطور سويسرية, ود مدني, السودان">
+  <meta name="author" content="عبق الياسمين للعطور">
+  <title>عبق الياسمين للعطور | فخامة العطر الأصيل</title>
+  <!-- Google Fonts + Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Tajawal', sans-serif;
+      background-color: #fefaf5;
+      color: #1e1a17;
+      scroll-behavior: smooth;
+      line-height: 1.5;
+    }
+
+    /* Custom Scroll */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #e9dfd3;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #b58b4b;
+      border-radius: 10px;
+    }
+
+    /* RTL & containers */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* luxury color palette */
+    :root {
+      --black: #111111;
+      --gold: #c9a03d;
+      --gold-light: #e7c77b;
+      --ivory: #fef7e6;
+      --cream: #faf3e0;
+      --dark-bg: #1a1715;
+      --text-dark: #2b2826;
+    }
+
+    /* Buttons & global */
+    .btn {
+      display: inline-block;
+      padding: 14px 36px;
+      border-radius: 40px;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold) 0%, #b8862c 100%);
+      color: #111;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      background: linear-gradient(135deg, #dbb45c 0%, #c9a03d 100%);
+      box-shadow: 0 15px 25px -8px rgba(0,0,0,0.2);
+    }
+    .btn-outline {
+      border: 1.5px solid var(--gold);
+      color: var(--gold);
+      background: transparent;
+    }
+    .btn-outline:hover {
+      background: var(--gold);
+      color: #111;
+      border-color: var(--gold);
+    }
+
+    /* header / navbar */
+    .navbar {
+      background: rgba(17, 17, 17, 0.96);
+      backdrop-filter: blur(6px);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      padding: 18px 0;
+      transition: 0.3s;
+      border-bottom: 1px solid rgba(201, 160, 61, 0.3);
+    }
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .logo h1 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #e9c47e, #c9a03d);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.5px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+    }
+    .nav-links a {
+      color: #f2e8da;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.2s;
+      font-size: 1rem;
+    }
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+    .menu-icon {
+      display: none;
+      font-size: 28px;
+      color: var(--gold);
+      cursor: pointer;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(107deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.5) 100%), url('https://images.unsplash.com/photo-1594035910382-fea9ba5d1d0a?q=80&w=2070&auto=format') center/cover fixed;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      margin-top: 0;
+      padding-top: 100px;
+    }
+    .hero-content {
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: 800;
+      color: white;
+      text-shadow: 0 2px 15px rgba(0,0,0,0.6);
+      margin-bottom: 20px;
+    }
+    .hero .gold-text {
+      color: var(--gold-light);
+      font-size: 1.9rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+    }
+    .hero p {
+      color: #f5ecd9;
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+      max-width: 650px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* section headings */
+    .section-heading {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .section-heading h2 {
+      font-size: 2.6rem;
+      font-weight: 800;
+      color: #1e1a17;
+      position: relative;
+      display: inline-block;
+      padding-bottom: 12px;
+    }
+    .section-heading h2:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 30%;
+      width: 40%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), #d4af5a);
+      border-radius: 3px;
+    }
+    .section-sub {
+      text-align: center;
+      color: #6c5e4e;
+      margin-top: 12px;
+      font-size: 1.1rem;
+    }
+
+    /* cards grid */
+    .products-grid, .features-grid, .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+      margin-bottom: 60px;
+    }
+    .card {
+      background: white;
+      border-radius: 28px;
+      padding: 28px 20px;
+      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.08);
+      transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      text-align: center;
+      border: 1px solid rgba(201,160,61,0.2);
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: var(--gold-light);
+      box-shadow: 0 28px 40px -18px rgba(0,0,0,0.15);
+    }
+    .card-icon {
+      font-size: 3rem;
+      color: var(--gold);
+      margin-bottom: 18px;
+    }
+    .card h3 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .card p {
+      color: #4f4a44;
+      font-weight: 400;
+    }
+    .sub-items {
+      margin-top: 15px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+    .badge {
+      background: #f5ede2;
+      padding: 5px 14px;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #9e7a44;
+    }
+
+    /* Gallery grid luxury */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+      margin: 40px 0;
+    }
+    .gallery-item {
+      border-radius: 28px;
+      overflow: hidden;
+      height: 280px;
+      background: #e7dccc;
+      box-shadow: 0 12px 24px -12px rgba(0,0,0,0.2);
+      transition: transform 0.4s;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    .gallery-item:hover img {
+      transform: scale(1.06);
+    }
+
+    /* testimonials */
+    .testimonial-card {
+      background: #ffffffdd;
+      backdrop-filter: blur(2px);
+      border-radius: 32px;
+      padding: 28px;
+      background: #fff;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.05);
+      border-right: 5px solid var(--gold);
+    }
+    .testimonial-card i {
+      color: var(--gold);
+      font-size: 2rem;
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+    .testimonial-card p {
+      font-style: normal;
+      font-weight: 500;
+      margin: 15px 0;
+    }
+    .client-name {
+      font-weight: 800;
+      margin-top: 10px;
+      color: #2c241c;
+    }
+
+    /* contact section */
+    .contact-section {
+      background: #1f1b17;
+      color: #ede5d8;
+      border-radius: 48px 48px 0 0;
+      padding: 70px 0 60px;
+      margin-top: 60px;
+    }
+    .contact-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 48px;
+      justify-content: space-between;
+    }
+    .contact-info {
+      flex: 1;
+    }
+    .contact-info h3 {
+      font-size: 1.8rem;
+      margin-bottom: 24px;
+      color: var(--gold-light);
+    }
+    .contact-detail {
+      margin: 20px 0;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 1.2rem;
+    }
+    .social-buttons {
+      display: flex;
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .social-btn {
+      background: #2e2822;
+      padding: 14px 25px;
+      border-radius: 60px;
+      color: #f2e3cf;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .social-btn i {
+      font-size: 1.3rem;
+    }
+    .social-btn:hover {
+      background: var(--gold);
+      color: #111;
+    }
+    .map-placeholder {
+      flex: 1;
+      background: #2f2821;
+      border-radius: 32px;
+      padding: 40px;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+
+    /* footer */
+    .footer {
+      background: #0e0c0a;
+      color: #b9ae9b;
+      padding: 40px 0 25px;
+      text-align: center;
+    }
+    .footer p {
+      margin: 10px 0;
+    }
+    .footer .quote {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--gold);
+      letter-spacing: 0.5px;
+    }
+
+    /* responsive */
+    @media (max-width: 950px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: #0f0e0cd9;
+        backdrop-filter: blur(12px);
+        padding: 20px;
+        border-radius: 32px;
+        margin-top: 20px;
+      }
+      .nav-links.show {
+        display: flex;
+      }
+      .menu-icon {
+        display: block;
+      }
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      .hero .gold-text {
+        font-size: 1.3rem;
+      }
+      .section-heading h2 {
+        font-size: 2rem;
+      }
+    }
+    @media (max-width: 580px) {
+      .container {
+        padding: 0 20px;
+      }
+      .hero-buttons .btn {
+        padding: 12px 25px;
+      }
+    }
+    .fixed-wa {
+      position: fixed;
+      bottom: 25px;
+      left: 25px;
+      background: #25D366;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 5px 12px rgba(0,0,0,0.2);
+      z-index: 99;
+    }
+    .fixed-wa a {
+      color: white;
+      font-size: 30px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Fixed WhatsApp contact (mockup number from doc) -->
+<div class="fixed-wa">
+  <a href="https://wa.me/249127068886?text=مرحباً،%20أرغب%20في%20الاستفسار%20عن%20عطوركم" target="_blank"><i class="fab fa-whatsapp"></i></a>
+</div>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="container nav-container">
+    <div class="logo">
+      <h1>عبق الياسمين</h1>
+    </div>
+    <div class="menu-icon" id="menuIcon">
+      <i class="fas fa-bars"></i>
+    </div>
+    <div class="nav-links" id="navLinks">
+      <a href="#home">الرئيسية</a>
+      <a href="#products">منتجاتنا</a>
+      <a href="#features">مميزاتنا</a>
+      <a href="#gallery">المعرض</a>
+      <a href="#contact">تواصل</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="home" class="hero">
+  <div class="container hero-content">
+    <h1>عبق الياسمين للعطور</h1>
+    <div class="gold-text">تركيب عطور فرنسية – إسبانية – سويسرية</div>
+    <p>نوفر أجود العطور الأوروبية والعربية، وتركيبات عطرية مميزة تجمع بين الأصالة والفخامة. خبرة سودانية بأعلى معايير الجودة والثبات.</p>
+    <div class="hero-buttons">
+      <a href="#contact" class="btn btn-primary">تواصل معنا</a>
+      <a href="#products" class="btn btn-outline">تصفح المنتجات</a>
+    </div>
+  </div>
+</section>
+
+<!-- Products Section -->
+<div class="container" id="products">
+  <div class="section-heading" style="margin-top: 80px;">
+    <h2>تشكيلتنا العطرية</h2>
+    <div class="section-sub">نقدم لكم أرقى العطور والبخور والريحة الناشفة</div>
+  </div>
+  <div class="products-grid">
+    <!-- العطور -->
+    <div class="card">
+      <div class="card-icon"><i class="fas fa-flask"></i></div>
+      <h3>العطور العالمية</h3>
+      <div class="sub-items">
+        <span class="badge">فرنسية</span>
+        <span class="badge">إسبانية</span>
+        <span class="badge">سويسرية</span>
+      </div>
+      <p>خامات أوروبية أصلية، تركيبات فاخرة تدوم طويلاً وتمنحك حضوراً استثنائياً.</p>
+    </div>
+    <!-- الريحة الناشفة -->
+    <div class="card">
+      <div class="card-icon"><i class="fas fa-feather-alt"></i></div>
+      <h3>الريحة الناشفة</h3>
+      <div class="sub-items">
+        <span class="badge">محلب</span>
+        <span class="badge">ضفرة</span>
+        <span class="badge">مسك</span>
+        <span class="badge">مويات ريحة</span>
+        <span class="badge">ريحة بكل أنواعها</span>
+      </div>
+      <p>روائح شرقية أصيلة، مستوحاة من التراث السوداني العريق.</p>
+    </div>
+    <!-- بخور وعود -->
+    <div class="card">
+      <div class="card-icon"><i class="fas fa-smog"></i></div>
+      <h3>بخور & عود & عنفر</h3>
+      <p>أجود أنواع العود والعنبر والبخور الفاخر، دخون تراثية تعبق بالأصالة.</p>
+    </div>
+    <!-- خدمة خاصة -->
+    <div class="card">
+      <div class="card-icon"><i class="fas fa-magic"></i></div>
+      <h3>تركيب حسب الطلب</h3>
+      <p>نصمم عطرك الخاص بأسلوب فريد، نختار المكونات والروائح المناسبة لك.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Why choose us -->
+<div class="container" id="features">
+  <div class="section-heading">
+    <h2>لماذا تختارنا؟</h2>
+    <div class="section-sub">جودة لا تُضاهى وتجربة فريدة</div>
+  </div>
+  <div class="features-grid">
+    <div class="card"><i class="fas fa-certificate card-icon"></i><h3>خامات أصلية</h3><p>جميع خاماتنا مستوردة من أفضل بيوت العطور في أوروبا.</p></div>
+    <div class="card"><i class="fas fa-chalkboard-user card-icon"></i><h3>تركيب احترافي</h3><p>فريق مختص بتركيب العطور حسب أذواق العملاء.</p></div>
+    <div class="card"><i class="fas fa-hourglass-half card-icon"></i><h3>ثبات وفوحان ممتاز</h3><p>تركيبات عالية التركيز تدوم طويلاً.</p></div>
+    <div class="card"><i class="fas fa-tags card-icon"></i><h3>أسعار مناسبة</h3><p>فخامة حقيقية بأسعار تنافسية تناسب الجميع.</p></div>
+    <div class="card"><i class="fas fa-landmark card-icon"></i><h3>خبرة سودانية</h3><p>نحن جزء من تراث العطور في السودان، نعرف عمق الذائبة المحلية.</p></div>
+    <div class="card"><i class="fas fa-globe card-icon"></i><h3>تشكيلة عالمية ومحلية</h3><p>نوفر مئات التركيبات بين الشرقية والغربية.</p></div>
+  </div>
+</div>
+
+<!-- Gallery Section (luxury images - high-end placeholders) -->
+<div class="container" id="gallery">
+  <div class="section-heading">
+    <h2>معرض الفخامة</h2>
+    <div class="section-sub">لحظات من عبق الياسمين</div>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?q=80&w=1887&auto=format" alt="زجاجة عطر فاخرة"></div>
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1604562418668-2c47b8f0e60c?q=80&w=1887&auto=format" alt="عود وبخور"></div>
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1601103975153-b0bfd44c61d4?q=80&w=1887&auto=format" alt="مكونات عطرية"></div>
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1581540222194-0def2dda95b8?q=80&w=1887&auto=format" alt="عطور شرقية تقليدية"></div>
+  </div>
+</div>
+
+<!-- Testimonials -->
+<div class="container">
+  <div class="section-heading">
+    <h2>آراء عملائنا</h2>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card"><i class="fas fa-star-of-life"></i><p>"عطر مخصص صنعوه لي بلمسة سودانية – أوروبية. جودة وثبات خرافي! شكراً عبق الياسمين."</p><div class="client-name">- عبدالرحمن م.</div></div>
+    <div class="testimonial-card"><i class="fas fa-spa"></i><p>"الريحة الناشفة والمحلب عندهم لا تقارن، أصلية وفواحة، تجربة تسعد الحواس."</p><div class="client-name">- سعاد النور</div></div>
+    <div class="testimonial-card"><i class="fas fa-fire"></i><p>"أفضل مكان للبخور والعود في مدني. تعامل راقي ومنتجات فاخرة."</p><div class="client-name">- محمد عثمان</div></div>
+  </div>
+</div>
+
+<!-- Contact Section -->
+<section class="contact-section" id="contact">
+  <div class="container contact-grid">
+    <div class="contact-info">
+      <h3>تواصل مع عبق الياسمين</h3>
+      <div class="contact-detail"><i class="fas fa-store"></i> <span>السودان – ود مدني، السوق الكبير، جنوب المساطب</span></div>
+      <div class="contact-detail"><i class="fas fa-phone-alt"></i> <span>📞 0127068886 / 0912860030</span></div>
+      <div class="contact-detail"><i class="fas fa-clock"></i> <span>نفتح يومياً – نخدمكم بكل احترافية</span></div>
+      <div class="social-buttons">
+        <a href="https://www.facebook.com/profile.php?id=61589867810600" target="_blank" class="social-btn"><i class="fab fa-facebook-f"></i> فيسبوك</a>
+        <a href="https://www.tiktok.com/@user7852165986675" target="_blank" class="social-btn"><i class="fab fa-tiktok"></i> تيك توك</a>
+        <a href="https://wa.me/249127068886" target="_blank" class="social-btn"><i class="fab fa-whatsapp"></i> واتساب</a>
+      </div>
+    </div>
+    <div class="map-placeholder">
+      <i class="fas fa-map-marker-alt" style="font-size: 3rem; color: var(--gold);"></i>
+      <p style="margin-top: 15px;">📍 ود مدني – السوق الكبير<br /> جنوب المساطب، سوق العطور الفاخرة</p>
+      <small>نستقبل زوارنا الكرام بكل ترحاب</small>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <p class="quote">"حامل المسك لا يُجلس إلا من العبق"</p>
+    <p>عبق الياسمين للعطور — جودة تتحدث عن نفسها</p>
+    <p style="margin-top: 18px;">© 2026 عبق الياسمين للعطور | جميع الحقوق محفوظة</p>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu toggle
+  const menuIcon = document.getElementById('menuIcon');
+  const navLinks = document.getElementById('navLinks');
+  menuIcon.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+  });
+  // Smooth anchor scroll
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if(href === "#" || href === "") return;
+      const target = document.querySelector(href);
+      if(target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+        if(navLinks.classList.contains('show')) navLinks.classList.remove('show');
+      }
+    });
+  });
+  // Change navbar style on scroll
+  window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    if(window.scrollY > 60) {
+      navbar.style.backgroundColor = '#0a0806';
+      navbar.style.padding = '12px 0';
+    } else {
+      navbar.style.backgroundColor = 'rgba(17, 17, 17, 0.96)';
+      navbar.style.padding = '18px 0';
+    }
+  });
+</script>
+</body>
+</html>
