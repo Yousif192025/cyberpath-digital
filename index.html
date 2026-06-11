@@ -793,7 +793,21 @@
             transform: translateY(-8px);
             border-color: var(--primary);
         }
+                .vision-logo {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            object-fit: cover;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 4px;
+            transition: 0.3s;
+        }
 
+        .vision-card:hover .vision-logo {
+            transform: scale(1.05);
+        }
+        
         .vision-icon {
             font-size: 3rem;
             margin-bottom: 20px;
@@ -1057,7 +1071,7 @@
         </div>
     </section>
 
-         <!-- رؤيتنا المستقبلية -->
+             <!-- رؤيتنا المستقبلية -->
     <section class="vision-section">
         <div class="container">
             <div class="section-title">
@@ -1067,7 +1081,7 @@
 
             <div class="vision-grid">
                 <div class="vision-card active">
-                    <div class="vision-icon">💻</div>
+                    <img src="./assest/images/logo/CPDG.png" alt="CyberPath Group" class="vision-logo" onerror="this.src='https://placehold.co/80x80?text=CPDG'">
                     <h3>CPD</h3>
                     <p class="vision-name">CyberPath Digital</p>
                     <small>المواقع والمتاجر والمنصات التعليمية</small>
@@ -1075,7 +1089,7 @@
                 </div>
 
                 <div class="vision-card future">
-                    <div class="vision-icon">🎓</div>
+                    <img src="./assest/images/logo/CPDG.png" alt="CyberPath Group" class="vision-logo" onerror="this.src='https://placehold.co/80x80?text=CPDG'">
                     <h3>CPA</h3>
                     <p class="vision-name">CyberPath Academy</p>
                     <small>التدريب والتعليم</small>
@@ -1083,7 +1097,7 @@
                 </div>
 
                 <div class="vision-card future">
-                    <div class="vision-icon">🛡️</div>
+                    <img src="./assest/images/logo/CPDG.png" alt="CyberPath Group" class="vision-logo" onerror="this.src='https://placehold.co/80x80?text=CPDG'">
                     <h3>CPS</h3>
                     <p class="vision-name">CyberPath Security</p>
                     <small>حلول الأمن السيبراني</small>
@@ -1091,7 +1105,7 @@
                 </div>
 
                 <div class="vision-card future">
-                    <div class="vision-icon">⚙️</div>
+                    <img src="./assest/images/logo/CPDG.png" alt="CyberPath Group" class="vision-logo" onerror="this.src='https://placehold.co/80x80?text=CPDG'">
                     <h3>CPL</h3>
                     <p class="vision-name">CyberPath Labs</p>
                     <small>المنتجات والابتكار التقني</small>
@@ -1100,6 +1114,7 @@
             </div>
         </div>
     </section>
+    
     <section class="cta-section">
         <h2>جاهز لبدء مشروعك الرقمي؟</h2>
         <p style="margin-bottom: 30px; color: var(--muted-dark);">احصل على استشارة مجانية الآن</p>
