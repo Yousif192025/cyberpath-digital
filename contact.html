@@ -2,58 +2,693 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>CPD | تواصل معنا</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <style>
-        /* نفس الـ style السابق */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root { --primary: #0A84FF; --secondary: #06B6D4; --dark-bg: #07111f; --dark-card: #101b2d; --light-bg: #f8fafc; --light-card: #ffffff; --text-dark: #ffffff; --text-light: #0f172a; --border-dark: rgba(255,255,255,0.08); --border-light: rgba(0,0,0,0.08); }
-        body { font-family: 'Tajawal', sans-serif; transition: 0.3s; }
-        body.dark { background: var(--dark-bg); color: var(--text-dark); }
-        body.light { background: var(--light-bg); color: var(--text-light); }
-        .bg-grid { position: fixed; inset: 0; background-image: linear-gradient(var(--border-dark) 1px, transparent 1px), linear-gradient(90deg, var(--border-dark) 1px, transparent 1px); background-size: 50px 50px; z-index: -2; }
-        body.light .bg-grid { background-image: linear-gradient(var(--border-light) 1px, transparent 1px), linear-gradient(90deg, var(--border-light) 1px, transparent 1px); }
-        .glow { position: fixed; width: 500px; height: 500px; background: var(--primary); filter: blur(180px); opacity: 0.2; top: -100px; right: -100px; z-index: -1; }
-        header { position: fixed; top: 0; width: 100%; padding: 18px 8%; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(16px); border-bottom: 1px solid var(--border-dark); z-index: 1000; }
-        body.light header { background: rgba(248,250,252,0.9); }
-        body.dark header { background: rgba(7,17,31,0.85); }
-        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-        .logo img { width: 48px; height: 48px; border-radius: 50%; }
-        nav { display: flex; gap: 28px; }
-        nav a { text-decoration: none; font-weight: 600; color: inherit; }
-        nav a:hover { color: var(--secondary); }
-        .header-actions { display: flex; gap: 15px; align-items: center; }
-        .theme-toggle { background: rgba(255,255,255,0.1); border: none; border-radius: 40px; padding: 8px 14px; cursor: pointer; }
-        .btn-primary { background: linear-gradient(135deg, var(--primary), var(--secondary)); padding: 10px 24px; border-radius: 40px; color: white; text-decoration: none; font-weight: 700; }
-        .container { padding: 140px 8% 80px; }
-        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-        .info-card { background: var(--dark-card); border: 1px solid var(--border-dark); border-radius: 28px; padding: 35px; }
-        body.light .info-card { background: white; }
-        .info-card i { font-size: 2rem; color: var(--secondary); margin-bottom: 15px; }
-        footer { text-align: center; padding: 40px 8%; border-top: 1px solid var(--border-dark); }
-        @media (max-width: 768px) { nav { display: none; } .contact-grid { grid-template-columns: 1fr; } }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0A84FF;
+            --secondary: #06B6D4;
+            --dark-bg: #07111f;
+            --dark-card: #101b2d;
+            --light-bg: #f8fafc;
+            --light-card: #ffffff;
+            --text-dark: #ffffff;
+            --text-light: #0f172a;
+            --muted-dark: #94a3b8;
+            --muted-light: #475569;
+            --border-dark: rgba(255,255,255,0.08);
+            --border-light: rgba(0,0,0,0.08);
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            transition: 0.3s;
+            overflow-x: hidden;
+        }
+
+        body.dark {
+            background: var(--dark-bg);
+            color: var(--text-dark);
+        }
+
+        body.light {
+            background: var(--light-bg);
+            color: var(--text-light);
+        }
+
+        .bg-grid {
+            position: fixed;
+            inset: 0;
+            background-image: linear-gradient(var(--border-dark) 1px, transparent 1px),
+                              linear-gradient(90deg, var(--border-dark) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        body.light .bg-grid {
+            background-image: linear-gradient(var(--border-light) 1px, transparent 1px),
+                              linear-gradient(90deg, var(--border-light) 1px, transparent 1px);
+        }
+
+        .glow {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            background: var(--primary);
+            filter: blur(220px);
+            opacity: 0.15;
+            top: -150px;
+            right: -150px;
+            z-index: -1;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-dark);
+            z-index: 1000;
+        }
+
+        body.light header {
+            background: rgba(248,250,252,0.9);
+            border-bottom-color: var(--border-light);
+        }
+
+        body.dark header {
+            background: rgba(7,17,31,0.85);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 4px;
+            border: 2px solid var(--secondary);
+        }
+
+        .logo span {
+            font-weight: 800;
+            font-size: 1.4rem;
+            color: inherit;
+        }
+
+        .nav-desktop {
+            display: flex;
+            gap: 28px;
+        }
+
+        .nav-desktop a {
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        body.dark .nav-desktop a { color: white; }
+        body.light .nav-desktop a { color: #0f172a; }
+        .nav-desktop a:hover { color: var(--secondary); }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: inherit;
+        }
+
+        .mobile-sidebar {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 280px;
+            height: 100%;
+            background: var(--dark-card);
+            backdrop-filter: blur(20px);
+            z-index: 2000;
+            transition: 0.4s ease;
+            padding: 80px 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            border-left: 1px solid var(--border-dark);
+        }
+
+        body.light .mobile-sidebar {
+            background: white;
+        }
+
+        .mobile-sidebar.open {
+            right: 0;
+        }
+
+        .mobile-sidebar a {
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: inherit;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-dark);
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .mobile-sidebar a:hover {
+            color: var(--primary);
+            padding-right: 10px;
+        }
+        
+        .sidebar-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-dark);
+        }
+        
+        .sidebar-logo img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+        }
+
+        .close-sidebar {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: inherit;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1999;
+            display: none;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .theme-toggle {
+            background: rgba(255,255,255,0.1);
+            border: none;
+            border-radius: 40px;
+            padding: 8px 14px;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 12px 28px;
+            border-radius: 40px;
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 20px rgba(10,132,255,0.3);
+        }
+
+        .container {
+            padding: 140px 8% 80px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            text-align: center;
+            padding: 40px 0 60px;
+        }
+
+        .hero-section h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+
+        .hero-section h1 span {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-section p {
+            color: var(--muted-dark);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Contact Grid */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .info-card {
+            background: var(--dark-card);
+            border: 1px solid var(--border-dark);
+            border-radius: 28px;
+            padding: 35px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        body.light .info-card {
+            background: var(--light-card);
+        }
+
+        .info-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--primary);
+        }
+
+        .info-card i {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .info-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .info-card p {
+            color: var(--muted-dark);
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .info-card a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .info-card a:hover {
+            color: var(--secondary);
+        }
+
+        /* Map Section */
+        .map-section {
+            margin-top: 60px;
+            border-radius: 28px;
+            overflow: hidden;
+            border: 1px solid var(--border-dark);
+        }
+
+        .map-placeholder {
+            background: var(--dark-card);
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            color: var(--muted-dark);
+        }
+
+        body.light .map-placeholder {
+            background: var(--light-card);
+        }
+
+        .map-placeholder i {
+            font-size: 3rem;
+            color: var(--primary);
+        }
+
+        /* Quick Contact Form */
+        .form-section {
+            margin-top: 60px;
+            background: var(--dark-card);
+            border: 1px solid var(--border-dark);
+            border-radius: 28px;
+            padding: 40px;
+        }
+
+        body.light .form-section {
+            background: var(--light-card);
+        }
+
+        .form-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .form-section p {
+            text-align: center;
+            color: var(--muted-dark);
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border-radius: 16px;
+            border: 1px solid var(--border-dark);
+            background: transparent;
+            color: inherit;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        textarea {
+            margin-bottom: 20px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 8% 20px;
+            border-top: 1px solid var(--border-dark);
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+            text-align: right;
+        }
+        
+        .footer-col {
+            flex: 1;
+            min-width: 180px;
+        }
+        
+        .footer-col h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .footer-col a {
+            display: block;
+            color: var(--muted-dark);
+            text-decoration: none;
+            margin-bottom: 12px;
+            transition: 0.3s;
+        }
+        
+        .footer-col a:hover {
+            color: var(--primary);
+            padding-right: 5px;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-dark);
+            color: var(--muted-dark);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-desktop {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .hero-section h1 {
+                font-size: 2.2rem;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .form-group {
+                grid-template-columns: 1fr;
+            }
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-logo {
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 <body class="dark">
-<div class="bg-grid"></div><div class="glow"></div>
+<div class="bg-grid"></div>
+<div class="glow"></div>
+
 <header>
-    <a href="index.html" class="logo"><img src="./assest/images/logo/CPD.png" alt="logo" onerror="this.src='https://placehold.co/48x48?text=CPD'"><span>CyberPath Digital</span></a>
-    <nav><a href="index.html">الرئيسية</a><a href="services.html">الخدمات</a><a href="portfolio.html">أعمالنا</a><a href="contact.html">تواصل معنا</a></nav>
-    <div class="header-actions"><button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button><a href="get-quote.html" class="btn-primary">اطلب عرض سعر</a></div>
+    <a href="index.html" class="logo">
+        <img src="./assest/images/logo/CPD.png" alt="CPD Logo" onerror="this.src='https://placehold.co/60x60?text=CPD'">
+        <span>CyberPath Digital</span>
+    </a>
+
+    <div class="nav-desktop">
+        <a href="index.html">الرئيسية</a>
+        <a href="services.html">الخدمات</a>
+        <a href="portfolio.html">أعمالنا</a>
+        <a href="contact.html">تواصل معنا</a>
+    </div>
+
+    <div class="header-actions">
+        <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+        <a href="get-quote.html" class="btn-primary">اطلب عرض سعر</a>
+        <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+    </div>
 </header>
+
+<div class="overlay" id="overlay"></div>
+<div class="mobile-sidebar" id="mobileSidebar">
+    <button class="close-sidebar" id="closeSidebar"><i class="fas fa-times"></i></button>
+    <div class="sidebar-logo">
+        <img src="./assest/images/logo/CPD.png" alt="CPD Logo" onerror="this.src='https://placehold.co/45x45?text=CPD'">
+        <span>CyberPath Digital</span>
+    </div>
+    <a href="index.html"><i class="fas fa-home"></i> الرئيسية</a>
+    <a href="services.html"><i class="fas fa-cogs"></i> الخدمات</a>
+    <a href="portfolio.html"><i class="fas fa-briefcase"></i> أعمالنا</a>
+    <a href="contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a>
+    <a href="get-quote.html" class="btn-primary" style="text-align: center; margin-top: 20px;">اطلب عرض سعر</a>
+</div>
+
 <main>
     <div class="container">
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <h1>تواصل <span>معنا</span></h1>
+            <p>نحن هنا للإجابة على استفساراتك ومساعدتك في بناء حضورك الرقمي</p>
+        </div>
+
+        <!-- Contact Cards -->
         <div class="contact-grid">
-            <div class="info-card"><i class="fas fa-map-marker-alt"></i><h3>المقر الرئيسي</h3><p>الرياض – ضاحية لبن<br>المملكة العربية السعودية</p></div>
-            <div class="info-card"><i class="fab fa-whatsapp"></i><h3>واتساب</h3><p>استشارات: <a href="https://wa.me/966530431798" style="color:var(--primary)">0530431798</a><br>مبيعات: <a href="https://wa.me/966557450188" style="color:var(--primary)">0557450188</a></p></div>
-            <div class="info-card"><i class="far fa-clock"></i><h3>ساعات العمل</h3><p>الأحد – الخميس: 9ص - 6م<br>الدعم الفني: 24/7</p></div>
-            <div class="info-card"><i class="fas fa-envelope"></i><h3>طلب عرض سعر</h3><p>احصل على استشارة مجانية الآن</p><a href="get-quote.html" class="btn-primary" style="display:inline-block; margin-top:15px;">اطلب عرض سعر</a></div>
+            <div class="info-card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>المقر الرئيسي</h3>
+                <p>الرياض – ضاحية لبن<br>المملكة العربية السعودية</p>
+            </div>
+
+            <div class="info-card">
+                <i class="fab fa-whatsapp"></i>
+                <h3>واتساب - استشارات</h3>
+                <p>
+                    <a href="https://wa.me/249129352444" target="_blank">+249 129 352 444</a>
+                </p>
+                <p style="font-size: 0.85rem; margin-top: 5px;">للحصول على استشارة فورية</p>
+            </div>
+
+            <div class="info-card">
+                <i class="fas fa-phone-alt"></i>
+                <h3>مبيعات - اتصال وواتساب</h3>
+                <p>
+                    <a href="https://wa.me/966561428260" target="_blank">+966 56 142 8260</a>
+                </p>
+                <p style="font-size: 0.85rem; margin-top: 5px;">للطلبات والعروض</p>
+            </div>
+
+            <div class="info-card">
+                <i class="far fa-clock"></i>
+                <h3>ساعات العمل</h3>
+                <p>الأحد – الخميس: 9ص - 6م<br>الدعم الفني: 24/7</p>
+            </div>
+        </div>
+
+        <!-- Map Section -->
+        <div class="map-section">
+            <div class="map-placeholder">
+                <i class="fas fa-map-marked-alt"></i>
+                <p>📍 الرياض – ضاحية لبن، المملكة العربية السعودية</p>
+                <small style="color: var(--muted-dark);">(خريطة تفاعلية قريباً)</small>
+            </div>
+        </div>
+
+        <!-- Quick Contact Form -->
+        <div class="form-section">
+            <h3>أرسل لنا رسالة</h3>
+            <p>سنرد عليك خلال 24 ساعة</p>
+            <form action="https://wa.me/966561428260" method="GET">
+                <div class="form-group">
+                    <input type="text" placeholder="الاسم الكامل" required>
+                    <input type="tel" placeholder="رقم الهاتف" required>
+                </div>
+                <input type="email" placeholder="البريد الإلكتروني (اختياري)">
+                <textarea rows="4" placeholder="نص الرسالة أو تفاصيل المشروع..."></textarea>
+                <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">
+                    <i class="fab fa-whatsapp"></i> إرسال عبر واتساب
+                </button>
+            </form>
         </div>
     </div>
 </main>
-<footer><p>© 2026 CyberPath Digital – جميع الحقوق محفوظة</p></footer>
-<script>const body=document.body,toggle=document.getElementById('themeToggle'),icon=toggle.querySelector('i');const setTheme=(theme)=>{body.classList.remove('dark','light');body.classList.add(theme);localStorage.setItem('cpd-theme',theme);icon.className=theme==='dark'?'fas fa-moon':'fas fa-sun';};setTheme(localStorage.getItem('cpd-theme')||'dark');toggle.onclick=()=>setTheme(body.classList.contains('dark')?'light':'dark');</script>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-col">
+            <div class="footer-logo">
+                <img src="./assest/images/logo/CPD.png" alt="CPD Logo" onerror="this.src='https://placehold.co/50x50?text=CPD'">
+                <span>CyberPath Digital</span>
+            </div>
+            <p style="color: var(--muted-dark); line-height: 1.7;">وكالة رقمية متكاملة بمعايير عالمية وروح سعودية</p>
+        </div>
+        <div class="footer-col">
+            <h4>روابط سريعة</h4>
+            <a href="index.html">الرئيسية</a>
+            <a href="services.html">الخدمات</a>
+            <a href="portfolio.html">أعمالنا</a>
+            <a href="contact.html">تواصل معنا</a>
+        </div>
+        <div class="footer-col">
+            <h4>خدماتنا</h4>
+            <a href="services.html">مواقع الشركات</a>
+            <a href="services.html">المتاجر الإلكترونية</a>
+            <a href="services.html">المنصات التعليمية</a>
+        </div>
+        <div class="footer-col">
+            <h4>تواصل معنا</h4>
+            <a href="https://wa.me/249129352444" target="_blank"><i class="fab fa-whatsapp"></i> استشارات: +249129352444</a>
+            <a href="https://wa.me/966561428260" target="_blank"><i class="fab fa-whatsapp"></i> مبيعات: +966561428260</a>
+            <a href="contact.html"><i class="fas fa-map-marker-alt"></i> الرياض، ضاحية لبن</a>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>© 2026 CyberPath Digital – وكالة رقمية متكاملة – جميع الحقوق محفوظة</p>
+    </div>
+</footer>
+
+<script>
+    const body = document.body;
+    const toggle = document.getElementById('themeToggle');
+    const icon = toggle.querySelector('i');
+    
+    const setTheme = (theme) => {
+        body.classList.remove('dark', 'light');
+        body.classList.add(theme);
+        localStorage.setItem('cpd-theme', theme);
+        icon.className = theme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
+    };
+    
+    const savedTheme = localStorage.getItem('cpd-theme') || 'dark';
+    setTheme(savedTheme);
+    
+    toggle.onclick = () => {
+        const newTheme = body.classList.contains('dark') ? 'light' : 'dark';
+        setTheme(newTheme);
+    };
+
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const sidebar = document.getElementById('mobileSidebar');
+    const overlay = document.getElementById('overlay');
+    const closeBtn = document.getElementById('closeSidebar');
+
+    function openMenu() {
+        sidebar.classList.add('open');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+        sidebar.classList.remove('open');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    mobileBtn.addEventListener('click', openMenu);
+    closeBtn.addEventListener('click', closeMenu);
+    overlay.addEventListener('click', closeMenu);
+</script>
 </body>
 </html>
