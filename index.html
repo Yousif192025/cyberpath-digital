@@ -3,8 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <link rel="icon" type="image/png" href="./assets/images/logo/CPD.png">
+    <link rel="icon" type="image/png" href="./assest/images/logo/CPD.png">
     <title>CPD | وكالة رقمية متكاملة</title>
+        <!-- SEO Meta Tags -->
+    <meta name="description" content="وكالة رقمية متكاملة - تصميم وتطوير مواقع الشركات والمتاجر الإلكترونية والمنصات التعليمية في السعودية">
+    <meta name="keywords" content="تصميم مواقع, متجر إلكتروني, منصة تعليمية, وكالة رقمية, الرياض, السعودية, CyberPath Digital">
+    <meta name="author" content="CyberPath Digital">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph (مشاركة الروابط في واتساب وفيسبوك) -->
+    <meta property="og:title" content="CyberPath Digital | وكالة رقمية متكاملة">
+    <meta property="og:description" content="نصمم ونطور المواقع والمتاجر الإلكترونية والمنصات التعليمية بمعايير عالمية">
+    <meta property="og:image" content="https://cyberpath.vercel.app/assets/images/logo/CPD.png">
+    <meta property="og:url" content="https://cyberpath.vercel.app">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ar_AR">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CyberPath Digital | وكالة رقمية متكاملة">
+    <meta name="twitter:description" content="حلول رقمية حديثة للشركات والمؤسسات">
+    <meta name="twitter:image" content="https://cyberpath.vercel.app/assets/images/logo/CPD.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://cyberpath.vercel.app/index.html">
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <style>
@@ -868,6 +890,31 @@
             }
         }
     </style>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "CyberPath Digital",
+  "url": "https://YOUR_DOMAIN",
+  "logo": "https://YOUR_DOMAIN/assets/images/logo/CPD.png",
+  "description": "وكالة رقمية متكاملة في الرياض، متخصصة في تصميم وتطوير المواقع والمتاجر الإلكترونية والمنصات التعليمية",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "الرياض",
+    "addressRegion": "ضاحية لبن",
+    "addressCountry": "SA"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+966561428260",
+    "contactType": "customer service",
+    "availableLanguage": "Arabic"
+  },
+  "sameAs": [
+    "https://wa.me/966561428260"
+  ]
+}
+</script>
 </head>
 <body class="dark">
 <div class="bg-grid"></div>
@@ -888,18 +935,24 @@
     </div>
 
     <div class="header-actions">
-        <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+        <button class="theme-toggle" id="themeToggle" aria-label="تبديل الوضع المظلم والفاتح">
+    <i class="fas fa-moon" aria-hidden="true"></i>
+    </button>
         <a href="get-quote.html" class="btn-primary">اطلب عرض سعر</a>
-        <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="فتح القائمة">
+    <i class="fas fa-bars" aria-hidden="true"></i>
+    </button>
     </div>
 </header>
 
 <!-- Mobile Sidebar with Logo -->
 <div class="overlay" id="overlay"></div>
 <div class="mobile-sidebar" id="mobileSidebar">
-    <button class="close-sidebar" id="closeSidebar"><i class="fas fa-times"></i></button>
+    <button class="close-sidebar" id="closeSidebar" aria-label="إغلاق القائمة">
+    <i class="fas fa-times" aria-hidden="true"></i>
+    </button> 
     <div class="sidebar-logo">
-        <img src="./assest/images/logo/CPD.png" alt="CPD Logo" onerror="this.src='https://placehold.co/45x45?text=CPD'">
+        <img src="./assets/images/logo/CPD.png" alt="CPD Logo" loading="lazy">
         <span>CyberPath Digital</span>
     </div>
     <a href="index.html"><i class="fas fa-home"></i> الرئيسية</a>
@@ -989,7 +1042,7 @@
         </div>
         <div class="portfolio-grid">
             <div class="portfolio-item">
-                <img src="./assest/images/logo/dar.png" alt="dar Logo" onerror="this.src='https://placehold.co/50x50?text=CPD'">
+                <img src="./assets/images/logo/dar.png" alt="Dar Khubara" loading="lazy">
                 <div class="portfolio-overlay">
                     <h3>DarKhubara</h3>
                     <p>موقع معهد تدريب </p>
@@ -997,7 +1050,7 @@
                 </div>
             </div>
             <div class="portfolio-item">
-                <img src="./assest/images/logo/furn.png" alt="Dar Logo" onerror="this.src='https://placehold.co/50x50?text=CPD'">
+                <img src="./assest/images/logo/furn.png" alt="Dar Logo" loading="lazy">
                 <div class="portfolio-overlay">
                     <h3>Homestyle</h3>
                     <p>متجر أثاث إلكتروني متكامل</p>
@@ -1005,7 +1058,7 @@
                 </div>
             </div>
             <div class="portfolio-item">
-                <img src="./assest/images/logo/abag.png" alt="Abag" onerror="this.src='https://placehold.co/400x280?text=Corporate'">
+                <img src="./assest/images/logo/abag.png" alt="Abag" loading="lazy">
                 <div class="portfolio-overlay">
                     <h3>شركة أعمال</h3>
                     <p>موقع مؤسسة عبق الياسمين للعطور ABAQ</p>
@@ -1082,7 +1135,7 @@
 
             <div class="vision-grid">
                 <div class="vision-card active">
-                    <img src="./assest/images/logo/CPDG.png" alt="CyberPath Group" class="vision-logo" onerror="this.src='https://placehold.co/80x80?text=CPDG'">
+                    <img src="./assets/images/logo/CPDG.png" alt="CyberPath Group" class="vision-logo" loading="lazy">  
                     <h3>CPD</h3>
                     <p class="vision-name">CyberPath Digital</p>
                     <small>المواقع والمتاجر والمنصات التعليمية</small>
