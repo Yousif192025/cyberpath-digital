@@ -2,65 +2,797 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CPD | مشاريعنا السابقة</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>CPD | أعمالنا السابقة</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <style>
-        /* نفس الـ style السابق */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root { --primary: #0A84FF; --secondary: #06B6D4; --dark-bg: #07111f; --dark-card: #101b2d; --light-bg: #f8fafc; --light-card: #ffffff; --text-dark: #ffffff; --text-light: #0f172a; --muted-dark: #94a3b8; --muted-light: #475569; --border-dark: rgba(255,255,255,0.08); --border-light: rgba(0,0,0,0.08); }
-        body { font-family: 'Tajawal', sans-serif; transition: 0.3s; overflow-x: hidden; }
-        body.dark { background: var(--dark-bg); color: var(--text-dark); }
-        body.light { background: var(--light-bg); color: var(--text-light); }
-        .bg-grid { position: fixed; inset: 0; background-image: linear-gradient(var(--border-dark) 1px, transparent 1px), linear-gradient(90deg, var(--border-dark) 1px, transparent 1px); background-size: 50px 50px; z-index: -2; }
-        body.light .bg-grid { background-image: linear-gradient(var(--border-light) 1px, transparent 1px), linear-gradient(90deg, var(--border-light) 1px, transparent 1px); }
-        .glow { position: fixed; width: 500px; height: 500px; background: var(--primary); filter: blur(180px); opacity: 0.2; top: -100px; right: -100px; z-index: -1; }
-        header { position: fixed; top: 0; width: 100%; padding: 18px 8%; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(16px); border-bottom: 1px solid var(--border-dark); z-index: 1000; }
-        body.light header { background: rgba(248,250,252,0.9); border-bottom-color: var(--border-light); }
-        body.dark header { background: rgba(7,17,31,0.85); }
-        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-        .logo img { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--secondary)); padding: 4px; }
-        .logo span { font-weight: 800; font-size: 1.2rem; color: inherit; }
-        nav { display: flex; gap: 28px; }
-        nav a { text-decoration: none; font-weight: 600; transition: 0.3s; }
-        body.dark nav a { color: white; }
-        body.light nav a { color: #0f172a; }
-        nav a:hover { color: var(--secondary); }
-        .header-actions { display: flex; gap: 15px; align-items: center; }
-        .theme-toggle { background: rgba(255,255,255,0.1); border: none; border-radius: 40px; padding: 8px 14px; cursor: pointer; font-size: 1.2rem; }
-        .btn-primary { background: linear-gradient(135deg, var(--primary), var(--secondary)); padding: 10px 24px; border-radius: 40px; color: white; text-decoration: none; font-weight: 700; }
-        .container { padding: 120px 8% 80px; }
-        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 30px; margin-top: 40px; }
-        .project-card { background: var(--dark-card); border: 1px solid var(--border-dark); border-radius: 28px; overflow: hidden; transition: 0.3s; }
-        body.light .project-card { background: white; border-color: var(--border-light); }
-        .project-card:hover { transform: translateY(-8px); border-color: var(--primary); }
-        .project-img { width: 100%; height: 200px; background: #1e2a3e; display: flex; align-items: center; justify-content: center; }
-        .project-info { padding: 25px; }
-        .section-title { text-align: center; margin-bottom: 40px; }
-        .section-title h2 { font-size: 2.4rem; font-weight: 800; }
-        footer { text-align: center; padding: 40px 8%; border-top: 1px solid var(--border-dark); }
-        @media (max-width: 768px) { nav { display: none; } }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0A84FF;
+            --secondary: #06B6D4;
+            --dark-bg: #07111f;
+            --dark-card: #101b2d;
+            --light-bg: #f8fafc;
+            --light-card: #ffffff;
+            --text-dark: #ffffff;
+            --text-light: #0f172a;
+            --muted-dark: #94a3b8;
+            --muted-light: #475569;
+            --border-dark: rgba(255,255,255,0.08);
+            --border-light: rgba(0,0,0,0.08);
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            transition: 0.3s;
+            overflow-x: hidden;
+        }
+
+        body.dark {
+            background: var(--dark-bg);
+            color: var(--text-dark);
+        }
+
+        body.light {
+            background: var(--light-bg);
+            color: var(--text-light);
+        }
+
+        .bg-grid {
+            position: fixed;
+            inset: 0;
+            background-image: linear-gradient(var(--border-dark) 1px, transparent 1px),
+                              linear-gradient(90deg, var(--border-dark) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        body.light .bg-grid {
+            background-image: linear-gradient(var(--border-light) 1px, transparent 1px),
+                              linear-gradient(90deg, var(--border-light) 1px, transparent 1px);
+        }
+
+        .glow {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            background: var(--primary);
+            filter: blur(220px);
+            opacity: 0.15;
+            top: -150px;
+            right: -150px;
+            z-index: -1;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-dark);
+            z-index: 1000;
+        }
+
+        body.light header {
+            background: rgba(248,250,252,0.9);
+            border-bottom-color: var(--border-light);
+        }
+
+        body.dark header {
+            background: rgba(7,17,31,0.85);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 4px;
+            border: 2px solid var(--secondary);
+        }
+
+        .logo span {
+            font-weight: 800;
+            font-size: 1.4rem;
+            color: inherit;
+        }
+
+        .nav-desktop {
+            display: flex;
+            gap: 28px;
+        }
+
+        .nav-desktop a {
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        body.dark .nav-desktop a { color: white; }
+        body.light .nav-desktop a { color: #0f172a; }
+        .nav-desktop a:hover { color: var(--secondary); }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: inherit;
+        }
+
+        .mobile-sidebar {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 280px;
+            height: 100%;
+            background: var(--dark-card);
+            backdrop-filter: blur(20px);
+            z-index: 2000;
+            transition: 0.4s ease;
+            padding: 80px 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            border-left: 1px solid var(--border-dark);
+        }
+
+        body.light .mobile-sidebar {
+            background: white;
+        }
+
+        .mobile-sidebar.open {
+            right: 0;
+        }
+
+        .mobile-sidebar a {
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: inherit;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-dark);
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .mobile-sidebar a:hover {
+            color: var(--primary);
+            padding-right: 10px;
+        }
+        
+        .sidebar-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-dark);
+        }
+        
+        .sidebar-logo img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+        }
+
+        .close-sidebar {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: inherit;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1999;
+            display: none;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .theme-toggle {
+            background: rgba(255,255,255,0.1);
+            border: none;
+            border-radius: 40px;
+            padding: 8px 14px;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 12px 28px;
+            border-radius: 40px;
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 20px rgba(10,132,255,0.3);
+        }
+
+        .btn-outline {
+            border: 1.5px solid var(--border-dark);
+            padding: 12px 28px;
+            border-radius: 40px;
+            background: transparent;
+            color: inherit;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .container {
+            padding: 140px 8% 60px;
+        }
+
+        .hero-section {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .hero-section h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+
+        .hero-section h1 span {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-section p {
+            color: var(--muted-dark);
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: var(--muted-dark);
+        }
+
+        /* Portfolio Grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            cursor: pointer;
+            background: var(--dark-card);
+            border: 1px solid var(--border-dark);
+            transition: 0.3s;
+        }
+
+        body.light .portfolio-item {
+            background: white;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(7,17,31,0.95), transparent);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            opacity: 0;
+            transition: 0.4s;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .portfolio-overlay h3 {
+            font-size: 1.6rem;
+            margin-bottom: 8px;
+        }
+
+        .portfolio-overlay p {
+            color: var(--muted-dark);
+            margin-bottom: 15px;
+        }
+
+        /* Vision Section */
+        .vision-section {
+            padding: 80px 8%;
+            background: linear-gradient(135deg, rgba(10,132,255,0.05), rgba(6,182,212,0.02));
+            border-top: 1px solid var(--border-dark);
+            border-bottom: 1px solid var(--border-dark);
+            margin-top: 60px;
+        }
+
+        .vision-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .vision-card {
+            background: var(--dark-card);
+            border: 1px solid var(--border-dark);
+            border-radius: 28px;
+            padding: 35px 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        body.light .vision-card {
+            background: var(--light-card);
+        }
+
+        .vision-card.active {
+            border: 2px solid var(--primary);
+            background: linear-gradient(135deg, rgba(10,132,255,0.1), rgba(6,182,212,0.05));
+        }
+
+        .vision-card.future {
+            opacity: 0.8;
+        }
+
+        .vision-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+        }
+
+        .vision-logo {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            object-fit: cover;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 4px;
+            transition: 0.3s;
+        }
+
+        .vision-card:hover .vision-logo {
+            transform: scale(1.05);
+        }
+
+        .vision-card h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 5px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .vision-name {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .vision-card small {
+            color: var(--muted-dark);
+            font-size: 0.85rem;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .vision-status {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .vision-status.active {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        .vision-status.future {
+            background: rgba(255,255,255,0.1);
+            color: var(--muted-dark);
+        }
+
+        body.light .vision-status.future {
+            background: rgba(0,0,0,0.05);
+            color: var(--muted-light);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 8%;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(10,132,255,0.1), rgba(6,182,212,0.05));
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 8% 20px;
+            border-top: 1px solid var(--border-dark);
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+            text-align: right;
+        }
+        
+        .footer-col {
+            flex: 1;
+            min-width: 180px;
+        }
+        
+        .footer-col h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .footer-col a {
+            display: block;
+            color: var(--muted-dark);
+            text-decoration: none;
+            margin-bottom: 12px;
+            transition: 0.3s;
+        }
+        
+        .footer-col a:hover {
+            color: var(--primary);
+            padding-right: 5px;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-dark);
+            color: var(--muted-dark);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-desktop {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .hero-section h1 {
+                font-size: 2.2rem;
+            }
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            .vision-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-logo {
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 <body class="dark">
-<div class="bg-grid"></div><div class="glow"></div>
+<div class="bg-grid"></div>
+<div class="glow"></div>
+
 <header>
-    <a href="index.html" class="logo"><img src="./assest/images/logo/CPD.png" alt="logo" onerror="this.src='https://placehold.co/48x48?text=CPD'"><span>CyberPath Digital</span></a>
-    <nav><a href="index.html">الرئيسية</a><a href="services.html">الخدمات</a><a href="portfolio.html">أعمالنا</a><a href="contact.html">تواصل معنا</a></nav>
-    <div class="header-actions"><button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button><a href="get-quote.html" class="btn-primary">اطلب عرض سعر</a></div>
+    <a href="index.html" class="logo">
+        <img src="./assest/images/logo/CPD.png" alt="CPD Logo" onerror="this.src='https://placehold.co/60x60?text=CPD'">
+        <span>CyberPath Digital</span>
+    </a>
+
+    <div class="nav-desktop">
+        <a href="index.html">الرئيسية</a>
+        <a href="services.html">الخدمات</a>
+        <a href="portfolio.html">أعمالنا</a>
+        <a href="contact.html">تواصل معنا</a>
+    </div>
+
+    <div class="header-actions">
+        <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+        <a href="get-quote.html" class="btn-primary">اطلب عرض سعر</a>
+        <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+    </div>
 </header>
+
+<div class="overlay" id="overlay"></div>
+<div class="mobile-sidebar" id="mobileSidebar">
+    <button class="close-sidebar" id="closeSidebar"><i class="fas fa-times"></i></button>
+    <div class="sidebar-logo">
+        <img src="./assest/images/logo/CPD.png" alt="CPD Logo" onerror="this.src='https://placehold.co/45x45?text=CPD'">
+        <span>CyberPath Digital</span>
+    </div>
+    <a href="index.html"><i class="fas fa-home"></i> الرئيسية</a>
+    <a href="services.html"><i class="fas fa-cogs"></i> الخدمات</a>
+    <a href="portfolio.html"><i class="fas fa-briefcase"></i> أعمالنا</a>
+    <a href="contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a>
+    <a href="get-quote.html" class="btn-primary" style="text-align: center; margin-top: 20px;">اطلب عرض سعر</a>
+</div>
+
 <main>
+    <!-- Hero Section -->
     <div class="container">
-        <div class="section-title"><h2>مشاريعنا السابقة</h2><p>نماذج حقيقية من أعمالنا في قطاعات متنوعة</p></div>
-        <div class="projects-grid">
-            <div class="project-card"><div class="project-img"><img src="assets/images/projects/cyberpath.jpg" alt="CyberPath" style="max-width:100%;" onerror="this.src='https://placehold.co/400x200?text=CyberPath'"></div><div class="project-info"><h3>منصة CyberPath</h3><p>منصة تدريب في الأمن السيبراني – نظام كورسات وشهادات</p><a href="get-quote.html" class="btn-primary" style="display:inline-block; margin-top:15px;">أريد مشروعاً مشابهاً</a></div></div>
-            <div class="project-card"><div class="project-img"><img src="assets/images/projects/homestyle.jpg" alt="Homestyle" onerror="this.src='https://placehold.co/400x200?text=Homestyle'"></div><div class="project-info"><h3>متجر Homestyle</h3><p>متجر أثاث إلكتروني متكامل مع WooCommerce ودفع سعودي</p><a href="get-quote.html" class="btn-primary" style="display:inline-block; margin-top:15px;">أريد مشروعاً مشابهاً</a></div></div>
-            <div class="project-card"><div class="project-img"><img src="assets/images/projects/corporate.jpg" alt="Corporate" onerror="this.src='https://placehold.co/400x200?text=Corporate'"></div><div class="project-info"><h3>موقع شركة أعمال</h3><p>موقع مؤسسي ضخم مع نظام CRM ولوحة تحكم متقدمة</p><a href="get-quote.html" class="btn-primary" style="display:inline-block; margin-top:15px;">أريد مشروعاً مشابهاً</a></div></div>
+        <div class="hero-section">
+            <h1>أعمالنا <span>السابقة</span></h1>
+            <p>نماذج حقيقية من مشاريعنا في قطاعات متنوعة، نفخر بها ونعتبرها بداية شراكات ناجحة</p>
         </div>
     </div>
+
+    <!-- Portfolio Section with real projects -->
+    <div class="container">
+        <div class="section-title">
+            <h2>مشاريع منفذة</h2>
+            <p>إليك نماذج من أعمالنا التي تعكس جودة وكفاءة فريقنا</p>
+        </div>
+        <div class="portfolio-grid">
+            <!-- مشروع دار الخبرة -->
+            <div class="portfolio-item">
+                <img src="./assest/images/logo/dar.png" alt="Dar Khubara" onerror="this.src='https://placehold.co/400x250?text=Dar+Khubara'">
+                <div class="portfolio-overlay">
+                    <h3>Dar Khubara</h3>
+                    <p>موقع معهد تدريب متكامل – نظام كورسات وشهادات</p>
+                    <a href="darindex.html" target="_blank" class="btn-primary" style="padding: 8px 20px;">تفاصيل المشروع</a>
+                </div>
+            </div>
+
+            <!-- مشروع Homestyle -->
+            <div class="portfolio-item">
+                <img src="./assest/images/logo/furn.png" alt="Homestyle" onerror="this.src='https://placehold.co/400x250?text=Homestyle'">
+                <div class="portfolio-overlay">
+                    <h3>Homestyle</h3>
+                    <p>متجر أثاث إلكتروني متكامل – WooCommerce + دفوعات سعودية</p>
+                    <a href="https://home-style-furniture-ten.vercel.app/" target="_blank" class="btn-primary" style="padding: 8px 20px;">تفاصيل المشروع</a>
+                </div>
+            </div>
+
+            <!-- مشروع عبق الياسمين ABAQ -->
+            <div class="portfolio-item">
+                <img src="./assest/images/logo/abag.png" alt="ABAQ" onerror="this.src='https://placehold.co/400x250?text=ABAQ'">
+                <div class="portfolio-overlay">
+                    <h3>عبق الياسمين ABAQ</h3>
+                    <p>موقع مؤسسة عطور – تصميم مخصص وهوية بصرية فريدة</p>
+                    <a href="abag.html" target="_blank" class="btn-primary" style="padding: 8px 20px;">تفاصيل المشروع</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- رؤيتنا المستقبلية (نفس نمط الرئيسية) -->
+    <section class="vision-section">
+        <div class="container" style="padding: 0;">
+            <div class="section-title">
+                <h2>🚀 رؤيتنا المستقبلية</h2>
+                <p>نعمل على بناء منظومة CyberPath لتقديم حلول متكاملة في التقنية والتعليم والأمن السيبراني</p>
+            </div>
+
+            <div class="vision-grid">
+                <div class="vision-card active">
+                    <img src="./assest/images/logo/CPDG.png" alt="CyberPath Group" class="vision-logo" onerror="this.src='https://placehold.co/80x80?text=CPDG'">
+                    <h3>CPD</h3>
+                    <p class="vision-name">CyberPath Digital</p>
+                    <small>المواقع والمتاجر والمنصات التعليمية</small>
+                    <span class="vision-status active">خدمة حالية</span>
+                </div>
+
+                <div class="vision-card future">
+                    <img src="./assest/images/logo/CPDG.png" alt="CyberPath Group" class="vision-logo" onerror="this.src='https://placehold.co/80x80?text=CPDG'">
+                    <h3>CPA</h3>
+                    <p class="vision-name">CyberPath Academy</p>
+                    <small>التدريب والتعليم</small>
+                    <span class="vision-status future">قريباً</span>
+                </div>
+
+                <div class="vision-card future">
+                    <img src="./assest/images/logo/CPDG.png" alt="CyberPath Group" class="vision-logo" onerror="this.src='https://placehold.co/80x80?text=CPDG'">
+                    <h3>CPS</h3>
+                    <p class="vision-name">CyberPath Security</p>
+                    <small>حلول الأمن السيبراني</small>
+                    <span class="vision-status future">قريباً</span>
+                </div>
+
+                <div class="vision-card future">
+                    <img src="./assest/images/logo/CPDG.png" alt="CyberPath Group" class="vision-logo" onerror="this.src='https://placehold.co/80x80?text=CPDG'">
+                    <h3>CPL</h3>
+                    <p class="vision-name">CyberPath Labs</p>
+                    <small>المنتجات والابتكار التقني</small>
+                    <span class="vision-status future">قريباً</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>لديك فكرة مشروع؟</h2>
+        <p style="margin-bottom: 30px; color: var(--muted-dark);">نحن هنا لتحويلها إلى واقع رقمي متميز</p>
+        <a href="get-quote.html" class="btn-primary"><i class="fab fa-whatsapp"></i> اطلب عرض سعر</a>
+    </section>
 </main>
-<footer><p>© 2026 CyberPath Digital – جميع الحقوق محفوظة</p></footer>
-<script>const body=document.body,toggle=document.getElementById('themeToggle'),icon=toggle.querySelector('i');const setTheme=(theme)=>{body.classList.remove('dark','light');body.classList.add(theme);localStorage.setItem('cpd-theme',theme);icon.className=theme==='dark'?'fas fa-moon':'fas fa-sun';};setTheme(localStorage.getItem('cpd-theme')||'dark');toggle.onclick=()=>setTheme(body.classList.contains('dark')?'light':'dark');</script>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-col">
+            <div class="footer-logo">
+                <img src="./assest/images/logo/CPD.png" alt="CPD Logo" onerror="this.src='https://placehold.co/50x50?text=CPD'">
+                <span>CyberPath Digital</span>
+            </div>
+            <p style="color: var(--muted-dark); line-height: 1.7;">وكالة رقمية متكاملة بمعايير عالمية وروح سعودية</p>
+        </div>
+        <div class="footer-col">
+            <h4>روابط سريعة</h4>
+            <a href="index.html">الرئيسية</a>
+            <a href="services.html">الخدمات</a>
+            <a href="portfolio.html">أعمالنا</a>
+            <a href="contact.html">تواصل معنا</a>
+        </div>
+        <div class="footer-col">
+            <h4>خدماتنا</h4>
+            <a href="services.html">مواقع الشركات</a>
+            <a href="services.html">المتاجر الإلكترونية</a>
+            <a href="services.html">المنصات التعليمية</a>
+        </div>
+        <div class="footer-col">
+            <h4>تواصل معنا</h4>
+            <a href="https://wa.me/966557450188" target="_blank"><i class="fab fa-whatsapp"></i> واتساب: 0557450188</a>
+            <a href="contact.html"><i class="fas fa-map-marker-alt"></i> الرياض، ضاحية لبن</a>
+            <a href="contact.html"><i class="far fa-clock"></i> الأحد - الخميس: 9ص - 6م</a>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>© 2026 CyberPath Digital – وكالة رقمية متكاملة – جميع الحقوق محفوظة</p>
+    </div>
+</footer>
+
+<script>
+    const body = document.body;
+    const toggle = document.getElementById('themeToggle');
+    const icon = toggle.querySelector('i');
+    
+    const setTheme = (theme) => {
+        body.classList.remove('dark', 'light');
+        body.classList.add(theme);
+        localStorage.setItem('cpd-theme', theme);
+        icon.className = theme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
+    };
+    
+    const savedTheme = localStorage.getItem('cpd-theme') || 'dark';
+    setTheme(savedTheme);
+    
+    toggle.onclick = () => {
+        const newTheme = body.classList.contains('dark') ? 'light' : 'dark';
+        setTheme(newTheme);
+    };
+
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const sidebar = document.getElementById('mobileSidebar');
+    const overlay = document.getElementById('overlay');
+    const closeBtn = document.getElementById('closeSidebar');
+
+    function openMenu() {
+        sidebar.classList.add('open');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+        sidebar.classList.remove('open');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    mobileBtn.addEventListener('click', openMenu);
+    closeBtn.addEventListener('click', closeMenu);
+    overlay.addEventListener('click', closeMenu);
+</script>
 </body>
 </html>
