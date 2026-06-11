@@ -44,6 +44,32 @@
             color: var(--text-light);
         }
 
+        /* -------------------- */
+        /* الحل السحري للأرقام  */
+        /* -------------------- */
+        .rtl-number {
+            direction: ltr !important;
+            display: inline-block;
+            unicode-bidi: embed;
+            font-family: 'Inter', 'Tajawal', monospace;
+            letter-spacing: 0.5px;
+        }
+
+        /* تعديل لعرض الأرقام بشكل مثالي في البطاقات */
+        .info-card p .rtl-number {
+            font-size: 1.1rem;
+            font-weight: 600;
+            background: rgba(10,132,255,0.1);
+            padding: 4px 10px;
+            border-radius: 30px;
+            margin-top: 8px;
+        }
+        
+        .footer-col a .rtl-number {
+            direction: ltr;
+            display: inline-block;
+        }
+
         .bg-grid {
             position: fixed;
             inset: 0;
@@ -543,13 +569,11 @@
 
 <main>
     <div class="container">
-        <!-- Hero Section -->
         <div class="hero-section">
             <h1>تواصل <span>معنا</span></h1>
             <p>نحن هنا للإجابة على استفساراتك ومساعدتك في بناء حضورك الرقمي</p>
         </div>
 
-        <!-- Contact Cards - أرقام مصححة -->
         <div class="contact-grid">
             <div class="info-card">
                 <i class="fas fa-map-marker-alt"></i>
@@ -557,20 +581,26 @@
                 <p>الرياض – ضاحية لبن<br>المملكة العربية السعودية</p>
             </div>
 
+            <!-- البطاقة المصححة: استشارات -->
             <div class="info-card">
                 <i class="fab fa-whatsapp"></i>
                 <h3>واتساب - استشارات</h3>
                 <p>
-                    <a href="https://wa.me/249129352444" target="_blank">+249 129 352 444</a>
+                    <a href="https://wa.me/249129352444" target="_blank">
+                        <span class="rtl-number">+249 129 352 444</span>
+                    </a>
                 </p>
                 <p style="font-size: 0.85rem; margin-top: 5px;">للحصول على استشارة فورية</p>
             </div>
 
+            <!-- البطاقة المصححة: مبيعات -->
             <div class="info-card">
                 <i class="fas fa-phone-alt"></i>
                 <h3>مبيعات - اتصال وواتساب</h3>
                 <p>
-                    <a href="https://wa.me/966561428260" target="_blank">+966 56 142 8260</a>
+                    <a href="https://wa.me/966561428260" target="_blank">
+                        <span class="rtl-number">+966 56 142 8260</span>
+                    </a>
                 </p>
                 <p style="font-size: 0.85rem; margin-top: 5px;">للطلبات والعروض</p>
             </div>
@@ -582,7 +612,6 @@
             </div>
         </div>
 
-        <!-- Map Section -->
         <div class="map-section">
             <div class="map-placeholder">
                 <i class="fas fa-map-marked-alt"></i>
@@ -591,7 +620,6 @@
             </div>
         </div>
 
-        <!-- Quick Contact Form - زر يرسل لرقم المبيعات -->
         <div class="form-section">
             <h3>أرسل لنا رسالة</h3>
             <p>سنرد عليك خلال 24 ساعة</p>
@@ -634,8 +662,12 @@
         </div>
         <div class="footer-col">
             <h4>تواصل معنا</h4>
-            <a href="https://wa.me/249129352444" target="_blank"><i class="fab fa-whatsapp"></i> استشارات: +249129352444</a>
-            <a href="https://wa.me/966561428260" target="_blank"><i class="fab fa-whatsapp"></i> مبيعات: +966561428260</a>
+            <a href="https://wa.me/249129352444" target="_blank">
+                <i class="fab fa-whatsapp"></i> استشارات: <span class="rtl-number">+249129352444</span>
+            </a>
+            <a href="https://wa.me/966561428260" target="_blank">
+                <i class="fab fa-whatsapp"></i> مبيعات: <span class="rtl-number">+966561428260</span>
+            </a>
             <a href="contact.html"><i class="fas fa-map-marker-alt"></i> الرياض، ضاحية لبن</a>
         </div>
     </div>
