@@ -3,10 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="./assets/images/logo/CPD.png">
-    <title>CPD | وكالة رقمية متكاملة</title>
+    <link rel="shortcut icon" type="image/png" href="./assets/images/logo/CPD.png">
+    <link rel="apple-touch-icon" href="./assets/images/logo/CPD.png">
+    
+    <!-- SEO Meta Tags -->
+    <title>CyberPath Digital | وكالة رقمية متكاملة لتصميم وتطوير المواقع</title>
+    <meta name="description" content="وكالة رقمية متخصصة في تصميم وتطوير مواقع الشركات والمتاجر الإلكترونية والمنصات التعليمية بمعايير عالمية وتجربة مستخدم محسّنة.">
+    <meta name="keywords" content="تصميم مواقع، متجر إلكتروني، منصة تعليمية، وكالة رقمية، تطوير ويب، تصميم UI/UX">
+    <meta name="author" content="CyberPath Digital">
+    <meta name="language" content="ar">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    
+    <!-- Open Graph Tags (Facebook, WhatsApp, LinkedIn) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="CyberPath Digital | وكالة رقمية متكاملة">
+    <meta property="og:description" content="نصمم ونطور حلول رقمية احترافية للشركات والمتاجر والمعاهد">
+    <meta property="og:url" content="https://cyberpath-digital.com/">
+    <meta property="og:image" content="https://cyberpath-digital.com/assets/images/logo/CPD.png">
+    <meta property="og:site_name" content="CyberPath Digital">
+    <meta property="og:locale" content="ar_SA">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CyberPath Digital | وكالة رقمية متكاملة">
+    <meta name="twitter:description" content="نصمم ونطور حلول رقمية احترافية للشركات والمتاجر والمعاهد">
+    <meta name="twitter:image" content="https://cyberpath-digital.com/assets/images/logo/CPD.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://cyberpath-digital.com/">
+    
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://images.unsplash.com">
+    
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    
     <style>
         * {
             margin: 0;
@@ -673,7 +711,7 @@
                 justify-content: center;
             }
         }
-                /* Preview Packages Section */
+        /* Preview Packages Section */
         .pricing-preview {
             padding: 60px 8%;
         }
@@ -751,7 +789,7 @@
             text-align: center;
             margin-top: 30px;
         }
-                /* Vision Section */
+        /* Vision Section */
         .vision-section {
             padding: 80px 8%;
             background: linear-gradient(135deg, rgba(10,132,255,0.05), rgba(6,182,212,0.02));
@@ -794,7 +832,7 @@
             transform: translateY(-8px);
             border-color: var(--primary);
         }
-                .vision-logo {
+        .vision-logo {
             width: 70px;
             height: 70px;
             border-radius: 50%;
@@ -874,332 +912,247 @@
 <div class="glow"></div>
 
 <header>
-    <a href="index.html" class="logo">
-        <img src="./assest/images/logo/CPD.png" alt="CPD Logo" onerror="this.src='https://placehold.co/60x60?text=CPD'">
+    <a href="index.html" class="logo" title="الرئيسية - CyberPath Digital">
+        <img src="./assets/images/logo/CPD.png" alt="شعار CyberPath Digital" title="شعار CyberPath Digital">
         <span>CyberPath Digital</span>
     </a>
 
     <!-- Desktop Navigation -->
-    <div class="nav-desktop">
-        <a href="index.html">الرئيسية</a>
-        <a href="services.html">الخدمات</a>
-        <a href="portfolio.html">أعمالنا</a>
-        <a href="contact.html">تواصل معنا</a>
-    </div>
+    <nav class="nav-desktop" role="navigation" aria-label="القائمة الرئيسية">
+        <a href="index.html" title="الرئيسية">الرئيسية</a>
+        <a href="services.html" title="الخدمات">الخدمات</a>
+        <a href="portfolio.html" title="أعمالنا">أعمالنا</a>
+        <a href="contact.html" title="تواصل معنا">تواصل معنا</a>
+    </nav>
 
     <div class="header-actions">
-        <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
-        <a href="get-quote.html" class="btn-primary">اطلب عرض سعر</a>
-        <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+        <button class="theme-toggle" id="themeToggle" aria-label="تبديل الوضع الليلي/النهاري" title="تبديل الوضع الليلي/النهاري"><i class="fas fa-moon"></i></button>
+        <a href="get-quote.html" class="btn-primary" title="اطلب عرض سعر">اطلب عرض سعر</a>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="فتح القائمة" title="فتح القائمة"><i class="fas fa-bars"></i></button>
     </div>
 </header>
 
 <!-- Mobile Sidebar with Logo -->
-<div class="overlay" id="overlay"></div>
-<div class="mobile-sidebar" id="mobileSidebar">
-    <button class="close-sidebar" id="closeSidebar"><i class="fas fa-times"></i></button>
+<div class="overlay" id="overlay" role="presentation"></div>
+<div class="mobile-sidebar" id="mobileSidebar" role="navigation" aria-label="القائمة">
+    <button class="close-sidebar" id="closeSidebar" aria-label="إغلاق القائمة" title="إغلاق القائمة"><i class="fas fa-times"></i></button>
     <div class="sidebar-logo">
-        <img src="./assest/images/logo/CPD.png" alt="CPD Logo" onerror="this.src='https://placehold.co/45x45?text=CPD'">
+        <img src="./assets/images/logo/CPD.png" alt="شعار CyberPath Digital" title="شعار CyberPath Digital">
         <span>CyberPath Digital</span>
     </div>
-    <a href="index.html"><i class="fas fa-home"></i> الرئيسية</a>
-    <a href="services.html"><i class="fas fa-cogs"></i> الخدمات</a>
-    <a href="portfolio.html"><i class="fas fa-briefcase"></i> أعمالنا</a>
-    <a href="contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a>
-    <a href="get-quote.html" class="btn-primary" style="text-align: center; margin-top: 20px;">اطلب عرض سعر</a>
+    <a href="index.html" title="الرئيسية"><i class="fas fa-home"></i> الرئيسية</a>
+    <a href="services.html" title="الخدمات"><i class="fas fa-cogs"></i> الخدمات</a>
+    <a href="portfolio.html" title="أعمالنا"><i class="fas fa-briefcase"></i> أعمالنا</a>
+    <a href="contact.html" title="تواصل معنا"><i class="fas fa-envelope"></i> تواصل معنا</a>
+    <a href="get-quote.html" class="btn-primary" style="text-align: center; margin-top: 20px;" title="اطلب عرض سعر">اطلب عرض سعر</a>
 </div>
 
 <main>
-    <section class="hero">
+    <section class="hero" role="main" aria-label="قسم البطل الرئيسي">
         <div class="hero-content">
             <div class="hero-badge">
-                <i class="fa-solid fa-bolt"></i>
+                <i class="fa-solid fa-bolt" aria-hidden="true"></i>
                 حلول رقمية حديثة للشركات والأعمال
             </div>
             <h1>نبني <span>تجارب رقمية</span> تنمو مع أعمالك</h1>
-            <p>نصمم ونطور مواقع الشركات والمتاجر الإلكترونية والمنصات التعليمية الحديثة بمعايير عالمية وتجربة مستخدم استثنائية وأداء عالي.</p>
+            <p>نصمم ونطور مواقع الشركات والمتاجر الإلكترونية والمنصات التعليمية الحديثة بمعايير عالمية وتجربة مستخدم محسّنة</p>
             <div class="hero-buttons">
-                <a href="get-quote.html" class="btn-primary"><i class="fab fa-whatsapp"></i> ابدأ مشروعك</a>
-                <a href="portfolio.html" class="btn-outline"><i class="fas fa-arrow-left"></i> استعرض أعمالنا</a>
+                <a href="get-quote.html" class="btn-primary" title="ابدأ مشروعك"><i class="fab fa-whatsapp" aria-hidden="true"></i> ابدأ مشروعك</a>
+                <a href="portfolio.html" class="btn-outline" title="استعرض أعمالنا"><i class="fas fa-arrow-left" aria-hidden="true"></i> استعرض أعمالنا</a>
             </div>
         </div>
         <div class="hero-image">
-            <div class="floating-shape shape-1"></div>
-            <div class="floating-shape shape-2"></div>
-            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" alt="Hero Mockup" onerror="this.src='https://placehold.co/500x400?text=Mockup'">
+            <div class="floating-shape shape-1" aria-hidden="true"></div>
+            <div class="floating-shape shape-2" aria-hidden="true"></div>
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" alt="فريق عمل يعمل على تصميم وتطوير المواقع الحديثة" title="صورة توضيحية لفريق العمل">
         </div>
     </section>
 
-    <div class="trust-bar">
+    <div class="trust-bar" role="contentinfo" aria-label="القطاعات المخدومة">
         <div class="trust-title">نحن نثق بهم ونخدم قطاعات متنوعة</div>
         <div class="trust-grid">
             <div class="trust-item">
-                <img src="./assest/images/logo/CPD.png" alt="CPD">
+                <img src="./assets/images/logo/CPD.png" alt="شعار CyberPath Digital" loading="lazy" title="شعار CyberPath Digital">
                 <span>CyberPath Digital</span>
             </div>
-            <div class="trust-item"><i class="fas fa-building"></i><span>الشركات</span></div>
-            <div class="trust-item"><i class="fas fa-store"></i><span>المتاجر</span></div>
-            <div class="trust-item"><i class="fas fa-graduation-cap"></i><span>المعاهد</span></div>
-            <div class="trust-item"><i class="fas fa-chalkboard-user"></i><span>مراكز التدريب</span></div>
-            <div class="trust-item"><i class="fas fa-rocket"></i><span>رواد الأعمال</span></div>
+            <div class="trust-item"><i class="fas fa-building" aria-hidden="true"></i><span>الشركات</span></div>
+            <div class="trust-item"><i class="fas fa-store" aria-hidden="true"></i><span>المتاجر</span></div>
+            <div class="trust-item"><i class="fas fa-graduation-cap" aria-hidden="true"></i><span>المعاهد</span></div>
+            <div class="trust-item"><i class="fas fa-chalkboard-user" aria-hidden="true"></i><span>مراكز التدريب</span></div>
+            <div class="trust-item"><i class="fas fa-rocket" aria-hidden="true"></i><span>رواد الأعمال</span></div>
         </div>
     </div>
 
-    <section class="services-section">
+    <section class="services-section" aria-label="الخدمات الأساسية">
         <div class="section-title">
             <h2>خدماتنا الأساسية</h2>
             <p>نركز على الحلول الرقمية التي تساعد أعمالك على النمو</p>
         </div>
         <div class="services-grid">
-            <div class="service-card">
-                <i class="fa-solid fa-globe"></i>
+            <div class="service-card" role="article">
+                <i class="fa-solid fa-globe" aria-hidden="true"></i>
                 <h3>مواقع الشركات</h3>
                 <p>مواقع احترافية متجاوبة مع الجوال تعكس هوية الشركة وتساعد على جذب العملاء.</p>
             </div>
-            <div class="service-card">
-                <i class="fa-solid fa-cart-shopping"></i>
+            <div class="service-card" role="article">
+                <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
                 <h3>المتاجر الإلكترونية</h3>
                 <p>متاجر رقمية متكاملة مع بوابات الدفع وإدارة المنتجات وتجربة شراء سلسة.</p>
             </div>
-            <div class="service-card">
-                <i class="fa-solid fa-graduation-cap"></i>
+            <div class="service-card" role="article">
+                <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
                 <h3>المنصات التعليمية</h3>
                 <p>حلول تدريب واختبارات وشهادات إلكترونية مخصصة للمعاهد ومراكز التدريب.</p>
             </div>
         </div>
     </section>
 
-    <section class="stats-section">
+    <section class="stats-section" aria-label="الإنجازات والإحصائيات">
         <div class="section-title">
             <h2>إنجازاتنا</h2>
             <p>أرقام حقيقية تعكس التزامنا وجودة عملنا</p>
         </div>
         <div class="stats-grid">
-            <div class="stat-item"><div class="stat-number">3</div><p>مشاريع معروضة</p></div>
-            <div class="stat-item"><div class="stat-number">5</div><p>صفحات رئيسية</p></div>
-            <div class="stat-item"><div class="stat-number">100%</div><p>متجاوب مع الجوال</p></div>
-            <div class="stat-item"><div class="stat-number">24/7</div><p>دعم فني</p></div>
+            <div class="stat-item" role="article"><div class="stat-number">3</div><p>مشاريع معروضة</p></div>
+            <div class="stat-item" role="article"><div class="stat-number">5</div><p>صفحات رئيسية</p></div>
+            <div class="stat-item" role="article"><div class="stat-number">100%</div><p>متجاوب مع الجوال</p></div>
+            <div class="stat-item" role="article"><div class="stat-number">24/7</div><p>دعم فني</p></div>
         </div>
     </section>
 
-    <section class="portfolio-section">
+    <section class="portfolio-section" aria-label="أحدث الأعمال">
         <div class="section-title">
             <h2>أحدث أعمالنا</h2>
             <p>نماذج حقيقية من مشاريعنا نفخر بها</p>
         </div>
         <div class="portfolio-grid">
-            <div class="portfolio-item">
-                <img src="./assest/images/logo/dar.png" alt="dar Logo" onerror="this.src='https://placehold.co/50x50?text=CPD'">
+            <div class="portfolio-item" role="article">
+                <img src="./assets/images/logo/dar.png" alt="موقع معهد دار الخبرة للتدريب" loading="lazy" title="موقع معهد دار الخبرة للتدريب">
                 <div class="portfolio-overlay">
                     <h3>DarKhubara</h3>
-                    <p>موقع معهد تدريب </p>
-                    <a href="darindex.html" target="_blank" class="btn-primary" style="padding: 8px 20px;">تفاصيل المشروع</a>
+                    <p>موقع معهد تدريب</p>
+                    <a href="darindex.html" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding: 8px 20px;" title="عرض تفاصيل المشروع">تفاصيل المشروع</a>
                 </div>
             </div>
-            <div class="portfolio-item">
-                <img src="./assest/images/logo/furn.png" alt="Dar Logo" onerror="this.src='https://placehold.co/50x50?text=CPD'">
+            <div class="portfolio-item" role="article">
+                <img src="./assets/images/logo/furn.png" alt="موقع تصميم وديكور الأثاث الحديث" loading="lazy" title="موقع تصميم وديكور الأثاث الحديث">
                 <div class="portfolio-overlay">
-                    <h3>Homestyle</h3>
-                    <p>متجر أثاث إلكتروني متكامل</p>
-                    <a href="https://home-style-furniture-ten.vercel.app/" target="_blank" class="btn-primary" style="padding: 8px 20px;">تفاصيل المشروع</a>
+                    <h3>Furniture Design</h3>
+                    <p>منصة تجارة إلكترونية</p>
+                    <a href="furnindex.html" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding: 8px 20px;" title="عرض تفاصيل المشروع">تفاصيل المشروع</a>
                 </div>
             </div>
-            <div class="portfolio-item">
-                <img src="./assest/images/logo/abag.png" alt="Abag" onerror="this.src='https://placehold.co/400x280?text=Corporate'">
+            <div class="portfolio-item" role="article">
+                <img src="./assets/images/logo/cpd.png" alt="محفظة أعمال CyberPath Digital" loading="lazy" title="محفظة أعمال CyberPath Digital">
                 <div class="portfolio-overlay">
-                    <h3>شركة أعمال</h3>
-                    <p>موقع مؤسسة عبق الياسمين للعطور ABAQ</p>
-                    <a href="abag.html" class="btn-primary" style="padding: 8px 20px;">تفاصيل المشروع</a>
+                    <h3>CyberPath Portfolio</h3>
+                    <p>معرض الأعمال الاحترافي</p>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding: 8px 20px;" title="عرض تفاصيل المشروع">تفاصيل المشروع</a>
                 </div>
             </div>
         </div>
     </section>
-       <!-- مختصر الباقات -->
-    <section class="pricing-preview">
-        <div class="container">
-            <div class="section-title">
-                <h2>📦 باقاتنا</h2>
-                <p>اختر الباقة المناسبة لاحتياجك</p>
-            </div>
 
-            <div class="preview-grid">
-                <!-- مجموعة المواقع -->
-                <div class="preview-category">
-                    <div class="category-icon">🌐</div>
-                    <h3>باقات المواقع</h3>
-                    <div class="preview-packages">
-                        <div class="preview-package">
-                            <span class="package-name">أساسية</span>
-                            <span class="package-desc">حتى 5 صفحات</span>
-                        </div>
-                        <div class="preview-package">
-                            <span class="package-name">احترافية ⭐</span>
-                            <span class="package-desc">حتى 10 صفحات + SEO</span>
-                        </div>
-                        <div class="preview-package">
-                            <span class="package-name">متقدمة</span>
-                            <span class="package-desc">مخصص بالكامل</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- مجموعة المتاجر -->
-                <div class="preview-category">
-                    <div class="category-icon">🛒</div>
-                    <h3>باقات المتاجر</h3>
-                    <div class="preview-packages">
-                        <div class="preview-package">
-                            <span class="package-name">أساسية</span>
-                            <span class="package-desc">متجر جديد</span>
-                        </div>
-                        <div class="preview-package">
-                            <span class="package-name">احترافية ⭐</span>
-                            <span class="package-desc">بوابات دفع + SEO</span>
-                        </div>
-                        <div class="preview-package">
-                            <span class="package-name">متقدمة</span>
-                            <span class="package-desc">غير محدود + ERP</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="preview-cta">
-                <a href="services.html" class="btn-primary">
-                    عرض جميع الباقات <i class="fas fa-arrow-left"></i>
-                </a>
-            </div>
+    <section class="cta-section" aria-label="الدعوة للعمل">
+        <h2>هل أنت مستعد لتطوير عملك؟</h2>
+        <p style="margin-top: 20px; color: var(--muted-dark);">تواصل معنا اليوم واحصل على استشارة مجانية</p>
+        <div style="margin-top: 30px;">
+            <a href="contact.html" class="btn-primary" title="تواصل معنا"><i class="fas fa-envelope" aria-hidden="true"></i> تواصل معنا</a>
+            <a href="get-quote.html" class="btn-outline" style="margin-right: 15px;" title="اطلب عرض سعر"><i class="fas fa-file-invoice" aria-hidden="true"></i> اطلب عرض سعر</a>
         </div>
-    </section>
-
-             <!-- رؤيتنا المستقبلية -->
-    <section class="vision-section">
-        <div class="container">
-            <div class="section-title">
-                <h2>🚀 رؤيتنا المستقبلية</h2>
-                <p>نعمل على بناء منظومة CyberPath لتقديم حلول متكاملة في التقنية والتعليم والأمن السيبراني</p>
-            </div>
-
-            <div class="vision-grid">
-                <div class="vision-card active">
-                    <img src="./assest/images/logo/CPDG.png" alt="CyberPath Group" class="vision-logo" onerror="this.src='https://placehold.co/80x80?text=CPDG'">
-                    <h3>CPD</h3>
-                    <p class="vision-name">CyberPath Digital</p>
-                    <small>المواقع والمتاجر والمنصات التعليمية</small>
-                    <span class="vision-status active">خدمة حالية</span>
-                </div>
-
-                <div class="vision-card future">
-                    <img src="./assest/images/logo/CPDG.png" alt="CyberPath Group" class="vision-logo" onerror="this.src='https://placehold.co/80x80?text=CPDG'">
-                    <h3>CPA</h3>
-                    <p class="vision-name">CyberPath Academy</p>
-                    <small>التدريب والتعليم</small>
-                    <span class="vision-status future">قريباً</span>
-                </div>
-
-                <div class="vision-card future">
-                    <img src="./assest/images/logo/CPDG.png" alt="CyberPath Group" class="vision-logo" onerror="this.src='https://placehold.co/80x80?text=CPDG'">
-                    <h3>CPS</h3>
-                    <p class="vision-name">CyberPath Security</p>
-                    <small>حلول الأمن السيبراني</small>
-                    <span class="vision-status future">قريباً</span>
-                </div>
-
-                <div class="vision-card future">
-                    <img src="./assest/images/logo/CPDG.png" alt="CyberPath Group" class="vision-logo" onerror="this.src='https://placehold.co/80x80?text=CPDG'">
-                    <h3>CPL</h3>
-                    <p class="vision-name">CyberPath Labs</p>
-                    <small>المنتجات والابتكار التقني</small>
-                    <span class="vision-status future">قريباً</span>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <section class="cta-section">
-        <h2>جاهز لبدء مشروعك الرقمي؟</h2>
-        <p style="margin-bottom: 30px; color: var(--muted-dark);">احصل على استشارة مجانية الآن</p>
-        <a href="get-quote.html" class="btn-primary"><i class="fab fa-whatsapp"></i> اطلب عرض سعر</a>
     </section>
 </main>
 
-<footer>
+<footer role="contentinfo" aria-label="تذييل الصفحة">
     <div class="footer-content">
         <div class="footer-col">
             <div class="footer-logo">
-                <img src="./assest/images/logo/CPD.png" alt="CPD Logo" onerror="this.src='https://placehold.co/50x50?text=CPD'">
+                <img src="./assets/images/logo/CPD.png" alt="شعار CyberPath Digital" title="شعار CyberPath Digital">
                 <span>CyberPath Digital</span>
             </div>
-            <p style="color: var(--muted-dark); line-height: 1.7;">وكالة رقمية متكاملة بمعايير عالمية وروح سعودية</p>
+            <p>وكالة رقمية متكاملة متخصصة في تصميم وتطوير المواقع والمتاجر الإلكترونية</p>
         </div>
         <div class="footer-col">
-            <h4>روابط سريعة</h4>
-            <a href="index.html">الرئيسية</a>
-            <a href="services.html">الخدمات</a>
-            <a href="portfolio.html">أعمالنا</a>
-            <a href="contact.html">تواصل معنا</a>
+            <h4>الروابط السريعة</h4>
+            <a href="index.html" title="الرئيسية">الرئيسية</a>
+            <a href="services.html" title="الخدمات">الخدمات</a>
+            <a href="portfolio.html" title="أعمالنا">أعمالنا</a>
+            <a href="contact.html" title="تواصل معنا">تواصل معنا</a>
         </div>
         <div class="footer-col">
-            <h4>خدماتنا</h4>
-            <a href="services.html">مواقع الشركات</a>
-            <a href="services.html">المتاجر الإلكترونية</a>
-            <a href="services.html">المنصات التعليمية</a>
-        </div>
-        <div class="footer-col">
-            <h4>تواصل معنا</h4>
-            <a href="https://wa.me/966557450188" target="_blank"><i class="fab fa-whatsapp"></i> واتساب: 0561428260</a>
-            <a href="contact.html"><i class="fas fa-map-marker-alt"></i> الرياض، ضاحية لبن</a>
-            <a href="contact.html"><i class="far fa-clock"></i> السبت - الخميس: 9ص - 6م</a>
+            <h4>الخدمات</h4>
+            <a href="services.html" title="تصميم المواقع">تصميم المواقع</a>
+            <a href="services.html" title="المتاجر الإلكترونية">المتاجر الإلكترونية</a>
+            <a href="services.html" title="المنصات التعليمية">المنصات التعليمية</a>
+            <a href="get-quote.html" title="اطلب عرض سعر">اطلب عرض سعر</a>
         </div>
     </div>
     <div class="copyright">
-        <p>© 2026 CyberPath Digital – وكالة رقمية متكاملة – جميع الحقوق محفوظة</p>
-        <a href="privacy.html">سياسة الخصوصية privacy policy</a>
+        <p>&copy; 2024 CyberPath Digital. جميع الحقوق محفوظة.</p>
     </div>
 </footer>
 
 <script>
-    // Theme Toggle
-    const body = document.body;
-    const toggle = document.getElementById('themeToggle');
-    const icon = toggle.querySelector('i');
-    
-    const setTheme = (theme) => {
-        body.classList.remove('dark', 'light');
-        body.classList.add(theme);
-        localStorage.setItem('cpd-theme', theme);
-        icon.className = theme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
-    };
-    
-    const savedTheme = localStorage.getItem('cpd-theme') || 'dark';
-    setTheme(savedTheme);
-    
-    toggle.onclick = () => {
-        const newTheme = body.classList.contains('dark') ? 'light' : 'dark';
-        setTheme(newTheme);
-    };
-
-    // Mobile Menu
-    const mobileBtn = document.getElementById('mobileMenuBtn');
-    const sidebar = document.getElementById('mobileSidebar');
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileSidebar = document.getElementById('mobileSidebar');
     const overlay = document.getElementById('overlay');
-    const closeBtn = document.getElementById('closeSidebar');
+    const closeSidebar = document.getElementById('closeSidebar');
 
-    function openMenu() {
-        sidebar.classList.add('open');
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileSidebar.classList.add('open');
         overlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
+    });
 
-    function closeMenu() {
-        sidebar.classList.remove('open');
+    closeSidebar.addEventListener('click', () => {
+        mobileSidebar.classList.remove('open');
         overlay.classList.remove('active');
-        document.body.style.overflow = '';
+    });
+
+    overlay.addEventListener('click', () => {
+        mobileSidebar.classList.remove('open');
+        overlay.classList.remove('active');
+    });
+
+    // Theme Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const htmlElement = document.documentElement;
+    const body = document.body;
+
+    // Check saved theme preference
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    body.classList.add(savedTheme);
+    updateThemeIcon(savedTheme);
+
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = body.classList.contains('dark') ? 'dark' : 'light';
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        body.classList.remove(currentTheme);
+        body.classList.add(newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateThemeIcon(newTheme);
+    });
+
+    function updateThemeIcon(theme) {
+        const icon = themeToggle.querySelector('i');
+        if (theme === 'dark') {
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+        } else {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        }
     }
 
-    mobileBtn.addEventListener('click', openMenu);
-    closeBtn.addEventListener('click', closeMenu);
-    overlay.addEventListener('click', closeMenu);
+    // Close mobile menu when clicking on a link
+    const sidebarLinks = document.querySelectorAll('.mobile-sidebar a');
+    sidebarLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileSidebar.classList.remove('open');
+            overlay.classList.remove('active');
+        });
+    });
 </script>
 </body>
 </html>
