@@ -14,7 +14,7 @@
     <!-- Open Graph (مشاركة الروابط في واتساب وفيسبوك) -->
     <meta property="og:title" content="CyberPath Digital | وكالة رقمية متكاملة">
     <meta property="og:description" content="نصمم ونطور المواقع والمتاجر الإلكترونية والمنصات التعليمية بمعايير عالمية">
-    <meta property="og:image" content="https://cyberpath.vercel.app/assets/images/logo/CPD.png">
+    <meta property="og:image" content="https://cyberpath.vercel.app/assest/images/logo/CPD.png">
     <meta property="og:url" content="https://cyberpath.vercel.app">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="ar_AR">
@@ -23,7 +23,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="CyberPath Digital | وكالة رقمية متكاملة">
     <meta name="twitter:description" content="حلول رقمية حديثة للشركات والمؤسسات">
-    <meta name="twitter:image" content="https://cyberpath.vercel.app/assets/images/logo/CPD.png">
+    <meta name="twitter:image" content="https://cyberpath.vercel.app/assest/images/logo/CPD.png">
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://cyberpath.vercel.app/index.html">
@@ -1126,6 +1126,226 @@
                 grid-template-columns: 1fr;
             }
         }
+                /* تحسينات Portfolio Overlay */
+        .portfolio-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(7,17,31,0.98), rgba(7,17,31,0.95));
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            opacity: 0;
+            transition: 0.4s ease;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .overlay-content {
+            width: 100%;
+            transform: translateY(20px);
+            transition: transform 0.4s ease;
+        }
+
+        .portfolio-item:hover .overlay-content {
+            transform: translateY(0);
+        }
+
+        .overlay-content h3 {
+            font-size: 1.6rem;
+            margin-bottom: 4px;
+        }
+
+        .project-subtitle {
+            font-size: 0.9rem;
+            color: var(--secondary);
+            margin-bottom: 12px;
+        }
+
+        .project-desc {
+            font-size: 0.85rem;
+            color: var(--muted-dark);
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .project-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .project-features span {
+            background: rgba(10,132,255,0.15);
+            padding: 4px 10px;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            color: var(--primary);
+        }
+
+        .overlay-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .overlay-buttons .btn-primary {
+            padding: 8px 20px;
+            font-size: 0.85rem;
+        }
+
+        .overlay-buttons .btn-outline {
+            padding: 8px 20px;
+            font-size: 0.85rem;
+            border: 1px solid var(--border-dark);
+            background: transparent;
+            color: var(--text-dark);
+            border-radius: 40px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        body.light .overlay-buttons .btn-outline {
+            color: var(--text-light);
+        }
+
+        .overlay-buttons .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* Modal Styles */
+        .case-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            z-index: 3000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .case-modal.active {
+            display: flex;
+        }
+
+        .case-modal-content {
+            background: var(--dark-card);
+            border: 1px solid var(--border-dark);
+            border-radius: 28px;
+            width: 90%;
+            max-width: 700px;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        body.light .case-modal-content {
+            background: var(--light-card);
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .modal-close {
+            position: sticky;
+            top: 15px;
+            right: 15px;
+            float: left;
+            background: var(--primary);
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            margin: 15px;
+            z-index: 10;
+        }
+
+        .case-study-content {
+            padding: 30px;
+            clear: both;
+        }
+
+        .case-study-content h2 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        .case-study-content h2 span {
+            color: var(--secondary);
+        }
+
+        .case-study-content .sub {
+            color: var(--muted-dark);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-dark);
+        }
+
+        .case-study-content h3 {
+            color: var(--primary);
+            margin: 20px 0 10px;
+            font-size: 1.2rem;
+        }
+
+        .case-study-content p {
+            line-height: 1.7;
+            color: var(--muted-dark);
+        }
+
+        .case-study-content ul {
+            padding-right: 20px;
+            margin: 15px 0;
+        }
+
+        .case-study-content li {
+            margin-bottom: 8px;
+            color: var(--muted-dark);
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .tech-tags span {
+            background: rgba(10,132,255,0.15);
+            padding: 5px 12px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            .project-features {
+                display: none;
+            }
+            .overlay-buttons {
+                flex-direction: column;
+            }
+            .case-study-content {
+                padding: 20px;
+            }
+        }
     </style>
     <script type="application/ld+json">
 {
@@ -1133,7 +1353,7 @@
   "@type": "Organization",
   "name": "CyberPath Digital",
   "url": "https://YOUR_DOMAIN",
-  "logo": "https://YOUR_DOMAIN/assets/images/logo/CPD.png",
+  "logo": "https://YOUR_DOMAIN/assest/images/logo/CPD.png",
   "description": "وكالة رقمية متكاملة في الرياض، متخصصة في تصميم وتطوير المواقع والمتاجر الإلكترونية والمنصات التعليمية",
   "address": {
     "@type": "PostalAddress",
@@ -1189,7 +1409,7 @@
     <i class="fas fa-times" aria-hidden="true"></i>
     </button> 
     <div class="sidebar-logo">
-        <img src="./assets/images/logo/CPD.png" alt="CPD Logo" loading="lazy">
+        <img src="./assest/images/logo/CPD.png" alt="CPD Logo" loading="lazy">
         <span>CyberPath Digital</span>
     </div>
     <a href="index.html"><i class="fas fa-home"></i> الرئيسية</a>
@@ -1400,38 +1620,87 @@
             </div>
         </div>
     </section>
-    <section class="portfolio-section">
+        <section class="portfolio-section">
         <div class="section-title">
             <h2>أحدث أعمالنا</h2>
             <p>نماذج حقيقية من مشاريعنا نفخر بها</p>
         </div>
         <div class="portfolio-grid">
+            <!-- مشروع 1: Dar Khubara -->
             <div class="portfolio-item">
-                <img src="./assest/images/logo/dar.png" alt="dar Logo" onerror="this.src='https://placehold.co/50x50?text=CPD'">
+                <img src="./assest/images/logo/dar.png" alt="Dar Khubara" loading="lazy" onerror="this.src='https://placehold.co/600x400?text=Dar+Khubara'">
                 <div class="portfolio-overlay">
-                    <h3>DarKhubara</h3>
-                    <p>موقع معهد تدريب </p>
-                    <a href="darindex.html" target="_blank" class="btn-primary" style="padding: 8px 20px;">تفاصيل المشروع</a>
+                    <div class="overlay-content">
+                        <h3>Dar Khubara</h3>
+                        <p class="project-subtitle">دار الخبراء</p>
+                        <p class="project-desc">موقع معهد تدريب متكامل مع نظام كورسات وشهادات معتمدة</p>
+                        <div class="project-features">
+                            <span>📚 نظام كورسات</span>
+                            <span>📜 شهادات معتمدة</span>
+                            <span>📝 تسجيل ذكي</span>
+                            <span>👨‍🏫 كادر تدريبي</span>
+                        </div>
+                        <div class="overlay-buttons">
+                            <a href="darindex.html" target="_blank" class="btn-primary">تفاصيل المشروع</a>
+                            <button class="btn-outline case-study-btn" data-project="dar">دراسة حالة</button>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+            <!-- مشروع 2: Homestyle -->
             <div class="portfolio-item">
-                <img src="./assest/images/logo/furn.png" alt="Dar Logo" loading="lazy">
+                <img src="./assest/images/logo/furn.png" alt="Homestyle" loading="lazy" onerror="this.src='https://placehold.co/600x400?text=Homestyle'">
                 <div class="portfolio-overlay">
-                    <h3>Homestyle</h3>
-                    <p>متجر أثاث إلكتروني متكامل</p>
-                    <a href="https://home-style-furniture-ten.vercel.app/" target="_blank" class="btn-primary" style="padding: 8px 20px;">تفاصيل المشروع</a>
+                    <div class="overlay-content">
+                        <h3>Homestyle</h3>
+                        <p class="project-subtitle">هوم ستايل</p>
+                        <p class="project-desc">متجر أثاث إلكتروني متكامل مع دعم كامل للدفع الإلكتروني السعودي</p>
+                        <div class="project-features">
+                            <span>🛒 WooCommerce</span>
+                            <span>💳 بوابات دفع سعودية</span>
+                            <span>📦 إدارة منتجات</span>
+                            <span>📱 متجاوب 100%</span>
+                        </div>
+                        <div class="overlay-buttons">
+                            <a href="https://home-style-furniture-ten.vercel.app/" target="_blank" class="btn-primary">تفاصيل المشروع</a>
+                            <button class="btn-outline case-study-btn" data-project="homestyle">دراسة حالة</button>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+            <!-- مشروع 3: ABAQ -->
             <div class="portfolio-item">
-                <img src="./assest/images/logo/abag.png" alt="Abag" loading="lazy">
+                <img src="./assest/images/logo/abag.png" alt="ABAQ" loading="lazy" onerror="this.src='https://placehold.co/600x400?text=ABAQ'">
                 <div class="portfolio-overlay">
-                    <h3>شركة أعمال</h3>
-                    <p>موقع مؤسسة عبق الياسمين للعطور ABAQ</p>
-                    <a href="abag.html" class="btn-primary" style="padding: 8px 20px;">تفاصيل المشروع</a>
+                    <div class="overlay-content">
+                        <h3>ABAQ</h3>
+                        <p class="project-subtitle">عبق الياسمين</p>
+                        <p class="project-desc">موقع مؤسسة عطور بتصميم مخصص وهوية بصرية فريدة تعكس الأناقة والتراث</p>
+                        <div class="project-features">
+                            <span>🎨 هوية فريدة</span>
+                            <span>🏺 معرض منتجات فاخر</span>
+                            <span>📱 واتساب للطلبات</span>
+                            <span>✨ تجربة مستخدم راقية</span>
+                        </div>
+                        <div class="overlay-buttons">
+                            <a href="abag.html" target="_blank" class="btn-primary">تفاصيل المشروع</a>
+                            <button class="btn-outline case-study-btn" data-project="abaq">دراسة حالة</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Modal لـ Case Study -->
+    <div class="case-modal" id="caseModal">
+        <div class="case-modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <div id="caseContent"></div>
+        </div>
+    </div>
        <!-- مختصر الباقات -->
     <section class="pricing-preview">
         <div class="container">
@@ -1495,7 +1764,7 @@
         <div class="container">
             <div class="section-title">
                 <h2>🚀 رؤيتنا المستقبلية</h2>
-                <p>نعمل على بناء منظومة CyberPath لتقديم حلول متكاملة في التقنية والتعليم والأمن السيبراني</p>
+                <p>نعمل على بناء منظومة CyberPath  لتقديم حلول متكاملة في التقنية والتعليم والأمن السيبراني والابتكار</p>
             </div>
 
             <div class="vision-grid">
@@ -1618,5 +1887,104 @@
     closeBtn.addEventListener('click', closeMenu);
     overlay.addEventListener('click', closeMenu);
 </script>
+        // Case Study Modal
+    const modal = document.getElementById('caseModal');
+    const modalContent = document.getElementById('caseContent');
+    const closeModal = document.getElementById('modalClose');
+
+    // بيانات دراسات الحالة
+    const caseStudies = {
+        dar: {
+            title: 'Dar Khubara',
+            subtitle: 'دار الخبراء',
+            fullDesc: 'موقع معهد تدريب متكامل مع نظام كورسات وشهادات معتمدة. تم بناء منصة تعليمية شاملة تضم برامج تدريبية متخصصة، نظام تسجيل إلكتروني، وعرض للكادر التدريبي والاعتمادات الرسمية.',
+            features: [
+                'نظام كورسات متكامل',
+                'شهادات إلكترونية معتمدة',
+                'نموذج تسجيل ذكي',
+                'عرض الكادر التدريبي',
+                'لوحة اعتمادات رسمية'
+            ],
+            technologies: ['WordPress', 'LMS', 'MySQL', 'JavaScript'],
+            link: 'darindex.html'
+        },
+        homestyle: {
+            title: 'Homestyle',
+            subtitle: 'هوم ستايل',
+            fullDesc: 'متجر أثاث إلكتروني متكامل مبني على تقنيات حديثة مع دعم كامل للدفع الإلكتروني السعودي. يتضمن إدارة منتجات متطورة، تصفية وبحث ذكي، وتجربة تسوق سلسة على جميع الأجهزة.',
+            features: [
+                'WooCommerce متكامل',
+                'بوابات دفع سعودية',
+                'إدارة كاملة للمنتجات',
+                'SEO محسّن',
+                'متجاوب 100% مع الجوال'
+            ],
+            technologies: ['WooCommerce', 'PHP', 'MySQL', 'TailwindCSS'],
+            link: 'https://home-style-furniture-ten.vercel.app/'
+        },
+        abaq: {
+            title: 'ABAQ',
+            subtitle: 'عبق الياسمين',
+            fullDesc: 'موقع مؤسسة عبق الياسمين للعطور بتصميم مخصص وهوية بصرية فريدة تعكس الأناقة والتراث. يشمل معرض منتجات فاخر، قصة المؤسسة، آراء العملاء، ونظام طلب عبر واتساب.',
+            features: [
+                'تصميم هوية فريدة',
+                'معرض منتجات فاخر',
+                'ربط واتساب للطلبات',
+                'تجربة مستخدم راقية',
+                'دعم اللغة العربية'
+            ],
+            technologies: ['HTML5', 'CSS3', 'JavaScript', 'WhatsApp API'],
+            link: 'abag.html'
+        }
+    };
+
+    // فتح الـ Modal عند الضغط على زر "دراسة حالة"
+    document.querySelectorAll('.case-study-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const project = btn.getAttribute('data-project');
+            const data = caseStudies[project];
+            if (data) {
+                modalContent.innerHTML = `
+                    <div class="case-study-content">
+                        <h2>${data.title} <span>— ${data.subtitle}</span></h2>
+                        <p class="sub">دراسة حالة متكاملة</p>
+                        <p>${data.fullDesc}</p>
+                        <h3>✨ المميزات الرئيسية</h3>
+                        <ul>
+                            ${data.features.map(f => `<li>${f}</li>`).join('')}
+                        </ul>
+                        <h3>🛠️ التقنيات المستخدمة</h3>
+                        <div class="tech-tags">
+                            ${data.technologies.map(tech => `<span>${tech}</span>`).join('')}
+                        </div>
+                        <a href="${data.link}" target="_blank" class="btn-primary" style="margin-top: 20px; display: inline-block;">
+                            زيارة المشروع <i class="fas fa-arrow-left"></i>
+                        </a>
+                    </div>
+                `;
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        });
+    });
+
+    // إغلاق الـ Modal
+    function closeCaseModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+        modalContent.innerHTML = '';
+    }
+
+    closeModal.addEventListener('click', closeCaseModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeCaseModal();
+    });
+
+    // إغلاق بالضغط على ESC
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeCaseModal();
+        }
+    });
 </body>
 </html>
