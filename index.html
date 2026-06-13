@@ -889,6 +889,135 @@
                 padding: 25px;
             }
         }
+                /* Tech Section */
+        .tech-section {
+            padding: 60px 8%;
+            background: linear-gradient(135deg, rgba(10,132,255,0.03), rgba(6,182,212,0.02));
+            border-top: 1px solid var(--border-dark);
+            border-bottom: 1px solid var(--border-dark);
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .tech-item {
+            background: var(--dark-card);
+            border: 1px solid var(--border-dark);
+            border-radius: 60px;
+            padding: 14px 20px;
+            text-align: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        body.light .tech-item {
+            background: var(--light-card);
+        }
+
+        .tech-item:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary);
+            background: rgba(10,132,255,0.1);
+        }
+
+        .tech-icon {
+            font-size: 1.3rem;
+        }
+
+        @media (max-width: 768px) {
+            .tech-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 12px;
+            }
+            .tech-item {
+                padding: 10px 12px;
+                font-size: 0.85rem;
+            }
+        }
+                /* Process Section - منهجية العمل */
+        .process-section {
+            padding: 80px 8%;
+            background: linear-gradient(135deg, rgba(10,132,255,0.03), rgba(6,182,212,0.02));
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .process-card {
+            background: var(--dark-card);
+            border: 1px solid var(--border-dark);
+            border-radius: 28px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        body.light .process-card {
+            background: var(--light-card);
+        }
+
+        .process-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+        }
+
+        .process-number {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            font-size: 3rem;
+            font-weight: 800;
+            color: rgba(10,132,255,0.15);
+            line-height: 1;
+        }
+
+        body.light .process-number {
+            color: rgba(10,132,255,0.2);
+        }
+
+        .process-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .process-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--secondary);
+        }
+
+        .process-card p {
+            color: var(--muted-dark);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .process-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .process-card {
+                padding: 25px;
+            }
+            .process-number {
+                font-size: 2.5rem;
+            }
+        }
     </style>
     <script type="application/ld+json">
 {
@@ -1034,7 +1163,80 @@
             <div class="stat-item"><div class="stat-number">24/7</div><p>دعم فني</p></div>
         </div>
     </section>
-
+       <!-- التقنيات والأدوات -->
+    <section class="tech-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>⚙️ التقنيات والأدوات</h2>
+                <p>نستخدم أحدث التقنيات لبناء حلول رقمية قوية ومتطورة</p>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-item"><span class="tech-icon">⚛️</span> React</div>
+                <div class="tech-item"><span class="tech-icon">▲</span> Next.js</div>
+                <div class="tech-item"><span class="tech-icon">🔵</span> WordPress</div>
+                <div class="tech-item"><span class="tech-icon">🛒</span> WooCommerce</div>
+                <div class="tech-item"><span class="tech-icon">🎨</span> TailwindCSS</div>
+                <div class="tech-item"><span class="tech-icon">🟢</span> Node.js</div>
+                <div class="tech-item"><span class="tech-icon">◆</span> Hosting</div>
+                <div class="tech-item"><span class="tech-icon">📊</span> Google Analytics</div>
+                <div class="tech-item"><span class="tech-icon">🔍</span> SEO متقدم</div>
+                <div class="tech-item"><span class="tech-icon">💳</span> بوابات الدفع</div>
+            </div>
+        </div>
+    </section>
+        <!-- منهجية العمل - كيف نعمل -->
+    <section class="process-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>📋 كيف نعمل</h2>
+                <p>منهجية مدروسة ومجربة تضمن تسليم مشروعك في الوقت المحدد بأعلى معايير الجودة</p>
+            </div>
+            <div class="process-grid">
+                <!-- الخطوة 1 -->
+                <div class="process-card" data-aos="fade-up">
+                    <div class="process-number">01</div>
+                    <div class="process-icon">🎧</div>
+                    <h3>الاستشارة والتحليل</h3>
+                    <p>نستمع لاحتياجاتك ونحلل متطلبات مشروعك وأهدافك التجارية بدقة.</p>
+                </div>
+                <!-- الخطوة 2 -->
+                <div class="process-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="process-number">02</div>
+                    <div class="process-icon">📊</div>
+                    <h3>التخطيط الاستراتيجي</h3>
+                    <p>نضع خطة واضحة لهيكل الموقع وتصميمه واختيار التقنيات المناسبة.</p>
+                </div>
+                <!-- الخطوة 3 -->
+                <div class="process-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="process-number">03</div>
+                    <div class="process-icon">🎨</div>
+                    <h3>التصميم والواجهات</h3>
+                    <p>تصميم هوية بصرية متكاملة وواجهات مستخدم جميلة تعكس علامتك التجارية.</p>
+                </div>
+                <!-- الخطوة 4 -->
+                <div class="process-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="process-number">04</div>
+                    <div class="process-icon">💻</div>
+                    <h3>التطوير والبرمجة</h3>
+                    <p>برمجة احترافية بمعايير عالمية وكود نظيف قابل للتطوير والتوسع.</p>
+                </div>
+                <!-- الخطوة 5 -->
+                <div class="process-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="process-number">05</div>
+                    <div class="process-icon">🔍</div>
+                    <h3>الاختبار والمراجعة</h3>
+                    <p>اختبار شامل على جميع الأجهزة والمتصفحات مع مراجعة دقيقة قبل الإطلاق.</p>
+                </div>
+                <!-- الخطوة 6 -->
+                <div class="process-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="process-number">06</div>
+                    <div class="process-icon">🚀</div>
+                    <h3>الإطلاق والدعم</h3>
+                    <p>إطلاق احترافي مع متابعة مستمرة ودعم فني 24/7 بعد التسليم.</p>
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="portfolio-section">
         <div class="section-title">
             <h2>أحدث أعمالنا</h2>
