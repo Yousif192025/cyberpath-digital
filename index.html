@@ -1843,7 +1843,59 @@
         <a href="privacy.html">سياسة الخصوصية privacy policy</a>
     </div>
 </footer>
-    // Case Study Modal
+
+<!-- Modal Container -->
+<div class="case-modal" id="caseModal">
+    <div class="case-modal-content">
+        <button class="modal-close" id="modalClose">&times;</button>
+        <div id="caseContent"></div>
+    </div>
+</div>
+
+<script>
+    // Theme Toggle
+    const body = document.body;
+    const toggle = document.getElementById('themeToggle');
+    const icon = toggle.querySelector('i');
+    
+    const setTheme = (theme) => {
+        body.classList.remove('dark', 'light');
+        body.classList.add(theme);
+        localStorage.setItem('cpd-theme', theme);
+        icon.className = theme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
+    };
+    
+    const savedTheme = localStorage.getItem('cpd-theme') || 'dark';
+    setTheme(savedTheme);
+    
+    toggle.onclick = () => {
+        const newTheme = body.classList.contains('dark') ? 'light' : 'dark';
+        setTheme(newTheme);
+    };
+
+    // Mobile Menu
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const sidebar = document.getElementById('mobileSidebar');
+    const overlay = document.getElementById('overlay');
+    const closeBtn = document.getElementById('closeSidebar');
+
+    function openMenu() {
+        sidebar.classList.add('open');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+        sidebar.classList.remove('open');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    mobileBtn.addEventListener('click', openMenu);
+    closeBtn.addEventListener('click', closeMenu);
+    overlay.addEventListener('click', closeMenu);
+
+    // ========== Case Study Modal ==========
     const modal = document.getElementById('caseModal');
     const modalContent = document.getElementById('caseContent');
     const closeModal = document.getElementById('modalClose');
@@ -1931,59 +1983,19 @@
         modalContent.innerHTML = '';
     }
 
-    closeModal.addEventListener('click', closeCaseModal);
+    if (closeModal) {
+        closeModal.addEventListener('click', closeCaseModal);
+    }
+    
     modal.addEventListener('click', (e) => {
         if (e.target === modal) closeCaseModal();
     });
 
-    // إغلاق بالضغط على ESC
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && modal.classList.contains('active')) {
             closeCaseModal();
         }
     });
-<script>
-    // Theme Toggle
-    const body = document.body;
-    const toggle = document.getElementById('themeToggle');
-    const icon = toggle.querySelector('i');
-    
-    const setTheme = (theme) => {
-        body.classList.remove('dark', 'light');
-        body.classList.add(theme);
-        localStorage.setItem('cpd-theme', theme);
-        icon.className = theme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
-    };
-    
-    const savedTheme = localStorage.getItem('cpd-theme') || 'dark';
-    setTheme(savedTheme);
-    
-    toggle.onclick = () => {
-        const newTheme = body.classList.contains('dark') ? 'light' : 'dark';
-        setTheme(newTheme);
-    };
-
-    // Mobile Menu
-    const mobileBtn = document.getElementById('mobileMenuBtn');
-    const sidebar = document.getElementById('mobileSidebar');
-    const overlay = document.getElementById('overlay');
-    const closeBtn = document.getElementById('closeSidebar');
-
-    function openMenu() {
-        sidebar.classList.add('open');
-        overlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeMenu() {
-        sidebar.classList.remove('open');
-        overlay.classList.remove('active');
-        document.body.style.overflow = '';
-    }
-
-    mobileBtn.addEventListener('click', openMenu);
-    closeBtn.addEventListener('click', closeMenu);
-    overlay.addEventListener('click', closeMenu);
 </script>
-       </body>
+</body>
 </html>
