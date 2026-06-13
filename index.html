@@ -365,19 +365,38 @@
             flex-wrap: wrap;
         }
 
-        .hero-image {
-            flex: 1;
-            position: relative;
-            display: flex;
-            justify-content: center;
-        }
+       /* Hero Image Section */
+.hero-image {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px; /* ارتفاع مناسب للجوال */
+}
 
-        .hero-image img {
-            max-width: 100%;
-            border-radius: 28px;
-            position: relative;
-            z-index: 2;
-        }
+.hero-figure {
+    margin: 0;
+    width: 100%;
+    max-width: 550px; /* أقصى عرض للصورة */
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 20px 35px -10px rgba(0,0,0,0.3);
+    background: var(--dark-card);
+}
+
+.hero-figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9; /* نسبة عرض إلى ارتفاع ثابتة */
+    object-fit: cover; /* تغطية المساحة بالكامل دون تشويه */
+    transition: transform 0.4s ease;
+}
+
+.hero-figure:hover img {
+    transform: scale(1.02);
+}
 
         .floating-shape {
             position: absolute;
@@ -681,6 +700,7 @@
                 align-items: center;
             }
             .hero-image {
+                min-height: auto;
                 margin-top: 40px;
             }
             .btn-primary, .btn-outline {
@@ -1433,11 +1453,16 @@
                 <a href="portfolio.html" class="btn-outline"><i class="fas fa-arrow-left"></i> استعرض أعمالنا</a>
             </div>
         </div>
-        <div class="hero-image">
-            <div class="floating-shape shape-1"></div>
-            <div class="floating-shape shape-2"></div>
-            <img src="./assest/images/logo/cover.png" alt="تصميم موقع احترافي - نموذج لاب توب يعرض خدمات CyberPath Digital" loading="lazy" onerror="this.src='https://placehold.co/500x400?text=Cover'">
-        </div>
+          <div class="hero-image">
+             <div class="floating-shape shape-1"></div>
+             <div class="floating-shape shape-2"></div>
+             <figure class="hero-figure">
+             <img src="./assest/images/logo/cover.png" 
+             alt="معرض لأعمال وكالة CyberPath Digital – تصميم مواقع ومتاجر إلكترونية" 
+             loading="lazy"
+             onerror="this.src='https://placehold.co/800x600/0A84FF/white?text=CyberPath+Cover'">
+            </figure>
+          </div>
     </section>
 
     <div class="trust-bar">
