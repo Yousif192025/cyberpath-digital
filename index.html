@@ -1018,6 +1018,114 @@
                 font-size: 2.5rem;
             }
         }
+                /* About Section - من نحن */
+        .about-section {
+            padding: 80px 8%;
+            background: linear-gradient(135deg, rgba(10,132,255,0.03), rgba(6,182,212,0.02));
+            border-top: 1px solid var(--border-dark);
+            border-bottom: 1px solid var(--border-dark);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .about-content {
+            background: var(--dark-card);
+            border: 1px solid var(--border-dark);
+            border-radius: 28px;
+            padding: 40px;
+        }
+
+        body.light .about-content {
+            background: var(--light-card);
+        }
+
+        .about-text {
+            color: var(--muted-dark);
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        .about-text strong {
+            color: var(--primary);
+        }
+
+        .about-values {
+            background: var(--dark-card);
+            border: 1px solid var(--border-dark);
+            border-radius: 28px;
+            padding: 40px;
+        }
+
+        body.light .about-values {
+            background: var(--light-card);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .value-card {
+            background: rgba(255,255,255,0.03);
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-dark);
+        }
+
+        body.light .value-card {
+            background: rgba(0,0,0,0.02);
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .value-icon {
+            font-size: 2.2rem;
+            margin-bottom: 12px;
+        }
+
+        .value-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: var(--secondary);
+        }
+
+        .value-card p {
+            font-size: 0.85rem;
+            color: var(--muted-dark);
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .values-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 15px;
+            }
+            .about-content, .about-values {
+                padding: 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
     <script type="application/ld+json">
 {
@@ -1150,7 +1258,62 @@
             </div>
         </div>
     </section>
+         <!-- من نحن - About Us -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-grid">
+                <!-- الجانب الأيمن: النص -->
+                <div class="about-content" data-aos="fade-up">
+                    <div class="section-title" style="text-align: right; margin-bottom: 30px;">
+                        <h2>من نحن</h2>
+                        <p style="font-size: 1.1rem;">تعرف على CyberPath Digital</p>
+                    </div>
+                    <p class="about-text">
+                        وكالة رقمية متخصصة في بناء الحضور الرقمي للشركات والأعمال في المملكة العربية السعودية وخارجها.
+                    </p>
+                    <p class="about-text">
+                        نصمم ونطور <strong>مواقع الشركات</strong> و<strong>المتاجر الإلكترونية</strong> و<strong>المنصات التعليمية</strong> بمعايير عالمية، مستخدمين أحدث التقنيات وأفضل الممارسات في تجربة المستخدم وتحسين محركات البحث.
+                    </p>
+                    <p class="about-text">
+                        <strong>رؤيتنا</strong> أن نكون الشريك الرقمي الأول للأعمال العربية، من خلال تقديم حلول متكاملة تجمع بين الجمال البصري والأداء التقني العالي.
+                    </p>
+                    <a href="services.html" class="btn-primary" style="margin-top: 20px;">
+                        خدماتنا <i class="fas fa-arrow-left"></i>
+                    </a>
+                </div>
 
+                <!-- الجانب الأيسر: بطاقات القيم -->
+                <div class="about-values" data-aos="fade-up" data-aos-delay="100">
+                    <div class="section-title" style="text-align: right; margin-bottom: 30px;">
+                        <h2>قيمنا</h2>
+                        <p>ما نميز به في عملنا</p>
+                    </div>
+                    <div class="values-grid">
+                        <div class="value-card">
+                            <div class="value-icon">🎯</div>
+                            <h4>الاحترافية</h4>
+                            <p>نلتزم بأعلى معايير الجودة في كل مشروع</p>
+                        </div>
+                        <div class="value-card">
+                            <div class="value-icon">⚡</div>
+                            <h4>الالتزام بالمواعيد</h4>
+                            <p>التسليم في الوقت المحدد دون تأخير</p>
+                        </div>
+                        <div class="value-card">
+                            <div class="value-icon">🤝</div>
+                            <h4>الشراكة الحقيقية</h4>
+                            <p>نعتبر عملاءنا شركاء في النجاح</p>
+                        </div>
+                        <div class="value-card">
+                            <div class="value-icon">🚀</div>
+                            <h4>الابتكار المستمر</h4>
+                            <p>نواكب أحدث التقنيات والاتجاهات</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="stats-section">
         <div class="section-title">
             <h2>إنجازاتنا</h2>
@@ -1403,7 +1566,6 @@
         <div class="footer-col">
             <h4>تواصل معنا</h4>
             <a href="https://wa.me/966557450188" target="_blank"><i class="fab fa-whatsapp"></i> واتساب: 0561428260</a>
-            <a href="contact.html"><i class="fas fa-map-marker-alt"></i> الرياض، ضاحية لبن</a>
             <a href="contact.html"><i class="far fa-clock"></i> السبت - الخميس: 9ص - 6م</a>
         </div>
     </div>
