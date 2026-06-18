@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>دراسات الحالة | CyberPath Digital</title>
+
+<meta name="description" content="استعرض دراسات الحالة والمشاريع المنفذة بواسطة CyberPath Digital في مجالات المواقع الإلكترونية والمتاجر الإلكترونية والمنصات التعليمية والحلول الرقمية المتخصصة.">
+
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+:root{
+--primary:#0A84FF;
+--secondary:#06B6D4;
+--dark-bg:#07111f;
+--dark-card:#101b2d;
+--text:#ffffff;
+--muted:#94a3b8;
+--border:rgba(255,255,255,.08);
+}
+
+body{
+font-family:'Tajawal',sans-serif;
+background:var(--dark-bg);
+color:var(--text);
+line-height:1.8;
+}
+
+.bg-grid{
+position:fixed;
+inset:0;
+background-image:
+linear-gradient(var(--border) 1px,transparent 1px),
+linear-gradient(90deg,var(--border) 1px,transparent 1px);
+background-size:50px 50px;
+z-index:-2;
+}
+
+.glow{
+position:fixed;
+width:500px;
+height:500px;
+background:var(--primary);
+filter:blur(180px);
+opacity:.15;
+top:-100px;
+right:-100px;
+z-index:-1;
+}
+
+.container{
+max-width:1300px;
+margin:auto;
+padding:80px 20px;
+}
+
+.hero{
+text-align:center;
+margin-bottom:60px;
+}
+
+.hero h1{
+font-size:3rem;
+margin-bottom:15px;
+}
+
+.hero p{
+max-width:800px;
+margin:auto;
+color:var(--muted);
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:25px;
+}
+
+.card{
+background:var(--dark-card);
+border:1px solid var(--border);
+border-radius:24px;
+overflow:hidden;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+border-color:var(--primary);
+}
+
+.card img{
+width:100%;
+height:220px;
+object-fit:cover;
+display:block;
+}
+
+.content{
+padding:25px;
+}
+
+.content h2{
+margin-bottom:10px;
+}
+
+.content p{
+color:var(--muted);
+margin-bottom:20px;
+}
+
+.tags{
+display:flex;
+flex-wrap:wrap;
+gap:8px;
+margin-bottom:20px;
+}
+
+.tag{
+background:rgba(10,132,255,.15);
+border:1px solid rgba(10,132,255,.25);
+padding:6px 12px;
+border-radius:30px;
+font-size:.85rem;
+}
+
+.btn{
+display:inline-block;
+text-decoration:none;
+background:linear-gradient(135deg,var(--primary),var(--secondary));
+color:white;
+padding:12px 24px;
+border-radius:40px;
+font-weight:700;
+}
+
+.back-home{
+text-align:center;
+margin-top:60px;
+}
+
+.back-home a{
+color:white;
+text-decoration:none;
+border:1px solid var(--border);
+padding:12px 25px;
+border-radius:40px;
+}
+
+footer{
+text-align:center;
+padding:30px;
+border-top:1px solid var(--border);
+margin-top:60px;
+color:var(--muted);
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:2.2rem;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="bg-grid"></div>
+<div class="glow"></div>
+
+<div class="container">
+
+<div class="hero">
+
+<h1>دراسات الحالة</h1>
+
+<p>
+استعرض مجموعة من المشاريع التي تعكس خبرة CyberPath Digital
+في تصميم وتطوير المواقع الإلكترونية والمتاجر والمنصات الرقمية
+والحلول التقنية المتخصصة.
+</p>
+
+</div>
+
+<div class="grid">
+
+<!-- Dar Khubara -->
+
+<div class="card">
+
+<img src="../assets/images/logo/dar.png"
+alt="دار الخبراء"
+onerror="this.src='https://placehold.co/600x400?text=Dar+Khubara'">
+
+<div class="content">
+
+<h2>دار الخبراء</h2>
+
+<p>
+منصة تدريب إلكترونية متكاملة تضم البرامج التدريبية والتسجيل الإلكتروني والشهادات المهنية.
+</p>
+
+<div class="tags">
+<span class="tag">LMS</span>
+<span class="tag">Training</span>
+<span class="tag">Education</span>
+</div>
+
+<a href="dar-khubara.html" class="btn">
+عرض دراسة الحالة
+</a>
+
+</div>
+
+</div>
+
+<!-- Homestyle -->
+
+<div class="card">
+
+<img src="../assets/images/projects/homestyle.jpg"
+alt="Homestyle"
+onerror="this.src='https://placehold.co/600x400?text=Homestyle'">
+
+<div class="content">
+
+<h2>Homestyle</h2>
+
+<p>
+متجر إلكتروني للأثاث المنزلي يعرض تجربة تسوق احترافية وتصميم عصري.
+</p>
+
+<div class="tags">
+<span class="tag">E-Commerce</span>
+<span class="tag">Furniture</span>
+<span class="tag">UI/UX</span>
+</div>
+
+<a href="homestyle.html" class="btn">
+عرض دراسة الحالة
+</a>
+
+</div>
+
+</div>
+
+<!-- ABAQ -->
+
+<div class="card">
+
+<img src="../assets/images/logo/abag.png"
+alt="ABAQ"
+onerror="this.src='https://placehold.co/600x400?text=ABAQ'">
+
+<div class="content">
+
+<h2>ABAQ</h2>
+
+<p>
+موقع مؤسسة عبق الياسمين للعطور بهوية بصرية فريدة وتجربة مستخدم راقية.
+</p>
+
+<div class="tags">
+<span class="tag">Branding</span>
+<span class="tag">Perfume</span>
+<span class="tag">Corporate</span>
+</div>
+
+<a href="abaq.html" class="btn">
+عرض دراسة الحالة
+</a>
+
+</div>
+
+</div>
+
+<!-- Sky Properties -->
+
+<div class="card">
+
+<img src="../assets/images/projects/sky-properties.jpg"
+alt="Sky Properties"
+onerror="this.src='https://placehold.co/600x400?text=Sky+Properties'">
+
+<div class="content">
+
+<h2>Sky Properties</h2>
+
+<p>
+منصة عقارية رقمية حديثة لإدارة العقارات والتقارير ولوحات التحكم الذكية.
+</p>
+
+<div class="tags">
+<span class="tag">PropTech</span>
+<span class="tag">SaaS</span>
+<span class="tag">Dashboard</span>
+</div>
+
+<a href="sky-properties.html" class="btn">
+عرض دراسة الحالة
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="back-home">
+
+<a href="../portfolio.html">
+العودة إلى أعمالنا
+</a>
+
+</div>
+
+</div>
+
+<footer>
+
+© 2026 CyberPath Digital — All Rights Reserved
+
+</footer>
+
+</body>
+</html>
