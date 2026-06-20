@@ -1366,6 +1366,132 @@
                 padding: 20px;
             }
         }
+        /* ===== التصميم الإبداعي والهوية البصرية ===== */
+.creative-section {
+    padding: 80px 8%;
+    background: linear-gradient(135deg, rgba(10,132,255,0.03), rgba(6,182,212,0.02));
+    border-top: 1px solid var(--border-dark);
+    border-bottom: 1px solid var(--border-dark);
+}
+
+.creative-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.creative-card {
+    background: var(--dark-card);
+    border: 1px solid var(--border-dark);
+    border-radius: 28px;
+    padding: 30px 25px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+body.light .creative-card {
+    background: var(--light-card);
+}
+
+.creative-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--primary);
+}
+
+.creative-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.creative-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+    color: var(--secondary);
+}
+
+.creative-card p {
+    color: var(--muted-dark);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* أدوات التصميم */
+.tools-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.tool-tag {
+    background: var(--dark-card);
+    border: 1px solid var(--border-dark);
+    border-radius: 50px;
+    padding: 10px 22px;
+    font-weight: 600;
+    transition: 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+body.light .tool-tag {
+    background: var(--light-card);
+}
+
+.tool-tag:hover {
+    transform: translateY(-3px);
+    border-color: var(--primary);
+    background: rgba(10,132,255,0.1);
+}
+
+.tool-tag i {
+    color: var(--primary);
+}
+
+/* CTA داخلي */
+.creative-cta {
+    text-align: center;
+    margin-top: 60px;
+    padding: 40px;
+    background: var(--dark-card);
+    border: 1px solid var(--border-dark);
+    border-radius: 28px;
+}
+
+body.light .creative-cta {
+    background: var(--light-card);
+}
+
+.creative-cta h3 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.creative-cta p {
+    color: var(--muted-dark);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* استجابة للجوال */
+@media (max-width: 768px) {
+    .creative-grid {
+        grid-template-columns: 1fr;
+    }
+    .tools-grid {
+        gap: 10px;
+    }
+    .tool-tag {
+        font-size: 0.85rem;
+        padding: 8px 16px;
+    }
+    .creative-cta {
+        padding: 25px;
+    }
+}
     </style>
     <script type="application/ld+json">
 {
