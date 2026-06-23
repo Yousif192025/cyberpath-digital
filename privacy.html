@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -43,19 +44,20 @@
         }
 
         :root {
-            --primary: #0A84FF;
-            --secondary: #06B6D4;
-            --dark-bg: #07111f;
-            --dark-card: #101b2d;
-            --light-bg: #f8fafc;
-            --light-card: #ffffff;
-            --text-dark: #ffffff;
-            --text-light: #0f172a;
-            --muted-dark: #94a3b8;
-            --muted-light: #475569;
-            --border-dark: rgba(255,255,255,0.08);
-            --border-light: rgba(0,0,0,0.08);
-            --transition: 0.3s ease;
+            --primary: #00A884;
+            --secondary: #14B8A6;
+            --dark-bg: #0F1115;
+            --dark-card: #171A21;
+            --dark-card2: #1D222B;
+            --light-bg: #FAFBFC;
+            --light-card: #FFFFFF;
+            --text-dark: #F5F7FA;
+            --text-light: #1F2937;
+            --muted-dark: #A3ADB8;
+            --muted-light: #6B7280;
+            --border-dark: #2B3440;
+            --border-light: #E5E7EB;
+            --accent-glow: rgba(0,168,132,0.15);
         }
 
         html {
@@ -85,8 +87,8 @@
         .bg-grid {
             position: fixed;
             inset: 0;
-            background-image: linear-gradient(var(--border-dark) 1px, transparent 1px),
-                              linear-gradient(90deg, var(--border-dark) 1px, transparent 1px);
+            background-image: linear-gradient(rgba(43,52,64,0.5) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(43,52,64,0.5) 1px, transparent 1px);
             background-size: 50px 50px;
             z-index: -2;
             pointer-events: none;
