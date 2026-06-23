@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
+Disallow: /index1.html
+Disallow: /abagy.html
+
 Sitemap: https://cyberpath-digital.vercel.app/sitemap.xml
