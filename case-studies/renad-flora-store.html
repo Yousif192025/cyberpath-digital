@@ -1,0 +1,1591 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Renad Flora Store | دراسة حالة | CyberPath Digital</title>
+
+    <meta name="description"
+          content="دراسة حالة لمشروع Renad Flora Store، متجر إلكتروني متكامل تم تطويره لتقديم تجربة تسوق رقمية حديثة وسهلة الاستخدام.">
+
+    <meta name="keywords"
+          content="Renad Flora Store, متجر إلكتروني, تصميم متاجر, CyberPath Digital, متجر إلكتروني سعودي">
+
+    <meta name="author" content="CyberPath Digital">
+
+    <meta property="og:title" content="Renad Flora Store | دراسة حالة">
+    <meta property="og:description"
+          content="دراسة حالة لمتجر Renad Flora Store وتجربة تطوير متجر إلكتروني حديث ومتجاوب.">
+    <meta property="og:type" content="article">
+    <meta property="og:url"
+          content="https://cyberpath-digital.vercel.app/case-studies/renad-flora-store.html">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Renad Flora Store | دراسة حالة">
+    <meta name="twitter:description"
+          content="دراسة حالة لمشروع متجر Renad Flora Store.">
+
+    <link rel="canonical"
+          href="https://cyberpath-digital.vercel.app/case-studies/renad-flora-store.html">
+
+    <link rel="icon"
+          type="image/png"
+          href="../assets/images/logo/CPD.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0A84FF;
+            --secondary: #06B6D4;
+
+            --dark-bg: #07111f;
+            --dark-card: #101b2d;
+
+            --light-bg: #f8fafc;
+            --light-card: #ffffff;
+
+            --text-dark: #ffffff;
+            --text-light: #0f172a;
+
+            --muted-dark: #94a3b8;
+            --muted-light: #475569;
+
+            --border-dark: rgba(255,255,255,0.08);
+            --border-light: rgba(0,0,0,0.08);
+
+            --transition: 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            overflow-x: hidden;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        body.dark {
+            background: var(--dark-bg);
+            color: var(--text-dark);
+        }
+
+        body.light {
+            background: var(--light-bg);
+            color: var(--text-light);
+        }
+
+        /* =========================
+           Background
+        ========================= */
+
+        .bg-grid {
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            pointer-events: none;
+
+            background-image:
+                linear-gradient(var(--border-dark) 1px, transparent 1px),
+                linear-gradient(90deg, var(--border-dark) 1px, transparent 1px);
+
+            background-size: 50px 50px;
+        }
+
+        body.light .bg-grid {
+            background-image:
+                linear-gradient(var(--border-light) 1px, transparent 1px),
+                linear-gradient(90deg, var(--border-light) 1px, transparent 1px);
+        }
+
+        .glow {
+            position: fixed;
+            width: 500px;
+            height: 500px;
+
+            background: var(--primary);
+            filter: blur(180px);
+
+            opacity: 0.18;
+
+            top: -150px;
+            right: -150px;
+
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* =========================
+           Header
+        ========================= */
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+
+            padding: 16px 8%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            backdrop-filter: blur(16px);
+
+            border-bottom: 1px solid var(--border-dark);
+
+            z-index: 1000;
+        }
+
+        body.dark header {
+            background: rgba(7,17,31,0.88);
+        }
+
+        body.light header {
+            background: rgba(248,250,252,0.92);
+            border-bottom-color: var(--border-light);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .logo img {
+            width: 46px;
+            height: 46px;
+
+            border-radius: 50%;
+
+            background: linear-gradient(
+                135deg,
+                var(--primary),
+                var(--secondary)
+            );
+
+            padding: 4px;
+        }
+
+        .logo span {
+            font-weight: 800;
+            font-size: 1.1rem;
+        }
+
+        nav {
+            display: flex;
+            gap: 26px;
+        }
+
+        nav a {
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        body.dark nav a {
+            color: #fff;
+        }
+
+        body.light nav a {
+            color: var(--text-light);
+        }
+
+        nav a:hover {
+            color: var(--secondary);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .theme-toggle {
+            border: none;
+            cursor: pointer;
+
+            width: 42px;
+            height: 42px;
+
+            border-radius: 50%;
+
+            background: rgba(255,255,255,0.1);
+
+            color: inherit;
+
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+
+            background: linear-gradient(
+                135deg,
+                var(--primary),
+                var(--secondary)
+            );
+
+            color: white;
+
+            padding: 11px 22px;
+
+            border-radius: 40px;
+
+            text-decoration: none;
+
+            font-weight: 700;
+
+            transition: var(--transition);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(10,132,255,0.25);
+        }
+
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+
+            padding: 10px 22px;
+
+            border-radius: 40px;
+
+            text-decoration: none;
+
+            font-weight: 700;
+
+            border: 1px solid var(--border-dark);
+
+            color: inherit;
+
+            transition: var(--transition);
+        }
+
+        body.light .btn-outline {
+            border-color: var(--border-light);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* =========================
+           Main
+        ========================= */
+
+        main {
+            padding-top: 110px;
+        }
+
+        .container {
+            width: min(1180px, 92%);
+            margin: auto;
+        }
+
+        /* =========================
+           Hero
+        ========================= */
+
+        .case-hero {
+            padding: 70px 0 50px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+
+            gap: 50px;
+
+            align-items: center;
+        }
+
+        .breadcrumb {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+
+            margin-bottom: 25px;
+
+            font-size: 0.9rem;
+
+            color: var(--muted-dark);
+        }
+
+        body.light .breadcrumb {
+            color: var(--muted-light);
+        }
+
+        .breadcrumb a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .case-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            padding: 7px 14px;
+
+            border-radius: 30px;
+
+            background: rgba(10,132,255,0.1);
+
+            color: var(--secondary);
+
+            font-weight: 700;
+
+            margin-bottom: 20px;
+        }
+
+        .case-hero h1 {
+            font-size: clamp(2.4rem, 5vw, 4.5rem);
+
+            line-height: 1.15;
+
+            font-weight: 900;
+
+            margin-bottom: 18px;
+        }
+
+        .case-hero h1 span {
+            color: var(--secondary);
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+
+            color: var(--muted-dark);
+
+            line-height: 1.9;
+
+            max-width: 650px;
+
+            margin-bottom: 30px;
+        }
+
+        body.light .hero-subtitle {
+            color: var(--muted-light);
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+
+            gap: 12px;
+        }
+
+        /* =========================
+           Project Preview
+        ========================= */
+
+        .project-preview {
+            position: relative;
+
+            background: var(--dark-card);
+
+            border: 1px solid var(--border-dark);
+
+            border-radius: 30px;
+
+            padding: 15px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 30px 80px rgba(0,0,0,0.25);
+        }
+
+        body.light .project-preview {
+            background: white;
+            border-color: var(--border-light);
+        }
+
+        .project-preview img {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+
+            object-fit: cover;
+
+            border-radius: 20px;
+
+            display: block;
+        }
+
+        .preview-caption {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            gap: 15px;
+
+            padding: 18px 8px 8px;
+        }
+
+        .preview-caption strong {
+            font-size: 1.05rem;
+        }
+
+        .preview-caption span {
+            color: var(--muted-dark);
+            font-size: 0.85rem;
+        }
+
+        /* =========================
+           Section
+        ========================= */
+
+        section {
+            padding: 70px 0;
+        }
+
+        .section-heading {
+            margin-bottom: 35px;
+        }
+
+        .section-heading h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .section-heading p {
+            color: var(--muted-dark);
+            font-size: 1.05rem;
+        }
+
+        body.light .section-heading p {
+            color: var(--muted-light);
+        }
+
+        /* =========================
+           Overview
+        ========================= */
+
+        .overview-grid {
+            display: grid;
+
+            grid-template-columns: 1.5fr 1fr;
+
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--dark-card);
+
+            border: 1px solid var(--border-dark);
+
+            border-radius: 26px;
+
+            padding: 30px;
+
+            transition: var(--transition);
+        }
+
+        body.light .card {
+            background: white;
+            border-color: var(--border-light);
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(10,132,255,0.5);
+        }
+
+        .card h3 {
+            font-size: 1.35rem;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: var(--muted-dark);
+            line-height: 2;
+        }
+
+        body.light .card p {
+            color: var(--muted-light);
+        }
+
+        /* =========================
+           Project Facts
+        ========================= */
+
+        .facts {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 14px;
+
+            margin-top: 20px;
+        }
+
+        .fact {
+            padding: 18px;
+
+            border-radius: 18px;
+
+            background: rgba(255,255,255,0.04);
+
+            border: 1px solid var(--border-dark);
+        }
+
+        body.light .fact {
+            background: rgba(0,0,0,0.025);
+            border-color: var(--border-light);
+        }
+
+        .fact i {
+            color: var(--secondary);
+            margin-left: 7px;
+        }
+
+        .fact strong {
+            display: block;
+            margin-top: 7px;
+        }
+
+        /* =========================
+           Challenge / Solution
+        ========================= */
+
+        .two-columns {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 30px;
+        }
+
+        .icon-title {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+
+            margin-bottom: 18px;
+        }
+
+        .icon-box {
+            width: 48px;
+            height: 48px;
+
+            border-radius: 15px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: rgba(10,132,255,0.12);
+
+            color: var(--secondary);
+
+            font-size: 1.2rem;
+        }
+
+        /* =========================
+           Features
+        ========================= */
+
+        .features-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(230px, 1fr));
+
+            gap: 20px;
+        }
+
+        .feature-card {
+            padding: 25px;
+
+            background: var(--dark-card);
+
+            border: 1px solid var(--border-dark);
+
+            border-radius: 22px;
+        }
+
+        body.light .feature-card {
+            background: white;
+            border-color: var(--border-light);
+        }
+
+        .feature-card i {
+            color: var(--secondary);
+
+            font-size: 1.8rem;
+
+            margin-bottom: 16px;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 9px;
+        }
+
+        .feature-card p {
+            color: var(--muted-dark);
+
+            line-height: 1.8;
+
+            font-size: 0.95rem;
+        }
+
+        body.light .feature-card p {
+            color: var(--muted-light);
+        }
+
+        /* =========================
+           Technology
+        ========================= */
+
+        .technology-list {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+        }
+
+        .technology {
+            padding: 10px 17px;
+
+            border-radius: 30px;
+
+            background: rgba(10,132,255,0.1);
+
+            border: 1px solid rgba(10,132,255,0.18);
+
+            color: var(--secondary);
+
+            font-weight: 700;
+        }
+
+        /* =========================
+           Value
+        ========================= */
+
+        .value-box {
+            text-align: center;
+
+            padding: 45px 30px;
+
+            border-radius: 28px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(10,132,255,0.12),
+                    rgba(6,182,212,0.08)
+                );
+
+            border: 1px solid rgba(10,132,255,0.15);
+        }
+
+        .value-box h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .value-box p {
+            max-width: 800px;
+
+            margin: auto;
+
+            line-height: 2;
+
+            color: var(--muted-dark);
+        }
+
+        body.light .value-box p {
+            color: var(--muted-light);
+        }
+
+        /* =========================
+           CTA
+        ========================= */
+
+        .cta {
+            text-align: center;
+
+            padding: 80px 30px;
+        }
+
+        .cta h2 {
+            font-size: 2.4rem;
+
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            color: var(--muted-dark);
+
+            max-width: 650px;
+
+            margin: 0 auto 28px;
+
+            line-height: 1.9;
+        }
+
+        body.light .cta p {
+            color: var(--muted-light);
+        }
+
+        .cta-buttons {
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+        }
+
+        /* =========================
+           Footer
+        ========================= */
+
+        footer {
+            padding: 40px 8%;
+
+            text-align: center;
+
+            border-top: 1px solid var(--border-dark);
+
+            color: var(--muted-dark);
+        }
+
+        body.light footer {
+            border-top-color: var(--border-light);
+            color: var(--muted-light);
+        }
+
+        footer a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        /* =========================
+           Responsive
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .hero-grid,
+            .overview-grid,
+            .two-columns {
+                grid-template-columns: 1fr;
+            }
+
+            .project-preview {
+                max-width: 700px;
+
+                margin: auto;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .case-hero {
+                padding-top: 45px;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            header {
+                padding: 13px 5%;
+            }
+
+            .logo span {
+                font-size: 0.95rem;
+            }
+
+            .header-actions .btn-primary {
+                display: none;
+            }
+
+            main {
+                padding-top: 90px;
+            }
+
+            .case-hero h1 {
+                font-size: 2.4rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.05rem;
+            }
+
+            .facts {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 50px 0;
+            }
+
+            .section-heading h2 {
+                font-size: 1.8rem;
+            }
+
+            .cta h2 {
+                font-size: 1.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="dark">
+
+<div class="bg-grid"></div>
+<div class="glow"></div>
+
+<!-- =========================
+     Header
+========================= -->
+
+<header>
+
+    <a href="../index.html"
+       class="logo"
+       aria-label="CyberPath Digital - الرئيسية">
+
+        <img src="../assets/images/logo/CPD.png"
+             alt="شعار CyberPath Digital"
+             onerror="this.src='https://placehold.co/48x48?text=CPD'">
+
+        <span>CyberPath Digital</span>
+
+    </a>
+
+    <nav aria-label="القائمة الرئيسية">
+
+        <a href="../index.html">
+            الرئيسية
+        </a>
+
+        <a href="../services.html">
+            الخدمات
+        </a>
+
+        <a href="../portfolio.html">
+            أعمالنا
+        </a>
+
+        <a href="../contact.html">
+            تواصل معنا
+        </a>
+
+    </nav>
+
+    <div class="header-actions">
+
+        <button class="theme-toggle"
+                id="themeToggle"
+                aria-label="تبديل الوضع المظلم والفاتح">
+
+            <i class="fas fa-moon"
+               aria-hidden="true"></i>
+
+        </button>
+
+        <a href="../get-quote.html"
+           class="btn-primary">
+
+            اطلب عرض سعر
+
+        </a>
+
+    </div>
+
+</header>
+
+
+<main>
+
+    <!-- =========================
+         Hero
+    ========================= -->
+
+    <section class="case-hero">
+
+        <div class="container">
+
+            <div class="breadcrumb">
+
+                <a href="../index.html">
+                    الرئيسية
+                </a>
+
+                <span>/</span>
+
+                <a href="../portfolio.html">
+                    أعمالنا
+                </a>
+
+                <span>/</span>
+
+                <span>
+                    دراسة حالة
+                </span>
+
+            </div>
+
+            <div class="hero-grid">
+
+                <div>
+
+                    <div class="case-label">
+                        <i class="fas fa-store"></i>
+                        دراسة حالة – متجر إلكتروني
+                    </div>
+
+                    <h1>
+                        Renad
+                        <span>Flora Store</span>
+                    </h1>
+
+                    <p class="hero-subtitle">
+
+                        متجر إلكتروني حديث يهدف إلى تقديم تجربة تسوق
+                        رقمية سهلة وسريعة، مع تنظيم المنتجات والتصنيفات
+                        وتوفير رحلة شراء واضحة ومتوافقة مع مختلف الأجهزة.
+
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a href="https://renad-flora-store.vercel.app/"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="btn-primary">
+
+                            <i class="fas fa-external-link-alt"></i>
+
+                            زيارة المشروع
+
+                        </a>
+
+                        <a href="../portfolio.html"
+                           class="btn-outline">
+
+                            <i class="fas fa-arrow-right"></i>
+
+                            العودة إلى أعمالنا
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="project-preview">
+
+                    <img
+                        src="https://renad-flora-store.vercel.app/"
+                        alt="واجهة متجر Renad Flora Store"
+                        loading="lazy"
+                        onerror="this.style.display='none'; this.parentElement.classList.add('preview-fallback');">
+
+                    <div class="preview-caption">
+
+                        <strong>
+                            Renad Flora Store
+                        </strong>
+
+                        <span>
+                            E-Commerce
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         Overview
+    ========================= -->
+
+    <section>
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <h2>
+                    نظرة عامة على المشروع
+                </h2>
+
+                <p>
+                    تجربة رقمية متكاملة للتجارة الإلكترونية
+                </p>
+
+            </div>
+
+
+            <div class="overview-grid">
+
+                <div class="card">
+
+                    <h3>
+                        عن المشروع
+                    </h3>
+
+                    <p>
+
+                        تم تطوير Renad Flora Store كنموذج لمتجر
+                        إلكتروني حديث يركز على تقديم المنتجات بطريقة
+                        منظمة وجذابة، مع الاهتمام بسهولة التصفح والوصول
+                        إلى المنتجات وإتمام رحلة التسوق.
+
+                        <br><br>
+
+                        يبرز المشروع قدرة CyberPath Digital على بناء
+                        تجارب تجارة إلكترونية تجمع بين التصميم الحديث
+                        والوظائف العملية وتجربة المستخدم المتجاوبة.
+
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>
+                        حقائق أساسية
+                    </h3>
+
+                    <div class="facts">
+
+                        <div class="fact">
+
+                            <i class="fas fa-layer-group"></i>
+
+                            <small>نوع المشروع</small>
+
+                            <strong>
+                                متجر إلكتروني
+                            </strong>
+
+                        </div>
+
+                        <div class="fact">
+
+                            <i class="fas fa-mobile-alt"></i>
+
+                            <small>التصميم</small>
+
+                            <strong>
+                                Responsive
+                            </strong>
+
+                        </div>
+
+                        <div class="fact">
+
+                            <i class="fas fa-shopping-cart"></i>
+
+                            <small>التركيز</small>
+
+                            <strong>
+                                تجربة التسوق
+                            </strong>
+
+                        </div>
+
+                        <div class="fact">
+
+                            <i class="fas fa-globe"></i>
+
+                            <small>المنصة</small>
+
+                            <strong>
+                                Web
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         Challenge / Solution
+    ========================= -->
+
+    <section>
+
+        <div class="container">
+
+            <div class="two-columns">
+
+                <div class="card">
+
+                    <div class="icon-title">
+
+                        <div class="icon-box">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+
+                        <h3>
+                            الهدف
+                        </h3>
+
+                    </div>
+
+                    <p>
+
+                        إنشاء واجهة متجر إلكتروني تساعد الزائر على
+                        اكتشاف المنتجات والوصول إلى التصنيفات المختلفة
+                        بطريقة واضحة، مع توفير تجربة مناسبة لمستخدمي
+                        الهواتف والأجهزة الذكية.
+
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="icon-title">
+
+                        <div class="icon-box">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+
+                        <h3>
+                            الحل
+                        </h3>
+
+                    </div>
+
+                    <p>
+
+                        تصميم تجربة رقمية منظمة تعتمد على تقسيم
+                        المنتجات والتصنيفات وإظهار عناصر المتجر
+                        بطريقة واضحة، مع التركيز على سهولة الاستخدام
+                        وسرعة الوصول إلى المنتجات والخدمات.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         Features
+    ========================= -->
+
+    <section>
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <h2>
+                    أبرز مميزات المشروع
+                </h2>
+
+                <p>
+                    عناصر ركزنا عليها أثناء تطوير تجربة المتجر
+                </p>
+
+            </div>
+
+
+            <div class="features-grid">
+
+                <div class="feature-card">
+
+                    <i class="fas fa-store"></i>
+
+                    <h3>
+                        واجهة متجر احترافية
+                    </h3>
+
+                    <p>
+                        تصميم يركز على عرض المنتجات بطريقة منظمة
+                        وجذابة وسهلة التصفح.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <i class="fas fa-tags"></i>
+
+                    <h3>
+                        تصنيفات المنتجات
+                    </h3>
+
+                    <p>
+                        تنظيم المنتجات ضمن أقسام تساعد المستخدم
+                        على الوصول إلى ما يبحث عنه بسرعة.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <i class="fas fa-mobile-screen"></i>
+
+                    <h3>
+                        متوافق مع الجوال
+                    </h3>
+
+                    <p>
+                        تجربة متجاوبة تعمل على الشاشات المختلفة
+                        والأجهزة الذكية.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <i class="fas fa-heart"></i>
+
+                    <h3>
+                        تجربة مستخدم سهلة
+                    </h3>
+
+                    <p>
+                        تنظيم الواجهة وعناصر التصفح بهدف تقليل
+                        التعقيد وتحسين رحلة المستخدم.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <i class="fas fa-truck"></i>
+
+                    <h3>
+                        رحلة طلب واضحة
+                    </h3>
+
+                    <p>
+                        تصميم العناصر الأساسية بما يساعد على الانتقال
+                        من اكتشاف المنتج إلى الطلب بسهولة.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <i class="fas fa-chart-line"></i>
+
+                    <h3>
+                        قابلية التطوير
+                    </h3>
+
+                    <p>
+                        بنية تسمح بإضافة خصائص وخدمات جديدة مع نمو
+                        المشروع واحتياجات المتجر.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         Technologies
+    ========================= -->
+
+    <section>
+
+        <div class="container">
+
+            <div class="card">
+
+                <div class="section-heading">
+
+                    <h2>
+                        التقنيات والمفاهيم
+                    </h2>
+
+                    <p>
+                        التقنيات والمبادئ المستخدمة في بناء التجربة
+                        الرقمية
+                    </p>
+
+                </div>
+
+                <div class="technology-list">
+
+                    <span class="technology">
+                        HTML5
+                    </span>
+
+                    <span class="technology">
+                        CSS3
+                    </span>
+
+                    <span class="technology">
+                        JavaScript
+                    </span>
+
+                    <span class="technology">
+                        Responsive Design
+                    </span>
+
+                    <span class="technology">
+                        E-Commerce
+                    </span>
+
+                    <span class="technology">
+                        User Experience
+                    </span>
+
+                    <span class="technology">
+                        SEO
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         Value
+    ========================= -->
+
+    <section>
+
+        <div class="container">
+
+            <div class="value-box">
+
+                <h2>
+                    القيمة التي يقدمها المشروع
+                </h2>
+
+                <p>
+
+                    يمثل Renad Flora Store نموذجًا عمليًا لقدرة
+                    CyberPath Digital على تصميم تجارب التجارة
+                    الإلكترونية بطريقة تجمع بين العرض البصري
+                    والتنظيم وسهولة الاستخدام والتوافق مع الأجهزة
+                    المختلفة.
+
+                    <br><br>
+
+                    كما يمثل المشروع جزءًا من مجموعة الحلول الرقمية
+                    التي نطورها لمساعدة الأنشطة التجارية على الانتقال
+                    إلى البيئة الرقمية وبناء حضور إلكتروني احترافي.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CTA
+    ========================= -->
+
+    <section>
+
+        <div class="container">
+
+            <div class="cta">
+
+                <h2>
+                    هل لديك فكرة لمتجر إلكتروني؟
+                </h2>
+
+                <p>
+
+                    نساعدك على تحويل فكرتك إلى تجربة رقمية احترافية
+                    مصممة بما يتناسب مع طبيعة نشاطك وأهدافك.
+
+                </p>
+
+                <div class="cta-buttons">
+
+                    <a href="../get-quote.html"
+                       class="btn-primary">
+
+                        <i class="fas fa-file-invoice"></i>
+
+                        اطلب عرض سعر
+
+                    </a>
+
+                    <a href="../contact.html"
+                       class="btn-outline">
+
+                        <i class="fas fa-envelope"></i>
+
+                        تواصل معنا
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- =========================
+     Footer
+========================= -->
+
+<footer>
+
+    <p>
+        © 2026
+        <a href="../index.html">
+            CyberPath Digital
+        </a>
+        – جميع الحقوق محفوظة
+    </p>
+
+</footer>
+
+
+<script>
+
+    const body = document.body;
+
+    const toggle = document.getElementById('themeToggle');
+
+    const icon = toggle.querySelector('i');
+
+
+    function setTheme(theme) {
+
+        body.classList.remove('dark', 'light');
+
+        body.classList.add(theme);
+
+        localStorage.setItem('cpd-theme', theme);
+
+        icon.className =
+            theme === 'dark'
+                ? 'fas fa-moon'
+                : 'fas fa-sun';
+
+        toggle.setAttribute(
+            'aria-label',
+            theme === 'dark'
+                ? 'تفعيل الوضع الفاتح'
+                : 'تفعيل الوضع المظلم'
+        );
+
+    }
+
+
+    const savedTheme =
+        localStorage.getItem('cpd-theme') || 'dark';
+
+    setTheme(savedTheme);
+
+
+    toggle.addEventListener('click', function () {
+
+        const newTheme =
+            body.classList.contains('dark')
+                ? 'light'
+                : 'dark';
+
+        setTheme(newTheme);
+
+    });
+
+</script>
+
+
+<!-- Structured Data -->
+
+<script type="application/ld+json">
+
+{
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "Renad Flora Store",
+    "headline": "Renad Flora Store - دراسة حالة",
+    "description": "دراسة حالة لمشروع متجر إلكتروني حديث تم تطويره لتقديم تجربة تسوق رقمية متجاوبة وسهلة الاستخدام.",
+    "url": "https://cyberpath-digital.vercel.app/case-studies/renad-flora-store.html",
+    "creator": {
+        "@type": "Organization",
+        "name": "CyberPath Digital",
+        "url": "https://cyberpath-digital.vercel.app/"
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://cyberpath-digital.vercel.app/case-studies/renad-flora-store.html"
+    }
+}
+
+</script>
+
+</body>
+</html>
