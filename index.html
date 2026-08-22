@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -902,6 +903,19 @@
         body.light .vision-status.future {
             background: rgba(0,0,0,0.05);
             color: var(--muted-light);
+        }
+
+        /* Initiatives Section (مبادراتنا الرقمية) */
+        .initiative-card {
+            background: var(--dark-card);
+            border: 1px solid var(--border-dark);
+            border-radius: 24px;
+            padding: 35px 30px;
+        }
+
+        body.light .initiative-card {
+            background: var(--light-card);
+            border-color: var(--border-light);
         }
 
         @media (max-width: 768px) {
@@ -1970,6 +1984,7 @@ button:focus-visible {
     <a href="index.html"><i class="fas fa-home"></i>الرئيسية</a>
     <a href="services.html"><i class="fas fa-cogs"></i>الخدمات</a>
     <a href="portfolio.html"><i class="fas fa-briefcase"></i>أعمالنا</a>
+    <a href="exam-guide.html"><i class="fas fa-shield-halved"></i>دليل اختبار الأمن السيبراني</a>
     <a href="get-quote.html"><i class="fas fa-file-invoice-dollar"></i>عرض سعر</a>
     <a href="contact.html"><i class="fas fa-envelope"></i>تواصل معنا</a>
 </div>
@@ -2431,6 +2446,24 @@ button:focus-visible {
         </div>
     </section>
 
+    <!-- مبادراتنا الرقمية -->
+    <section class="initiatives-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>🧭 مبادراتنا الرقمية</h2>
+                <p>مشاريع ومبادرات تعليمية وتقنية نطورها ضمن منظومة CyberPath</p>
+            </div>
+
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px;margin-top:40px;">
+                <div class="initiative-card">
+                    <h3 style="margin-bottom:12px;">الدليل الشامل للتحضير لاختبار الأمن السيبراني</h3>
+                    <p style="color:var(--muted-dark);margin-bottom:20px;line-height:1.7;">دليل رقمي متكامل يساعد المتدربين والمهتمين بالأمن السيبراني على الاستعداد للاختبارات من خلال محتوى إرشادي وموارد تحضيرية منظمة.</p>
+                    <a href="exam-guide.html" class="btn-primary" style="padding:10px 24px;display:inline-block;">استكشف الدليل</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
              <!-- رؤيتنا المستقبلية -->
     <section class="vision-section">
         <div class="container">
@@ -2453,7 +2486,8 @@ button:focus-visible {
                     <h3>CPA</h3>
                     <p class="vision-name">CyberPath Academy</p>
                     <small>التدريب والتعليم</small>
-                    <span class="vision-status future">قريباً</span>
+                    <span class="vision-status future">قيد التطوير</span>
+                    <a href="https://cyberpath.vercel.app/academy/" target="_blank" style="display:block;margin-top:12px;font-size:0.8rem;color:var(--primary);font-weight:700;text-decoration:none;">استكشاف المنصة ↗</a>
                 </div>
 
                 <div class="vision-card future">
