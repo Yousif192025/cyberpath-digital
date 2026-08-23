@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CP Creative | دراسة حالة | CyberPath Digital</title>
+
+    <meta name="description"
+          content="دراسة حالة CP Creative، نموذج إبداعي رقمي يبرز إمكانيات CyberPath Digital في تصميم الهوية الرقمية وتجارب المستخدم والمواقع الإبداعية الحديثة.">
+
+    <meta name="keywords"
+          content="CP Creative, تصميم إبداعي, هوية بصرية, تصميم مواقع, CyberPath Digital, تصميم رقمي">
+
+    <meta name="author" content="CyberPath Digital">
+
+    <meta property="og:title"
+          content="CP Creative | دراسة حالة | CyberPath Digital">
+
+    <meta property="og:description"
+          content="نموذج إبداعي رقمي يبرز قدرات CyberPath Digital في التصميم وتطوير التجارب الرقمية الحديثة.">
+
+    <meta property="og:type" content="website">
+
+    <meta property="og:image"
+          content="https://cyberpath-digital.vercel.app/assest/images/logo/cp-creative.png">
+
+    <link rel="canonical"
+          href="https://cyberpath-digital.vercel.app/case-studies/cp-creative.html">
+
+    <link rel="icon"
+          type="image/png"
+          href="../assest/images/logo/CPD.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0A84FF;
+            --secondary: #06B6D4;
+
+            --dark-bg: #07111f;
+            --dark-card: #101b2d;
+
+            --light-bg: #f8fafc;
+            --light-card: #ffffff;
+
+            --text-dark: #ffffff;
+            --text-light: #0f172a;
+
+            --muted-dark: #94a3b8;
+            --muted-light: #475569;
+
+            --border-dark: rgba(255,255,255,0.08);
+            --border-light: rgba(0,0,0,0.08);
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            transition: 0.3s;
+            overflow-x: hidden;
+        }
+
+        body.dark {
+            background: var(--dark-bg);
+            color: var(--text-dark);
+        }
+
+        body.light {
+            background: var(--light-bg);
+            color: var(--text-light);
+        }
+
+        .bg-grid {
+            position: fixed;
+            inset: 0;
+
+            background-image:
+                linear-gradient(
+                    var(--border-dark) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    var(--border-dark) 1px,
+                    transparent 1px
+                );
+
+            background-size: 50px 50px;
+
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        body.light .bg-grid {
+            background-image:
+                linear-gradient(
+                    var(--border-light) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    var(--border-light) 1px,
+                    transparent 1px
+                );
+        }
+
+        .glow {
+            position: fixed;
+            width: 500px;
+            height: 500px;
+
+            background: var(--primary);
+
+            filter: blur(180px);
+            opacity: 0.2;
+
+            top: -100px;
+            right: -100px;
+
+            z-index: -1;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            position: fixed;
+            top: 0;
+
+            width: 100%;
+
+            padding: 18px 8%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            backdrop-filter: blur(16px);
+
+            border-bottom:
+                1px solid var(--border-dark);
+
+            z-index: 1000;
+        }
+
+        body.dark header {
+            background:
+                rgba(7,17,31,0.85);
+        }
+
+        body.light header {
+            background:
+                rgba(248,250,252,0.9);
+
+            border-bottom-color:
+                var(--border-light);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+
+            gap: 12px;
+
+            text-decoration: none;
+
+            color: inherit;
+        }
+
+        .logo img {
+            width: 48px;
+            height: 48px;
+
+            border-radius: 50%;
+
+            padding: 4px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--primary),
+                    var(--secondary)
+                );
+        }
+
+        .logo span {
+            font-weight: 800;
+            font-size: 1.15rem;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+
+            font-weight: 600;
+
+            color: inherit;
+
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--secondary);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .theme-toggle {
+            background:
+                rgba(255,255,255,0.1);
+
+            border: none;
+
+            color: inherit;
+
+            border-radius: 40px;
+
+            padding: 8px 14px;
+
+            cursor: pointer;
+
+            font-size: 1.1rem;
+        }
+
+        .btn-primary {
+            display: inline-block;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--primary),
+                    var(--secondary)
+                );
+
+            padding: 11px 24px;
+
+            border-radius: 40px;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-weight: 700;
+
+            transition: 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 10px 25px
+                rgba(10,132,255,0.25);
+        }
+
+        .btn-outline {
+            display: inline-block;
+
+            padding: 10px 24px;
+
+            border-radius: 40px;
+
+            border:
+                1px solid var(--border-dark);
+
+            color: inherit;
+
+            text-decoration: none;
+
+            font-weight: 700;
+
+            transition: 0.3s;
+        }
+
+        body.light .btn-outline {
+            border-color:
+                var(--border-light);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        main {
+            padding-top: 110px;
+        }
+
+        .container {
+            width: min(1150px, 92%);
+            margin: auto;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            padding: 70px 0 50px;
+
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            padding: 8px 18px;
+
+            border-radius: 30px;
+
+            background:
+                rgba(10,132,255,0.1);
+
+            border:
+                1px solid
+                rgba(10,132,255,0.25);
+
+            color: var(--secondary);
+
+            font-weight: 700;
+
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size:
+                clamp(2.2rem, 5vw, 4rem);
+
+            font-weight: 900;
+
+            margin-bottom: 18px;
+        }
+
+        .hero h1 span {
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--primary),
+                    var(--secondary)
+                );
+
+            -webkit-background-clip: text;
+
+            -webkit-text-fill-color:
+                transparent;
+        }
+
+        .hero p {
+            max-width: 780px;
+
+            margin: auto;
+
+            color: var(--muted-dark);
+
+            font-size: 1.15rem;
+
+            line-height: 1.9;
+        }
+
+        body.light .hero p {
+            color: var(--muted-light);
+        }
+
+        /* =========================
+           PROJECT PREVIEW
+        ========================= */
+
+        .project-preview {
+            margin: 35px auto 70px;
+
+            max-width: 1050px;
+
+            background: var(--dark-card);
+
+            border:
+                1px solid
+                var(--border-dark);
+
+            border-radius: 28px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 25px 70px
+                rgba(0,0,0,0.25);
+        }
+
+        body.light .project-preview {
+            background: white;
+
+            border-color:
+                var(--border-light);
+        }
+
+        .project-preview img {
+            display: block;
+
+            width: 100%;
+
+            height: auto;
+
+            max-height: 600px;
+
+            object-fit: cover;
+        }
+
+        /* =========================
+           SECTIONS
+        ========================= */
+
+        section {
+            padding: 65px 0;
+        }
+
+        .section-title {
+            text-align: center;
+
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 2.3rem;
+
+            font-weight: 800;
+
+            margin-bottom: 12px;
+        }
+
+        .section-title p {
+            color: var(--muted-dark);
+        }
+
+        body.light .section-title p {
+            color: var(--muted-light);
+        }
+
+        .content-card {
+            background: var(--dark-card);
+
+            border:
+                1px solid
+                var(--border-dark);
+
+            padding: 35px;
+
+            border-radius: 24px;
+
+            line-height: 2;
+        }
+
+        body.light .content-card {
+            background: white;
+
+            border-color:
+                var(--border-light);
+        }
+
+        .content-card p {
+            color: var(--muted-dark);
+        }
+
+        body.light .content-card p {
+            color: var(--muted-light);
+        }
+
+        /* =========================
+           FEATURES
+        ========================= */
+
+        .grid-3 {
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(250px, 1fr)
+                );
+
+            gap: 25px;
+        }
+
+        .feature-card {
+            background: var(--dark-card);
+
+            border:
+                1px solid
+                var(--border-dark);
+
+            padding: 30px;
+
+            border-radius: 22px;
+
+            transition: 0.3s;
+        }
+
+        body.light .feature-card {
+            background: white;
+
+            border-color:
+                var(--border-light);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+
+            border-color:
+                var(--primary);
+        }
+
+        .feature-card i {
+            font-size: 2rem;
+
+            color: var(--secondary);
+
+            margin-bottom: 18px;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+
+            font-size: 1.2rem;
+        }
+
+        .feature-card p {
+            color: var(--muted-dark);
+
+            line-height: 1.8;
+        }
+
+        body.light .feature-card p {
+            color: var(--muted-light);
+        }
+
+        /* =========================
+           TECHNOLOGIES
+        ========================= */
+
+        .tech-list {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            justify-content: center;
+
+            gap: 12px;
+        }
+
+        .tech {
+            padding: 10px 20px;
+
+            border-radius: 30px;
+
+            background:
+                rgba(10,132,255,0.1);
+
+            border:
+                1px solid
+                rgba(10,132,255,0.25);
+
+            color: var(--secondary);
+
+            font-weight: 700;
+        }
+
+        /* =========================
+           PROJECT IDENTITY
+        ========================= */
+
+        .identity-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(220px, 1fr)
+                );
+
+            gap: 20px;
+        }
+
+        .identity-item {
+            background: var(--dark-card);
+
+            border:
+                1px solid
+                var(--border-dark);
+
+            border-radius: 20px;
+
+            padding: 25px;
+
+            text-align: center;
+        }
+
+        body.light .identity-item {
+            background: white;
+
+            border-color:
+                var(--border-light);
+        }
+
+        .identity-item i {
+            font-size: 1.8rem;
+
+            color: var(--secondary);
+
+            margin-bottom: 12px;
+        }
+
+        .identity-item h3 {
+            font-size: 1.1rem;
+
+            margin-bottom: 8px;
+        }
+
+        .identity-item p {
+            color: var(--muted-dark);
+
+            line-height: 1.7;
+        }
+
+        body.light .identity-item p {
+            color: var(--muted-light);
+        }
+
+        /* =========================
+           CTA
+        ========================= */
+
+        .cta {
+            text-align: center;
+
+            padding: 70px 30px;
+
+            margin:
+                50px 0 80px;
+
+            border-radius: 30px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(10,132,255,0.12),
+                    rgba(6,182,212,0.08)
+                );
+
+            border:
+                1px solid
+                var(--border-dark);
+        }
+
+        body.light .cta {
+            border-color:
+                var(--border-light);
+        }
+
+        .cta h2 {
+            font-size: 2rem;
+
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            color: var(--muted-dark);
+
+            margin-bottom: 25px;
+        }
+
+        body.light .cta p {
+            color: var(--muted-light);
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            text-align: center;
+
+            padding: 40px 8%;
+
+            border-top:
+                1px solid
+                var(--border-dark);
+
+            color: var(--muted-dark);
+        }
+
+        body.light footer {
+            border-top-color:
+                var(--border-light);
+
+            color: var(--muted-light);
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 768px) {
+
+            header {
+                padding: 14px 5%;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .logo span {
+                font-size: 1rem;
+            }
+
+            .header-actions .btn-primary {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 45px;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .content-card,
+            .feature-card {
+                padding: 25px;
+            }
+
+            .project-preview {
+                border-radius: 18px;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body class="dark">
+
+<div class="bg-grid"></div>
+<div class="glow"></div>
+
+
+<header>
+
+    <a
+        href="../index.html"
+        class="logo"
+        aria-label="CyberPath Digital">
+
+        <img
+            src="../assest/images/logo/CPD.png"
+            alt="شعار CyberPath Digital">
+
+        <span>
+            CyberPath Digital
+        </span>
+
+    </a>
+
+
+    <nav aria-label="القائمة الرئيسية">
+
+        <a href="../index.html">
+            الرئيسية
+        </a>
+
+        <a href="../services.html">
+            الخدمات
+        </a>
+
+        <a href="../portfolio.html">
+            أعمالنا
+        </a>
+
+        <a href="index.html">
+            دراسات الحالة
+        </a>
+
+        <a href="../contact.html">
+            تواصل معنا
+        </a>
+
+    </nav>
+
+
+    <div class="header-actions">
+
+        <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="تبديل الوضع المظلم والفاتح">
+
+            <i
+                class="fas fa-moon"
+                aria-hidden="true">
+            </i>
+
+        </button>
+
+
+        <a
+            href="../get-quote.html"
+            class="btn-primary">
+
+            اطلب عرض سعر
+
+        </a>
+
+    </div>
+
+</header>
+
+
+<main>
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section class="hero">
+
+        <div class="container">
+
+            <div class="badge">
+
+                <i class="fas fa-wand-magic-sparkles"></i>
+
+                دراسة حالة
+
+            </div>
+
+
+            <h1>
+
+                <span>CP Creative</span>
+
+            </h1>
+
+
+            <p>
+
+                نموذج إبداعي رقمي يبرز إمكانيات
+                CyberPath Digital في تصميم التجارب الرقمية
+                الحديثة وبناء واجهات تجمع بين الهوية البصرية
+                والتقنية وتجربة المستخدم.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROJECT PREVIEW
+    ========================= -->
+
+    <div class="container">
+
+        <div class="project-preview">
+
+            <img
+                src="../assest/images/logo/cp-creative.png"
+                alt="واجهة مشروع CP Creative"
+                loading="eager"
+                decoding="async">
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         OVERVIEW
+    ========================= -->
+
+    <section>
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>
+                    نظرة عامة على المشروع
+                </h2>
+
+                <p>
+                    تجربة رقمية تجمع بين التصميم والإبداع والتقنية
+                </p>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <p>
+
+                    يمثل CP Creative نموذجاً إبداعياً ضمن أعمال
+                    CyberPath Digital، ويهدف إلى إبراز الإمكانيات
+                    المتاحة في تصميم وتطوير المواقع الرقمية ذات
+                    الطابع الإبداعي والهوية البصرية الحديثة.
+
+                </p>
+
+
+                <br>
+
+
+                <p>
+
+                    يركز المشروع على تقديم تجربة رقمية متكاملة
+                    تعتمد على العرض البصري المنظم، والواجهات
+                    الحديثة، وتقديم الخدمات والمحتوى بطريقة تساعد
+                    على بناء حضور رقمي احترافي.
+
+                </p>
+
+
+                <br>
+
+
+                <p>
+
+                    كما يمثل المشروع مساحة تجريبية لتطوير الأفكار
+                    الإبداعية واختبار أساليب جديدة في تصميم الواجهات
+                    وتجارب المستخدم، مع المحافظة على الأداء
+                    والاستجابة لمختلف الأجهزة.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROJECT OBJECTIVES
+    ========================= -->
+
+    <section>
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>
+                    أهداف المشروع
+                </h2>
+
+                <p>
+                    المبادئ التي يعتمد عليها النموذج الإبداعي
+                </p>
+
+            </div>
+
+
+            <div class="grid-3">
+
+
+                <div class="feature-card">
+
+                    <i class="fas fa-palette"></i>
+
+                    <h3>
+                        هوية بصرية مميزة
+                    </h3>
+
+                    <p>
+
+                        بناء تجربة بصرية متناسقة تساعد على
+                        تقديم العلامة الرقمية بصورة احترافية
+                        وواضحة.
+
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <i class="fas fa-laptop-code"></i>
+
+                    <h3>
+                        تجربة رقمية حديثة
+                    </h3>
+
+                    <p>
+
+                        تطوير واجهات رقمية حديثة تجمع بين
+                        التصميم الجذاب وسهولة الاستخدام.
+
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <i class="fas fa-mobile-screen-button"></i>
+
+                    <h3>
+                        تجربة متعددة الأجهزة
+                    </h3>
+
+                    <p>
+
+                        تصميم متجاوب يتيح للمستخدم الوصول
+                        إلى المحتوى من مختلف أحجام الشاشات.
+
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <i class="fas fa-layer-group"></i>
+
+                    <h3>
+                        تنظيم المحتوى
+                    </h3>
+
+                    <p>
+
+                        تنظيم الخدمات والمحتوى بطريقة واضحة
+                        تسهّل على الزائر استكشاف الموقع.
+
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <i class="fas fa-bolt"></i>
+
+                    <h3>
+                        أداء وتجربة سلسة
+                    </h3>
+
+                    <p>
+
+                        التركيز على تقديم تجربة استخدام سريعة
+                        وواضحة مع واجهات خفيفة ومتجاوبة.
+
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <i class="fas fa-lightbulb"></i>
+
+                    <h3>
+                        مساحة للإبداع
+                    </h3>
+
+                    <p>
+
+                        استخدام المشروع كنموذج لتجربة أفكار
+                        وتصاميم رقمية جديدة قابلة للتطوير.
+
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         DIGITAL IDENTITY
+    ========================= -->
+
+    <section>
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>
+                    مكونات التجربة الرقمية
+                </h2>
+
+                <p>
+                    عناصر تساهم في بناء حضور رقمي متكامل
+                </p>
+
+            </div>
+
+
+            <div class="identity-grid">
+
+
+                <div class="identity-item">
+
+                    <i class="fas fa-brush"></i>
+
+                    <h3>
+                        التصميم
+                    </h3>
+
+                    <p>
+                        واجهات حديثة وهوية بصرية متناسقة.
+                    </p>
+
+                </div>
+
+
+                <div class="identity-item">
+
+                    <i class="fas fa-users"></i>
+
+                    <h3>
+                        تجربة المستخدم
+                    </h3>
+
+                    <p>
+                        تنظيم واضح للمحتوى ومسارات التصفح.
+                    </p>
+
+                </div>
+
+
+                <div class="identity-item">
+
+                    <i class="fas fa-globe"></i>
+
+                    <h3>
+                        الحضور الرقمي
+                    </h3>
+
+                    <p>
+                        منصة رقمية قابلة للوصول من مختلف الأجهزة.
+                    </p>
+
+                </div>
+
+
+                <div class="identity-item">
+
+                    <i class="fas fa-rocket"></i>
+
+                    <h3>
+                        قابلية التطوير
+                    </h3>
+
+                    <p>
+                        إمكانية توسيع المشروع وإضافة وظائف مستقبلية.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         TECHNOLOGIES
+    ========================= -->
+
+    <section>
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>
+                    التقنيات المستخدمة
+                </h2>
+
+                <p>
+                    تقنيات الويب المستخدمة في بناء النموذج
+                </p>
+
+            </div>
+
+
+            <div class="tech-list">
+
+                <span class="tech">
+                    HTML5
+                </span>
+
+                <span class="tech">
+                    CSS3
+                </span>
+
+                <span class="tech">
+                    JavaScript
+                </span>
+
+                <span class="tech">
+                    Responsive Design
+                </span>
+
+                <span class="tech">
+                    Modern UI
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROJECT NATURE
+    ========================= -->
+
+    <section>
+
+        <div class="container">
+
+            <div class="content-card">
+
+                <div
+                    class="section-title"
+                    style="margin-bottom:25px;">
+
+                    <h2>
+                        طبيعة المشروع
+                    </h2>
+
+                </div>
+
+
+                <p>
+
+                    CP Creative هو نموذج إبداعي رقمي ضمن منظومة
+                    CyberPath، ويُستخدم لإظهار قدرات التصميم
+                    والتطوير في بناء المواقع الحديثة والتجارب
+                    الرقمية ذات الطابع الإبداعي.
+
+                </p>
+
+
+                <br>
+
+
+                <p>
+
+                    لا يُعرض المشروع باعتباره مشروع عميل مستقل،
+                    وإنما كنموذج يوضح الاتجاه الإبداعي والتقني
+                    الذي يمكن أن تقدمه CyberPath Digital في
+                    المشاريع الرقمية المستقبلية.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CTA
+    ========================= -->
+
+    <div class="container">
+
+        <div class="cta">
+
+            <h2>
+                هل تبحث عن تجربة رقمية إبداعية؟
+            </h2>
+
+
+            <p>
+
+                نساعدك على تحويل فكرتك أو علامتك التجارية
+                إلى تجربة رقمية احترافية تجمع بين التصميم
+                والتقنية وسهولة الاستخدام.
+
+            </p>
+
+
+            <a
+                href="https://cp-creative.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-primary">
+
+                <i class="fas fa-external-link-alt"></i>
+
+                زيارة المشروع
+
+            </a>
+
+
+            <a
+                href="../get-quote.html"
+                class="btn-outline"
+                style="margin-right:10px;">
+
+                اطلب عرض سعر
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+</main>
+
+
+<footer>
+
+    <p>
+        © 2026 CyberPath Digital –
+        جميع الحقوق محفوظة
+    </p>
+
+</footer>
+
+
+<script>
+
+    const body =
+        document.body;
+
+    const toggle =
+        document.getElementById('themeToggle');
+
+    const icon =
+        toggle.querySelector('i');
+
+
+    const setTheme =
+        (theme) => {
+
+            body.classList.remove(
+                'dark',
+                'light'
+            );
+
+            body.classList.add(theme);
+
+            localStorage.setItem(
+                'cpd-theme',
+                theme
+            );
+
+            icon.className =
+                theme === 'dark'
+                    ? 'fas fa-moon'
+                    : 'fas fa-sun';
+
+        };
+
+
+    setTheme(
+        localStorage.getItem('cpd-theme')
+        || 'dark'
+    );
+
+
+    toggle.addEventListener(
+        'click',
+        () => {
+
+            setTheme(
+                body.classList.contains('dark')
+                    ? 'light'
+                    : 'dark'
+            );
+
+        }
+    );
+
+</script>
+
+</body>
+</html>
