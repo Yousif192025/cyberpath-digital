@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>نظام إدارة العيادات | CyberPath Digital</title>
+
+    <meta name="description"
+          content="دراسة حالة مشروع نظام إدارة العيادات، نموذج رقمي لإدارة وتنظيم العمليات والخدمات الطبية من خلال واجهة إلكترونية حديثة ومتجاوبة.">
+
+    <meta name="keywords"
+          content="نظام إدارة العيادات, إدارة العيادات, أنظمة طبية, CyberPath Digital, Clinic Management System">
+
+    <meta name="author" content="CyberPath Digital">
+
+    <meta property="og:title" content="نظام إدارة العيادات | CyberPath Digital">
+    <meta property="og:description"
+          content="دراسة حالة مشروع نظام إدارة العيادات وتطوير واجهة رقمية حديثة لإدارة العمليات الطبية.">
+    <meta property="og:type" content="website">
+    <meta property="og:image"
+          content="https://cyberpath-digital.vercel.app/assest/images/logo/clinic.png">
+
+    <link rel="icon"
+          type="image/png"
+          href="../assest/images/logo/CPD.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0A84FF;
+            --secondary: #06B6D4;
+            --dark-bg: #07111f;
+            --dark-card: #101b2d;
+            --light-bg: #f8fafc;
+            --light-card: #ffffff;
+            --text-dark: #ffffff;
+            --text-light: #0f172a;
+            --muted-dark: #94a3b8;
+            --muted-light: #475569;
+            --border-dark: rgba(255,255,255,0.08);
+            --border-light: rgba(0,0,0,0.08);
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            transition: 0.3s;
+            overflow-x: hidden;
+        }
+
+        body.dark {
+            background: var(--dark-bg);
+            color: var(--text-dark);
+        }
+
+        body.light {
+            background: var(--light-bg);
+            color: var(--text-light);
+        }
+
+        .bg-grid {
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(var(--border-dark) 1px, transparent 1px),
+                linear-gradient(90deg, var(--border-dark) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        body.light .bg-grid {
+            background-image:
+                linear-gradient(var(--border-light) 1px, transparent 1px),
+                linear-gradient(90deg, var(--border-light) 1px, transparent 1px);
+        }
+
+        .glow {
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            background: var(--primary);
+            filter: blur(180px);
+            opacity: 0.2;
+            top: -100px;
+            right: -100px;
+            z-index: -1;
+        }
+
+        /* Header */
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-dark);
+            z-index: 1000;
+        }
+
+        body.dark header {
+            background: rgba(7,17,31,0.85);
+        }
+
+        body.light header {
+            background: rgba(248,250,252,0.9);
+            border-bottom-color: var(--border-light);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .logo img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            padding: 4px;
+            background: linear-gradient(
+                135deg,
+                var(--primary),
+                var(--secondary)
+            );
+        }
+
+        .logo span {
+            font-weight: 800;
+            font-size: 1.15rem;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            font-weight: 600;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--secondary);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .theme-toggle {
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: inherit;
+            border-radius: 40px;
+            padding: 8px 14px;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: linear-gradient(
+                135deg,
+                var(--primary),
+                var(--secondary)
+            );
+            padding: 11px 24px;
+            border-radius: 40px;
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(10,132,255,0.25);
+        }
+
+        .btn-outline {
+            display: inline-block;
+            padding: 10px 24px;
+            border-radius: 40px;
+            border: 1px solid var(--border-dark);
+            color: inherit;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        body.light .btn-outline {
+            border-color: var(--border-light);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* Main */
+
+        main {
+            padding-top: 110px;
+        }
+
+        .container {
+            width: min(1150px, 92%);
+            margin: auto;
+        }
+
+        .hero {
+            padding: 70px 0 50px;
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 18px;
+            border-radius: 30px;
+            background: rgba(10,132,255,0.1);
+            border: 1px solid rgba(10,132,255,0.25);
+            color: var(--secondary);
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(
+                135deg,
+                var(--primary),
+                var(--secondary)
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            max-width: 780px;
+            margin: auto;
+            color: var(--muted-dark);
+            font-size: 1.15rem;
+            line-height: 1.9;
+        }
+
+        body.light .hero p {
+            color: var(--muted-light);
+        }
+
+        /* Project Preview */
+
+        .project-preview {
+            margin: 35px auto 70px;
+            max-width: 1050px;
+            background: var(--dark-card);
+            border: 1px solid var(--border-dark);
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 25px 70px rgba(0,0,0,0.25);
+        }
+
+        body.light .project-preview {
+            background: white;
+            border-color: var(--border-light);
+        }
+
+        .project-preview img {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-height: 600px;
+            object-fit: cover;
+        }
+
+        /* Sections */
+
+        section {
+            padding: 65px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 2.3rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .section-title p {
+            color: var(--muted-dark);
+        }
+
+        body.light .section-title p {
+            color: var(--muted-light);
+        }
+
+        .content-card {
+            background: var(--dark-card);
+            border: 1px solid var(--border-dark);
+            padding: 35px;
+            border-radius: 24px;
+            line-height: 2;
+        }
+
+        body.light .content-card {
+            background: white;
+            border-color: var(--border-light);
+        }
+
+        .content-card p {
+            color: var(--muted-dark);
+        }
+
+        body.light .content-card p {
+            color: var(--muted-light);
+        }
+
+        /* Grid */
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(250px, 1fr)
+            );
+            gap: 25px;
+        }
+
+        .feature-card {
+            background: var(--dark-card);
+            border: 1px solid var(--border-dark);
+            padding: 30px;
+            border-radius: 22px;
+            transition: 0.3s;
+        }
+
+        body.light .feature-card {
+            background: white;
+            border-color: var(--border-light);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .feature-card i {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 18px;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .feature-card p {
+            color: var(--muted-dark);
+            line-height: 1.8;
+        }
+
+        body.light .feature-card p {
+            color: var(--muted-light);
+        }
+
+        /* Tech */
+
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .tech {
+            padding: 10px 20px;
+            border-radius: 30px;
+            background: rgba(10,132,255,0.1);
+            border: 1px solid rgba(10,132,255,0.25);
+            color: var(--secondary);
+            font-weight: 700;
+        }
+
+        /* CTA */
+
+        .cta {
+            text-align: center;
+            padding: 70px 30px;
+            margin: 50px 0 80px;
+            border-radius: 30px;
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(10,132,255,0.12),
+                    rgba(6,182,212,0.08)
+                );
+            border: 1px solid var(--border-dark);
+        }
+
+        body.light .cta {
+            border-color: var(--border-light);
+        }
+
+        .cta h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            color: var(--muted-dark);
+            margin-bottom: 25px;
+        }
+
+        body.light .cta p {
+            color: var(--muted-light);
+        }
+
+        /* Footer */
+
+        footer {
+            text-align: center;
+            padding: 40px 8%;
+            border-top: 1px solid var(--border-dark);
+            color: var(--muted-dark);
+        }
+
+        body.light footer {
+            border-top-color: var(--border-light);
+            color: var(--muted-light);
+        }
+
+        /* Responsive */
+
+        @media (max-width: 768px) {
+
+            header {
+                padding: 14px 5%;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .logo span {
+                font-size: 1rem;
+            }
+
+            .header-actions .btn-primary {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 45px;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .content-card,
+            .feature-card {
+                padding: 25px;
+            }
+
+            .project-preview {
+                border-radius: 18px;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body class="dark">
+
+<div class="bg-grid"></div>
+<div class="glow"></div>
+
+<header>
+
+    <a href="../index.html"
+       class="logo"
+       aria-label="CyberPath Digital">
+        <img
+            src="../assest/images/logo/CPD.png"
+            alt="شعار CyberPath Digital">
+        <span>CyberPath Digital</span>
+    </a>
+
+    <nav aria-label="القائمة الرئيسية">
+        <a href="../index.html">الرئيسية</a>
+        <a href="../services.html">الخدمات</a>
+        <a href="../portfolio.html">أعمالنا</a>
+        <a href="index.html">دراسات الحالة</a>
+        <a href="../contact.html">تواصل معنا</a>
+    </nav>
+
+    <div class="header-actions">
+
+        <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="تبديل الوضع المظلم والفاتح">
+
+            <i class="fas fa-moon"
+               aria-hidden="true"></i>
+
+        </button>
+
+        <a
+            href="../get-quote.html"
+            class="btn-primary">
+
+            اطلب عرض سعر
+
+        </a>
+
+    </div>
+
+</header>
+
+
+<main>
+
+    <!-- Hero -->
+
+    <section class="hero">
+
+        <div class="container">
+
+            <div class="badge">
+                <i class="fas fa-stethoscope"></i>
+                دراسة حالة
+            </div>
+
+            <h1>
+                نظام <span>إدارة العيادات</span>
+            </h1>
+
+            <p>
+                نموذج رقمي لإدارة وتنظيم العمليات والخدمات في بيئة
+                العيادات الطبية من خلال واجهة إلكترونية حديثة
+                ومتجاوبة.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Project Preview -->
+
+    <div class="container">
+
+        <div class="project-preview">
+
+            <img
+                src="../assest/images/logo/clinic.png"
+                alt="واجهة نظام إدارة العيادات"
+                loading="eager"
+                decoding="async">
+
+        </div>
+
+    </div>
+
+
+    <!-- Overview -->
+
+    <section>
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>نظرة عامة على المشروع</h2>
+
+                <p>
+                    حل رقمي يوضح إمكانيات تطوير الأنظمة الإدارية المتخصصة
+                </p>
+
+            </div>
+
+            <div class="content-card">
+
+                <p>
+                    تم تطوير نظام إدارة العيادات كنموذج لمنصة رقمية
+                    متخصصة تهدف إلى تنظيم وإدارة العمليات المرتبطة
+                    بالعيادات والخدمات الطبية من خلال واجهة استخدام
+                    حديثة وسهلة التعامل.
+                </p>
+
+                <br>
+
+                <p>
+                    يركز المشروع على تقديم تجربة رقمية منظمة تساعد
+                    على تحويل الإجراءات الإدارية التقليدية إلى بيئة
+                    إلكترونية أكثر وضوحاً وتنظيماً، مع تصميم متجاوب
+                    يمكن استخدامه عبر أجهزة الحاسب والأجهزة المحمولة.
+                </p>
+
+                <br>
+
+                <p>
+                    يمثل المشروع أحد النماذج التي توضح قدرة
+                    CyberPath Digital على تطوير حلول رقمية مخصصة
+                    تتناسب مع طبيعة القطاعات المختلفة واحتياجاتها
+                    التشغيلية.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Features -->
+
+    <section>
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>أبرز جوانب المشروع</h2>
+
+                <p>
+                    العناصر التي يركز عليها النموذج الرقمي
+                </p>
+
+            </div>
+
+            <div class="grid-3">
+
+                <div class="feature-card">
+
+                    <i class="fas fa-desktop"></i>
+
+                    <h3>
+                        واجهة إدارية حديثة
+                    </h3>
+
+                    <p>
+                        تصميم واجهة رقمية منظمة لتسهيل التعامل
+                        مع وظائف النظام وإظهار البيانات بصورة واضحة.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <i class="fas fa-hospital"></i>
+
+                    <h3>
+                        قطاع الرعاية الصحية
+                    </h3>
+
+                    <p>
+                        نموذج مخصص لبيئة العيادات والمنشآت
+                        التي تحتاج إلى حلول رقمية للإدارة والتنظيم.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <i class="fas fa-mobile-screen"></i>
+
+                    <h3>
+                        تصميم متجاوب
+                    </h3>
+
+                    <p>
+                        واجهة قابلة للاستخدام عبر الشاشات المختلفة
+                        وأجهزة الحاسب والأجهزة المحمولة.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <i class="fas fa-layer-group"></i>
+
+                    <h3>
+                        نظام قابل للتوسع
+                    </h3>
+
+                    <p>
+                        تصميم يمكن تطويره مستقبلاً لإضافة وظائف
+                        وخدمات جديدة وفق احتياجات المنشأة.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <i class="fas fa-chart-line"></i>
+
+                    <h3>
+                        عرض البيانات
+                    </h3>
+
+                    <p>
+                        تنظيم المعلومات داخل واجهة رقمية تساعد
+                        على قراءة البيانات ومتابعة العمليات.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <i class="fas fa-code"></i>
+
+                    <h3>
+                        تطوير مخصص
+                    </h3>
+
+                    <p>
+                        المشروع يمثل نموذجاً لحلول برمجية يمكن
+                        تخصيصها وفق طبيعة العمل ومتطلبات العميل.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Technologies -->
+
+    <section>
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>التقنيات المستخدمة</h2>
+
+                <p>
+                    تقنيات الواجهة والتطوير المستخدمة في النموذج
+                </p>
+
+            </div>
+
+            <div class="tech-list">
+
+                <span class="tech">HTML5</span>
+                <span class="tech">CSS3</span>
+                <span class="tech">JavaScript</span>
+                <span class="tech">Responsive Design</span>
+                <span class="tech">Modern UI</span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Project Status -->
+
+    <section>
+
+        <div class="container">
+
+            <div class="content-card">
+
+                <div class="section-title"
+                     style="margin-bottom:25px;">
+
+                    <h2>
+                        طبيعة المشروع
+                    </h2>
+
+                </div>
+
+                <p>
+                    المشروع نموذج تقني لنظام إدارة العيادات،
+                    ويُعرض ضمن أعمال CyberPath Digital لإظهار
+                    إمكانيات تصميم وتطوير الأنظمة الرقمية
+                    المتخصصة.
+                </p>
+
+                <br>
+
+                <p>
+                    يمكن تطوير النموذج وتخصيصه مستقبلاً ليتوافق
+                    مع العمليات الفعلية للمنشآت الطبية ومتطلباتها
+                    التشغيلية والتقنية.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <div class="container">
+
+        <div class="cta">
+
+            <h2>
+                هل لديك فكرة لنظام رقمي؟
+            </h2>
+
+            <p>
+                يمكننا تحويل فكرتك إلى حل رقمي احترافي
+                مصمم وفق احتياجات مشروعك.
+            </p>
+
+            <a
+                href="https://clinic-management-system-theta-umber.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-primary">
+
+                <i class="fas fa-external-link-alt"></i>
+                زيارة المشروع
+
+            </a>
+
+            <a
+                href="../get-quote.html"
+                class="btn-outline"
+                style="margin-right:10px;">
+
+                اطلب عرض سعر
+
+            </a>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<footer>
+
+    <p>
+        © 2026 CyberPath Digital –
+        جميع الحقوق محفوظة
+    </p>
+
+</footer>
+
+
+<script>
+
+    const body = document.body;
+    const toggle = document.getElementById('themeToggle');
+    const icon = toggle.querySelector('i');
+
+    const setTheme = (theme) => {
+
+        body.classList.remove('dark', 'light');
+        body.classList.add(theme);
+
+        localStorage.setItem('cpd-theme', theme);
+
+        icon.className =
+            theme === 'dark'
+                ? 'fas fa-moon'
+                : 'fas fa-sun';
+
+    };
+
+    setTheme(
+        localStorage.getItem('cpd-theme') || 'dark'
+    );
+
+    toggle.addEventListener(
+        'click',
+        () => {
+
+            setTheme(
+                body.classList.contains('dark')
+                    ? 'light'
+                    : 'dark'
+            );
+
+        }
+    );
+
+</script>
+
+</body>
+</html>
