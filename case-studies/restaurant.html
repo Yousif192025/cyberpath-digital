@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Restaurant | دراسة حالة - CyberPath Digital</title>
+
+    <meta name="description"
+          content="دراسة حالة مشروع Restaurant من CyberPath Digital، نموذج رقمي لتقديم تجربة مطعم حديثة عبر واجهة ويب متجاوبة ومصممة بأسلوب احترافي.">
+
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical"
+          href="https://cyberpath-digital.vercel.app/case-studies/restaurant.html">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Restaurant | دراسة حالة - CyberPath Digital">
+    <meta property="og:description"
+          content="دراسة حالة مشروع Restaurant من CyberPath Digital.">
+    <meta property="og:url"
+          content="https://cyberpath-digital.vercel.app/case-studies/restaurant.html">
+    <meta property="og:image"
+          content="https://cyberpath-digital.vercel.app/assest/images/logo/restaurant.png">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0A84FF;
+            --secondary: #06B6D4;
+            --dark-bg: #07111f;
+            --dark-card: #101b2d;
+            --text: #ffffff;
+            --muted: #94a3b8;
+            --border: rgba(255,255,255,0.08);
+            --success: #22c55e;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .bg-grid {
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: -2;
+        }
+
+        .glow {
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            background: var(--primary);
+            filter: blur(180px);
+            opacity: 0.18;
+            top: -150px;
+            right: -150px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            z-index: 1000;
+            padding: 16px 8%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+            background: rgba(7,17,31,0.88);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo img {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            object-fit: cover;
+            padding: 3px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+
+        .logo span {
+            font-size: 1.1rem;
+            font-weight: 800;
+        }
+
+        nav {
+            display: flex;
+            gap: 26px;
+        }
+
+        nav a {
+            text-decoration: none;
+            font-weight: 600;
+            color: #fff;
+            transition: .3s;
+        }
+
+        nav a:hover {
+            color: var(--secondary);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn-primary,
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 11px 23px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: .3s;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            color: #fff;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: 1px solid transparent;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(10,132,255,.25);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--border);
+            color: #fff;
+            background: rgba(255,255,255,.03);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--secondary);
+        }
+
+        main {
+            padding-top: 100px;
+        }
+
+        .container {
+            width: min(1180px, 90%);
+            margin: auto;
+        }
+
+        .hero {
+            padding: 80px 0 70px;
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 16px;
+            border-radius: 30px;
+            border: 1px solid rgba(6,182,212,.25);
+            background: rgba(6,182,212,.08);
+            color: var(--secondary);
+            font-size: .9rem;
+            font-weight: 700;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            line-height: 1.2;
+            font-weight: 900;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            max-width: 760px;
+            margin: auto;
+            color: var(--muted);
+            font-size: 1.1rem;
+        }
+
+        .hero-image {
+            margin-top: 45px;
+            border-radius: 28px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            background: var(--dark-card);
+            box-shadow: 0 30px 80px rgba(0,0,0,.35);
+        }
+
+        .hero-image img {
+            display: block;
+            width: 100%;
+            height: 460px;
+            object-fit: cover;
+        }
+
+        section {
+            padding: 70px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .section-title p {
+            color: var(--muted);
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--dark-card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 32px;
+        }
+
+        .card h3 {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .card h3 i {
+            color: var(--secondary);
+        }
+
+        .card p {
+            color: var(--muted);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .feature {
+            padding: 25px;
+            background: var(--dark-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            transition: .3s;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+            border-color: rgba(10,132,255,.5);
+        }
+
+        .feature i {
+            font-size: 1.8rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+
+        .feature h3 {
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .feature p {
+            color: var(--muted);
+            font-size: .95rem;
+        }
+
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .tech {
+            padding: 9px 18px;
+            border-radius: 30px;
+            background: rgba(10,132,255,.08);
+            border: 1px solid rgba(10,132,255,.2);
+            color: #dbeafe;
+            font-weight: 600;
+        }
+
+        .project-info {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .info-box {
+            text-align: center;
+            padding: 24px;
+            border-radius: 20px;
+            background: var(--dark-card);
+            border: 1px solid var(--border);
+        }
+
+        .info-box i {
+            color: var(--secondary);
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+        }
+
+        .info-box strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .info-box span {
+            color: var(--muted);
+            font-size: .9rem;
+        }
+
+        .cta {
+            text-align: center;
+            padding: 70px 30px;
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            background:
+                radial-gradient(circle at center, rgba(10,132,255,.12), transparent 60%),
+                var(--dark-card);
+        }
+
+        .cta h2 {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        .cta p {
+            color: var(--muted);
+            margin-bottom: 25px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        footer {
+            margin-top: 70px;
+            padding: 35px 8%;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: transparent;
+            border: 1px solid var(--border);
+            color: #fff;
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 900px) {
+
+            nav {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .header-actions .btn-primary {
+                display: none;
+            }
+
+            .two-column,
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .project-info {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-image img {
+                height: 320px;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            header {
+                padding: 12px 5%;
+            }
+
+            .logo span {
+                font-size: .95rem;
+            }
+
+            .logo img {
+                width: 40px;
+                height: 40px;
+            }
+
+            main {
+                padding-top: 80px;
+            }
+
+            .hero {
+                padding: 55px 0 40px;
+            }
+
+            section {
+                padding: 50px 0;
+            }
+
+            .hero-image img {
+                height: 230px;
+            }
+
+            .card {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="bg-grid"></div>
+<div class="glow"></div>
+
+<header>
+
+    <a href="../index.html" class="logo" aria-label="CyberPath Digital">
+        <img
+            src="../assest/images/logo/CPD.png"
+            alt="شعار CyberPath Digital"
+            onerror="this.style.display='none'">
+        <span>CyberPath Digital</span>
+    </a>
+
+    <nav aria-label="القائمة الرئيسية">
+        <a href="../index.html">الرئيسية</a>
+        <a href="../services.html">الخدمات</a>
+        <a href="../portfolio.html">أعمالنا</a>
+        <a href="../contact.html">تواصل معنا</a>
+    </nav>
+
+    <div class="header-actions">
+
+        <a href="../get-quote.html" class="btn-primary">
+            اطلب عرض سعر
+        </a>
+
+        <button
+            class="mobile-menu-btn"
+            type="button"
+            aria-label="فتح القائمة">
+            <i class="fas fa-bars" aria-hidden="true"></i>
+        </button>
+
+    </div>
+
+</header>
+
+<main>
+
+    <!-- Hero -->
+    <section class="hero">
+
+        <div class="container">
+
+            <div class="badge">
+                <i class="fas fa-utensils"></i>
+                دراسة حالة
+            </div>
+
+            <h1>
+                Restaurant
+                <span>مطعم</span>
+            </h1>
+
+            <p>
+                نموذج رقمي لتقديم تجربة مطعم حديثة من خلال واجهة ويب
+                متجاوبة تركز على سهولة الوصول إلى محتوى المطعم
+                وتجربة المستخدم.
+            </p>
+
+            <div class="hero-image">
+
+                <img
+                    src="../assest/images/logo/restaurant.png"
+                    alt="واجهة مشروع Restaurant"
+                    loading="eager"
+                    decoding="async">
+
+            </div>
+
+            <div class="project-info">
+
+                <div class="info-box">
+                    <i class="fas fa-layer-group"></i>
+                    <strong>نوع المشروع</strong>
+                    <span>موقع مطعم</span>
+                </div>
+
+                <div class="info-box">
+                    <i class="fas fa-desktop"></i>
+                    <strong>المنصة</strong>
+                    <span>Web Application</span>
+                </div>
+
+                <div class="info-box">
+                    <i class="fas fa-mobile-screen"></i>
+                    <strong>التصميم</strong>
+                    <span>Responsive Design</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- نبذة -->
+    <section>
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>عن المشروع</h2>
+                <p>تصور رقمي حديث لقطاع المطاعم</p>
+            </div>
+
+            <div class="two-column">
+
+                <div class="card">
+
+                    <h3>
+                        <i class="fas fa-lightbulb"></i>
+                        فكرة المشروع
+                    </h3>
+
+                    <p>
+                        تم تطوير مشروع Restaurant كنموذج رقمي يوضح
+                        إمكانية بناء واجهة ويب مخصصة لقطاع المطاعم،
+                        مع التركيز على تقديم المحتوى بطريقة واضحة
+                        وسهلة الاستخدام.
+                    </p>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>
+                        <i class="fas fa-bullseye"></i>
+                        الهدف
+                    </h3>
+
+                    <p>
+                        يهدف المشروع إلى تقديم نموذج عملي لكيفية
+                        توظيف الويب في إنشاء حضور رقمي للمطاعم
+                        وإتاحة تجربة استخدام مناسبة لمختلف الأجهزة.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- التحدي والحل -->
+    <section>
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>التحدي والحل</h2>
+                <p>من الفكرة إلى تجربة رقمية واضحة</p>
+            </div>
+
+            <div class="two-column">
+
+                <div class="card">
+
+                    <h3>
+                        <i class="fas fa-puzzle-piece"></i>
+                        التحدي
+                    </h3>
+
+                    <p>
+                        إنشاء واجهة رقمية مناسبة لطبيعة قطاع المطاعم،
+                        بحيث تكون بسيطة وواضحة وقابلة للاستخدام عبر
+                        أجهزة الحاسب والهواتف الذكية.
+                    </p>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>
+                        <i class="fas fa-code"></i>
+                        الحل
+                    </h3>
+
+                    <p>
+                        تم بناء نموذج ويب يركز على تنظيم المحتوى
+                        وتقديمه ضمن واجهة حديثة ومتجاوبة، مع اعتماد
+                        بنية قابلة للتطوير مستقبلًا وفق احتياجات
+                        المشروع.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- أبرز الجوانب -->
+    <section>
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>أبرز جوانب المشروع</h2>
+                <p>عناصر ركزنا عليها أثناء تطوير النموذج</p>
+            </div>
+
+            <div class="features">
+
+                <div class="feature">
+                    <i class="fas fa-mobile-screen-button"></i>
+                    <h3>تصميم متجاوب</h3>
+                    <p>
+                        واجهة قابلة للتكيف مع أحجام الشاشات المختلفة.
+                    </p>
+                </div>
+
+                <div class="feature">
+                    <i class="fas fa-palette"></i>
+                    <h3>واجهة حديثة</h3>
+                    <p>
+                        تصميم بصري مناسب للهوية الرقمية الحديثة
+                        لقطاع المطاعم.
+                    </p>
+                </div>
+
+                <div class="feature">
+                    <i class="fas fa-bolt"></i>
+                    <h3>تجربة استخدام واضحة</h3>
+                    <p>
+                        تنظيم المحتوى بطريقة تساعد الزائر على الوصول
+                        إلى المعلومات بسهولة.
+                    </p>
+                </div>
+
+                <div class="feature">
+                    <i class="fas fa-code"></i>
+                    <h3>بنية قابلة للتطوير</h3>
+                    <p>
+                        إمكانية تطوير النموذج مستقبلًا وإضافة وظائف
+                        رقمية حسب متطلبات المشروع.
+                    </p>
+                </div>
+
+                <div class="feature">
+                    <i class="fas fa-globe"></i>
+                    <h3>حضور رقمي</h3>
+                    <p>
+                        نموذج يوضح إمكانيات إنشاء حضور رقمي احترافي
+                        لنشاط المطاعم.
+                    </p>
+                </div>
+
+                <div class="feature">
+                    <i class="fas fa-layer-group"></i>
+                    <h3>نموذج تجريبي</h3>
+                    <p>
+                        مشروع تجريبي ضمن معرض أعمال CyberPath Digital
+                        لإظهار الإمكانيات التقنية والتصميمية.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- التقنيات -->
+    <section>
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>التقنيات</h2>
+
+                <p>
+                    التقنيات المستخدمة في بناء الواجهة
+                </p>
+
+            </div>
+
+            <div class="tech-list">
+
+                <span class="tech">HTML5</span>
+                <span class="tech">CSS3</span>
+                <span class="tech">JavaScript</span>
+                <span class="tech">Responsive Design</span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section>
+
+        <div class="container">
+
+            <div class="cta">
+
+                <h2>
+                    استكشف مشروع Restaurant
+                </h2>
+
+                <p>
+                    شاهد النموذج الرقمي للمشروع واستكشف تجربة الواجهة
+                    مباشرة.
+                </p>
+
+                <div class="cta-buttons">
+
+                    <a
+                        href="https://restaurant-murex-kappa.vercel.app/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-primary">
+
+                        <i class="fas fa-external-link-alt"></i>
+                        زيارة المشروع
+
+                    </a>
+
+                    <a
+                        href="index.html"
+                        class="btn-outline">
+
+                        <i class="fas fa-arrow-right"></i>
+                        جميع دراسات الحالة
+
+                    </a>
+
+                    <a
+                        href="../portfolio.html"
+                        class="btn-outline">
+
+                        <i class="fas fa-briefcase"></i>
+                        العودة إلى أعمالنا
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <p>
+        © 2026 CyberPath Digital – جميع الحقوق محفوظة
+    </p>
+
+</footer>
+
+</body>
+</html>
