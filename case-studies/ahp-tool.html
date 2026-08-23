@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AMSESHI AHP | أداة دعم القرار والتحليل الهرمي</title>
+
+    <meta name="description"
+          content="دراسة حالة أداة AMSESHI AHP لدعم القرار والتحليل متعدد المعايير، وتنفيذ المقارنات الزوجية وحساب الأوزان والتحقق من الاتساق وعرض النتائج بصورة تفاعلية.">
+
+    <meta name="keywords"
+          content="AHP, AMSESHI, تحليل هرمي, دعم القرار, التحليل متعدد المعايير, أداة بحثية, CyberPath Digital">
+
+    <meta name="author" content="CyberPath Digital">
+
+    <meta property="og:title" content="AMSESHI AHP | أداة دعم القرار والتحليل الهرمي">
+    <meta property="og:description"
+          content="أداة بحثية تفاعلية تعتمد على منهجية AHP لتنفيذ المقارنات الزوجية وحساب الأوزان وتحليل الاتساق وترتيب البدائل.">
+    <meta property="og:type" content="website">
+    <meta property="og:image"
+          content="https://cyberpath-digital.vercel.app/assest/images/logo/ahp-tool.png">
+
+    <link rel="icon" type="image/png"
+          href="../assest/images/logo/CPD.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0A84FF;
+            --secondary: #06B6D4;
+            --accent: #8B5CF6;
+
+            --dark-bg: #07111f;
+            --dark-card: #101b2d;
+
+            --light-bg: #f8fafc;
+            --light-card: #ffffff;
+
+            --text-dark: #ffffff;
+            --text-light: #0f172a;
+
+            --muted-dark: #94a3b8;
+            --muted-light: #475569;
+
+            --border-dark: rgba(255,255,255,0.08);
+            --border-light: rgba(0,0,0,0.08);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            overflow-x: hidden;
+            transition: 0.3s ease;
+        }
+
+        body.dark {
+            background: var(--dark-bg);
+            color: var(--text-dark);
+        }
+
+        body.light {
+            background: var(--light-bg);
+            color: var(--text-light);
+        }
+
+        .bg-grid {
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(var(--border-dark) 1px, transparent 1px),
+                linear-gradient(90deg, var(--border-dark) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        body.light .bg-grid {
+            background-image:
+                linear-gradient(var(--border-light) 1px, transparent 1px),
+                linear-gradient(90deg, var(--border-light) 1px, transparent 1px);
+        }
+
+        .glow {
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            background: var(--primary);
+            filter: blur(180px);
+            opacity: 0.18;
+            top: -120px;
+            right: -120px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-dark);
+            z-index: 1000;
+        }
+
+        body.dark header {
+            background: rgba(7,17,31,0.88);
+        }
+
+        body.light header {
+            background: rgba(248,250,252,0.92);
+            border-bottom-color: var(--border-light);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .logo img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: linear-gradient(
+                135deg,
+                var(--primary),
+                var(--secondary)
+            );
+            padding: 4px;
+        }
+
+        .logo span {
+            font-weight: 800;
+            font-size: 1.15rem;
+        }
+
+        nav {
+            display: flex;
+            gap: 28px;
+        }
+
+        nav a {
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        body.dark nav a {
+            color: white;
+        }
+
+        body.light nav a {
+            color: var(--text-light);
+        }
+
+        nav a:hover {
+            color: var(--secondary);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .theme-toggle {
+            background: rgba(255,255,255,0.1);
+            border: none;
+            border-radius: 40px;
+            padding: 8px 14px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            color: inherit;
+        }
+
+        .btn-primary,
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(
+                135deg,
+                var(--primary),
+                var(--secondary)
+            );
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(10,132,255,0.25);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--border-dark);
+            color: inherit;
+        }
+
+        body.light .btn-outline {
+            border-color: var(--border-light);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            border: none;
+            background: transparent;
+            color: inherit;
+            font-size: 1.4rem;
+            cursor: pointer;
+        }
+
+        main {
+            padding-top: 100px;
+        }
+
+        .hero {
+            padding: 90px 8% 70px;
+            text-align: center;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 30px;
+            background: rgba(10,132,255,0.1);
+            border: 1px solid rgba(10,132,255,0.25);
+            color: var(--secondary);
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            line-height: 1.25;
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(
+                135deg,
+                var(--primary),
+                var(--secondary)
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            max-width: 800px;
+            margin: auto;
+            line-height: 2;
+            font-size: 1.15rem;
+            color: var(--muted-dark);
+        }
+
+        body.light .hero p {
+            color: var(--muted-light);
+        }
+
+        .hero-image {
+            max-width: 950px;
+            margin: 45px auto 0;
+            padding: 12px;
+            border-radius: 28px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid var(--border-dark);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.25);
+        }
+
+        .hero-image img {
+            display: block;
+            width: 100%;
+            border-radius: 20px;
+            max-height: 500px;
+            object-fit: cover;
+        }
+
+        .container {
+            width: min(1150px, 84%);
+            margin: auto;
+            padding: 70px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 2.3rem;
+            font-weight: 900;
+            margin-bottom: 12px;
+        }
+
+        .section-title p {
+            color: var(--muted-dark);
+        }
+
+        body.light .section-title p {
+            color: var(--muted-light);
+        }
+
+        .content-card {
+            background: var(--dark-card);
+            border: 1px solid var(--border-dark);
+            border-radius: 28px;
+            padding: 35px;
+            margin-bottom: 30px;
+        }
+
+        body.light .content-card {
+            background: var(--light-card);
+            border-color: var(--border-light);
+        }
+
+        .content-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 18px;
+        }
+
+        .content-card p {
+            line-height: 2;
+            color: var(--muted-dark);
+        }
+
+        body.light .content-card p {
+            color: var(--muted-light);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(220px, 1fr)
+            );
+            gap: 20px;
+        }
+
+        .feature-card {
+            padding: 28px;
+            background: var(--dark-card);
+            border: 1px solid var(--border-dark);
+            border-radius: 22px;
+            transition: 0.3s ease;
+        }
+
+        body.light .feature-card {
+            background: white;
+            border-color: var(--border-light);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .feature-card i {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 18px;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: var(--muted-dark);
+            line-height: 1.8;
+        }
+
+        body.light .feature-card p {
+            color: var(--muted-light);
+        }
+
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .tech {
+            padding: 9px 16px;
+            border-radius: 30px;
+            background: rgba(10,132,255,0.1);
+            border: 1px solid rgba(10,132,255,0.2);
+            color: var(--secondary);
+            font-weight: 700;
+        }
+
+        .research-box {
+            border: 1px solid rgba(139,92,246,0.3);
+            background: linear-gradient(
+                135deg,
+                rgba(139,92,246,0.08),
+                rgba(10,132,255,0.06)
+            );
+            border-radius: 28px;
+            padding: 35px;
+        }
+
+        .research-box h3 {
+            margin-bottom: 18px;
+            color: var(--secondary);
+        }
+
+        .research-box p {
+            line-height: 2;
+            color: var(--muted-dark);
+        }
+
+        body.light .research-box p {
+            color: var(--muted-light);
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(210px, 1fr)
+            );
+            gap: 20px;
+        }
+
+        .step {
+            position: relative;
+            padding: 28px;
+            background: var(--dark-card);
+            border: 1px solid var(--border-dark);
+            border-radius: 22px;
+        }
+
+        body.light .step {
+            background: white;
+            border-color: var(--border-light);
+        }
+
+        .step-number {
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: linear-gradient(
+                135deg,
+                var(--primary),
+                var(--secondary)
+            );
+            color: white;
+            font-weight: 900;
+            margin-bottom: 18px;
+        }
+
+        .step h3 {
+            margin-bottom: 10px;
+        }
+
+        .step p {
+            line-height: 1.8;
+            color: var(--muted-dark);
+        }
+
+        body.light .step p {
+            color: var(--muted-light);
+        }
+
+        .cta {
+            text-align: center;
+            padding: 70px 30px;
+            border-radius: 30px;
+            background: linear-gradient(
+                135deg,
+                rgba(10,132,255,0.12),
+                rgba(6,182,212,0.08)
+            );
+            border: 1px solid var(--border-dark);
+        }
+
+        body.light .cta {
+            border-color: var(--border-light);
+        }
+
+        .cta h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            color: var(--muted-dark);
+            margin-bottom: 30px;
+            line-height: 1.9;
+        }
+
+        body.light .cta p {
+            color: var(--muted-light);
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 8%;
+            border-top: 1px solid var(--border-dark);
+            margin-top: 50px;
+        }
+
+        body.light footer {
+            border-top-color: var(--border-light);
+        }
+
+        footer p {
+            color: var(--muted-dark);
+        }
+
+        body.light footer p {
+            color: var(--muted-light);
+        }
+
+        @media (max-width: 850px) {
+            nav {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .header-actions .btn-primary {
+                display: none;
+            }
+
+            header {
+                padding: 14px 5%;
+            }
+
+            .container {
+                width: 90%;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .logo span {
+                font-size: 1rem;
+            }
+
+            .hero {
+                padding: 65px 5% 40px;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .content-card,
+            .research-box {
+                padding: 25px;
+            }
+
+            .cta {
+                padding: 50px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body class="dark">
+
+<div class="bg-grid"></div>
+<div class="glow"></div>
+
+<header>
+
+    <a href="../index.html"
+       class="logo"
+       aria-label="CyberPath Digital - الرئيسية">
+
+        <img src="../assest/images/logo/CPD.png"
+             alt="شعار CyberPath Digital"
+             onerror="this.src='https://placehold.co/48x48?text=CPD'">
+
+        <span>CyberPath Digital</span>
+    </a>
+
+    <nav aria-label="القائمة الرئيسية">
+        <a href="../index.html">الرئيسية</a>
+        <a href="../services.html">الخدمات</a>
+        <a href="../portfolio.html">أعمالنا</a>
+        <a href="../contact.html">تواصل معنا</a>
+    </nav>
+
+    <div class="header-actions">
+
+        <button class="theme-toggle"
+                id="themeToggle"
+                aria-label="تبديل الوضع المظلم والفاتح">
+
+            <i class="fas fa-moon"
+               aria-hidden="true"></i>
+
+        </button>
+
+        <a href="../get-quote.html"
+           class="btn-primary">
+            اطلب عرض سعر
+        </a>
+
+        <button class="mobile-menu-btn"
+                id="mobileMenuBtn"
+                aria-label="فتح القائمة">
+
+            <i class="fas fa-bars"
+               aria-hidden="true"></i>
+
+        </button>
+
+    </div>
+
+</header>
+
+
+<main>
+
+    <!-- ───────── Hero ───────── -->
+
+    <section class="hero">
+
+        <div class="badge">
+            <i class="fas fa-flask"></i>
+            مشروع علمي وبحثي
+        </div>
+
+        <h1>
+            AMSESHI
+            <span>AHP</span>
+        </h1>
+
+        <p>
+            نظام دعم قرار بحثي يعتمد على منهجية
+            التحليل الهرمي للقرار (AHP)،
+            صُمم للمساعدة في تنفيذ المقارنات الزوجية
+            وحساب الأوزان وتحليل الاتساق وترتيب النتائج
+            ضمن بيئة تفاعلية منظمة.
+        </p>
+
+        <div class="hero-image">
+
+            <img
+                src="../assest/images/logo/ahp-tool.png"
+                alt="واجهة أداة AMSESHI AHP"
+                loading="eager"
+                decoding="async"
+                onerror="this.src='https://placehold.co/1200x650?text=AMSESHI+AHP'">
+
+        </div>
+
+    </section>
+
+
+    <!-- ───────── نبذة عن المشروع ───────── -->
+
+    <section class="container">
+
+        <div class="section-title">
+
+            <h2>عن <span style="color:var(--secondary)">المشروع</span></h2>
+
+            <p>
+                أداة رقمية للتحليل ودعم القرار في الدراسات متعددة المعايير
+            </p>
+
+        </div>
+
+        <div class="content-card">
+
+            <h3>
+                <i class="fas fa-diagram-project"
+                   style="color:var(--secondary); margin-left:8px;"></i>
+                مفهوم النظام
+            </h3>
+
+            <p>
+                تم تطوير الأداة لتوفير بيئة تفاعلية لتنفيذ منهجية
+                التحليل الهرمي للقرار AHP، بما يسمح بتنظيم عناصر
+                القرار وإجراء المقارنات الزوجية بين المعايير والبدائل،
+                ثم معالجة النتائج وعرضها بصورة منظمة تساعد الباحث
+                في تحليل مخرجات عملية اتخاذ القرار.
+            </p>
+
+        </div>
+
+        <div class="research-box">
+
+            <h3>
+                <i class="fas fa-microscope"></i>
+                الارتباط بالإطار البحثي AMSESHI
+            </h3>
+
+            <p>
+                ترتبط الأداة بإطار AMSESHI البحثي المستخدم في دراسة
+                جاهزية تبني التعلم السحابي المتنقل في مؤسسات التعليم
+                العالي. وتوفر الأداة الجانب الحاسوبي التفاعلي اللازم
+                لمعالجة بيانات المقارنات الزوجية وتحويلها إلى أوزان
+                ونتائج يمكن استخدامها في التحليل واتخاذ القرار.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ───────── الإمكانيات ───────── -->
+
+    <section class="container">
+
+        <div class="section-title">
+
+            <h2>
+                الإمكانيات
+                <span style="color:var(--secondary)">الرئيسية</span>
+            </h2>
+
+            <p>
+                الوظائف الأساسية التي توفرها الأداة
+            </p>
+
+        </div>
+
+        <div class="feature-grid">
+
+            <div class="feature-card">
+
+                <i class="fas fa-sitemap"></i>
+
+                <h3>هيكل القرار</h3>
+
+                <p>
+                    تنظيم عناصر المشكلة ضمن هيكل هرمي
+                    يساعد على تمثيل العلاقة بين الهدف
+                    والمعايير والبدائل.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <i class="fas fa-table-cells"></i>
+
+                <h3>المقارنات الزوجية</h3>
+
+                <p>
+                    إدخال المقارنات الزوجية للمعايير
+                    والعناصر وفق منهجية AHP.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <i class="fas fa-scale-balanced"></i>
+
+                <h3>حساب الأوزان</h3>
+
+                <p>
+                    معالجة المقارنات للوصول إلى
+                    الأولويات والأوزان النسبية للعناصر.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <i class="fas fa-check-double"></i>
+
+                <h3>التحقق من الاتساق</h3>
+
+                <p>
+                    توفير آلية للتحقق من اتساق
+                    المقارنات والنتائج الناتجة عنها.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <i class="fas fa-ranking-star"></i>
+
+                <h3>ترتيب البدائل</h3>
+
+                <p>
+                    استخدام الأوزان الناتجة للمساعدة
+                    في ترتيب البدائل وفق نموذج القرار.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <i class="fas fa-chart-column"></i>
+
+                <h3>عرض النتائج</h3>
+
+                <p>
+                    عرض المخرجات بطريقة تفاعلية تساعد
+                    على قراءة النتائج وتحليلها.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ───────── آلية العمل ───────── -->
+
+    <section class="container">
+
+        <div class="section-title">
+
+            <h2>
+                آلية
+                <span style="color:var(--secondary)">العمل</span>
+            </h2>
+
+            <p>
+                تسلسل مبسط لمعالجة نموذج القرار
+            </p>
+
+        </div>
+
+        <div class="steps">
+
+            <div class="step">
+
+                <div class="step-number">1</div>
+
+                <h3>تحديد النموذج</h3>
+
+                <p>
+                    تحديد الهدف والمعايير والبدائل
+                    التي يتكون منها نموذج القرار.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">2</div>
+
+                <h3>المقارنات الزوجية</h3>
+
+                <p>
+                    إدخال تفضيلات المقارنة بين
+                    عناصر المستوى نفسه.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">3</div>
+
+                <h3>الحساب والتحليل</h3>
+
+                <p>
+                    معالجة البيانات واستخراج الأوزان
+                    ومؤشرات الاتساق.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">4</div>
+
+                <h3>النتائج</h3>
+
+                <p>
+                    عرض الأولويات وترتيب البدائل
+                    لدعم عملية التحليل واتخاذ القرار.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ───────── التقنيات ───────── -->
+
+    <section class="container">
+
+        <div class="section-title">
+
+            <h2>
+                التقنيات
+                <span style="color:var(--secondary)">المستخدمة</span>
+            </h2>
+
+            <p>
+                التقنيات والمفاهيم المرتبطة بتطوير الأداة
+            </p>
+
+        </div>
+
+        <div class="content-card">
+
+            <div class="tech-list">
+
+                <span class="tech">HTML5</span>
+                <span class="tech">CSS3</span>
+                <span class="tech">JavaScript ES6</span>
+                <span class="tech">ES Modules</span>
+                <span class="tech">AHP</span>
+                <span class="tech">Chartist</span>
+                <span class="tech">Responsive Design</span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ───────── القيمة البحثية ───────── -->
+
+    <section class="container">
+
+        <div class="content-card">
+
+            <h3>
+                <i class="fas fa-graduation-cap"
+                   style="color:var(--secondary); margin-left:8px;"></i>
+                القيمة العلمية والبحثية
+            </h3>
+
+            <p>
+                تمثل الأداة جانباً تطبيقياً من العمل البحثي المرتبط
+                بمنهجيات اتخاذ القرار متعدد المعايير. فهي تربط بين
+                النموذج النظري للتحليل الهرمي AHP والتنفيذ الحاسوبي
+                التفاعلي، مما يوفر بيئة عملية لإجراء الحسابات وتحليل
+                النتائج بدلاً من الاعتماد على المعالجة اليدوية فقط.
+            </p>
+
+            <br>
+
+            <p>
+                ويأتي هذا المشروع ضمن توجه CyberPath Digital نحو
+                تطوير حلول تقنية لا تقتصر على المواقع التجارية،
+                وإنما تشمل أيضاً الأدوات العلمية والبحثية والأنظمة
+                الرقمية المتخصصة.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ───────── CTA ───────── -->
+
+    <section class="container">
+
+        <div class="cta">
+
+            <h2>
+                استكشف أداة AMSESHI AHP
+            </h2>
+
+            <p>
+                يمكنك زيارة النسخة التجريبية من الأداة
+                والتعرف على واجهة النظام وآلية تنفيذ التحليل.
+            </p>
+
+            <div class="cta-buttons">
+
+                <a href="https://ahp-tool-phase2.vercel.app/"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="btn-primary">
+
+                    <i class="fas fa-arrow-up-right-from-square"
+                       style="margin-left:8px;"></i>
+
+                    زيارة الأداة
+
+                </a>
+
+                <a href="../portfolio.html"
+                   class="btn-outline">
+
+                    <i class="fas fa-arrow-right"
+                       style="margin-left:8px;"></i>
+
+                    العودة إلى أعمالنا
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <p>
+        © 2026 CyberPath Digital – جميع الحقوق محفوظة
+    </p>
+
+</footer>
+
+
+<script>
+
+    const body = document.body;
+
+    const toggle = document.getElementById('themeToggle');
+
+    const icon = toggle.querySelector('i');
+
+
+    const setTheme = (theme) => {
+
+        body.classList.remove('dark', 'light');
+
+        body.classList.add(theme);
+
+        localStorage.setItem('cpd-theme', theme);
+
+        icon.className =
+            theme === 'dark'
+                ? 'fas fa-moon'
+                : 'fas fa-sun';
+
+    };
+
+
+    setTheme(
+        localStorage.getItem('cpd-theme') || 'dark'
+    );
+
+
+    toggle.addEventListener('click', () => {
+
+        setTheme(
+            body.classList.contains('dark')
+                ? 'light'
+                : 'dark'
+        );
+
+    });
+
+
+    const mobileMenuBtn =
+        document.getElementById('mobileMenuBtn');
+
+
+    mobileMenuBtn.addEventListener('click', () => {
+
+        const nav = document.querySelector('nav');
+
+        if (nav) {
+
+            nav.style.display =
+                nav.style.display === 'flex'
+                    ? 'none'
+                    : 'flex';
+
+            nav.style.position = 'absolute';
+            nav.style.top = '80px';
+            nav.style.right = '5%';
+            nav.style.flexDirection = 'column';
+            nav.style.padding = '20px';
+            nav.style.borderRadius = '18px';
+            nav.style.background =
+                body.classList.contains('dark')
+                    ? '#101b2d'
+                    : '#ffffff';
+
+            nav.style.border =
+                '1px solid var(--border-dark)';
+
+        }
+
+    });
+
+</script>
+
+</body>
+</html>
