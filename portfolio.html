@@ -1,7 +1,3 @@
-
-
-
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -297,6 +293,36 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
+        }
+
+        /* منطقة أزرار بطاقة المشروع - إصلاح التداخل/الالتصاق بين الزرين */
+        .portfolio-overlay .overlay-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .portfolio-overlay .overlay-buttons a,
+        .portfolio-overlay .overlay-buttons button {
+            flex: 1 1 140px;
+            min-width: 140px;
+            text-align: center;
+            white-space: nowrap;
+            justify-content: center;
+        }
+
+        @media (max-width: 480px) {
+            .portfolio-overlay .overlay-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .portfolio-overlay .overlay-buttons a,
+            .portfolio-overlay .overlay-buttons button {
+                width: 100%;
+                min-width: 0;
+            }
         }
 
         .container {
@@ -750,8 +776,10 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--primary); outli
                 <div class="portfolio-overlay">
                     <h3>Dar Khubara</h3>
                     <p>موقع معهد تدريب متكامل – نظام كورسات وشهادات</p>
+                    <div class="overlay-buttons">
                     <a href="https://darexpert-inst.vercel.app/" target="_blank" class="btn-primary" style="padding: 8px 20px;">تفاصيل المشروع</a>
                     <a href="./case-studies/dar-khubara.html" class="btn-outline"> دراسة الحالة </a>   
+                    </div>
                 </div>
             </div>
 
@@ -761,8 +789,10 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--primary); outli
                 <div class="portfolio-overlay">
                     <h3>Homestyle</h3>
                     <p>متجر أثاث إلكتروني متكامل – WooCommerce + دفوعات سعودية</p>
+                    <div class="overlay-buttons">
                     <a href="https://home-style-furniture-ten.vercel.app/" target="_blank" class="btn-primary" style="padding: 8px 20px;">تفاصيل المشروع</a>
                     <a href="./case-studies/homestyle.html" class="btn-outline"> دراسة الحالة </a>
+                    </div>
                 </div>
             </div>
 
@@ -772,8 +802,10 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--primary); outli
                 <div class="portfolio-overlay">
                     <h3>عبق الياسمين ABAQ</h3>
                     <p>موقع مؤسسة عطور – تصميم مخصص وهوية بصرية فريدة</p>
+                    <div class="overlay-buttons">
                     <a href="https://abag.vercel.app/" target="_blank" class="btn-primary" style="padding: 8px 20px;">تفاصيل المشروع</a>
                     <a href="./case-studies/abaq.html" class="btn-outline"> دراسة الحالة </a>
+                    </div>
                 </div>
             </div>
             <!-- مشروع Sky Properties -->
@@ -782,8 +814,10 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--primary); outli
                 <div class="portfolio-overlay">
                 <h3>Sky Properties</h3>
                 <p>منصة عقارية رقمية لإدارة العقارات والتأجير ولوحات التحكم الذكية</p>
+                <div class="overlay-buttons">
                <a href="https://sky-properties.vercel.app/" target="_blank" class="btn-primary" style="padding: 8px 20px;">تفاصيل المشروع</a>
                <a href="./case-studies/sky-properties.html" class="btn-outline"> دراسة الحالة </a>
+                </div>
              </div>
             </div>
 
@@ -793,8 +827,10 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--primary); outli
                 <div class="portfolio-overlay">
                     <h3>Renad Flora Store</h3>
                     <p>متجر إلكتروني لبيع الإكسسوارات والهدايا الفاخرة بتصنيفات متعددة وتجربة تسوق متكاملة</p>
+                    <div class="overlay-buttons">
                     <a href="https://renad-flora-store.vercel.app/" target="_blank" class="btn-primary" style="padding: 8px 20px;">تفاصيل المشروع</a>
                     <a href="./case-studies/renad-flora-store.html" class="btn-outline"> دراسة الحالة </a>
+                    </div>
                 </div>
             </div>
 
@@ -804,8 +840,10 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--primary); outli
                 <div class="portfolio-overlay">
                     <h3>Restaurant</h3>
                     <p>حل رقمي لعرض تجربة المطعم إلكترونياً بواجهة عصرية سهلة الاستخدام</p>
+                    <div class="overlay-buttons">
                     <a href="https://restaurant-murex-kappa.vercel.app/" target="_blank" class="btn-primary" style="padding: 8px 20px;">تفاصيل المشروع</a>
                     <a href="./case-studies/restaurant.html" class="btn-outline"> دراسة الحالة </a>
+                    </div>
                 </div>
             </div>
             <!-- مشروع Clinic Management System -->
@@ -814,8 +852,10 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--primary); outli
                 <div class="portfolio-overlay">
                     <h3>Clinic Management System</h3>
                     <p>نظام رقمي لإدارة العيادات موجّه للمؤسسات الصحية</p>
+                    <div class="overlay-buttons">
                     <a href="https://clinic-management-system-theta-umber.vercel.app/" target="_blank" class="btn-primary" style="padding: 8px 20px;">تفاصيل المشروع</a>
                     <a href="./case-studies/clinic-management-system.html" class="btn-outline"> دراسة الحالة </a>
+                    </div>
                 </div>
             </div>
 
@@ -825,8 +865,10 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--primary); outli
                 <div class="portfolio-overlay">
                     <h3>CP Creative</h3>
                     <p>مشروع إبداعي رقمي يعكس قدرات CyberPath Digital في تصميم التجارب والواجهات والحلول الإبداعية</p>
+                    <div class="overlay-buttons">
                     <a href="https://cp-creative.vercel.app/" target="_blank" class="btn-primary" style="padding: 8px 20px;">تفاصيل المشروع</a>
                     <a href="./case-studies/cp-creative.html" class="btn-outline"> دراسة الحالة </a>
+                    </div>
                 </div>
             </div>
 
@@ -836,8 +878,10 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--primary); outli
                 <div class="portfolio-overlay">
                     <h3>AHP Tool</h3>
                     <p>أداة دعم قرار محسّنة ومطورة استناداً إلى مشروع مفتوح المصدر، مع تطويرات مرتبطة بمنهجية AMSESHI</p>
+                    <div class="overlay-buttons">
                     <a href="https://ahp-tool-phase2.vercel.app/" target="_blank" class="btn-primary" style="padding: 8px 20px;">تفاصيل المشروع</a>
                     <a href="./case-studies/ahp-tool.html" class="btn-outline"> دراسة الحالة </a>
+                    </div>
                 </div>
             </div>
         </div>
