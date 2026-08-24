@@ -1,6 +1,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -9,14 +10,15 @@
     <link rel="icon" type="image/png" href="./assest/images/logo/CPD.png">
     <title>CyberPath Digital | وكالة رقمية متكاملة – تصميم مواقع وتطوير رقمي</title>
         <!-- SEO Meta Tags -->
-    <meta name="description" content="وكالة رقمية متخصصة في تصميم وتطوير مواقع الشركات والمتاجر الإلكترونية والمنصات التعليمية في السعودية. خبرة تقنية وتجربة مستخدم استثنائية.">
+    <meta name="description" content="CyberPath Digital وكالة رقمية تصمم وتطور مواقع الشركات والمتاجر والمنصات والأنظمة الرقمية القابلة للنمو في السعودية وخارجها.">
     <meta name="keywords" content="تصميم مواقع, متجر إلكتروني, منصة تعليمية, وكالة رقمية, الرياض, السعودية, CyberPath Digital">
     <meta name="author" content="CyberPath Digital">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 
     <!-- Open Graph (مشاركة الروابط في واتساب وفيسبوك) -->
     <meta property="og:title" content="CyberPath Digital | وكالة رقمية متكاملة – تصميم مواقع وتطوير رقمي">
-    <meta property="og:description" content="وكالة رقمية متخصصة في تصميم وتطوير مواقع الشركات والمتاجر الإلكترونية والمنصات التعليمية في السعودية. خبرة تقنية وتجربة مستخدم استثنائية.">
+    <meta property="og:description" content="نصمم ونطور مواقع الشركات والمتاجر والمنصات والأنظمة الرقمية بتجارب مستخدم واضحة وأداء موثوق.">
+    <meta property="og:image:alt" content="واجهة تقنية تعرض حلول CyberPath Digital الرقمية">
     <meta property="og:image" content="https://cyberpath-digital.vercel.app/assest/images/logo/CPD.png">
     <meta property="og:url" content="https://cyberpath-digital.vercel.app/">
     <meta property="og:type" content="website">
@@ -25,11 +27,15 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="CyberPath Digital | وكالة رقمية متكاملة">
-    <meta name="twitter:description" content="حلول رقمية حديثة للشركات والمؤسسات">
+    <meta name="twitter:description" content="حلول رقمية حديثة للشركات: مواقع، متاجر، منصات وأنظمة قابلة للنمو.">
+    <meta name="twitter:image:alt" content="واجهة تقنية تعرض حلول CyberPath Digital الرقمية">
     <meta name="twitter:image" content="https://cyberpath-digital.vercel.app/assest/images/logo/CPD.png">
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://cyberpath-digital.vercel.app/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <style>
@@ -40,8 +46,8 @@
         }
 
         :root {
-            --primary: #00A884;
-            --secondary: #14B8A6;
+            --primary: #0A84FF;
+            --secondary: #22D3EE;
             --dark-bg: #0F1115;
             --dark-card: #171A21;
             --dark-card2: #1D222B;
@@ -53,7 +59,7 @@
             --muted-light: #6B7280;
             --border-dark: #2B3440;
             --border-light: #E5E7EB;
-            --accent-glow: rgba(0,168,132,0.15);
+            --accent-glow: rgba(10,132,255,0.15);
         }
 
         body {
@@ -72,6 +78,25 @@
             color: var(--text-light);
         }
 
+        .service-card .service-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            margin-top: 18px;
+            color: var(--primary);
+            font-weight: 700;
+            text-decoration: none;
+        }
+        .service-card .service-link:hover { color: var(--secondary); }
+        .case-study-link { white-space: nowrap; }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
         /* Grid Background */
         .bg-grid {
             position: fixed;
@@ -291,7 +316,7 @@
 
         .btn-primary:hover {
             transform: scale(1.03);
-            box-shadow: 0 8px 20px rgba(0,168,132,0.3);
+            box-shadow: 0 8px 20px rgba(10,132,255,0.3);
         }
 
         .btn-outline {
@@ -605,7 +630,7 @@
         .cta-section {
             padding: 80px 8%;
             text-align: center;
-            background: linear-gradient(135deg, rgba(0,168,132,0.1), rgba(20,184,166,0.05));
+            background: linear-gradient(135deg, rgba(10,132,255,0.1), rgba(34,211,238,0.05));
         }
 
         .cta-section h2 {
@@ -781,7 +806,7 @@
         }
 
         .preview-package:hover {
-            background: rgba(0,168,132,0.1);
+            background: rgba(10,132,255,0.1);
         }
 
         .package-name {
@@ -801,7 +826,7 @@
                 /* Vision Section */
         .vision-section {
             padding: 80px 8%;
-            background: linear-gradient(135deg, rgba(0,168,132,0.05), rgba(20,184,166,0.02));
+            background: linear-gradient(135deg, rgba(10,132,255,0.05), rgba(34,211,238,0.02));
             border-top: 1px solid var(--border-dark);
             border-bottom: 1px solid var(--border-dark);
         }
@@ -830,7 +855,7 @@
 
         .vision-card.active {
             border: 2px solid var(--primary);
-            background: linear-gradient(135deg, rgba(0,168,132,0.1), rgba(20,184,166,0.05));
+            background: linear-gradient(135deg, rgba(10,132,255,0.1), rgba(34,211,238,0.05));
         }
 
         .vision-card.future {
@@ -930,7 +955,7 @@
                 /* Tech Section */
         .tech-section {
             padding: 60px 8%;
-            background: linear-gradient(135deg, rgba(0,168,132,0.03), rgba(20,184,166,0.02));
+            background: linear-gradient(135deg, rgba(10,132,255,0.03), rgba(34,211,238,0.02));
             border-top: 1px solid var(--border-dark);
             border-bottom: 1px solid var(--border-dark);
         }
@@ -963,7 +988,7 @@
         .tech-item:hover {
             transform: translateY(-4px);
             border-color: var(--primary);
-            background: rgba(0,168,132,0.1);
+            background: rgba(10,132,255,0.1);
         }
 
         .tech-icon {
@@ -983,7 +1008,7 @@
                 /* Process Section - منهجية العمل */
         .process-section {
             padding: 80px 8%;
-            background: linear-gradient(135deg, rgba(0,168,132,0.03), rgba(20,184,166,0.02));
+            background: linear-gradient(135deg, rgba(10,132,255,0.03), rgba(34,211,238,0.02));
         }
 
         .process-grid {
@@ -1019,12 +1044,12 @@
             left: 20px;
             font-size: 3rem;
             font-weight: 800;
-            color: rgba(0,168,132,0.15);
+            color: rgba(10,132,255,0.15);
             line-height: 1;
         }
 
         body.light .process-number {
-            color: rgba(0,168,132,0.2);
+            color: rgba(10,132,255,0.2);
         }
 
         .process-icon {
@@ -1059,7 +1084,7 @@
                 /* About Section - من نحن */
         .about-section {
             padding: 80px 8%;
-            background: linear-gradient(135deg, rgba(0,168,132,0.03), rgba(20,184,166,0.02));
+            background: linear-gradient(135deg, rgba(10,132,255,0.03), rgba(34,211,238,0.02));
             border-top: 1px solid var(--border-dark);
             border-bottom: 1px solid var(--border-dark);
         }
@@ -1217,7 +1242,7 @@
         }
 
         .project-features span {
-            background: rgba(0,168,132,0.15);
+            background: rgba(10,132,255,0.15);
             padding: 4px 10px;
             border-radius: 30px;
             font-size: 0.7rem;
@@ -1367,7 +1392,7 @@
         }
 
         .tech-tags span {
-            background: rgba(0,168,132,0.15);
+            background: rgba(10,132,255,0.15);
             padding: 5px 12px;
             border-radius: 30px;
             font-size: 0.8rem;
@@ -1387,7 +1412,7 @@
         /* ===== التصميم الإبداعي والهوية البصرية ===== */
 .creative-section {
     padding: 80px 8%;
-    background: linear-gradient(135deg, rgba(0,168,132,0.03), rgba(20,184,166,0.02));
+    background: linear-gradient(135deg, rgba(10,132,255,0.03), rgba(34,211,238,0.02));
     border-top: 1px solid var(--border-dark);
     border-bottom: 1px solid var(--border-dark);
 }
@@ -1462,7 +1487,7 @@ body.light .tool-tag {
 .tool-tag:hover {
     transform: translateY(-3px);
     border-color: var(--primary);
-    background: rgba(0,168,132,0.1);
+    background: rgba(10,132,255,0.1);
 }
 
 .tool-tag i {
@@ -1515,7 +1540,7 @@ body.light .creative-cta {
 
 /* Smooth scroll & selection color */
 html { scroll-behavior: smooth; }
-::selection { background: rgba(0,168,132,0.25); color: inherit; }
+::selection { background: rgba(10,132,255,0.25); color: inherit; }
 
 /* Improved glow – dual tone */
 .glow {
@@ -1567,12 +1592,12 @@ body.light header.scrolled { background: rgba(250,251,252,0.97); }
 
 /* ── Hero badge – emerald tinted ── */
 .hero-badge {
-    background: rgba(0,168,132,0.08);
-    border-color: rgba(0,168,132,0.3);
+    background: rgba(10,132,255,0.08);
+    border-color: rgba(10,132,255,0.3);
 }
 body.light .hero-badge {
-    background: rgba(0,143,115,0.08);
-    border-color: rgba(0,143,115,0.25);
+    background: rgba(10,132,255,0.08);
+    border-color: rgba(10,132,255,0.25);
 }
 
 /* ── Hero badge dot pulse ── */
@@ -1583,23 +1608,23 @@ body.light .hero-badge {
     height: 8px;
     border-radius: 50%;
     background: var(--primary);
-    box-shadow: 0 0 0 0 rgba(0,168,132,0.4);
+    box-shadow: 0 0 0 0 rgba(10,132,255,0.4);
     animation: pulse-dot 2s infinite;
     margin-left: 4px;
 }
 @keyframes pulse-dot {
-    0%   { box-shadow: 0 0 0 0 rgba(0,168,132,0.4); }
-    70%  { box-shadow: 0 0 0 8px rgba(0,168,132,0); }
-    100% { box-shadow: 0 0 0 0 rgba(0,168,132,0); }
+    0%   { box-shadow: 0 0 0 0 rgba(10,132,255,0.4); }
+    70%  { box-shadow: 0 0 0 8px rgba(10,132,255,0); }
+    100% { box-shadow: 0 0 0 0 rgba(10,132,255,0); }
 }
 
 /* ── Better hero image card ── */
 .hero-figure {
     border: 1px solid var(--border-dark);
-    box-shadow: 0 24px 60px -12px rgba(0,0,0,0.4), 0 0 0 1px rgba(0,168,132,0.1);
+    box-shadow: 0 24px 60px -12px rgba(0,0,0,0.4), 0 0 0 1px rgba(10,132,255,0.1);
 }
 body.light .hero-figure {
-    box-shadow: 0 16px 48px -8px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,143,115,0.12);
+    box-shadow: 0 16px 48px -8px rgba(0,0,0,0.12), 0 0 0 1px rgba(10,132,255,0.12);
 }
 
 /* ── Improved buttons ── */
@@ -1620,7 +1645,7 @@ body.light .hero-figure {
 .btn-primary:hover::before { opacity: 1; }
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 28px rgba(0,168,132,0.35);
+    box-shadow: 0 12px 28px rgba(10,132,255,0.35);
 }
 .btn-primary:active { transform: translateY(0); }
 
@@ -1631,7 +1656,7 @@ body.light .hero-figure {
 body.light .btn-outline { border-color: var(--border-light); }
 .btn-outline:hover {
     transform: translateY(-2px);
-    background: rgba(0,168,132,0.06);
+    background: rgba(10,132,255,0.06);
     border-color: var(--primary) !important;
     color: var(--primary) !important;
 }
@@ -1648,13 +1673,13 @@ body.light .btn-outline { border-color: var(--border-light); }
 .vision-card:hover,
 .preview-category:hover,
 .process-card:hover {
-    box-shadow: 0 20px 40px -8px rgba(0,0,0,0.3), 0 0 0 1px rgba(0,168,132,0.2);
+    box-shadow: 0 20px 40px -8px rgba(0,0,0,0.3), 0 0 0 1px rgba(10,132,255,0.2);
 }
 body.light .service-card:hover,
 body.light .vision-card:hover,
 body.light .preview-category:hover,
 body.light .process-card:hover {
-    box-shadow: 0 12px 32px -6px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,143,115,0.2);
+    box-shadow: 0 12px 32px -6px rgba(0,0,0,0.1), 0 0 0 1px rgba(10,132,255,0.2);
 }
 
 /* ── Service card icon container ── */
@@ -1662,7 +1687,7 @@ body.light .process-card:hover {
     display: inline-flex;
     width: 56px;
     height: 56px;
-    background: rgba(0,168,132,0.1);
+    background: rgba(10,132,255,0.1);
     border-radius: 16px;
     align-items: center;
     justify-content: center;
@@ -1671,10 +1696,10 @@ body.light .process-card:hover {
     transition: background 0.3s, transform 0.3s;
 }
 .service-card:hover i {
-    background: rgba(0,168,132,0.18);
+    background: rgba(10,132,255,0.18);
     transform: scale(1.08);
 }
-body.light .service-card i { background: rgba(0,143,115,0.1); }
+body.light .service-card i { background: rgba(10,132,255,0.1); }
 
 /* ── Process number pill ── */
 .process-number {
@@ -1706,8 +1731,8 @@ body.light .service-card i { background: rgba(0,143,115,0.1); }
 .section-tag {
     display: inline-block;
     padding: 5px 16px;
-    background: rgba(0,168,132,0.1);
-    border: 1px solid rgba(0,168,132,0.25);
+    background: rgba(10,132,255,0.1);
+    border: 1px solid rgba(10,132,255,0.25);
     border-radius: 30px;
     font-size: 0.8rem;
     font-weight: 700;
@@ -1716,9 +1741,9 @@ body.light .service-card i { background: rgba(0,143,115,0.1); }
     margin-bottom: 16px;
 }
 body.light .section-tag {
-    background: rgba(0,143,115,0.08);
-    border-color: rgba(0,143,115,0.2);
-    color: #008F73;
+    background: rgba(10,132,255,0.08);
+    border-color: rgba(10,132,255,0.2);
+    color: #0A84FF;
 }
 
 /* ── Mobile sidebar improvements ── */
@@ -1788,15 +1813,15 @@ body.light .mobile-sidebar a { border-bottom-color: rgba(229,231,235,0.6); }
 /* ── Trust bar items ── */
 .trust-item {
     padding: 10px 20px;
-    background: rgba(0,168,132,0.05);
-    border: 1px solid rgba(0,168,132,0.15);
+    background: rgba(10,132,255,0.05);
+    border: 1px solid rgba(10,132,255,0.15);
     border-radius: 50px;
     transition: background 0.3s;
 }
-.trust-item:hover { background: rgba(0,168,132,0.12); }
+.trust-item:hover { background: rgba(10,132,255,0.12); }
 body.light .trust-item {
-    background: rgba(0,143,115,0.05);
-    border-color: rgba(0,143,115,0.15);
+    background: rgba(10,132,255,0.05);
+    border-color: rgba(10,132,255,0.15);
 }
 
 /* ── Footer improvements ── */
@@ -1823,12 +1848,12 @@ body.light .vision-section   { background: #F0FDF9; }
 
 /* ── CTA section – stronger teal gradient ── */
 .cta-section {
-    background: linear-gradient(135deg, rgba(0,168,132,0.12), rgba(20,184,166,0.06));
-    border-top: 1px solid rgba(0,168,132,0.15);
-    border-bottom: 1px solid rgba(0,168,132,0.15);
+    background: linear-gradient(135deg, rgba(10,132,255,0.12), rgba(34,211,238,0.06));
+    border-top: 1px solid rgba(10,132,255,0.15);
+    border-bottom: 1px solid rgba(10,132,255,0.15);
 }
 body.light .cta-section {
-    background: linear-gradient(135deg, rgba(0,143,115,0.08), rgba(14,165,164,0.04));
+    background: linear-gradient(135deg, rgba(10,132,255,0.08), rgba(34,211,238,0.04));
 }
 
 /* ── Focus visible accessibility ── */
@@ -1845,8 +1870,9 @@ button:focus-visible {
   {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
+    "@id": "https://cyberpath-digital.vercel.app/#organization",
     "name": "CyberPath Digital",
-    "url": "https://cyberpath-digital.vercel.app",
+    "url": "https://cyberpath-digital.vercel.app/",
     "logo": {
       "@type": "ImageObject",
       "url": "https://cyberpath-digital.vercel.app/assest/images/logo/CPD.png",
@@ -1854,22 +1880,20 @@ button:focus-visible {
       "height": 200
     },
     "image": "https://cyberpath-digital.vercel.app/assest/images/logo/CPD.png",
-    "description": "وكالة رقمية متكاملة في الرياض، متخصصة في تصميم وتطوير المواقع والمتاجر الإلكترونية والمنصات التعليمية باحترافية عالية",
+    "description": "وكالة رقمية متخصصة في تصميم وتطوير مواقع الشركات والمتاجر الإلكترونية والمنصات والأنظمة الرقمية.",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "الرياض",
       "addressRegion": "ضاحية لبن",
       "addressCountry": "SA"
     },
-    "contactPoint": [
-      {
-        "@type": "ContactPoint",
-        "telephone": "+966561428260",
-        "contactType": "customer service",
-        "areaServed": "SA",
-        "availableLanguage": "Arabic"
-      }
-    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+966561428260",
+      "contactType": "customer service",
+      "areaServed": "SA",
+      "availableLanguage": "ar"
+    },
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "خدمات CyberPath Digital",
@@ -1878,8 +1902,8 @@ button:focus-visible {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "تصميم مواقع الشركات",
-            "description": "تصميم وتطوير مواقع شركات احترافية متجاوبة مع جميع الأجهزة"
+            "name": "تصميم وتطوير مواقع الشركات",
+            "description": "مواقع شركات احترافية متجاوبة مع جميع الأجهزة."
           }
         },
         {
@@ -1887,23 +1911,19 @@ button:focus-visible {
           "itemOffered": {
             "@type": "Service",
             "name": "تطوير المتاجر الإلكترونية",
-            "description": "بناء متاجر إلكترونية متكاملة مع بوابات دفع آمنة وإدارة مخزون"
+            "description": "متاجر إلكترونية متكاملة بتجربة شراء واضحة وإدارة للمنتجات."
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "المنصات التعليمية",
-            "description": "تطوير منصات تعليمية تفاعلية بنظام إدارة المحتوى وتتبع التقدم"
+            "name": "تطوير المنصات والأنظمة الرقمية",
+            "description": "منصات تعليمية وأنظمة إدارية وحلول رقمية مخصصة قابلة للتوسع."
           }
         }
       ]
     },
-    "sameAs": [
-      "https://wa.me/966561428260"
-    ],
-    "priceRange": "$$",
     "areaServed": {
       "@type": "Country",
       "name": "Saudi Arabia"
@@ -1912,16 +1932,13 @@ button:focus-visible {
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
+    "@id": "https://cyberpath-digital.vercel.app/#website",
     "url": "https://cyberpath-digital.vercel.app/",
     "name": "CyberPath Digital",
-    "inLanguage": "ar",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": "https://cyberpath-digital.vercel.app/?q={search_term_string}"
-      },
-      "query-input": "required name=search_term_string"
+    "description": "وكالة رقمية لتصميم وتطوير المواقع والمتاجر والمنصات والأنظمة الرقمية.",
+    "inLanguage": "ar-SA",
+    "publisher": {
+      "@id": "https://cyberpath-digital.vercel.app/#organization"
     }
   }
 ]
@@ -1940,14 +1957,13 @@ button:focus-visible {
     </a>
 
     <!-- Desktop Navigation -->
-    <div class="nav-desktop">
+    <nav class="nav-desktop" aria-label="التنقل الرئيسي">
         <a href="index.html">الرئيسية</a>
         <a href="services.html">الخدمات</a>
         <a href="portfolio.html">أعمالنا</a>
         <a href="get-quote.html">عرض سعر</a>                 
         <a href="contact.html">تواصل معنا</a>
-    </div>
-
+    </nav>
     <div class="header-actions">
 
     <button
@@ -1965,7 +1981,7 @@ button:focus-visible {
         type="button"
         aria-label="فتح القائمة الرئيسية"
         aria-expanded="false"
-        aria-controls="mobileMenu">
+        aria-controls="mobileSidebar">
         <i class="fas fa-bars" aria-hidden="true"></i>
     </button>
 
@@ -1974,8 +1990,8 @@ button:focus-visible {
 
 <!-- Mobile Sidebar with Logo -->
 <div class="overlay" id="overlay"></div>
-<div class="mobile-sidebar" id="mobileSidebar">
-    <button class="close-sidebar" id="closeSidebar" aria-label="إغلاق القائمة">
+<nav class="mobile-sidebar" id="mobileSidebar" aria-label="التنقل على الهاتف">
+    <button class="close-sidebar" id="closeSidebar" type="button" aria-label="إغلاق القائمة">
     <i class="fas fa-times" aria-hidden="true"></i>
     </button> 
     <div class="sidebar-logo">
@@ -1988,19 +2004,18 @@ button:focus-visible {
     <a href="exam-guide.html"><i class="fas fa-shield-halved"></i>دليل اختبار الأمن السيبراني</a>
     <a href="get-quote.html"><i class="fas fa-file-invoice-dollar"></i>عرض سعر</a>
     <a href="contact.html"><i class="fas fa-envelope"></i>تواصل معنا</a>
-</div>
-
+</nav>
 <main>
     <section class="hero">
         <div class="hero-content">
             <div class="hero-badge">
                 <i class="fa-solid fa-bolt"></i>
-                حلول رقمية حديثة للشركات والأعمال
+                تصميم، تطوير وحلول رقمية قابلة للنمو
             </div>
-            <h1>نبني <span>تجارب رقمية</span> تنمو مع أعمالك</h1>
-            <p>نصمم ونطور مواقع الشركات والمتاجر الإلكترونية والمنصات التعليمية الحديثة بمعايير عالمية وتجربة مستخدم استثنائية وأداء عالي.</p>
+            <h1>نبني <span>حلولاً رقمية</span> تصنع الفرق</h1>
+            <p>نصمم ونطوّر مواقع الشركات والمتاجر والمنصات والأنظمة الرقمية، بتجارب مستخدم واضحة وأداء موثوق يدعم نمو أعمالك.</p>
             <div class="hero-buttons">
-                <a href="get-quote.html" class="btn-primary"><i class="fab fa-whatsapp"></i> ابدأ مشروعك</a>
+                <a href="get-quote.html" class="btn-primary"><i class="fab fa-whatsapp"></i> اطلب عرض سعر</a>
                 <a href="portfolio.html" class="btn-outline"><i class="fas fa-arrow-left"></i> استعرض أعمالنا</a>
             </div>
         </div>
@@ -2009,15 +2024,17 @@ button:focus-visible {
              <div class="floating-shape shape-2"></div>
              <figure class="hero-figure">
              <img src="./assest/images/logo/cover.png" 
-             alt="معرض لأعمال وكالة CyberPath Digital – تصميم مواقع ومتاجر إلكترونية" 
-             loading="lazy"
-             onerror="this.src='https://placehold.co/800x600/00A884/white?text=CyberPath+Cover'">
+             alt="واجهة تعرض مشاريع CyberPath Digital في تصميم وتطوير المواقع والمتاجر والمنصات الرقمية"
+             loading="eager"
+             fetchpriority="high"
+             decoding="async"
+             onerror="this.src='https://placehold.co/800x600/0A84FF/white?text=CyberPath+Cover'">
             </figure>
           </div>
     </section>
 
     <div class="trust-bar">
-        <div class="trust-title">نحن نثق بهم ونخدم قطاعات متنوعة</div>
+        <div class="trust-title">مشاريع فعلية. حلول قابلة للاستخدام. تقنيات حديثة.</div>
         <div class="trust-grid">
             <div class="trust-item">
                 <img src="./assest/images/logo/CPD.png" alt="CPD">
@@ -2040,17 +2057,27 @@ button:focus-visible {
             <div class="service-card">
                 <i class="fa-solid fa-globe"></i>
                 <h3>مواقع الشركات</h3>
-                <p>مواقع احترافية متجاوبة مع الجوال تعكس هوية الشركة وتساعد على جذب العملاء.</p>
+                <p>مواقع احترافية متجاوبة مع الجوال تعكس هوية الشركة وتساعد على جذب العملاء.<a class="service-link" href="services.html">اكتشف الخدمة <i class="fas fa-arrow-left" aria-hidden="true"></i></a></p>
             </div>
             <div class="service-card">
                 <i class="fa-solid fa-cart-shopping"></i>
                 <h3>المتاجر الإلكترونية</h3>
-                <p>متاجر رقمية متكاملة مع بوابات الدفع وإدارة المنتجات وتجربة شراء سلسة.</p>
+                <p>متاجر رقمية متكاملة مع بوابات الدفع وإدارة المنتجات وتجربة شراء سلسة.<a class="service-link" href="services.html">اكتشف الخدمة <i class="fas fa-arrow-left" aria-hidden="true"></i></a></p>
             </div>
             <div class="service-card">
                 <i class="fa-solid fa-graduation-cap"></i>
                 <h3>المنصات التعليمية</h3>
-                <p>حلول تدريب واختبارات وشهادات إلكترونية مخصصة للمعاهد ومراكز التدريب.</p>
+                <p>حلول تدريب واختبارات وشهادات إلكترونية مخصصة للمعاهد ومراكز التدريب.<a class="service-link" href="services.html">اكتشف الخدمة <i class="fas fa-arrow-left" aria-hidden="true"></i></a></p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-chart-line"></i>
+                <h3>الأنظمة الرقمية</h3>
+                <p>أنظمة إدارية ولوحات تحكم وحلول مخصصة تساعد الأعمال على تنظيم العمليات واتخاذ القرار.<a class="service-link" href="services.html">اكتشف الخدمة <i class="fas fa-arrow-left" aria-hidden="true"></i></a></p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+                <h3>أدوات وحلول متخصصة</h3>
+                <p>أدوات تحليلية وحلول تقنية متقدمة تُبنى وفق احتياج العمل وقابلة للتوسع.<a class="service-link" href="services.html">اكتشف الخدمة <i class="fas fa-arrow-left" aria-hidden="true"></i></a></p>
             </div>
         </div>
     </section>
@@ -2116,7 +2143,7 @@ button:focus-visible {
             <p>أرقام حقيقية تعكس التزامنا وجودة عملنا</p>
         </div>
         <div class="stats-grid">
-            <div class="stat-item"><div class="stat-number">3</div><p>مشاريع معروضة</p></div>
+            <div class="stat-item"><div class="stat-number">9</div><p>مشاريع معروضة</p></div>
             <div class="stat-item"><div class="stat-number">5</div><p>صفحات رئيسية</p></div>
             <div class="stat-item"><div class="stat-number">100%</div><p>متجاوب مع الجوال</p></div>
             <div class="stat-item"><div class="stat-number">24/7</div><p>دعم فني</p></div>
@@ -2264,7 +2291,7 @@ button:focus-visible {
             <h3>نبدأ معاً</h3>
             <p>هل تحتاج إلى هوية بصرية أو تصميم احترافي؟ دعنا نحول أفكارك إلى تصاميم إبداعية تعكس احترافية علامتك التجارية.</p>
             <div style="display:flex; gap:15px; justify-content:center; flex-wrap:wrap; margin-top:25px;">
-                <a href="https://cp-creative.vercel.app" target="_blank" class="btn-primary">
+                <a href="https://cp-creative.vercel.app" target="_blank" rel="noopener noreferrer" class="btn-primary">
                     عرض أعمال التصميم <i class="fas fa-arrow-left"></i>
                 </a>
                 <a href="get-quote.html" class="btn-outline">
@@ -2297,8 +2324,9 @@ button:focus-visible {
                             <span>👨‍🏫 كادر تدريبي</span>
                         </div>
                         <div class="overlay-buttons">
-                            <a href="https://darexpert-inst.vercel.app/" target="_blank" class="btn-primary">تفاصيل المشروع</a>
-                            <button class="btn-outline case-study-btn" data-project="dar">دراسة حالة</button>
+                            <a href="https://darexpert-inst.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-primary">تفاصيل المشروع</a>
+                            <a href="./case-studies/dar-khubara.html" class="btn-outline case-study-link">دراسة حالة مفصلة</a>
+                            <button type="button" class="btn-outline case-study-btn" data-project="dar" aria-haspopup="dialog" aria-controls="caseModal">معاينة سريعة</button>
                         </div>
                     </div>
                 </div>
@@ -2319,8 +2347,9 @@ button:focus-visible {
                             <span>📱 متجاوب 100%</span>
                         </div>
                         <div class="overlay-buttons">
-                            <a href="https://home-style-furniture-ten.vercel.app/" target="_blank" class="btn-primary">تفاصيل المشروع</a>
-                            <button class="btn-outline case-study-btn" data-project="homestyle">دراسة حالة</button>
+                            <a href="https://home-style-furniture-ten.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-primary">تفاصيل المشروع</a>
+                            <a href="./case-studies/homestyle.html" class="btn-outline case-study-link">دراسة حالة مفصلة</a>
+                            <button type="button" class="btn-outline case-study-btn" data-project="homestyle" aria-haspopup="dialog" aria-controls="caseModal">معاينة سريعة</button>
                         </div>
                     </div>
                 </div>
@@ -2341,8 +2370,9 @@ button:focus-visible {
                             <span>✨ تجربة مستخدم راقية</span>
                         </div>
                         <div class="overlay-buttons">
-                            <a href="https://abag.vercel.app/" target="_blank" class="btn-primary">تفاصيل المشروع</a>
-                            <button class="btn-outline case-study-btn" data-project="abaq">دراسة حالة</button>
+                            <a href="https://abag.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-primary">تفاصيل المشروع</a>
+                            <a href="./case-studies/abaq.html" class="btn-outline case-study-link">دراسة حالة مفصلة</a>
+                            <button type="button" class="btn-outline case-study-btn" data-project="abaq" aria-haspopup="dialog" aria-controls="caseModal">معاينة سريعة</button>
                         </div>
                     </div>
                 </div>
@@ -2372,8 +2402,9 @@ button:focus-visible {
               </div>
 
               <div class="overlay-buttons">
-                <a href="https://sky-properties.vercel.app/" target="_blank" class="btn-primary"> تفاصيل المشروع</a>
-                <button class="btn-outline case-study-btn" data-project="sky-properties"> دراسة حالة </button>
+                <a href="https://sky-properties.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-primary"> تفاصيل المشروع</a>
+                <a href="./case-studies/sky-properties.html" class="btn-outline case-study-link">دراسة حالة مفصلة</a>
+                            <button type="button" class="btn-outline case-study-btn" data-project="sky-properties" aria-haspopup="dialog" aria-controls="caseModal">معاينة سريعة</button>
             </div>
         </div>
     </div>
@@ -2394,8 +2425,9 @@ button:focus-visible {
                             <span>💬 تواصل عبر واتساب</span>
                         </div>
                         <div class="overlay-buttons">
-                            <a href="https://renad-flora-store.vercel.app/" target="_blank" class="btn-primary">تفاصيل المشروع</a>
-                            <button class="btn-outline case-study-btn" data-project="renad-flora-store">دراسة حالة</button>
+                            <a href="https://renad-flora-store.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-primary">تفاصيل المشروع</a>
+                            <a href="./case-studies/renad-flora-store.html" class="btn-outline case-study-link">دراسة حالة مفصلة</a>
+                            <button type="button" class="btn-outline case-study-btn" data-project="renad-flora-store" aria-haspopup="dialog" aria-controls="caseModal">معاينة سريعة</button>
                         </div>
                     </div>
                 </div>
@@ -2414,8 +2446,9 @@ button:focus-visible {
                             <span>📱 تصميم متجاوب</span>
                         </div>
                         <div class="overlay-buttons">
-                            <a href="https://restaurant-murex-kappa.vercel.app/" target="_blank" class="btn-primary">تفاصيل المشروع</a>
-                            <button class="btn-outline case-study-btn" data-project="restaurant">دراسة حالة</button>
+                            <a href="https://restaurant-murex-kappa.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-primary">تفاصيل المشروع</a>
+                            <a href="./case-studies/restaurant.html" class="btn-outline case-study-link">دراسة حالة مفصلة</a>
+                            <button type="button" class="btn-outline case-study-btn" data-project="restaurant" aria-haspopup="dialog" aria-controls="caseModal">معاينة سريعة</button>
                         </div>
                     </div>
                 </div>
@@ -2434,8 +2467,9 @@ button:focus-visible {
                             <span>📱 تصميم متجاوب</span>
                         </div>
                         <div class="overlay-buttons">
-                            <a href="https://clinic-management-system-theta-umber.vercel.app/" target="_blank" class="btn-primary">تفاصيل المشروع</a>
-                            <button class="btn-outline case-study-btn" data-project="clinic">دراسة حالة</button>
+                            <a href="https://clinic-management-system-theta-umber.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-primary">تفاصيل المشروع</a>
+                            <a href="./case-studies/clinic-management-system.html" class="btn-outline case-study-link">دراسة حالة مفصلة</a>
+                            <button type="button" class="btn-outline case-study-btn" data-project="clinic" aria-haspopup="dialog" aria-controls="caseModal">معاينة سريعة</button>
                         </div>
                     </div>
                 </div>
@@ -2454,8 +2488,9 @@ button:focus-visible {
                             <span>💼 معرض أعمال إبداعي</span>
                         </div>
                         <div class="overlay-buttons">
-                            <a href="https://cp-creative.vercel.app/" target="_blank" class="btn-primary">تفاصيل المشروع</a>
-                            <button class="btn-outline case-study-btn" data-project="cp-creative">دراسة حالة</button>
+                            <a href="https://cp-creative.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-primary">تفاصيل المشروع</a>
+                            <a href="./case-studies/cp-creative.html" class="btn-outline case-study-link">دراسة حالة مفصلة</a>
+                            <button type="button" class="btn-outline case-study-btn" data-project="cp-creative" aria-haspopup="dialog" aria-controls="caseModal">معاينة سريعة</button>
                         </div>
                     </div>
                 </div>
@@ -2475,8 +2510,9 @@ button:focus-visible {
                             <span>⚙️ تطوير AMSESHI 2.0</span>
                         </div>
                         <div class="overlay-buttons">
-                            <a href="https://ahp-tool-phase2.vercel.app/" target="_blank" class="btn-primary">تفاصيل المشروع</a>
-                            <button class="btn-outline case-study-btn" data-project="ahp-tool">دراسة حالة</button>
+                            <a href="https://ahp-tool-phase2.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-primary">تفاصيل المشروع</a>
+                            <a href="./case-studies/ahp-tool.html" class="btn-outline case-study-link">دراسة حالة مفصلة</a>
+                            <button type="button" class="btn-outline case-study-btn" data-project="ahp-tool" aria-haspopup="dialog" aria-controls="caseModal">معاينة سريعة</button>
                         </div>
                     </div>
                 </div>
@@ -2485,10 +2521,10 @@ button:focus-visible {
         </div>
     </section>
 
-    <!-- Modal لـ Case Study -->
-    <div class="case-modal" id="caseModal">
-        <div class="case-modal-content">
-            <button class="modal-close" id="modalClose">&times;</button>
+    <!-- نافذة المعاينة السريعة لدراسات الحالة -->
+    <div class="case-modal" id="caseModal" role="dialog" aria-modal="true" aria-labelledby="caseModalTitle" aria-hidden="true">
+        <div class="case-modal-content" tabindex="-1">
+            <button class="modal-close" id="modalClose" type="button" aria-label="إغلاق المعاينة">&times;</button>
             <div id="caseContent"></div>
         </div>
     </div>
@@ -2606,7 +2642,7 @@ button:focus-visible {
                     <p class="vision-name">CyberPath Academy</p>
                     <small>التدريب والتعليم</small>
                     <span class="vision-status future">قيد التطوير</span>
-                    <a href="https://cyberpath.vercel.app/academy/" target="_blank" style="display:block;margin-top:12px;font-size:0.8rem;color:var(--primary);font-weight:700;text-decoration:none;">استكشاف المنصة ↗</a>
+                    <a href="https://cyberpath.vercel.app/academy/" target="_blank" rel="noopener noreferrer" style="display:block;margin-top:12px;font-size:0.8rem;color:var(--primary);font-weight:700;text-decoration:none;">استكشاف المنصة ↗</a>
                 </div>
 
                 <div class="vision-card future">
@@ -2660,7 +2696,7 @@ button:focus-visible {
         </div>
         <div class="footer-col">
             <h4>تواصل معنا</h4>
-            <a href="https://wa.me/966557450188" target="_blank"><i class="fab fa-whatsapp"></i> واتساب: 0561428260</a>
+            <a href="https://wa.me/966557450188" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> واتساب: 0561428260</a>
             <a href="contact.html"><i class="far fa-clock"></i> السبت - الخميس: 9ص - 6م</a>
         </div>
     </div>
@@ -2670,13 +2706,6 @@ button:focus-visible {
     </div>
 </footer>
 
-<!-- Modal Container -->
-<div class="case-modal" id="caseModal">
-    <div class="case-modal-content">
-        <button class="modal-close" id="modalClose">&times;</button>
-        <div id="caseContent"></div>
-    </div>
-</div>
 
 <script>
     // Theme Toggle
@@ -2689,6 +2718,7 @@ button:focus-visible {
         body.classList.add(theme);
         localStorage.setItem('cpd-theme', theme);
         icon.className = theme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
+        toggle.setAttribute('aria-pressed', String(theme === 'light'));
     };
     
     const savedTheme = localStorage.getItem('cpd-theme') || 'dark';
@@ -2859,7 +2889,7 @@ button:focus-visible {
             if (data) {
                 modalContent.innerHTML = `
                     <div class="case-study-content">
-                        <h2>${data.title} <span>— ${data.subtitle}</span></h2>
+                        <h2 id="caseModalTitle">${data.title} <span>— ${data.subtitle}</span></h2>
                         <p class="sub">دراسة حالة متكاملة</p>
                         <p>${data.fullDesc}</p>
                         <h3>✨ المميزات الرئيسية</h3>
@@ -2870,12 +2900,14 @@ button:focus-visible {
                         <div class="tech-tags">
                             ${data.technologies.map(tech => `<span>${tech}</span>`).join('')}
                         </div>
-                        <a href="${data.link}" target="_blank" class="btn-primary" style="margin-top: 20px; display: inline-block;">
+                        <a href="${data.link}" target="_blank" rel="noopener noreferrer" class="btn-primary" style="margin-top: 20px; display: inline-block;">
                             زيارة المشروع <i class="fas fa-arrow-left"></i>
                         </a>
                     </div>
                 `;
                 modal.classList.add('active');
+                modal.setAttribute('aria-hidden', 'false');
+                modal.querySelector('.case-modal-content').focus();
                 document.body.style.overflow = 'hidden';
             }
         });
@@ -2884,6 +2916,7 @@ button:focus-visible {
     // إغلاق الـ Modal
     function closeCaseModal() {
         modal.classList.remove('active');
+        modal.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
         modalContent.innerHTML = '';
     }
