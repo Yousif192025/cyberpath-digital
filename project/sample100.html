@@ -1,0 +1,1862 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>100 فكرة مشروع تخرج في الأمن السيبراني</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary-color: #1a3a8f;
+            --secondary-color: #ff6b35;
+            --accent-color: #3498db;
+            --text-color: #333;
+            --light-bg: #f5f7fa;
+            --white: #ffffff;
+            --dark-blue: #0d1b4c;
+            --gray: #666;
+            --light-gray: #eee;
+        }
+        
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            background-color: var(--white);
+            overflow: hidden;
+        }
+        
+        /* صفحة الغلاف */
+        .cover-page {
+            width: 100%;
+            min-height: 100vh;
+            padding: 5vw;
+            background-color: var(--white);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .cover-page::before,
+        .cover-page::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        }
+        
+        .cover-page::before {
+            top: 5vw;
+        }
+        
+        .cover-page::after {
+            bottom: 5vw;
+        }
+        
+        .cover-header {
+            text-align: center;
+            margin-bottom: 5vh;
+        }
+        
+        .cover-header h1 {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-weight: bold;
+            line-height: 1.3;
+        }
+        
+        .cover-header h2 {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+        
+        .cover-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin: 3vh 0;
+        }
+        
+        .cover-description {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: #444;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            text-align: justify;
+        }
+        
+        .cover-footer {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #ddd;
+            width: 100%;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-blue) 100%);
+            color: var(--white);
+            padding: clamp(2rem, 5vw, 3rem) clamp(1rem, 3vw, 2rem);
+            text-align: center;
+            border-bottom: 5px solid var(--secondary-color);
+        }
+        
+        h1 {
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            margin-bottom: 1rem;
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 0.8rem;
+            margin: 2.5rem 0 1.5rem 0;
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            font-weight: 700;
+        }
+        
+        h3 {
+            color: #2c3e50;
+            margin: 2rem 0 1rem 0;
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            font-weight: 600;
+            padding-right: 1rem;
+            border-right: 4px solid var(--accent-color);
+        }
+        
+        h4 {
+            color: #34495e;
+            margin: 1.5rem 0 1rem 0;
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            font-weight: 600;
+        }
+        
+        /* Sections */
+        section {
+            padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1rem, 3vw, 2rem);
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .intro-section {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            margin: 1rem 0;
+        }
+        
+        /* جدول المحتويات */
+        .toc-container {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: clamp(1.5rem, 3vw, 2rem);
+            margin: 2rem 0;
+            border-right: 5px solid var(--primary-color);
+        }
+        
+        .toc-list {
+            list-style-type: none;
+            padding: 0;
+            display: grid;
+            gap: 1rem;
+        }
+        
+        .toc-list li {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 1rem;
+            border-right: 4px solid var(--accent-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .toc-list li:hover {
+            transform: translateX(-10px);
+            background-color: #f0f7ff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .toc-list a {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: 500;
+            display: block;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+        }
+        
+        /* Category Box */
+        .category-box {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: clamp(1.5rem, 3vw, 2rem);
+            margin: 2rem 0;
+            border: 2px solid #e9ecef;
+        }
+        
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(min(100%, 350px), 1fr));
+            gap: clamp(1rem, 2vw, 1.5rem);
+            margin: 1.5rem 0;
+        }
+        
+        .project-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: clamp(1.2rem, 2vw, 1.5rem);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border: 1px solid #eaeaea;
+            transition: all 0.3s ease;
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            border-color: var(--accent-color);
+        }
+        
+        .project-number {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 10px rgba(26,58,143,0.3);
+        }
+        
+        .project-title {
+            color: var(--primary-color);
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            line-height: 1.4;
+        }
+        
+        .project-description {
+            color: #555;
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+            line-height: 1.6;
+            flex: 1;
+        }
+        
+        /* Advice Sections */
+        .advice-section {
+            background: linear-gradient(135deg, #f1f8e9 0%, #dcedc8 100%);
+            border-radius: 10px;
+            padding: clamp(1.5rem, 3vw, 2.2rem);
+            margin: 2.5rem 0;
+            border: 2px solid #8bc34a;
+        }
+        
+        .advice-box {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: clamp(1.2rem, 2vw, 1.5rem);
+            margin: 1.5rem 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        
+        .tip-item {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: clamp(1rem, 2vw, 1.2rem);
+            margin: 1rem 0;
+            border-right: 4px solid var(--secondary-color);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .tip-icon {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        
+        /* Conclusion Section */
+        .conclusion-section {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-radius: 10px;
+            padding: clamp(1.5rem, 3vw, 2.2rem);
+            margin: 2.5rem 0;
+            border: 2px solid #2196f3;
+        }
+        
+        .cta-box {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: clamp(1.5rem, 3vw, 2rem);
+            text-align: center;
+            margin: 2rem 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        /* Buttons */
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: clamp(0.8rem, 2vw, 1rem) clamp(1.5rem, 3vw, 2rem);
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin: 1rem 0.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(26,58,143,0.3);
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--dark-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(26,58,143,0.4);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: var(--white);
+            padding: clamp(2rem, 4vw, 3rem) clamp(1rem, 3vw, 2rem) clamp(1.5rem, 3vw, 2rem);
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+            gap: clamp(1.5rem, 3vw, 2.5rem);
+            margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+        }
+        
+        .footer-section h5 {
+            color: var(--secondary-color);
+            margin-bottom: 1.2rem;
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            font-weight: 700;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+        }
+        
+        .footer-section a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: clamp(1.5rem, 3vw, 2rem);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #aaa;
+            font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+        }
+        
+        /* Additional Elements */
+        .original-content-note {
+            background-color: #fff8e1;
+            border: 2px solid #ffb300;
+            border-radius: 8px;
+            padding: clamp(1rem, 2vw, 1.2rem);
+            margin: 1.5rem clamp(1rem, 3vw, 2rem);
+            text-align: center;
+            font-style: italic;
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+        }
+        
+        .institute-seal {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .institute-seal img {
+            width: min(150px, 30vw);
+            height: min(150px, 30vw);
+            opacity: 0.8;
+        }
+        
+        /* Print Styles */
+        @media print {
+            .cover-page {
+                width: 210mm;
+                min-height: 297mm;
+                margin: 0;
+                padding: 30mm 25mm;
+                border: none;
+                box-shadow: none;
+                page-break-after: always;
+            }
+            
+            body {
+                background-color: white;
+                padding: 0;
+            }
+            
+            .btn-primary {
+                display: none;
+            }
+            
+            .original-content-note {
+                margin: 1rem 0;
+            }
+        }
+        
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .cover-page {
+                padding: 3vw;
+            }
+            
+            .cover-page::before {
+                top: 3vw;
+            }
+            
+            .cover-page::after {
+                bottom: 3vw;
+            }
+            
+            .cover-header {
+                margin-bottom: 3vh;
+            }
+            
+            .toc-list li:hover {
+                transform: translateX(-5px);
+            }
+            
+            .project-number {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            section {
+                padding: 1.5rem 1rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .toc-list li {
+                padding: 0.8rem;
+            }
+            
+            .project-card {
+                padding: 1rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .tip-item {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+        
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1200px;
+                margin: 2rem auto;
+                box-shadow: 0 0 20px rgba(0,0,0,0.1);
+                border-radius: 10px;
+            }
+            
+            .cover-page {
+                max-width: 1200px;
+                margin: 0 auto;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                border-radius: 10px;
+                border: 1px solid #ddd;
+            }
+        }
+        
+        /* Animation for project cards */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .project-card {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Focus styles for accessibility */
+        a:focus,
+        button:focus {
+            outline: 3px solid var(--secondary-color);
+            outline-offset: 3px;
+        }
+        
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--dark-blue);
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" aria-label="الرجوع إلى الأعلى">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <div class="container">
+        <!-- صفحة الغلاف -->
+        <div class="cover-page">
+            <div class="cover-header">
+                <h1>دليل مشاريع التخرج في الأمن السيبراني</h1>
+                <h2>100 فكرة إبداعية لتطوير مشاريع تخرج متميزة</h2>
+            </div>
+            
+            <div class="institute-seal">
+                <div style="display: inline-block; padding: 20px; border: 3px solid var(--primary-color); border-radius: 50%;">
+                    <i class="fas fa-shield-alt" style="font-size: clamp(3rem, 8vw, 5rem); color: var(--primary-color);"></i>
+                </div>
+            </div>
+            
+            <div class="cover-content">
+                <div class="cover-description">
+                    يقدم هذا الدليل للمتدربين في مجال الأمن السيبراني بهدف الإلهام والتوجيه نحو اختيار وتنفيذ مشاريع تخرج مبتكرة تلبي احتياجات سوق العمل المحلي والعالمي.
+                </div>
+                
+                <div class="cover-description">
+                    تم تطوير هذا المحتوى مع مراعاة التطورات التقنية الحديثة والمتطلبات المهنية في مجال الأمن السيبراني. الأفكار المطروحة قابلة للتطوير والتنفيذ ضمن بيئات تعلم وتطبيق مناسبة.
+                </div>
+            </div>
+            
+            <div class="cover-footer">
+                <p><strong>دليل مشاريع التخرج في الأمن السيبراني</strong></p>
+                <p>محتوى تطبيقي لتنمية مهارات التخطيط والتنفيذ</p>
+                <p>إعداد: فريق المحتوى التعليمي</p>
+                <p>إصدار 2026 م</p>
+            </div>
+        </div>
+        
+        <header>
+            <h1>دليل مشاريع التخرج في الأمن السيبراني</h1>
+            <p>محتوى تطبيقي لمشاريع التخرج في الأمن السيبراني</p>
+            <p>إصدار تعليمي مخصص للتعلم والتطبيق</p>
+        </header>
+
+        <!-- ملاحظة المحتوى الأصلي -->
+        <div class="original-content-note">
+            <i class="fas fa-info-circle" style="color: var(--secondary-color);"></i>
+            <strong>ملاحظة:</strong> تم إعداد هذا المحتوى كمورد تعليمي أصلي يساعد على تطوير أفكار مشاريع التخرج وتنفيذها.
+        </div>
+
+        <!-- جدول المحتويات -->
+        <section id="toc">
+            <h2>محتويات الدليل</h2>
+            <div class="toc-container">
+                <ul class="toc-list">
+                    <li><a href="#introduction">أهمية مشاريع التخرج في بناء المسيرة المهنية</a></li>
+                    <li><a href="#applications">أنظمة وتطبيقات أمنية (15 فكرة)</a></li>
+                    <li><a href="#protection">حلول الحماية والرقابة (15 فكرة)</a></li>
+                    <li><a href="#pentesting">تقنيات التقييم والفحص الأمني (15 فكرة)</a></li>
+                    <li><a href="#encryption">نظم التشفير وأمن البيانات (15 فكرة)</a></li>
+                    <li><a href="#practical">مشاريع تطبيقية عملية (15 فكرة)</a></li>
+                    <li><a href="#advanced">مشاريع بحثية متقدمة (15 فكرة)</a></li>
+                    <li><a href="#corporate">حلول أمنية للمنظمات (10 أفكار)</a></li>
+                    <li><a href="#selection">دليل اختيار المشروع المناسب</a></li>
+                    <li><a href="#conclusion">نصائح للتنفيذ الناجح</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- المقدمة -->
+        <section id="introduction" class="intro-section">
+            <h2>أهمية مشاريع التخرج في بناء المسيرة المهنية</h2>
+            <p style="font-size: clamp(1rem, 2vw, 1.2rem); line-height: 1.8; margin-bottom: 1.5rem;">
+                في ظل التطور التقني المتسارع والتحول الرقمي الشامل، أصبح مجال الأمن السيبراني من المجالات الأكثر طلباً في سوق العمل. تشكل مشاريع التخرج فرصة حقيقية للطلاب لتطبيق المعارف النظرية وتطوير مهارات عملية تتناسب مع متطلبات السوق المحلي والدولي.
+            </p>
+            
+            <p style="font-size: clamp(1rem, 2vw, 1.2rem); line-height: 1.8; margin-bottom: 1.5rem;">
+                من خلال مشاريع التخرج، يكتسب الطالب:
+            </p>
+            
+            <div class="tip-item">
+                <i class="fas fa-check-circle tip-icon"></i>
+                <span>خبرة عملية في تصميم وتنفيذ أنظمة أمنية متكاملة</span>
+            </div>
+            
+            <div class="tip-item">
+                <i class="fas fa-check-circle tip-icon"></i>
+                <span>مهارات في تحليل المشكلات الأمنية وإيجاد حلول مبتكرة</span>
+            </div>
+            
+            <div class="tip-item">
+                <i class="fas fa-check-circle tip-icon"></i>
+                <span>قدرة على العمل ضمن فريق ومشاريع جماعية</span>
+            </div>
+            
+            <div class="tip-item">
+                <i class="fas fa-check-circle tip-icon"></i>
+                <span>بناء ملف أعمال (Portfolio) يظهر قدرات الطالب التقنية</span>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <p style="color: var(--primary-color); font-weight: bold; font-size: clamp(1rem, 2vw, 1.2rem);">
+                    <i class="fas fa-graduation-cap"></i> مشروع التخرج هو الجسر بين الدراسة الأكاديمية والعمل المهني
+                </p>
+            </div>
+        </section>
+
+        <!-- أنظمة وتطبيقات أمنية -->
+        <section id="applications">
+            <h2>أنظمة وتطبيقات أمنية (15 فكرة)</h2>
+            <div class="category-box">
+                <p style="font-size: clamp(1rem, 2vw, 1.2rem); line-height: 1.8; margin-bottom: 1.5rem; color: #555;">
+                    أفكار مشاريع تركز على تطوير تطبيقات وأدوات برمجية تهدف إلى تحسين مستوى الأمان في الأنظمة والشبكات المختلفة.
+                </p>
+                
+                <div class="projects-grid">
+                    <!-- الفكرة 1 -->
+                    <div class="project-card">
+                        <div class="project-number">1</div>
+                        <div class="project-title">نظام تحليل وإدارة المخاطر الأمنية</div>
+                        <div class="project-description">
+                            تطوير نظام يقوم بتحليل المخاطر الأمنية في الشبكات وتقديم توصيات للحماية بناءً على معايير أمنية معتمدة.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 2 -->
+                    <div class="project-card">
+                        <div class="project-number">2</div>
+                        <div class="project-title">منصة تدريب أمني تفاعلية</div>
+                        <div class="project-description">
+                            بناء منظمة تعليمية تقدم تدريبات عملية على مفاهيم الأمن السيبراني باستخدام سيناريوهات محاكاة واقعية.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 3 -->
+                    <div class="project-card">
+                        <div class="project-number">3</div>
+                        <div class="project-title">نظام كشف محاولات الاختراق</div>
+                        <div class="project-description">
+                            تصميم نظام يراقب نشاط الشبكة ويكشف عن الأنماط غير الطبيعية التي قد تشير إلى محاولات اختراق.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 4 -->
+                    <div class="project-card">
+                        <div class="project-number">4</div>
+                        <div class="project-title">تطبيق حماية متكامل للأجهزة الذكية</div>
+                        <div class="project-description">
+                            تطوير تطبيق يوفر طبقات حماية متعددة للأجهزة الذكية ضد البرمجيات الضارة ومحاولات الاختراق.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 5 -->
+                    <div class="project-card">
+                        <div class="project-number">5</div>
+                        <div class="project-title">أداة فحص وتقييم أمان المواقع الإلكترونية</div>
+                        <div class="project-description">
+                            بناء نظام يقوم بفحص المواقع الإلكترونية لاكتشاف الثغرات الأمنية وتقديم تقارير مفصلة.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 6 -->
+                    <div class="project-card">
+                        <div class="project-number">6</div>
+                        <div class="project-title">نظام إدارة صلاحيات المستخدمين</div>
+                        <div class="project-description">
+                            تطوير نظام مركزي لإدارة هويات المستخدمين والتحكم في صلاحيات الوصول إلى الموارد الشبكية.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 7 -->
+                    <div class="project-card">
+                        <div class="project-number">7</div>
+                        <div class="project-title">منظمة رصد وتحليل التهديدات الأمنية</div>
+                        <div class="project-description">
+                            تصميم نظام يجمع ويحلل معلومات التهديدات الأمنية من مصادر متنوعة لتوفير إنذارات مبكرة.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 8 -->
+                    <div class="project-card">
+                        <div class="project-number">8</div>
+                        <div class="project-title">تطبيق أمان للشبكات المنزلية</div>
+                        <div class="project-description">
+                            بناء تطبيق يساعد المستخدمين في تأمين شبكاتهم المنزلية ضد الاختراقات والوصول غير المصرح.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 9 -->
+                    <div class="project-card">
+                        <div class="project-number">9</div>
+                        <div class="project-title">نظام حماية من هجمات التصيد</div>
+                        <div class="project-description">
+                            تطوير نظام يفحص رسائل البريد الإلكتروني والروابط ويكشف عن محاولات التصيد الاحتيالي.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 10 -->
+                    <div class="project-card">
+                        <div class="project-number">10</div>
+                        <div class="project-title">أداة تحليل البرمجيات الضارة</div>
+                        <div class="project-description">
+                            تصميم نظام لفحص وتحليل البرمجيات الضارة لفهم آلية عملها وتطوير آليات حماية مناسبة.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 11 -->
+                    <div class="project-card">
+                        <div class="project-number">11</div>
+                        <div class="project-title">منصة إدارة الأحداث الأمنية</div>
+                        <div class="project-description">
+                            بناء نظام متكامل لتجميع وتحليل الأحداث الأمنية من مختلف المصادر في لوحة تحكم موحدة.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 12 -->
+                    <div class="project-card">
+                        <div class="project-number">12</div>
+                        <div class="project-title">تطبيق حماية الخصوصية الرقمية</div>
+                        <div class="project-description">
+                            تطوير أدوات تساعد المستخدمين في حماية بياناتهم الشخصية وخصوصيتهم في البيئة الرقمية.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 13 -->
+                    <div class="project-card">
+                        <div class="project-number">13</div>
+                        <div class="project-title">نظام مراقبة أمان الحوسبة السحابية</div>
+                        <div class="project-description">
+                            تصميم أدوات لمراقبة وفحص أمان البيئات السحابية والخدمات المستضافة فيها.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 14 -->
+                    <div class="project-card">
+                        <div class="project-number">14</div>
+                        <div class="project-title">أداة تحليل أمان الشبكات اللاسلكية</div>
+                        <div class="project-description">
+                            تطوير نظام لفحص وتحليل نقاط الضعف في الشبكات اللاسلكية وتقديم توصيات للتأمين.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 15 -->
+                    <div class="project-card">
+                        <div class="project-number">15</div>
+                        <div class="project-title">منصة محاكاة السيناريوهات الأمنية</div>
+                        <div class="project-description">
+                            بناء بيئة محاكاة تمكن من اختبار استجابة الأنظمة الأمنية لهجمات متنوعة في بيئة آمنة.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- حلول الحماية والرقابة -->
+        <section id="protection">
+            <h2>حلول الحماية والرقابة (15 فكرة)</h2>
+            <div class="category-box">
+                <p style="font-size: clamp(1rem, 2vw, 1.2rem); line-height: 1.8; margin-bottom: 1.5rem; color: #555;">
+                    مشاريع تركز على تطوير آليات دفاعية متقدمة وأنظمة حماية شاملة للبنية التحتية الرقمية.
+                </p>
+                
+                <div class="projects-grid">
+                    <!-- الفكرة 16 -->
+                    <div class="project-card">
+                        <div class="project-number">16</div>
+                        <div class="project-title">نظام دفاع ذكي متعدد الطبقات</div>
+                        <div class="project-description">
+                            تطوير نظام حماية يستخدم تقنيات الذكاء الاصطناعي للكشف والاستجابة للتهديدات الأمنية.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 17 -->
+                    <div class="project-card">
+                        <div class="project-number">17</div>
+                        <div class="project-title">جدار حماية قابل للتكيف</div>
+                        <div class="project-description">
+                            تصميم جدار حماية يتكيف تلقائياً مع أنماط حركة المرور ويتعلم من الهجمات السابقة.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 18 -->
+                    <div class="project-card">
+                        <div class="project-number">18</div>
+                        <div class="project-title">منصة تحليل التهديدات السيبرانية</div>
+                        <div class="project-description">
+                            بناء نظام يجمع بيانات التهديدات من مصادر متعددة ويوفر تحليلات استباقية.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 19 -->
+                    <div class="project-card">
+                        <div class="project-number">19</div>
+                        <div class="project-title">نظام كشف السلوكيات غير الطبيعية</div>
+                        <div class="project-description">
+                            تطوير نظام يراقب أنماط استخدام النظام ويكشف عن الأنشطة التي تخرج عن السلوك المعتاد.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 20 -->
+                    <div class="project-card">
+                        <div class="project-number">20</div>
+                        <div class="project-title">أداة حماية متقدمة لخوادم الويب</div>
+                        <div class="project-description">
+                            تصميم نظام حماية متخصص يستطيع التعرف على الهجمات الموجهة لخوادم الويب وصدها.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 21 -->
+                    <div class="project-card">
+                        <div class="project-number">21</div>
+                        <div class="project-title">نظام حماية البنى التحتية الحيوية</div>
+                        <div class="project-description">
+                            تطوير حلول أمنية متقدمة لحماية أنظمة البنى التحتية الحيوية من الهجمات السيبرانية.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 22 -->
+                    <div class="project-card">
+                        <div class="project-number">22</div>
+                        <div class="project-title">منصة الرقابة الأمنية المركزية</div>
+                        <div class="project-description">
+                            بناء نظام مركزي يوفر رؤية شاملة للأمن السيبراني في المؤسسات الكبيرة.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 23 -->
+                    <div class="project-card">
+                        <div class="project-number">23</div>
+                        <div class="project-title">نظام حماية متكامل للأجهزة الطرفية</div>
+                        <div class="project-description">
+                            تصميم حلول حماية شاملة للأجهزة الطرفية تشمل الحماية من البرمجيات الضارة والتسلل.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 24 -->
+                    <div class="project-card">
+                        <div class="project-number">24</div>
+                        <div class="project-title">أداة تحليل بروتوكولات الأمان</div>
+                        <div class="project-description">
+                            تطوير نظام لاختبار وتحليل قوة بروتوكولات الأمان المستخدمة في الاتصالات الشبكية.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 25 -->
+                    <div class="project-card">
+                        <div class="project-number">25</div>
+                        <div class="project-title">نظام حماية متقدم لقواعد البيانات</div>
+                        <div class="project-description">
+                            تصميم حلول متخصصة تحمي قواعد البيانات من الهجمات والوصول غير المصرح به.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 26 -->
+                    <div class="project-card">
+                        <div class="project-number">26</div>
+                        <div class="project-title">منصة إدارة نقاط الضعف الأمنية</div>
+                        <div class="project-description">
+                            بناء نظام لإدارة دورة حياة الثغرات الأمنية من الاكتشاف وحتى المعالجة.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 27 -->
+                    <div class="project-card">
+                        <div class="project-number">27</div>
+                        <div class="project-title">نظام كشف البرمجيات الضارة المتطورة</div>
+                        <div class="project-description">
+                            تطوير نظام قادر على اكتشاف البرمجيات الضارة التي تستخدم تقنيات متقدمة للتخفي.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 28 -->
+                    <div class="project-card">
+                        <div class="project-number">28</div>
+                        <div class="project-title">أداة تحليل حركة مرور الشبكة</div>
+                        <div class="project-description">
+                            تصميم نظام متقدم لتحليل حركة مرور الشبكة والكشف عن الأنماط المشبوهة.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 29 -->
+                    <div class="project-card">
+                        <div class="project-number">29</div>
+                        <div class="project-title">نظام حماية أجهزة إنترنت الأشياء</div>
+                        <div class="project-description">
+                            تطوير حلول أمنية مصممة خصيصاً لأجهزة إنترنت الأشياء المحدودة الموارد.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 30 -->
+                    <div class="project-card">
+                        <div class="project-number">30</div>
+                        <div class="project-title">منصة التحليل الأمني المتكامل</div>
+                        <div class="project-description">
+                            بناء نظام يوفر تحليلات أمنية شاملة ويقدم توصيات عملية لتحسين الأمان.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- تقنيات التقييم والفحص الأمني -->
+        <section id="pentesting">
+            <h2>تقنيات التقييم والفحص الأمني (15 فكرة)</h2>
+            <div class="category-box">
+                <p style="font-size: clamp(1rem, 2vw, 1.2rem); line-height: 1.8; margin-bottom: 1.5rem; color: #555;">
+                    مشاريع تتناول تطوير أدوات وطرق لتقييم قوة الأنظمة الأمنية واكتشاف نقاط الضعف فيها.
+                </p>
+                
+                <div class="projects-grid">
+                    <!-- الفكرة 31 -->
+                    <div class="project-card">
+                        <div class="project-number">31</div>
+                        <div class="project-title">إطار متكامل لفحص أمان التطبيقات</div>
+                        <div class="project-description">
+                            تطوير إطار عمل شامل لفحص أمان تطبيقات الويب يشمل أدوات اكتشاف الثغرات الشائعة.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 32 -->
+                    <div class="project-card">
+                        <div class="project-number">32</div>
+                        <div class="project-title">أداة مسح شبكات متطورة</div>
+                        <div class="project-description">
+                            بناء أداة متقدمة لمسح الشبكات تكتشف الأجهزة والخدمات والثغرات الأمنية.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 33 -->
+                    <div class="project-card">
+                        <div class="project-number">33</div>
+                        <div class="project-title">نظام محاكاة الهجمات السيبرانية</div>
+                        <div class="project-description">
+                            تصميم نظام لمحاكاة هجمات سيبرانية متنوعة لتقييم قدرة الأنظمة على مواجهتها.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 34 -->
+                    <div class="project-card">
+                        <div class="project-number">34</div>
+                        <div class="project-title">أداة فحص أمان الشبكات اللاسلكية</div>
+                        <div class="project-description">
+                            تطوير أدوات متخصصة لفحص أمان الشبكات اللاسلكية واكتشاف نقاط الضعف فيها.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 35 -->
+                    <div class="project-card">
+                        <div class="project-number">35</div>
+                        <div class="project-title">منصة تقييم شاملة للتطبيقات</div>
+                        <div class="project-description">
+                            بناء منصة تقوم بتقييم أمان التطبيقات باستخدام اختبارات متعددة المستويات.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 36 -->
+                    <div class="project-card">
+                        <div class="project-number">36</div>
+                        <div class="project-title">نظام تحليل البرمجيات الضارة</div>
+                        <div class="project-description">
+                            تطوير بيئة متكاملة لتحليل البرمجيات الضارة وفهم آليات عملها.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 37 -->
+                    <div class="project-card">
+                        <div class="project-number">37</div>
+                        <div class="project-title">أداة اختبار استغلال الثغرات</div>
+                        <div class="project-description">
+                            بناء أدوات تختبر قابلية استغلال الثغرات الأمنية في الأنظمة والتطبيقات.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 38 -->
+                    <div class="project-card">
+                        <div class="project-number">38</div>
+                        <div class="project-title">نظام تقييم الوعي الأمني</div>
+                        <div class="project-description">
+                            تصميم نظام يقيس مستوى الوعي الأمني لدى المستخدمين عبر سيناريوهات واقعية.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 39 -->
+                    <div class="project-card">
+                        <div class="project-number">39</div>
+                        <div class="project-title">أداة فحص أمان الحوسبة السحابية</div>
+                        <div class="project-description">
+                            تطوير أدوات متخصصة لفحص أمان البيئات السحابية واكتشاف التكوينات غير الآمنة.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 40 -->
+                    <div class="project-card">
+                        <div class="project-number">40</div>
+                        <div class="project-title">نظام تقييم أمان التطبيقات النقالة</div>
+                        <div class="project-description">
+                            بناء نظام متكامل لتقييم أمان تطبيقات الأجهزة الذكية واكتشاف الثغرات.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 41 -->
+                    <div class="project-card">
+                        <div class="project-number">41</div>
+                        <div class="project-title">أداة تحليل الشفرات المصدرية</div>
+                        <div class="project-description">
+                            تطوير نظام لتحليل الشفرات المصدرية لاكتشاف الثغرات الأمنية أثناء التطوير.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 42 -->
+                    <div class="project-card">
+                        <div class="project-number">42</div>
+                        <div class="project-title">منصة فحص البنى التحتية للشبكات</div>
+                        <div class="project-description">
+                            تصميم منصة متكاملة لفحص أمان البنى التحتية للشبكات والأنظمة.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 43 -->
+                    <div class="project-card">
+                        <div class="project-number">43</div>
+                        <div class="project-title">نظام تقييم أمان واجهات البرمجة</div>
+                        <div class="project-description">
+                            بناء أدوات متخصصة لفحص أمان واجهات برمجة التطبيقات (APIs) واكتشاف الثغرات.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 44 -->
+                    <div class="project-card">
+                        <div class="project-number">44</div>
+                        <div class="project-title">أداة محاكاة هجمات تعطيل الخدمة</div>
+                        <div class="project-description">
+                            تطوير نظام لمحاكاة هجمات تعطيل الخدمة واختبار قدرة الأنظمة على تحملها.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 45 -->
+                    <div class="project-card">
+                        <div class="project-number">45</div>
+                        <div class="project-title">منصة التدريب على الفحص الأمني</div>
+                        <div class="project-description">
+                            تصميم منصة تدريبية تفاعلية لتعليم تقنيات الفحص والتقييم الأمني.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- نظم التشفير وأمن البيانات -->
+        <section id="encryption">
+            <h2>نظم التشفير وأمن البيانات (15 فكرة)</h2>
+            <div class="category-box">
+                <p style="font-size: clamp(1rem, 2vw, 1.2rem); line-height: 1.8; margin-bottom: 1.5rem; color: #555;">
+                    مشاريع تركز على تطوير تقنيات حماية البيانات والمعلومات عبر آليات التشفير والتأمين المتقدمة.
+                </p>
+                
+                <div class="projects-grid">
+                    <!-- الفكرة 46 -->
+                    <div class="project-card">
+                        <div class="project-number">46</div>
+                        <div class="project-title">نظام تشفير باستخدام تقنيات ما بعد الكوانتم</div>
+                        <div class="project-description">
+                            تطوير نظام تشفير مقاوم لهجمات الحواسيب الكمومية باستخدام خوارزميات متقدمة.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 47 -->
+                    <div class="project-card">
+                        <div class="project-number">47</div>
+                        <div class="project-title">منصة إدارة مفاتيح التشفير</div>
+                        <div class="project-description">
+                            بناء نظام متكامل لإدارة مفاتيح التشفير بشكل آمن وفعال في البيئات المؤسسية.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 48 -->
+                    <div class="project-card">
+                        <div class="project-number">48</div>
+                        <div class="project-title">نظام توقيع رقمي متطور</div>
+                        <div class="project-description">
+                            تصميم نظام توقيع رقمي يوفر مستويات عالية من الأمان والمصادقة للمعاملات الإلكترونية.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 49 -->
+                    <div class="project-card">
+                        <div class="project-number">49</div>
+                        <div class="project-title">أداة تحليل قوة أنظمة التشفير</div>
+                        <div class="project-description">
+                            تطوير أدوات لتحليل قوة خوارزميات التشفير واكتشاف نقاط الضعف المحتملة.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 50 -->
+                    <div class="project-card">
+                        <div class="project-number">50</div>
+                        <div class="project-title">نظام تشفير البيانات في السحابة</div>
+                        <div class="project-description">
+                            بناء حلول تشفير متقدمة تحمي البيانات المخزنة في الخدمات السحابية.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 51 -->
+                    <div class="project-card">
+                        <div class="project-number">51</div>
+                        <div class="project-title">منصة التشفير المحافظ على الخصوصية</div>
+                        <div class="project-description">
+                            تطوير نظام تشفير يسمح بإجراء عمليات على البيانات المشفرة دون الكشف عن محتواها.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 52 -->
+                    <div class="project-card">
+                        <div class="project-number">52</div>
+                        <div class="project-title">نظام حماية البيانات الشخصية</div>
+                        <div class="project-description">
+                            تصميم حلول متكاملة لحماية البيانات الشخصية وفقاً للمعايير واللوائح العالمية.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 53 -->
+                    <div class="project-card">
+                        <div class="project-number">53</div>
+                        <div class="project-title">أداة إخفاء المعلومات الرقمية</div>
+                        <div class="project-description">
+                            تطوير تقنيات متقدمة لإخفاء المعلومات داخل الوسائط الرقمية بشكل آمن.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 54 -->
+                    <div class="project-card">
+                        <div class="project-number">54</div>
+                        <div class="project-title">نظام مصادقة متعدد العوامل</div>
+                        <div class="project-description">
+                            بناء نظام مصادقة يستخدم وسائل متعددة للتحقق من هوية المستخدمين.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 55 -->
+                    <div class="project-card">
+                        <div class="project-number">55</div>
+                        <div class="project-title">منصة التشفير الكمي</div>
+                        <div class="project-description">
+                            تصميم أنظمة تشفير تستخدم مبادئ ميكانيكا الكم لتأمين الاتصالات الرقمية.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 56 -->
+                    <div class="project-card">
+                        <div class="project-number">56</div>
+                        <div class="project-title">نظام حماية تقنية البلوك تشين</div>
+                        <div class="project-description">
+                            تطوير حلول أمنية متقدمة لحماية شبكات البلوك تشين من الهجمات المختلفة.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 57 -->
+                    <div class="project-card">
+                        <div class="project-number">57</div>
+                        <div class="project-title">أداة تحليل بروتوكولات الاتصال الآمنة</div>
+                        <div class="project-description">
+                            بناء أدوات لتحليل واختبار أمان بروتوكولات الاتصال المشفرة.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 58 -->
+                    <div class="project-card">
+                        <div class="project-number">58</div>
+                        <div class="project-title">نظام تشفير قواعد البيانات</div>
+                        <div class="project-description">
+                            تصميم حلول تشفير متقدمة تحمي البيانات المخزنة في مختلف أنواع قواعد البيانات.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 59 -->
+                    <div class="project-card">
+                        <div class="project-number">59</div>
+                        <div class="project-title">منصة أمان أجهزة إنترنت الأشياء</div>
+                        <div class="project-description">
+                            تطوير حلول تشفير مصممة خصيصاً لأجهزة إنترنت الأشياء المحدودة الموارد.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 60 -->
+                    <div class="project-card">
+                        <div class="project-number">60</div>
+                        <div class="project-title">نظام حماية الاتصالات المشفرة</div>
+                        <div class="project-description">
+                            بناء أنظمة حماية متقدمة للاتصالات المشفرة ضد محاولات التنصت والاعتراض.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- مشاريع تطبيقية عملية -->
+        <section id="practical">
+            <h2>مشاريع تطبيقية عملية (15 فكرة)</h2>
+            <div class="category-box">
+                <p style="font-size: clamp(1rem, 2vw, 1.2rem); line-height: 1.8; margin-bottom: 1.5rem; color: #555;">
+                    أفكار مشاريع عملية يمكن تنفيذها ضمن الإمكانيات المتاحة للطلاب، مع تحقيق نتائج ملموسة.
+                </p>
+                
+                <div class="projects-grid">
+                    <!-- الفكرة 61 -->
+                    <div class="project-card">
+                        <div class="project-number">61</div>
+                        <div class="project-title">نظام كشف التسلل للشبكات الصغيرة</div>
+                        <div class="project-description">
+                            تطوير نظام مبسط لاكتشاف محاولات التسلل على الشبكات المحلية باستخدام أدوات مفتوحة المصدر.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 62 -->
+                    <div class="project-card">
+                        <div class="project-number">62</div>
+                        <div class="project-title">أداة تقييم قوة كلمات المرور</div>
+                        <div class="project-description">
+                            بناء أداة تتحقق من قوة كلمات المرور وتقدم اقتراحات لتحسينها وفق معايير أمنية.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 63 -->
+                    <div class="project-card">
+                        <div class="project-number">63</div>
+                        <div class="project-title">نظام مراقبة سجلات الأنظمة</div>
+                        <div class="project-description">
+                            تصميم نظام بسيط لمراقبة وتحليل سجلات الأنظمة والخوادم للكشف عن الأنشطة المشبوهة.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 64 -->
+                    <div class="project-card">
+                        <div class="project-number">64</div>
+                        <div class="project-title">أداة اكتشاف البرمجيات الضارة الأساسية</div>
+                        <div class="project-description">
+                            تطوير أداة تستخدم توقيعات البرمجيات الضارة للكشف عن التهديدات الشائعة.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 65 -->
+                    <div class="project-card">
+                        <div class="project-number">65</div>
+                        <div class="project-title">نظام حماية للأجهزة الشخصية</div>
+                        <div class="project-description">
+                            بناء نظام حماية متكامل يشمل جدار حماية وأدوات مكافحة البرمجيات الضارة.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 66 -->
+                    <div class="project-card">
+                        <div class="project-number">66</div>
+                        <div class="project-title">منصة توعية أمنية مبسطة</div>
+                        <div class="project-description">
+                            تصميم منصة تقدم معلومات ونصائح أمنية بلغة مبسطة للمستخدمين العاديين.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 67 -->
+                    <div class="project-card">
+                        <div class="project-number">67</div>
+                        <div class="project-title">أداة تحليل أمان الشبكات المنزلية</div>
+                        <div class="project-description">
+                            تطوير أداة تساعد المستخدمين في تحليل أمان شبكاتهم المنزلية واكتشاف المخاطر.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 68 -->
+                    <div class="project-card">
+                        <div class="project-number">68</div>
+                        <div class="project-title">نظام النسخ الاحتياطي الآمن</div>
+                        <div class="project-description">
+                            بناء نظام نسخ احتياطي يحمي البيانات من الفقدان والوصول غير المصرح به.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 69 -->
+                    <div class="project-card">
+                        <div class="project-number">69</div>
+                        <div class="project-title">أداة تنظيف من البرمجيات الضارة</div>
+                        <div class="project-description">
+                            تطوير أداة بسيطة لإزالة البرمجيات الضارة من الأجهزة المصابة واستعادة الأمان.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 70 -->
+                    <div class="project-card">
+                        <div class="project-number">70</div>
+                        <div class="project-title">نظام مراقبة نشاط الشبكة</div>
+                        <div class="project-description">
+                            تصميم نظام بسيط لمراقبة نشاط الشبكة والكشف عن الأنماط غير المعتادة.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 71 -->
+                    <div class="project-card">
+                        <div class="project-number">71</div>
+                        <div class="project-title">أداة فحص أمان المواقع</div>
+                        <div class="project-description">
+                            بناء أداة تفحص المواقع الإلكترونية وتكتشف الثغرات الأمنية الأساسية.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 72 -->
+                    <div class="project-card">
+                        <div class="project-number">72</div>
+                        <div class="project-title">نظام حماية من هجمات التصيد</div>
+                        <div class="project-description">
+                            تطوير نظام يحذر المستخدمين من رسائل التصيد عبر البريد الإلكتروني.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 73 -->
+                    <div class="project-card">
+                        <div class="project-number">73</div>
+                        <div class="project-title">أداة إدارة كلمات المرور الشخصية</div>
+                        <div class="project-description">
+                            تصميم أداة آمنة لإدارة كلمات المرور الشخصية وتخزينها بشكل مشفر.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 74 -->
+                    <div class="project-card">
+                        <div class="project-number">74</div>
+                        <div class="project-title">نظام مراقبة أمان التطبيقات النقالة</div>
+                        <div class="project-description">
+                            بناء نظام يفحص التطبيقات النقالة ويكشف عن التطبيقات الضارة.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 75 -->
+                    <div class="project-card">
+                        <div class="project-number">75</div>
+                        <div class="project-title">أداة تحليل حركة مرور الشبكة</div>
+                        <div class="project-description">
+                            تطوير أداة لتحليل حركة مرور الشبكة وفهم طبيعة البيانات المتبادلة.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- مشاريع بحثية متقدمة -->
+        <section id="advanced">
+            <h2>مشاريع بحثية متقدمة (15 فكرة)</h2>
+            <div class="category-box">
+                <p style="font-size: clamp(1rem, 2vw, 1.2rem); line-height: 1.8; margin-bottom: 1.5rem; color: #555;">
+                    أفكار مشاريع تتناول مواضيع بحثية متقدمة في مجال الأمن السيبراني وتتطلب دراسة عميقة وتحليلاً منهجياً.
+                </p>
+                
+                <div class="projects-grid">
+                    <!-- الفكرة 76 -->
+                    <div class="project-card">
+                        <div class="project-number">76</div>
+                        <div class="project-title">تطبيقات الذكاء الاصطناعي في كشف الهجمات</div>
+                        <div class="project-description">
+                            بحث في تطوير أنظمة ذكاء اصطناعي متطورة للكشف عن الهجمات السيبرانية المعقدة.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 77 -->
+                    <div class="project-card">
+                        <div class="project-number">77</div>
+                        <div class="project-title">تحديات أمن شبكات الجيل الخامس</div>
+                        <div class="project-description">
+                            دراسة متعمقة للتحديات الأمنية في شبكات الجيل الخامس وتطوير حلول حماية متخصصة.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 78 -->
+                    <div class="project-card">
+                        <div class="project-number">78</div>
+                        <div class="project-title">تحليل الثغرات الأمنية في أنظمة الذكاء الاصطناعي</div>
+                        <div class="project-description">
+                            بحث في الثغرات الأمنية لأنظمة الذكاء الاصطناعي وتطوير آليات حماية متقدمة.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 79 -->
+                    <div class="project-card">
+                        <div class="project-number">79</div>
+                        <div class="project-title">أمن المركبات ذاتية القيادة</div>
+                        <div class="project-description">
+                            دراسة التهديدات الأمنية للمركبات ذاتية القيادة وتطوير أنظمة حماية متكاملة.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 80 -->
+                    <div class="project-card">
+                        <div class="project-number">80</div>
+                        <div class="project-title">تحليل أمن الأجهزة الطبية المتصلة</div>
+                        <div class="project-description">
+                            بحث متخصص في أجهزة إنترنت الأشياء الطبية وتطوير معايير أمنية متقدمة.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 81 -->
+                    <div class="project-card">
+                        <div class="project-number">81</div>
+                        <div class="project-title">تحديات أمن تطبيقات البلوك تشين</div>
+                        <div class="project-description">
+                            دراسة التحديات الأمنية في تطبيقات البلوك تشين المتقدمة وتطوير حلول حماية.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 82 -->
+                    <div class="project-card">
+                        <div class="project-number">82</div>
+                        <div class="project-title">تطبيقات التشفير الكمي في أمن البيانات</div>
+                        <div class="project-description">
+                            بحث في استخدام تقنيات التشفير الكمي لحماية البيانات من الهجمات المستقبلية.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 83 -->
+                    <div class="project-card">
+                        <div class="project-number">83</div>
+                        <div class="project-title">أمن المدن الذكية والبنى التحتية</div>
+                        <div class="project-description">
+                            دراسة متكاملة للتحديات الأمنية في المدن الذكية وتطوير إطار عمل أمني متكامل.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 84 -->
+                    <div class="project-card">
+                        <div class="project-number">84</div>
+                        <div class="project-title">تحليل أمن أنظمة الذكاء الاصطناعي التوليدي</div>
+                        <div class="project-description">
+                            بحث في الثغرات الأمنية لأنظمة الذكاء الاصطناعي التوليدي وتطوير آليات حماية.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 85 -->
+                    <div class="project-card">
+                        <div class="project-number">85</div>
+                        <div class="project-title">تحديات أمن شبكات الجيل السادس</div>
+                        <div class="project-description">
+                            دراسة استباقية للتحديات الأمنية في شبكات الجيل السادس وتطوير حلول مبتكرة.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 86 -->
+                    <div class="project-card">
+                        <div class="project-number">86</div>
+                        <div class="project-title">تطبيقات التعلم العميق في تحليل البرمجيات الضارة</div>
+                        <div class="project-description">
+                            بحث في استخدام تقنيات التعلم العميق لتحليل وتصنيف البرمجيات الضارة.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 87 -->
+                    <div class="project-card">
+                        <div class="project-number">87</div>
+                        <div class="project-title">أمن أنظمة الطاقة الذكية</div>
+                        <div class="project-description">
+                            دراسة التهديدات الأمنية لأنظمة الطاقة الذكية وتطوير آليات حماية متقدمة.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 88 -->
+                    <div class="project-card">
+                        <div class="project-number">88</div>
+                        <div class="project-title">تحليل أمن أنظمة الواقع المعزز والافتراضي</div>
+                        <div class="project-description">
+                            بحث في الثغرات الأمنية لأنظمة الواقع المعزز والافتراضي وتطوير معايير أمنية.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 89 -->
+                    <div class="project-card">
+                        <div class="project-number">89</div>
+                        <div class="project-title">أمن أنظمة الروبوتات المستقلة</div>
+                        <div class="project-description">
+                            دراسة التحديات الأمنية للروبوتات المستقلة وتطوير أنظمة حماية متكاملة.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 90 -->
+                    <div class="project-card">
+                        <div class="project-number">90</div>
+                        <div class="project-title">تطبيقات البلوك تشين في أمن إنترنت الأشياء</div>
+                        <div class="project-description">
+                            بحث في استخدام تقنية البلوك تشين لتحسين أمان أجهزة إنترنت الأشياء.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- حلول أمنية للمنظمات -->
+        <section id="corporate">
+            <h2>حلول أمنية للمنظمات (10 أفكار)</h2>
+            <div class="category-box">
+                <p style="font-size: clamp(1rem, 2vw, 1.2rem); line-height: 1.8; margin-bottom: 1.5rem; color: #555;">
+                    مشاريع موجهة لتطوير حلول أمنية تلبي احتياجات المنظمات والمؤسسات بمختلف أحجامها.
+                </p>
+                
+                <div class="projects-grid">
+                    <!-- الفكرة 91 -->
+                    <div class="project-card">
+                        <div class="project-number">91</div>
+                        <div class="project-title">نظام إدارة مخاطر الأمن السيبراني للمؤسسات</div>
+                        <div class="project-description">
+                            تطوير نظام متكامل لإدارة مخاطر الأمن السيبراني في المؤسسات الكبرى والصغيرة.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 92 -->
+                    <div class="project-card">
+                        <div class="project-number">92</div>
+                        <div class="project-title">منصة الامتثال للمعايير الأمنية</div>
+                        <div class="project-description">
+                            بناء منظمة تساعد المؤسسات في الامتثال للمعايير الأمنية الدولية والمحلية.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 93 -->
+                    <div class="project-card">
+                        <div class="project-number">93</div>
+                        <div class="project-title">نظام حماية البريد الإلكتروني المؤسسي</div>
+                        <div class="project-description">
+                            تطوير حلول متقدمة لحماية البريد الإلكتروني المؤسسي من الهجمات المستهدفة.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 94 -->
+                    <div class="project-card">
+                        <div class="project-number">94</div>
+                        <div class="project-title">منصة إدارة الثغرات للمؤسسات</div>
+                        <div class="project-description">
+                            تصميم نظام متكامل لإدارة الثغرات الأمنية في البيئات المؤسسية المختلفة.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 95 -->
+                    <div class="project-card">
+                        <div class="project-number">95</div>
+                        <div class="project-title">نظام مراقبة أمن الشبكات المؤسسية</div>
+                        <div class="project-description">
+                            بناء نظام مراقبة متقدم للشبكات المؤسسية يوفر رؤية شاملة للأمان.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 96 -->
+                    <div class="project-card">
+                        <div class="project-number">96</div>
+                        <div class="project-title">أداة تقييم أمان الموردين والشركاء</div>
+                        <div class="project-description">
+                            تطوير نظام لتقييم أمان الموردين والشركاء في سلسلة التوريد المؤسسية.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 97 -->
+                    <div class="project-card">
+                        <div class="project-number">97</div>
+                        <div class="project-title">منصة التدريب الأمني للموظفين</div>
+                        <div class="project-description">
+                            تصميم منصة تدريبية متكاملة لرفع الوعي الأمني لدى موظفي المؤسسات.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 98 -->
+                    <div class="project-card">
+                        <div class="project-number">98</div>
+                        <div class="project-title">نظام إدارة الهوية والصلاحيات للمؤسسات</div>
+                        <div class="project-description">
+                            تطوير نظام متكامل لإدارة هويات الموظفين والتحكم في الصلاحيات المؤسسية.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 99 -->
+                    <div class="project-card">
+                        <div class="project-number">99</div>
+                        <div class="project-title">أداة تحليل مخاطر الأمن السيبراني للمؤسسات</div>
+                        <div class="project-description">
+                            بناء أدوات متقدمة لتحليل مخاطر الأمن السيبراني وتقديم توصيات للعلاج.
+                        </div>
+                    </div>
+                    
+                    <!-- الفكرة 100 -->
+                    <div class="project-card">
+                        <div class="project-number">100</div>
+                        <div class="project-title">نظام الاستجابة للحوادث الأمنية المؤسسية</div>
+                        <div class="project-description">
+                            تصميم نظام متكامل للاستجابة للحوادث الأمنية وإدارة الأزمات في المؤسسات.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- دليل اختيار المشروع المناسب -->
+        <section id="selection" class="advice-section">
+            <h2>دليل اختيار المشروع المناسب</h2>
+            
+            <div class="advice-box">
+                <h4>تحديد الميول والمهارات الشخصية</h4>
+                <p style="font-size: clamp(0.95rem, 1.5vw, 1.1rem); line-height: 1.8;">
+                    قم بتقييم مهاراتك الحالية واهتماماتك ضمن مجال الأمن السيبراني. هل تجذبك الجوانب الدفاعية أم الهجومية؟ هل تفضل العمل على التطبيقات أم الشبكات أم قواعد البيانات؟
+                </p>
+            </div>
+            
+            <div class="advice-box">
+                <h4>مراعاة متطلبات سوق العمل</h4>
+                <p style="font-size: clamp(0.95rem, 1.5vw, 1.1rem); line-height: 1.8;">
+                    ابحث عن المهارات الأكثر طلباً في سوق العمل المحلي والعالمي واختر مشروعاً يساعدك في تطوير هذه المهارات. مجالات مثل أمن السحابة والحماية من الهجمات المتقدمة تحظى باهتمام كبير.
+                </p>
+            </div>
+            
+            <div class="advice-box">
+                <h4>التقييم الواقعي للإمكانيات</h4>
+                <p style="font-size: clamp(0.95rem, 1.5vw, 1.1rem); line-height: 1.8;">
+                    تأكد من أن المشروع المختار يمكن تنفيذه ضمن الإمكانيات المتاحة من وقت ومعدات ومعرفة تقنية. حدد أهدافاً واقعية وقابلة للتحقيق.
+                </p>
+            </div>
+            
+            <div class="advice-box">
+                <h4>الاستفادة من التوجيه الأكاديمي</h4>
+                <p style="font-size: clamp(0.95rem, 1.5vw, 1.1rem); line-height: 1.8;">
+                    استشر مشرفي المعهد وأساتذتك للحصول على توجيهات مهنية حول اختيار المشروع المناسب لمستواك واهتماماتك الأكاديمية.
+                </p>
+            </div>
+            
+            <div class="advice-box">
+                <h4>التخطيط للتطوير المستقبلي</h4>
+                <p style="font-size: clamp(0.95rem, 1.5vw, 1.1rem); line-height: 1.8;">
+                    اختر مشروعاً يمكن تطويره لاحقاً إلى منتج أو خدمة حقيقية، أو يمكن استخدامه في بناء ملف أعمال يظهر قدراتك التقنية للمؤسسات المستقبلية.
+                </p>
+            </div>
+        </section>
+
+        <!-- نصائح للتنفيذ الناجح -->
+        <section id="conclusion" class="conclusion-section">
+            <h2>نصائح للتنفيذ الناجح</h2>
+            
+            <div style="font-size: clamp(1rem, 2vw, 1.2rem); line-height: 1.8; margin-bottom: 2rem;">
+                لقد استعرضنا معاً 100 فكرة إبداعية لمشاريع تخرج في مجال الأمن السيبراني، تغطي مختلف الجوانب والتخصصات ضمن هذا المجال الحيوي. تذكر أن نجاح مشروع التخرج لا يعتمد فقط على جودة الفكرة، بل على التنفيذ المتميز والتوثيق الدقيق والقدرة على عرض النتائج بشكل احترافي.
+            </div>
+            
+            <div style="font-size: clamp(1rem, 2vw, 1.2rem); line-height: 1.8; margin-bottom: 2.5rem;">
+                ابدأ بمشروع يتناسب مع مهاراتك الحالية ويتحداك لتطوير مهارات جديدة. ركز على الجودة والابتكار، وتذكر أن مشروع التخرج الناجح هو الذي يقدم حلاً حقيقياً لمشكلة أمنية معينة، وليس مجرد تطبيق تقني دون هدف واضح.
+            </div>
+            
+            <div class="cta-box">
+                <h3>ابدأ رحلتك نحو التميز في الأمن السيبراني</h3>
+                <p style="font-size: clamp(0.95rem, 1.5vw, 1.1rem); line-height: 1.8; margin: 1.5rem 0;">
+                    يوفر هذا الدليل مساراً عملياً يدعم المتدرب في رحلة مشروع التخرج، من خلال التوجيه المنهجي والموارد التعليمية المتاحة.
+                </p>
+                
+                <p style="color: var(--primary-color); font-weight: bold; font-size: clamp(1rem, 2vw, 1.2rem); margin: 1.5rem 0;">
+                    <i class="fas fa-lightbulb"></i> كن جزءاً من الجيل الجديد من محترفي الأمن السيبراني الذين يساهمون في حماية الفضاء الرقمي
+                </p>
+                
+                <p style="color: #666; margin-top: 1.5rem; font-size: clamp(0.9rem, 1.5vw, 1rem);">
+                    للمزيد من المعلومات والدعم، يمكنك التواصل مع وحدة المشاريع والتطوير في المعهد.
+                </p>
+            </div>
+        </section>
+
+        <footer>
+    <div class="text-center">
+    <a href="https://cyberpath-digital.vercel.app/" aria-label="CyberPath Digital">https://cyberpath-digital.vercel.app/</a>
+</div>
+</footer>
+    </div>
+    
+    <script>
+        // Back to Top functionality
+        const backToTopButton = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Animation for project cards on scroll
+        const projectCards = document.querySelectorAll('.project-card');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+                    }, index * 100);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+        
+        projectCards.forEach(card => {
+            observer.observe(card);
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const offset = 80;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Highlight current section in TOC
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.toc-list a');
+        
+        const highlightCurrentSection = () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (scrollY >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', highlightCurrentSection);
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            highlightCurrentSection();
+            
+            // Add hover effect for project cards
+            projectCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.zIndex = '10';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.zIndex = '1';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
