@@ -1,3 +1,8 @@
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -18,7 +23,7 @@
     <meta property="og:image" content="https://cyberpath-digital.vercel.app/assest/images/logo/CPD.png">
     <meta property="og:url" content="https://cyberpath-digital.vercel.app/">
     <meta property="og:type" content="website">
-    <meta property="og:locale" content="ar_AR">
+    <meta property="og:locale" content="ar_SA">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
@@ -1902,6 +1907,240 @@ button:focus-visible {
             .portfolio-grid { grid-template-columns: minmax(0, 1fr); }
             .portfolio-item, .portfolio-item img { width: 100%; min-width: 0; }
         }
+
+        /* ── Approved incremental refinement: hierarchy, proof and ecosystem ── */
+        .services-section {
+            position: relative;
+            padding-block: 112px 86px;
+            background: linear-gradient(180deg, transparent, rgba(0,168,132,.035));
+        }
+        .services-section::after {
+            content: '';
+            position: absolute;
+            inset-inline: 8%;
+            bottom: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(20,184,166,.5), transparent);
+        }
+        .services-section .section-title {
+            max-width: 760px;
+            margin-inline: auto;
+        }
+        .services-section .section-title > p {
+            max-width: 52ch;
+            margin-inline: auto;
+            line-height: 1.85;
+        }
+        .services-grid {
+            align-items: stretch;
+            gap: clamp(16px, 2vw, 24px);
+        }
+        .service-card {
+            position: relative;
+            display: flex;
+            min-height: 260px;
+            flex-direction: column;
+            border-color: rgba(0,168,132,.18);
+            background: linear-gradient(145deg, rgba(10,22,22,.76), rgba(13,24,25,.46));
+        }
+        .service-card::before {
+            content: 'مسار خدمة';
+            display: inline-flex;
+            width: fit-content;
+            margin-bottom: 18px;
+            padding: 5px 9px;
+            border: 1px solid rgba(20,184,166,.32);
+            border-radius: 99px;
+            color: var(--secondary);
+            font-size: .67rem;
+            font-weight: 800;
+            letter-spacing: .04em;
+        }
+        .service-card h3 { margin-top: 0; }
+        .service-card p { margin-bottom: 0; }
+        .services-section .service-link {
+            display: inline-flex;
+            width: fit-content;
+            align-items: center;
+            gap: 7px;
+            margin-top: auto;
+            padding-top: 18px;
+            font-weight: 800;
+        }
+        .capabilities-section {
+            padding-block: 96px 112px;
+            background: radial-gradient(circle at 50% 0, rgba(20,184,166,.11), transparent 34%), linear-gradient(180deg, rgba(0,168,132,.07), transparent 65%);
+        }
+        .capabilities-section .section-kicker { color: var(--primary); }
+        .capability-map { gap: 18px; }
+        .capability-node {
+            min-height: 220px;
+            border-color: rgba(0,168,132,.22);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,.025);
+        }
+        .capability-node::after {
+            content: 'نوع منتج';
+            justify-self: end;
+            align-self: start;
+            color: rgba(20,184,166,.72);
+            font-size: .65rem;
+            font-weight: 800;
+            letter-spacing: .05em;
+        }
+        .capability-node > div { order: 2; }
+        .capability-node > i { order: 1; }
+        .capability-node > * { position: relative; z-index: 1; }
+        .capability-node:hover { box-shadow: 0 18px 40px rgba(0,0,0,.2); }
+        .hero-product-stage .hero-content::after {
+            content: 'ابدأ من فكرة، واستند إلى مشاريع منشورة';
+            display: block;
+            width: fit-content;
+            max-width: 100%;
+            margin-top: 25px;
+            padding: 8px 12px;
+            border-right: 2px solid var(--secondary);
+            color: var(--muted-dark);
+            font-size: .78rem;
+            line-height: 1.6;
+        }
+        .hero-project-canvas::before {
+            content: 'نماذج حقيقية من منتجات CyberPath';
+            position: absolute;
+            top: 4%;
+            right: 4%;
+            z-index: 2;
+            padding: 7px 11px;
+            border: 1px solid rgba(20,184,166,.34);
+            border-radius: 99px;
+            background: rgba(8,21,20,.74);
+            color: var(--secondary);
+            font-size: .68rem;
+            font-weight: 800;
+            backdrop-filter: blur(10px);
+        }
+        .featured-work-section {
+            position: relative;
+            padding-block: 124px 112px;
+        }
+        .featured-work-section::before {
+            content: 'دليل تنفيذي من منتجات منشورة';
+            position: absolute;
+            top: 42px;
+            right: 8%;
+            padding: 7px 11px;
+            border: 1px solid rgba(0,168,132,.32);
+            border-radius: 99px;
+            background: rgba(0,168,132,.07);
+            color: var(--secondary);
+            font-size: .7rem;
+            font-weight: 800;
+        }
+        .featured-work-card { border-color: rgba(0,168,132,.24); }
+        .featured-work-card:hover { box-shadow: 0 28px 56px rgba(0,0,0,.3), 0 0 0 1px rgba(20,184,166,.18); }
+        .project-journey { margin-top: -12px; }
+        .cta-section a:first-of-type,
+        .hero-buttons .btn-outline {
+            border: 1px solid rgba(20,184,166,.46);
+            background: transparent;
+            box-shadow: none;
+        }
+        .cta-section a:last-of-type,
+        .hero-buttons .btn-primary {
+            box-shadow: 0 14px 30px rgba(0,168,132,.22);
+        }
+        .cta-section a:last-of-type:hover,
+        .hero-buttons .btn-primary:hover { box-shadow: 0 18px 36px rgba(0,168,132,.34); }
+        .initiatives-section { position: relative; }
+        .initiatives-section .initiative-card {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0,168,132,.24);
+            border-radius: 22px;
+            background: linear-gradient(145deg, rgba(0,168,132,.1), rgba(10,22,22,.45));
+        }
+        .initiatives-section .initiative-card:nth-child(2) {
+            box-shadow: 0 20px 46px rgba(0,0,0,.18), inset 0 1px 0 rgba(20,184,166,.16);
+        }
+        .initiatives-section .initiative-card:nth-child(2)::after {
+            content: 'CyberPath Academy';
+            position: absolute;
+            top: 18px;
+            left: 18px;
+            color: rgba(20,184,166,.7);
+            font-size: .68rem;
+            font-weight: 800;
+            letter-spacing: .06em;
+        }
+        .vision-section { padding-block: 112px; }
+        .vision-grid {
+            isolation: isolate;
+            gap: clamp(16px, 2vw, 28px);
+        }
+        .vision-grid::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 12%;
+            left: 12%;
+            z-index: -1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(20,184,166,.55) 18%, rgba(20,184,166,.55) 82%, transparent);
+        }
+        .vision-card {
+            position: relative;
+            min-height: 250px;
+            border: 1px solid rgba(0,168,132,.24);
+            background: linear-gradient(145deg, rgba(12,28,27,.84), rgba(10,18,21,.58));
+            transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+        }
+        .vision-card.active {
+            transform: translateY(-8px);
+            border-color: rgba(20,184,166,.72);
+            box-shadow: 0 24px 56px rgba(0,0,0,.25), 0 0 0 1px rgba(0,168,132,.2);
+        }
+        .vision-card.future { opacity: .93; }
+        .vision-card:hover { transform: translateY(-6px); border-color: rgba(20,184,166,.7); }
+        .vision-card.active:hover { transform: translateY(-11px); }
+        body.light .service-card,
+        body.light .initiative-card,
+        body.light .vision-card { background: var(--light-card); }
+        body.light .hero-product-stage .hero-content::after { color: var(--muted-light); }
+        body.light .hero-project-canvas::before { background: rgba(255,255,255,.88); color: var(--primary); }
+        @media (prefers-reduced-motion: reduce) {
+            .service-card,
+            .capability-node,
+            .featured-work-card,
+            .featured-work-card img,
+            .vision-card,
+            .hero-main-preview,
+            .hero-proof-card,
+            .btn-primary,
+            .btn-outline {
+                animation: none !important;
+                transition-duration: .01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+        @media (max-width: 960px) {
+            .services-section { padding-block: 88px 76px; }
+            .featured-work-section { padding-top: 108px; }
+            .vision-grid::before { display: none; }
+        }
+        @media (max-width: 640px) {
+            .services-section { padding-block: 78px 68px; }
+            .service-card { min-height: 0; }
+            .capabilities-section { padding-block: 78px; }
+            .capability-node { min-height: 170px; }
+            .hero-product-stage .hero-content::after { margin-top: 18px; font-size: .72rem; }
+            .hero-project-canvas::before { top: -4px; right: 4px; font-size: .61rem; }
+            .featured-work-section { padding-top: 104px; }
+            .featured-work-section::before { top: 34px; right: 5%; font-size: .62rem; }
+            .initiatives-section .initiative-card:nth-child(2)::after { position: static; display: block; width: fit-content; margin-bottom: 12px; }
+            .vision-section { padding-block: 80px; }
+            .vision-card.active,
+            .vision-card.active:hover,
+            .vision-card:hover { transform: none; }
+        }
     </style>
     <script type="application/ld+json">
 [
@@ -2178,22 +2417,22 @@ button:focus-visible {
                     <div class="values-grid">
                         <div class="value-card">
                             <div class="value-icon">🎯</div>
-                            <h4>الاحترافية</h4>
+                            <h3>الاحترافية</h3>
                             <p>نلتزم بأعلى معايير الجودة في كل مشروع</p>
                         </div>
                         <div class="value-card">
                             <div class="value-icon">⚡</div>
-                            <h4>الالتزام بالمواعيد</h4>
+                            <h3>الالتزام بالمواعيد</h3>
                             <p>التسليم في الوقت المحدد دون تأخير</p>
                         </div>
                         <div class="value-card">
                             <div class="value-icon">🤝</div>
-                            <h4>الشراكة الحقيقية</h4>
+                            <h3>الشراكة الحقيقية</h3>
                             <p>نعتبر عملاءنا شركاء في النجاح</p>
                         </div>
                         <div class="value-card">
                             <div class="value-icon">🚀</div>
-                            <h4>الابتكار المستمر</h4>
+                            <h3>الابتكار المستمر</h3>
                             <p>نواكب أحدث التقنيات والاتجاهات</p>
                         </div>
                     </div>
